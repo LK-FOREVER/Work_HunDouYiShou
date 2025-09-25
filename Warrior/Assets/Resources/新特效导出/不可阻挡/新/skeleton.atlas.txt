@@ -1,0 +1,49 @@
+skeleton.png
+	size: 1177, 471
+	filter: Linear, Linear
+huan/huan_00
+	bounds: 1127, 373, 96, 38
+	offsets: 102, 56, 300, 150
+	rotate: 90
+huan/huan_01
+	bounds: 1125, 129, 126, 50
+	offsets: 87, 50, 300, 150
+	rotate: 90
+huan/huan_02
+	bounds: 982, 9, 154, 62
+	offsets: 73, 44, 300, 150
+huan/huan_03
+	bounds: 1049, 73, 182, 74
+	offsets: 59, 38, 300, 150
+	rotate: 90
+huan/huan_04
+	bounds: 1039, 257, 212, 86
+	offsets: 44, 32, 300, 150
+	rotate: 90
+huan/huan_05
+	bounds: 740, 2, 240, 96
+	offsets: 30, 27, 300, 150
+huan/huan_06
+	bounds: 781, 172, 246, 98
+	offsets: 27, 26, 300, 150
+huan/huan_07
+	bounds: 781, 272, 252, 99
+	offsets: 24, 26, 300, 150
+huan/huan_08
+	bounds: 781, 373, 256, 96
+	offsets: 22, 30, 300, 150
+huan/huan_09
+	bounds: 470, 63, 262, 95
+	offsets: 19, 32, 300, 150
+huan/huan_10
+	bounds: 781, 100, 266, 70
+	offsets: 17, 56, 300, 150
+huan/huan_11
+	bounds: 470, 3, 268, 58
+	offsets: 17, 59, 300, 150
+光圈
+	bounds: 2, 3, 466, 466
+	offsets: 17, 17, 500, 500
+棋子
+	bounds: 470, 160, 309, 309
+	offsets: 3, 2, 314, 313

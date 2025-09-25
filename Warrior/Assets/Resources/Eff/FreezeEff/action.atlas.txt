@@ -1,0 +1,11 @@
+action.png
+size:209,130
+filter:Linear,Linear
+pma:true
+images/4ef69a14c3a34330b8b2d3afba259d52
+bounds:2,2,126,126
+offsets:73,73,282,320
+images/ce0aa5b3bc694883895c05679b119c72
+bounds:130,48,80,77
+offsets:2,51,128,128
+rotate:90

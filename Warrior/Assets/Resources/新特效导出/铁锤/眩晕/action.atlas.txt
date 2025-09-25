@@ -1,0 +1,58 @@
+action.png
+	size: 728, 313
+	filter: Linear, Linear
+A_rotation_unmult
+	bounds: 631, 86, 95, 99
+	offsets: 17, 12, 128, 128
+A_tu_dis_00000
+	bounds: 313, 242, 136, 69
+	offsets: 15, 8, 170, 85
+A_tu_dis_00001
+	bounds: 313, 174, 135, 66
+	offsets: 16, 8, 170, 85
+A_tu_dis_00002
+	bounds: 451, 246, 136, 65
+	offsets: 17, 9, 170, 85
+A_tu_dis_00003
+	bounds: 440, 38, 134, 61
+	offsets: 17, 12, 170, 85
+	rotate: 90
+A_tu_dis_00004
+	bounds: 377, 36, 136, 61
+	offsets: 16, 14, 170, 85
+	rotate: 90
+A_tu_dis_00005
+	bounds: 313, 36, 136, 62
+	offsets: 16, 13, 170, 85
+	rotate: 90
+A_tu_dis_00006
+	bounds: 589, 250, 137, 61
+	offsets: 15, 13, 170, 85
+A_tu_dis_00007
+	bounds: 589, 187, 134, 61
+	offsets: 16, 14, 170, 85
+A_tu_dis_00008
+	bounds: 451, 183, 124, 61
+	offsets: 18, 14, 170, 85
+A_tu_dis_00009
+	bounds: 503, 66, 115, 60
+	offsets: 18, 15, 170, 85
+	rotate: 90
+A_tu_dis_00010
+	bounds: 631, 27, 90, 57
+	offsets: 18, 17, 170, 85
+A_tu_dis_00011
+	bounds: 503, 12, 83, 52
+	offsets: 18, 20, 170, 85
+A_tu_dis_00012
+	bounds: 440, 2, 34, 45
+	offsets: 18, 22, 170, 85
+	rotate: 90
+A_tu_dis_00013
+	bounds: 313, 3, 22, 31
+	offsets: 19, 34, 170, 85
+wenhao
+	bounds: 565, 72, 64, 109
+棋子
+	bounds: 2, 2, 309, 309
+	offsets: 3, 2, 314, 313

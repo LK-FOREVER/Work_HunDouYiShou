@@ -1,0 +1,16 @@
+action.png
+size:328,232
+filter:Linear,Linear
+pma:true
+dd
+bounds:232,56,37,39
+offsets:1,0,39,39
+tx_bdd
+bounds:232,97,43,37
+offsets:4,8,50,50
+tx_guangkuang
+bounds:2,2,228,228
+offsets:2,2,232,232
+tx_quan
+bounds:232,136,94,94
+offsets:2,0,100,100

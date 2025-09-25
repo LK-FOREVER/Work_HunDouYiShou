@@ -1,0 +1,9 @@
+action.png
+	size: 521, 313
+	filter: Linear, Linear
+图层组14
+	bounds: 313, 67, 244, 206
+	rotate: 90
+棋子
+	bounds: 2, 2, 309, 309
+	offsets: 3, 2, 314, 313

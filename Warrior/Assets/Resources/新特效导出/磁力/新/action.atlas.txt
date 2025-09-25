@@ -1,0 +1,47 @@
+action.png
+	size: 868, 525
+	filter: Linear, Linear
+huan/huan_00
+	bounds: 158, 26, 96, 38
+	offsets: 102, 56, 300, 150
+huan/huan_01
+	bounds: 661, 231, 126, 50
+	offsets: 87, 50, 300, 150
+huan/huan_02
+	bounds: 2, 2, 154, 62
+	offsets: 73, 44, 300, 150
+huan/huan_03
+	bounds: 272, 14, 182, 74
+	offsets: 59, 38, 300, 150
+	rotate: 90
+huan/huan_04
+	bounds: 759, 311, 212, 86
+	offsets: 44, 32, 300, 150
+	rotate: 90
+huan/huan_05
+	bounds: 661, 283, 240, 96
+	offsets: 30, 27, 300, 150
+	rotate: 90
+huan/huan_06
+	bounds: 348, 13, 246, 98
+	offsets: 27, 26, 300, 150
+huan/huan_07
+	bounds: 350, 113, 252, 99
+	offsets: 24, 26, 300, 150
+huan/huan_08
+	bounds: 604, 19, 256, 96
+	offsets: 22, 30, 300, 150
+huan/huan_09
+	bounds: 604, 117, 262, 95
+	offsets: 19, 32, 300, 150
+huan/huan_10
+	bounds: 2, 66, 266, 70
+	offsets: 17, 56, 300, 150
+huan/huan_11
+	bounds: 2, 138, 268, 58
+	offsets: 17, 59, 300, 150
+图层组9
+	bounds: 2, 198, 346, 325
+棋子
+	bounds: 350, 214, 309, 309
+	offsets: 3, 2, 314, 313
