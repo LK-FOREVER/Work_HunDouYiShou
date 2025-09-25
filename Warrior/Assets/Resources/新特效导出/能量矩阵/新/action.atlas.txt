@@ -1,0 +1,9 @@
+action.png
+	size: 699, 372
+	filter: Linear, Linear
+图层组6 拷贝
+	bounds: 2, 2, 368, 384
+	rotate: 90
+棋子
+	bounds: 388, 61, 309, 309
+	offsets: 3, 2, 314, 313

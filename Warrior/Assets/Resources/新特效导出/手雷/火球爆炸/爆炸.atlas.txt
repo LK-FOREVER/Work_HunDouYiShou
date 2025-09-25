@@ -1,0 +1,92 @@
+爆炸.png
+	size: 1959, 930
+	filter: Linear, Linear
+图层 10
+	bounds: 326, 306, 305, 339
+	offsets: 2, 2, 308, 343
+	rotate: 90
+图层 11
+	bounds: 1384, 615, 313, 344
+	offsets: 2, 1, 316, 349
+	rotate: 90
+图层 12
+	bounds: 682, 609, 319, 348
+	offsets: 1, 4, 322, 356
+	rotate: 90
+图层 13
+	bounds: 2, 577, 322, 351
+	offsets: 3, 1, 326, 354
+图层 14
+	bounds: 2, 223, 318, 352
+	offsets: 2, 1, 322, 354
+图层 15
+	bounds: 326, 613, 315, 354
+	offsets: 1, 1, 317, 357
+	rotate: 90
+图层 16
+	bounds: 1032, 618, 310, 350
+	offsets: 1, 1, 313, 353
+	rotate: 90
+图层 17
+	bounds: 1004, 297, 310, 242
+	offsets: 1, 4, 317, 248
+	rotate: 90
+图层 18
+	bounds: 2, 81, 311, 140
+	offsets: 1, 2, 314, 144
+图层 19
+	bounds: 1822, 380, 239, 106
+	offsets: 5, 3, 245, 111
+	rotate: 90
+图层 20
+	bounds: 1822, 380, 239, 106
+	offsets: 5, 3, 245, 111
+	rotate: 90
+图层 2
+	bounds: 1730, 719, 185, 209
+	offsets: 1, 4, 188, 216
+图层 21
+	bounds: 1730, 621, 225, 96
+	offsets: 2, 1, 229, 98
+图层 22
+	bounds: 1547, 13, 131, 82
+	offsets: 1, 1, 133, 84
+图层 23
+	bounds: 2, 5, 62, 74
+	offsets: 2, 1, 65, 76
+图层 24
+	bounds: 1680, 28, 59, 67
+	offsets: 6, 2, 67, 70
+图层 3
+	bounds: 1559, 97, 243, 244
+	offsets: 4, 2, 250, 248
+	rotate: 90
+图层 4
+	bounds: 1559, 342, 271, 261
+	offsets: 1, 1, 277, 263
+	rotate: 90
+图层 5
+	bounds: 1268, 34, 277, 268
+	offsets: 3, 2, 281, 271
+图层 6
+	bounds: 979, 2, 287, 293
+	offsets: 3, 4, 292, 298
+图层 7
+	bounds: 654, 8, 294, 323
+	offsets: 1, 2, 296, 326
+	rotate: 90
+图层 8
+	bounds: 322, 3, 301, 330
+	offsets: 3, 1, 309, 332
+	rotate: 90
+图层 9
+	bounds: 667, 304, 303, 335
+	offsets: 3, 4, 307, 342
+	rotate: 90
+图层组13
+	bounds: 1805, 144, 196, 152
+	offsets: 1, 1, 198, 154
+	rotate: 90
+棋子
+	bounds: 1248, 304, 309, 309
+	offsets: 3, 2, 314, 313

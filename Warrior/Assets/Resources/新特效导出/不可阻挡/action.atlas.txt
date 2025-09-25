@@ -1,0 +1,9 @@
+action.png
+size:235,120
+filter:Linear,Linear
+pma:true
+glow01
+bounds:2,2,116,116
+offsets:0,1,117,117
+glow02
+bounds:120,5,113,113
