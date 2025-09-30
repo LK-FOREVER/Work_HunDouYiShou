@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -587,6 +587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d163a75911b3a28429af70d0cdbd6e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hammer: {fileID: 7358437600780753235, guid: fb30117762dc9444588af07ddf45fcfe, type: 3}
+  Grenade: {fileID: 8869982851479691440, guid: 40b35ea444e26b549942c2dbd7a49f17, type: 3}
+  Hook: {fileID: 7811130455692569874, guid: e43efc7eff9074f41b4d411ee4aa8814, type: 3}
+  Light: {fileID: 4165505312620399885, guid: 72fa091ffa975ea4382a6beaf807de7a, type: 3}
   IShoot: 0
   Player: {fileID: 469234975}
   Knife:
@@ -9292,6 +9296,7 @@ MonoBehaviour:
   IFreeze: 0
   Ishield: 0
   m: {fileID: 0}
+  mapScript: {fileID: 0}
   ISingle: 0
   IPoints: 0
   singlePanel: {fileID: 1089686798}
@@ -13297,7 +13302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13334,6 +13339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f8547793636f641ba307aadf3e2934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hammer: {fileID: 7358437600780753235, guid: fb30117762dc9444588af07ddf45fcfe, type: 3}
+  Grenade: {fileID: 8869982851479691440, guid: 40b35ea444e26b549942c2dbd7a49f17, type: 3}
+  Hook: {fileID: 7811130455692569874, guid: e43efc7eff9074f41b4d411ee4aa8814, type: 3}
+  Light: {fileID: 4165505312620399885, guid: 72fa091ffa975ea4382a6beaf807de7a, type: 3}
   IShoot: 0
   Player: {fileID: 469234975}
   Knife:
@@ -39915,9 +39924,9 @@ RectTransform:
   - {fileID: 39209043}
   - {fileID: 105705745}
   - {fileID: 1317429336}
+  - {fileID: 74700367}
   - {fileID: 1617169926}
   - {fileID: 1089686799}
-  - {fileID: 74700367}
   - {fileID: 1848460721}
   - {fileID: 1480566771}
   - {fileID: 942071308}

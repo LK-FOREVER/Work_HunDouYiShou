@@ -9,11 +9,11 @@ public class Item2BtnScript : MonoBehaviour
     Rigidbody2D rig;
     Vector3 d;
     Vector3 HookD;
-    GameObject Hammer;
-    GameObject Grenade;
-    GameObject Hook;
+    public GameObject Hammer;
+    public GameObject Grenade;
+    public GameObject Hook;
+    public GameObject Light;
     GameObject Bullet;
-    GameObject Light;
     GameObject light;
     public bool IShoot;
     public GameObject Player;
@@ -27,25 +27,26 @@ public class Item2BtnScript : MonoBehaviour
     GameObject obj4;
     public GameObject PMoveEff;
     private PlayerScript playerScript;
+
     void Start()
     {
-        playerScript = Player.GetComponent<PlayerScript>();
         this.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        playerScript = Player.GetComponent<PlayerScript>();
+        // if (playerScript.m != null)
+        // {
+        //     // Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
+        //     Hook = playerScript.m.GetComponent<MapScript>().Hook;
+        //     Light = playerScript.m.GetComponent<MapScript>().Light;
+        //     Hammer = playerScript.m.GetComponent<MapScript>().Hammer;
+        //     Grenade = playerScript.m.GetComponent<MapScript>().Grenade;
+
+        //     // InvokeRepeating("CreateBullet", 0.5f, 0.5f);
+        // }
     }
 
 
     void Update()
     {
-        if (playerScript.m != null)
-        {
-            // Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
-            Hook = playerScript.m.GetComponent<MapScript>().Hook;
-            Light = playerScript.m.GetComponent<MapScript>().Light;
-            Hammer = playerScript.m.GetComponent<MapScript>().Hammer;
-            Grenade = playerScript.m.GetComponent<MapScript>().Grenade;
-
-            // InvokeRepeating("CreateBullet", 0.5f, 0.5f);
-        }
         d = (ItemPointObj.transform.position - Player.transform.position).normalized;
         if (playerScript.HookBack && obj4 != null)
         {
@@ -123,6 +124,7 @@ public class Item2BtnScript : MonoBehaviour
                 if (!playerScript.IItem[5])
                 {
                     light = Instantiate(Light, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
+                    light.SetActive(true);
                     Debug.Log(Player.transform.GetChild(0).transform.rotation.eulerAngles);
                     light.transform.parent = Player.transform.GetChild(0).transform;
                     Destroy(light, 1f);
@@ -202,6 +204,7 @@ public class Item2BtnScript : MonoBehaviour
         playerScript.IItem[8] = false;
         foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
         {
+            if (temp == null) continue; // 跳过已销毁对象
             temp.GetComponent<CircleCollider2D>().isTrigger = false;
         }
         //Player.transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
@@ -235,6 +238,7 @@ public class Item2BtnScript : MonoBehaviour
         playerScript.m.GetComponent<MapScript>().IFreezeSkill = false;//?????????
         foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
         {
+            if (temp == null) continue; // 跳过已销毁对象
             if (temp.gameObject.name == "Player")
             {
                 temp.GetComponent<PlayerScript>().IFreeze = false;

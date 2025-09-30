@@ -88,12 +88,6 @@ public class Warrior1Script : MonoBehaviour
 
     void Awake()
     {
-    }
-    // ...existing code...
-    void Start()
-    {
-        audio = GetComponent<AudioSource>();
-
         m = GameObject.Find("MapManager");
         mapScript = m.GetComponent<MapScript>();
         Player = GameObject.Find("Player");
@@ -102,11 +96,24 @@ public class Warrior1Script : MonoBehaviour
         ObjA = Instantiate(Arrow1);
         ObjA.transform.position = Player.transform.position;
         mapScript.WarriorArrow.Add(ObjA);
-        int n = Random.Range(0, 101);
+    }
+    // ...existing code...
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+
+        int n = Random.Range(1, 10);
         Name = "异兽" + n.ToString();
         //mapScript.Warriorname.Add(Name);
         //mapScript.Warriorpoint.Add(point);
-        mapScript.dic.Add(Name, 0);
+        if (!m.GetComponent<MapScript>().dic.ContainsKey(Name))
+        {
+            m.GetComponent<MapScript>().dic.Add(Name, 0);
+        }
+        else
+        {
+             m.GetComponent<MapScript>().dic[Name] = 0;   
+        }
 
         RandomR();
         rig = GetComponent<Rigidbody2D>();
@@ -150,7 +157,7 @@ public class Warrior1Script : MonoBehaviour
             obj4.transform.position += HookD * 8f * Time.deltaTime;
         }
 
-        if (Player != null)
+        if (Player != null && ObjA != null)
         {
             Vector3 D = this.transform.position - ObjA.transform.position;
             Vector3 d = D.normalized;
@@ -238,8 +245,11 @@ public class Warrior1Script : MonoBehaviour
             {
                 for (int i = 0; i < mapScript.Others.Count; i++)
                 {
-                    desNpc = Vector3.Distance(this.transform.position, mapScript.Others[i].transform.position);
-                    if (desNpc < 2f && (mapScript.Others[i] != this.gameObject) && (r >= 0 && r <= 10))
+                    if (mapScript.Others[i] != null)
+                    {
+                        desNpc = Vector3.Distance(this.transform.position, mapScript.Others[i].transform.position);
+                    }
+                    if (desNpc < 2f && (mapScript.Others[i] != null) && (mapScript.Others[i] != this.gameObject) && (r >= 0 && r <= 10))
                     {
                         IMoveToPos = false;
                         D = mapScript.Others[i].transform.position - this.transform.position;
@@ -301,7 +311,8 @@ public class Warrior1Script : MonoBehaviour
         Warrior1Hp -= value;
         if (Warrior1Hp <= 0)
         {
-            ObjA.SetActive(false);
+            if(ObjA!=null)
+                ObjA.SetActive(false);
             audio.clip = acilp[6];
             audio.Play();
             print("Dead");
@@ -409,7 +420,7 @@ public class Warrior1Script : MonoBehaviour
                 mapScript.dic[GetComponentInParent<Warrior1Script>().Name] += 10;
                 break;
             case 6:
-                //Light.SetActive(true);
+                Light.SetActive(true);
                 light = Instantiate(Light, ItemPointObj.transform.position, this.transform.GetChild(0).transform.rotation);
                 light.transform.parent = this.transform.GetChild(0).transform;
                 Destroy(light, 1f);
@@ -500,25 +511,32 @@ public class Warrior1Script : MonoBehaviour
     }
     public void FalseLignt()
     {
-        Light.SetActive(false);
-
+        if (Light != null)
+            Light.SetActive(false);
     }
     public void FalseMagnetic()
     {
-        MagneticObj.SetActive(false);
+        if (MagneticObj != null)
+            MagneticObj.SetActive(false);
     }
     public void FalseMatrix()
     {
-        MatrixObj.SetActive(false);
+        if (MatrixObj != null)
+            MatrixObj.SetActive(false);
     }
     public void FalsePhase()
     {
-
-        PMoveEff.SetActive(false);
+        if (PMoveEff != null)
+            PMoveEff.SetActive(false);
         foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
         {
-            temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
-            temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
+            if (temp != null)
+            {
+                var col0 = temp.transform.GetChild(0).GetComponent<BoxCollider2D>();
+                var col1 = temp.transform.GetChild(1).GetComponent<BoxCollider2D>();
+                if (col0 != null) col0.isTrigger = false;
+                if (col1 != null) col1.isTrigger = false;
+            }
         }
         Iparse = false;
         //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
@@ -538,26 +556,31 @@ public class Warrior1Script : MonoBehaviour
     }
     public void FalseGun()
     {
-        Gun.SetActive(false);
+        if (Gun != null)
+            Gun.SetActive(false);
         IShoot = false;
     }
     public void FalseDeadEff()
     {
-        DeadEff.SetActive(false);
+        if (DeadEff != null)
+            DeadEff.SetActive(false);
         Destroy(this.gameObject);
         mapScript.Others.Remove(this.gameObject);
     }
     public void FalseSpeedEff()
     {
-        SpeedEff.SetActive(false);
+        if (SpeedEff != null)
+            SpeedEff.SetActive(false);
     }
     public void FalseBoomEff()
     {
-        obj.SetActive(false);
+        if (obj != null)
+            obj.SetActive(false);
     }
     public void FalseBloodTxt()
     {
-        BloodTxt.gameObject.SetActive(false);
+        if (BloodTxt != null && BloodTxt.gameObject != null)
+            BloodTxt.gameObject.SetActive(false);
     }
     public void InvokeFalseBloodTxt()
     {
@@ -569,9 +592,11 @@ public class Warrior1Script : MonoBehaviour
     }
     public void InvokeFalseFreeze()
     {
-        hammerEff.SetActive(true);
+        if (hammerEff != null)
+            hammerEff.SetActive(true);
         Invoke("FalseFreeze", 2f);
-        hammerEff.SetActive(false);
+        if (hammerEff != null)
+            hammerEff.SetActive(false);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -583,6 +608,7 @@ public class Warrior1Script : MonoBehaviour
     //����Ϊ�رյ���
     public void FalseItem1()
     {
-        DefendObj.SetActive(false);
+        if (DefendObj != null)
+            DefendObj.SetActive(false);
     }
 }

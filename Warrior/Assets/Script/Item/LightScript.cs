@@ -18,7 +18,7 @@ public class LightScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Npc"||collision.gameObject.name=="Player")
         {
-            //ÃüÖĞ¼õËÙ
+            //å‘½ä¸­å‡é€Ÿ
             if(collision.gameObject.name == "Player")
             {
                 collision.GetComponent<PlayerScript>().speed *= 0.7f;
@@ -48,12 +48,12 @@ public class LightScript : MonoBehaviour
                 collision.GetComponent<Warrior6Script>().Speed *= 0.7f;
             }
         }
-        //ÃüÖĞµôÑª
+        //å‘½ä¸­æ‰è¡€
         if (collision.gameObject.name == "Player")
         {
             collision.GetComponent<PlayerScript>().DecreasePlayerHp(50);
 
-            collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
@@ -62,7 +62,7 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<Warrior1Script>().DecreaseWarrior1Hp(50);
 
-            collision.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<Warrior1Script>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<Warrior1Script>().InvokeFalseBloodTxt();
@@ -71,7 +71,7 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<Warrior2Script>().DecreaseWarrior2Hp(50);
 
-            collision.GetComponentInParent<Warrior2Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<Warrior2Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<Warrior2Script>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<Warrior2Script>().InvokeFalseBloodTxt();
@@ -80,7 +80,7 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<Warrior3Script>().DecreaseWarrior3Hp(50);
 
-            collision.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<Warrior3Script>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
@@ -89,7 +89,7 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<Warrior4Script>().DecreaseWarrior4Hp(50);
 
-            collision.GetComponentInParent<Warrior4Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<Warrior4Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<Warrior4Script>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<Warrior4Script>().InvokeFalseBloodTxt();
@@ -98,7 +98,7 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<Warrior5Script>().DecreaseWarrior5Hp(50);
 
-            collision.GetComponentInParent<Warrior5Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+            collision.GetComponentInParent<Warrior5Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
             collision.GetComponentInParent<Warrior5Script>().BloodTxt.text = "-" + "50";
             collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             collision.GetComponentInParent<Warrior5Script>().InvokeFalseBloodTxt();
@@ -106,16 +106,16 @@ public class LightScript : MonoBehaviour
             {
                 collision.GetComponent<Warrior6Script>().DecreaseWarrior6Hp(50);
 
-                collision.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //µôÑªÎÄ±¾ÌØĞ§
+                collision.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //æ‰è¡€æ–‡æœ¬ç‰¹æ•ˆ
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.text = "-" + "50";
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
                 collision.GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
             }
         }
-        //ÃüÖĞ¼Ó·Ö
+        //å‘½ä¸­åŠ åˆ†
         if (this.transform.parent.name == "Player")
         {
-            GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["Íæ¼Ò"] += 50;
+            GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["ç©å®¶"] += 50;
         }
         if (this.transform.parent.name == "Warrior1(Clone)")
         {
@@ -146,7 +146,7 @@ public class LightScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Npc" || collision.gameObject.name == "Player")
         {
-            //print("¼¤¹âÃüÖĞ");
+            //print("æ¿€å…‰å‘½ä¸­");
             if (collision.gameObject.name == "Player")
             {
                 collision.GetComponent<PlayerScript>().speed /= 0.7f;

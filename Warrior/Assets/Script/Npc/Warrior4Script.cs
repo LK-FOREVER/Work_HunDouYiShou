@@ -8,8 +8,8 @@ using Image = UnityEngine.UI.Image;
 public class Warrior4Script : MonoBehaviour
 {
     public GameObject Player;
-   public float Warrior4Hp = 250;
-   public float Speed = 3.5f;
+    public float Warrior4Hp = 250;
+    public float Speed = 3.5f;
     public float Ak = 25f;
 
     bool IMoveToPos = true;
@@ -23,9 +23,9 @@ public class Warrior4Script : MonoBehaviour
     Vector3 V = new Vector3(0, 1, 0);
 
     bool INpcColli;
-  public  Rigidbody2D rig;
+    public Rigidbody2D rig;
 
-   public GameObject m;
+    public GameObject m;
     float desNpc;
 
     int r;
@@ -49,7 +49,7 @@ public class Warrior4Script : MonoBehaviour
     public GameObject IdleFreezeEff;
     public GameObject hammerEff;
 
-  
+
     GameObject obj;
     GameObject Obj;
     GameObject obj1;
@@ -70,8 +70,8 @@ public class Warrior4Script : MonoBehaviour
     public AudioSource audio;
     public AudioClip[] acilp;
     public GameObject Arrow4;
-     GameObject ObjA;
-    public float FreqSkill=20;
+    GameObject ObjA;
+    public float FreqSkill = 20;
 
     public Text BloodTxt;
     //����Ϊ����
@@ -97,27 +97,36 @@ public class Warrior4Script : MonoBehaviour
     public GameObject Gun;
     public GameObject PMoveEff;
     public bool Iparse;
-    void Start()
+    void Awake()
     {
-        
-        audio = GetComponent<AudioSource>();
-        RandomR();
         rig = GetComponent<Rigidbody2D>();
         m = GameObject.Find("MapManager");
         Player = GameObject.Find("Player");
-        Arrow4 = (GameObject)Resources.Load("Prefabs/Warrior4Arrow");
+        Arrow4 = m.GetComponent<MapScript>().Arrow4;
         ObjA = Instantiate(Arrow4);
         ObjA.transform.position = Player.transform.position;
         m.GetComponent<MapScript>().WarriorArrow.Add(ObjA);
-        
+    }
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+        RandomR();
+
         StartCoroutine("ShowWarrior4Hp");
         StartCoroutine("Skill");
 
-        int n = Random.Range(0, 101);
+        int n = Random.Range(30, 40);
         Name = "异兽" + n.ToString();
         //m.GetComponent<MapScript>().Warriorname.Add(Name);
         //m.GetComponent<MapScript>().Warriorpoint.Add(point);
-        m.GetComponent<MapScript>().dic.Add(Name, 0);
+        if (!m.GetComponent<MapScript>().dic.ContainsKey(Name))
+        {
+            m.GetComponent<MapScript>().dic.Add(Name, 0);
+        }
+        else
+        {
+            m.GetComponent<MapScript>().dic[Name] = 0;
+        }
         //for (int i = 0; i < m.GetComponent<MapScript>().PointIndex.Count; i++)              //ÿһ���ű�����Ψһ�±�
         //{
         //    if (m.GetComponent<MapScript>().PointIndex[i] != 0)
@@ -132,7 +141,7 @@ public class Warrior4Script : MonoBehaviour
         //}
 
         StartCoroutine("UseItem");
-     
+
         Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
         Light = (GameObject)Resources.Load("Prefabs/LightObj");
         InvokeRepeating("CreateBullet", 0.5f, 0.5f);
@@ -161,7 +170,7 @@ public class Warrior4Script : MonoBehaviour
             }
             else
             {
-                ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle );
+                ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle);
             }
             ObjA.transform.position += d * 10f * Time.deltaTime;
             if (ObjA.transform.position.x > Player.transform.position.x + 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
@@ -203,11 +212,11 @@ public class Warrior4Script : MonoBehaviour
         {
             INpcColli = false;
         }
-       
+
 
     }
-        
-        
+
+
     public void RemoveToTargetPos()
     {
         if (IMoveToPos)
@@ -239,13 +248,19 @@ public class Warrior4Script : MonoBehaviour
             {
                 for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
                 {
-                    desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    if (m.GetComponent<MapScript>().Others[i] != null)
+                    {
+                        desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    }
                     if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject) && (r >= 0 && r <= 10))
                     {
                         IMoveToPos = false;
-                        D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
-                        d = D.normalized;
-                        this.transform.position += d * Speed * Time.deltaTime;
+                        if (m.GetComponent<MapScript>().Others[i] != null)
+                        {
+                            D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
+                            d = D.normalized;
+                            this.transform.position += d * Speed * Time.deltaTime;
+                        }
                     }
                     else
                     {
@@ -276,18 +291,21 @@ public class Warrior4Script : MonoBehaviour
         m.GetComponent<MapScript>().IFreezeSkill = true; //ʹ�ö���ر��ж��������ƶ����
         Invoke("FalseSkill", 2f);  //�ָ��ж�
         if (!INpcColli)
+        {
+            for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
             {
-                for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
+                if (m.GetComponent<MapScript>().Others[i] != null)
                 {
                     desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
-                    if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject))
+                }
+                if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject))
+                {
+                    if (m.GetComponent<MapScript>().Others[i] != null && m.GetComponent<MapScript>().Others[i].name == "Player")
                     {
-                        if (m.GetComponent<MapScript>().Others[i].name == "Player")
-                        {
                         audio.clip = acilp[0];
                         audio.Play();
-                            Player.GetComponent<PlayerScript>().IFreeze = true;
-                            Invoke("falsePlayerFreeze", 2f);
+                        Player.GetComponent<PlayerScript>().IFreeze = true;
+                        Invoke("falsePlayerFreeze", 2f);
                         obj = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
@@ -297,92 +315,92 @@ public class Warrior4Script : MonoBehaviour
                         Invoke("FalseShowFreezeEff", 0.8f);
                         Invoke("FalseIdleFreezeEff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior1(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior1(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior1Script>().IFreeze = true;
-                            Invoke("flaseWarrior1Freeze", 2f);
+                        Invoke("flaseWarrior1Freeze", 2f);
                         obj1 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj1.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj1.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
-                 
+
                         Obj1 = Instantiate(IdleFreezeEff);
                         Obj1.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         Obj1.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Invoke("FalseShowFreeze1Eff", 0.8f);
                         Invoke("FalseIdleFreeze1Eff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior2(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior2(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior2Script>().IFreeze = true;
-                            Invoke("flaseWarrior2Freeze", 2f);
+                        Invoke("flaseWarrior2Freeze", 2f);
                         obj22 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj22.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj22.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
-                       
+
                         Obj2 = Instantiate(IdleFreezeEff);
                         Obj2.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         Obj2.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Invoke("FalseShowFreeze2Eff", 0.8f);
                         Invoke("FalseIdleFreeze2Eff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior3(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior3(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior3Script>().IFreeze = true;
-                            Invoke("flaseWarrior3Freeze", 2f);
+                        Invoke("flaseWarrior3Freeze", 2f);
                         obj3 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj3.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
-                         obj3.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
-                      
+                        obj3.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
+
                         Obj3 = Instantiate(IdleFreezeEff);
                         Obj3.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         Obj3.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Invoke("FalseShowFreeze3Eff", 0.8f);
                         Invoke("FalseIdleFreeze3Eff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior4(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior4(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior4Script>().IFreeze = true;
-                            Invoke("flaseWarrior4Freeze", 2f);
+                        Invoke("flaseWarrior4Freeze", 2f);
                         obj4 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj4.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj4.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
-                        
+
                         Obj4 = Instantiate(IdleFreezeEff);
                         Obj4.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         Obj4.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Invoke("FalseShowFreeze4Eff", 0.8f);
                         Invoke("FalseIdleFreeze4Eff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior5(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior5(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior5Script>().IFreeze = true;
-                            Invoke("flaseWarrior5Freeze", 2f);
+                        Invoke("flaseWarrior5Freeze", 2f);
                         obj5 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj5.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj5.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
-                       
+
                         Obj5 = Instantiate(IdleFreezeEff);
                         Obj5.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         Obj5.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Invoke("FalseShowFreeze5Eff", 0.8f);
                         Invoke("FalseIdleFreeze5Eff", 2f);
                     }
-                        else if (m.GetComponent<MapScript>().Others[i].name == "Warrior6(Clone)")
-                        {
+                    else if (m.GetComponent<MapScript>().Others[i].name == "Warrior6(Clone)")
+                    {
                         audio.clip = acilp[0];
                         audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior6Script>().IFreeze = true;
-                            Invoke("flaseWarrior6Freeze", 2f);
+                        Invoke("flaseWarrior6Freeze", 2f);
                         obj6 = Instantiate(ShowFreezeEff);               //�ͷŶ���
                         obj6.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj6.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
@@ -392,14 +410,14 @@ public class Warrior4Script : MonoBehaviour
                         Invoke("FalseShowFreeze6Eff", 0.8f);
                         Invoke("FalseIdleFreeze6Eff", 2f);
                     }
-                    }
-                    else
-                    {
-                        IMoveToPos = true;
-                    }
+                }
+                else
+                {
+                    IMoveToPos = true;
                 }
             }
-        
+        }
+
 
     }
     public void falsePlayerFreeze()
@@ -484,7 +502,7 @@ public class Warrior4Script : MonoBehaviour
     public void AddWarrior4Hp(float value)
     {
         Warrior4Hp += value;
-        
+
         Warrior4Hp = Mathf.Clamp(Warrior4Hp, 0, 250);
     }
     public void DecreaseWarrior4Hp(float value)
@@ -520,11 +538,11 @@ public class Warrior4Script : MonoBehaviour
                 Health -= 1f;
             }
             Warrior4HpImage.fillAmount = (int)Health / 250f;
-         
+
             yield return new WaitForSeconds(0.000001f);
         }
     }
-   public  IEnumerable DecreaseMatrix()
+    public IEnumerable DecreaseMatrix()
     {
         yield return new WaitForSeconds(0.1f);
         while (true)
@@ -602,7 +620,7 @@ public class Warrior4Script : MonoBehaviour
                 m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior4Script>().Name] += 10;
                 break;
             case 6:
-                //Light.SetActive(true);
+                Light.SetActive(true);
                 //Invoke("FalseLignt", 1f);
                 light = Instantiate(Light, ItemPointObj.transform.position, this.transform.GetChild(0).transform.rotation);
                 light.transform.parent = this.transform.GetChild(0).transform;
@@ -751,68 +769,68 @@ public class Warrior4Script : MonoBehaviour
     }
     public void FalseShowFreezeEff()
     {
-        obj.SetActive(false);
+        if (obj != null) obj.SetActive(false);
     }
     public void FalseShowFreeze1Eff()
     {
-        obj1.SetActive(false);
+        if (obj1 != null) obj1.SetActive(false);
     }
     public void FalseShowFreeze2Eff()
     {
-        obj22.SetActive(false);
+        if (obj22 != null) obj22.SetActive(false);
     }
     public void FalseShowFreeze3Eff()
     {
-        obj3.SetActive(false);
+        if (obj3 != null) obj3.SetActive(false);
     }
     public void FalseShowFreeze4Eff()
     {
-        obj4.SetActive(false);
+        if (obj4 != null) obj4.SetActive(false);
     }
     public void FalseShowFreeze5Eff()
     {
-        obj5.SetActive(false);
+        if (obj5 != null) obj5.SetActive(false);
     }
     public void FalseShowFreeze6Eff()
     {
-        obj6.SetActive(false);
+        if (obj6 != null) obj6.SetActive(false);
     }
     public void FalseIdleFreezeEff()
     {
-        Obj.SetActive(false);
+        if (Obj != null) Obj.SetActive(false);
     }
     public void FalseIdleFreeze1Eff()
     {
-        Obj1.SetActive(false);
+        if (Obj1 != null) Obj1.SetActive(false);
     }
     public void FalseIdleFreeze2Eff()
     {
-        Obj2.SetActive(false);
+        if (Obj2 != null) Obj2.SetActive(false);
     }
     public void FalseIdleFreeze3Eff()
     {
-        Obj3.SetActive(false);
+        if (Obj3 != null) Obj3.SetActive(false);
     }
     public void FalseIdleFreeze4Eff()
     {
-        Obj4.SetActive(false);
+        if (Obj4 != null) Obj4.SetActive(false);
     }
     public void FalseIdleFreeze5Eff()
     {
-        Obj5.SetActive(false);
+        if (Obj5 != null) Obj5.SetActive(false);
     }
     public void FalseIdleFreeze6Eff()
     {
-        Obj6.SetActive(false);
+        if (Obj6 != null) Obj6.SetActive(false);
     }
 
     public void FalseBoomEff()
     {
-        obj2.SetActive(false);
+        if (obj2 != null) obj2.SetActive(false);
     }
     public void FalseSkill()
     {
-        m.GetComponent<MapScript>().IFreezeSkill= false;
+        m.GetComponent<MapScript>().IFreezeSkill = false;
     }
     public void FalseBloodTxt()
     {
@@ -820,11 +838,11 @@ public class Warrior4Script : MonoBehaviour
     }
     public void InvokeFalseBloodTxt()
     {
-        Invoke("FalseBloodTxt", 1f);
+        if (Light != null) Light.SetActive(false);
     }
     public void FalseFreeze()
     {
-        IFreeze = false;
+        if (MagneticObj != null) MagneticObj.SetActive(false);
     }
     public void InvokeFalseFreeze()
     {
@@ -835,6 +853,6 @@ public class Warrior4Script : MonoBehaviour
     //����Ϊ�رյ���
     public void FalseItem1()
     {
-        DefendObj.SetActive(false);
+        if (DefendObj != null) DefendObj.SetActive(false);
     }
 }

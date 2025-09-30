@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Skill4Script : MonoBehaviour
 {
-    public bool IClick = true;                 //ÊÇ·ñ¿ÉÒÔµã»÷
+    public bool IClick = true;                 //ï¿½Ç·ï¿½ï¿½ï¿½Ôµï¿½ï¿½
     public Sprite[] S;
     public GameObject m;
     float desNpc;
@@ -27,11 +27,11 @@ public class Skill4Script : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-       
+
     }
     void Update()
     {
-        
+
 
     }
     public void UseSkill()
@@ -40,15 +40,18 @@ public class Skill4Script : MonoBehaviour
         {
             IClick = false;
             m = GameObject.Find("MapManager");
-            m.GetComponent<MapScript>().IFreezeSkill= true; //Ê¹ÓÃ¶³½á¹Ø±ÕÅÐ¶¨½áÊøµÄÒÆ¶¯Óë·ñ ¶³½áÒ²±»ÓÃÓÚÓÎÏ·ÖØ¿ª
-            Invoke("FalseSkill",2f);  //»Ö¸´ÅÐ¶¨
+            m.GetComponent<MapScript>().IFreezeSkill = true; //Ê¹ï¿½Ã¶ï¿½ï¿½ï¿½Ø±ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½Ø¿ï¿½
+            Invoke("FalseSkill", 2f);  //ï¿½Ö¸ï¿½ï¿½Ð¶ï¿½
             this.GetComponent<Image>().sprite = S[1];
             Invoke("falseSprite", 30f);
 
-           
+
             for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
             {
-                desNpc = Vector3.Distance(Player.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                if (m.GetComponent<MapScript>().Others[i] != null)
+                {
+                    desNpc = Vector3.Distance(Player.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                }
                 if (desNpc < 3f && (m.GetComponent<MapScript>().Others[i] != Player))
                 {
                     if (m.GetComponent<MapScript>().Others[i].name == "Warrior1(Clone)")
@@ -57,7 +60,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior1Script>().IFreeze = true;
                         Invoke("flaseWarrior1Freeze", 2f);
-                        obj=Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -73,7 +76,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior2Script>().IFreeze = true;
                         Invoke("flaseWarrior2Freeze", 2f);
-                         obj1= Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj1 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj1.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj1.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj1 = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -88,7 +91,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior3Script>().IFreeze = true;
                         Invoke("flaseWarrior3Freeze", 2f);
-                         obj2 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj2 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj2.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj2.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj2 = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -103,7 +106,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior4Script>().IFreeze = true;
                         Invoke("flaseWarrior4Freeze", 2f);
-                        obj3 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj3 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj3.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj3.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj3 = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -118,7 +121,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior5Script>().IFreeze = true;
                         Invoke("flaseWarrior5Freeze", 2f);
-                         obj4 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj4 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj4.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj4.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj4 = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -133,7 +136,7 @@ public class Skill4Script : MonoBehaviour
                         Player.GetComponent<PlayerScript>().audio.Play();
                         m.GetComponent<MapScript>().Others[i].GetComponent<Warrior6Script>().IFreeze = true;
                         Invoke("flaseWarrior6Freeze", 2f);
-                        obj5 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ÊÍ·Å¶³½á
+                        obj5 = Instantiate(Player.GetComponent<PlayerScript>().ShowFreezeEff);               //ï¿½Í·Å¶ï¿½ï¿½ï¿½
                         obj5.transform.position = m.GetComponent<MapScript>().Others[i].transform.position;
                         obj5.transform.parent = m.GetComponent<MapScript>().Others[i].transform;
                         Obj5 = Instantiate(Player.GetComponent<PlayerScript>().IdleFreezeEff);
@@ -146,7 +149,7 @@ public class Skill4Script : MonoBehaviour
 
             }
         }
-       
+
     }
     public void falseSprite()
     {

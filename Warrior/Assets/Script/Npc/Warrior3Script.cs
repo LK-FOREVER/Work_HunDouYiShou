@@ -8,8 +8,8 @@ using Image = UnityEngine.UI.Image;
 public class Warrior3Script : MonoBehaviour
 {
     public GameObject Player;
-  public  float Warrior3Hp = 150;
-  public  float Speed = 4f;
+    public float Warrior3Hp = 150;
+    public float Speed = 4f;
     public int Ak = 30;
 
     bool IMoveToPos = true;
@@ -23,9 +23,9 @@ public class Warrior3Script : MonoBehaviour
     Vector3 V = new Vector3(0, 1, 0);
 
     bool INpcColli;
-  public  Rigidbody2D rig;
+    public Rigidbody2D rig;
 
-   public  GameObject m;
+    public GameObject m;
     float desNpc;
 
     int r;
@@ -34,8 +34,8 @@ public class Warrior3Script : MonoBehaviour
     bool Ifront;
     bool Iback;
 
-   public  GameObject Warrior3Rotation;
-   public  GameObject Warrior3Canvas;
+    public GameObject Warrior3Rotation;
+    public GameObject Warrior3Canvas;
 
     public bool IFreeze;
     public bool IDead;
@@ -48,7 +48,7 @@ public class Warrior3Script : MonoBehaviour
     public GameObject ColiEff;
     public GameObject DeadEff;
     public GameObject hammerEff;
-   
+
     GameObject obj;
     public Canvas PlayerCanvas;
     public GameObject Rotation;
@@ -57,7 +57,7 @@ public class Warrior3Script : MonoBehaviour
 
     public GameObject Arrow3;
     GameObject ObjA;
-    public float FreqSkill=30;
+    public float FreqSkill = 30;
 
     public Text BloodTxt;
     //����Ϊ����
@@ -84,24 +84,25 @@ public class Warrior3Script : MonoBehaviour
     public GameObject PMoveEff;
     public GameObject[] Item;
     public bool Iparse;
-    void Start()
+    void Awake()
     {
-       
-        audio = GetComponent<AudioSource>();
-        RandomR();
         rig = GetComponent<Rigidbody2D>();
         m = GameObject.Find("MapManager");
         Player = GameObject.Find("Player");
-        Arrow3 = (GameObject)Resources.Load("Prefabs/Warrior3Arrow");
+        Arrow3 = m.GetComponent<MapScript>().Arrow3;
         ObjA = Instantiate(Arrow3);
         ObjA.transform.position = Player.transform.position;
         m.GetComponent<MapScript>().WarriorArrow.Add(ObjA);
+    }
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+        RandomR();
 
-        
         StartCoroutine("ShowWarrior3Hp");
         StartCoroutine("Skill");
 
-        int n = Random.Range(0, 101);
+        int n = Random.Range(20, 30);
         Name = "异兽" + n.ToString();
         //m.GetComponent<MapScript>().Warriorname.Add(Name);
         //m.GetComponent<MapScript>().Warriorpoint.Add(point);
@@ -109,7 +110,11 @@ public class Warrior3Script : MonoBehaviour
         {
             m.GetComponent<MapScript>().dic.Add(Name, 0);
         }
-        
+        else
+        {
+            m.GetComponent<MapScript>().dic[Name] = 0;
+        }
+
         //for (int i = 0; i < m.GetComponent<MapScript>().PointIndex.Count; i++)              //ÿһ���ű�����Ψһ�±�
         //{
         //    if (m.GetComponent<MapScript>().PointIndex[i] != 0)
@@ -142,7 +147,7 @@ public class Warrior3Script : MonoBehaviour
             HookD = (this.transform.position - obj4.transform.position).normalized;
             obj4.transform.position += HookD * 8f * Time.deltaTime;
         }
-        if (Player != null)
+        if (Player != null && ObjA != null)
         {
             Vector3 D = this.transform.position - ObjA.transform.position;
             Vector3 d = D.normalized;
@@ -153,7 +158,7 @@ public class Warrior3Script : MonoBehaviour
             }
             else
             {
-                ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle );
+                ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle);
             }
             ObjA.transform.position += d * 10f * Time.deltaTime;
             if (ObjA.transform.position.x > Player.transform.position.x + 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
@@ -194,7 +199,7 @@ public class Warrior3Script : MonoBehaviour
         {
             INpcColli = false;
         }
-       
+
 
     }
     public void RemoveToTargetPos()
@@ -228,13 +233,19 @@ public class Warrior3Script : MonoBehaviour
             {
                 for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
                 {
-                    desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    if (m.GetComponent<MapScript>().Others[i] != null)
+                    {
+                        desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    }
                     if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject) && (r >= 0 && r <= 10))
                     {
                         IMoveToPos = false;
-                        D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
-                        d = D.normalized;
-                        this.transform.position += d * Speed * Time.deltaTime;
+                        if (m.GetComponent<MapScript>().Others[i] != null)
+                        {
+                            D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
+                            d = D.normalized;
+                            this.transform.position += d * Speed * Time.deltaTime;
+                        }
                     }
                     else
                     {
@@ -262,22 +273,22 @@ public class Warrior3Script : MonoBehaviour
     }
     public void Warrior3Skill()
     {
-        foreach(var temp in Item)
+        foreach (var temp in Item)
         {
             if (temp != null)
             {
                 temp.SetActive(false);
             }
-           
+
         }
-        IShoot=false;
+        IShoot = false;
         StopCoroutine("UseItem");
         audio.clip = acilp[0];
         m.GetComponent<MapScript>().Others.Remove(this.gameObject);
-       
+
         m.GetComponent<MapScript>().Warrior3Count++; //����ģʽ����
         //m.GetComponent<MapScript>().Count= m.GetComponent<MapScript>().Others.Count+1;
-        this.GetComponent<SpriteRenderer>().color=new Color(0,0,0,0);
+        this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         Warrior3Rotation.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         Warrior3Canvas.SetActive(false);
         Ak = 40;
@@ -286,11 +297,12 @@ public class Warrior3Script : MonoBehaviour
     public void fasleSkill()
     {
         StartCoroutine("UseItem");
-        ObjA.SetActive(true);
+        if (ObjA != null)
+            ObjA.SetActive(true);
         m.GetComponent<MapScript>().Others.Add(this.gameObject);
         m.GetComponent<MapScript>().Warrior3Count--; //����ģʽ����
         Ak = 30;
-        this.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Warrior3Rotation.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Warrior3Canvas.gameObject.SetActive(true);
     }
@@ -313,7 +325,8 @@ public class Warrior3Script : MonoBehaviour
         Warrior3Hp -= value;
         if (Warrior3Hp <= 0)
         {
-            ObjA.SetActive(false);
+            if (ObjA != null)
+                ObjA.SetActive(false);
             audio.clip = acilp[6];
             audio.Play();
             print("Dead");
@@ -324,7 +337,7 @@ public class Warrior3Script : MonoBehaviour
             Rotation.SetActive(false);
             Invoke("FalseDeadEff", 0.5f);
 
-           
+
         }
         Warrior3Hp = Mathf.Clamp(Warrior3Hp, 0, 150);
     }
@@ -343,11 +356,11 @@ public class Warrior3Script : MonoBehaviour
                 Health -= 1f;
             }
             Warrior3HpImage.fillAmount = (int)Health / 150f;
-         
+
             yield return new WaitForSeconds(0.000001f);
         }
     }
-   public  IEnumerable DecreaseMatrix()
+    public IEnumerable DecreaseMatrix()
     {
         yield return new WaitForSeconds(0.1f);
         while (true)
@@ -368,7 +381,7 @@ public class Warrior3Script : MonoBehaviour
     }
     public void NpcUseItem()
     {
-        
+
         int r = Random.Range(1, 11);
         switch (r)
         {
@@ -425,7 +438,7 @@ public class Warrior3Script : MonoBehaviour
                 m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 10;
                 break;
             case 6:
-                //Light.SetActive(true);
+                Light.SetActive(true);
                 //Invoke("FalseLignt", 1f);
                 light = Instantiate(Light, ItemPointObj.transform.position, this.transform.GetChild(0).transform.rotation);
                 light.transform.parent = this.transform.GetChild(0).transform;
@@ -453,7 +466,8 @@ public class Warrior3Script : MonoBehaviour
                 }
                 Invoke("FalsePhase", 3f);
                 PMoveEff.SetActive(true);
-                m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] +=50;
+                if (m.GetComponent<MapScript>().dic != null && m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior3Script>().Name))
+                    m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 50;
                 break;
             case 10:
                 // IShoot = true;
@@ -515,20 +529,23 @@ public class Warrior3Script : MonoBehaviour
     }
     public void FalseLignt()
     {
-        Light.SetActive(false);
+        if (Light != null)
+            Light.SetActive(false);
 
     }
     public void FalseMagnetic()
     {
-        MagneticObj.SetActive(false);
+        if (MagneticObj != null)
+            MagneticObj.SetActive(false);
     }
     public void FalseMatrix()
     {
-        MatrixObj.SetActive(false);
+        if (MatrixObj != null)
+            MatrixObj.SetActive(false);
     }
     public void FalsePhase()
     {
-        Iparse=false;
+        Iparse = false;
         PMoveEff.SetActive(false);
         foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
         {
@@ -552,22 +569,26 @@ public class Warrior3Script : MonoBehaviour
     }
     public void FalseGun()
     {
-        Gun.SetActive(false);
+        if (Gun != null)
+            Gun.SetActive(false);
         IShoot = false;
     }
     public void FalseDeadEff()
     {
-        DeadEff.SetActive(false);
+        if (DeadEff != null)
+            DeadEff.SetActive(false);
         Destroy(this.gameObject);
         m.GetComponent<MapScript>().Others.Remove(this.gameObject);
     }
     public void FalseBoomEff()
     {
-        obj.SetActive(false);
+        if (DeadEff != null)
+            obj.SetActive(false);
     }
     public void FalseBloodTxt()
     {
-        BloodTxt.gameObject.SetActive(false);
+        if (BloodTxt != null)
+            BloodTxt.gameObject.SetActive(false);
     }
     public void InvokeFalseBloodTxt()
     {
@@ -579,9 +600,12 @@ public class Warrior3Script : MonoBehaviour
     }
     public void InvokeFalseFreeze()
     {
-        hammerEff.SetActive(true);
-        Invoke("FalseFreeze", 2f);
-        hammerEff.SetActive(false);
+        if (hammerEff != null)
+        {
+            hammerEff.SetActive(true);
+            Invoke("FalseFreeze", 2f);
+            hammerEff.SetActive(false);
+        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -594,7 +618,8 @@ public class Warrior3Script : MonoBehaviour
     //����Ϊ�رյ���
     public void FalseItem1()
     {
-        DefendObj.SetActive(false);
+        if (DefendObj != null)
+            DefendObj.SetActive(false);
     }
 
 }

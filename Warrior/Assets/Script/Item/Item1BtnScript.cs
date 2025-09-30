@@ -11,12 +11,12 @@ public class Item1BtnScript : MonoBehaviour
     Vector3 d;
     Vector3 HookD;
 
-    GameObject Grenade;
     GameObject GrenadeBoomEff;
-    GameObject Hammer;
-    GameObject Hook;
+    public GameObject Hammer;
+    public GameObject Grenade;
+    public GameObject Hook;
+    public GameObject Light;
     GameObject Bullet;
-    GameObject Light;
     GameObject light;
     public bool IShoot;
     public GameObject Player;
@@ -30,27 +30,25 @@ public class Item1BtnScript : MonoBehaviour
     public GameObject PMoveEff;
     private PlayerScript playerScript;
 
-    // Awake∑Ω∑®‘⁄Ω≈±æ µ¿˝ªØ ±£®∂‘œÛº§ªÓªÚ≥°æ∞º”‘ÿ ±£©◊‘∂Øµ˜”√£¨Ωˆ÷¥––“ª¥Œ£¨≥£”√”⁄≥ı ºªØ±‰¡øªÚ“˝”√°£
-    // Start∑Ω∑®‘⁄Awake÷Æ∫Û°¢µ⁄“ª¥ŒUpdate÷Æ«∞◊‘∂Øµ˜”√£¨“≤÷ª÷¥––“ª¥Œ£¨  ∫œ◊ˆ–Ë“™“¿¿µ∆‰À˚◊Èº˛≥ı ºªØ∫Ûµƒ≤Ÿ◊˜°£
     void Start()
     {
-        playerScript = Player.GetComponent<PlayerScript>();
         this.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        playerScript = Player.GetComponent<PlayerScript>();
+        // if (playerScript.m != null)
+        // {
+        //     // Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
+        //     Hook = playerScript.m.GetComponent<MapScript>().Hook;
+        //     Light = playerScript.m.GetComponent<MapScript>().Light;
+        //     Hammer = playerScript.m.GetComponent<MapScript>().Hammer;
+        //     Grenade = playerScript.m.GetComponent<MapScript>().Grenade;
+
+        //     // InvokeRepeating("CreateBullet", 0.5f, 0.5f);
+        // }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerScript.m != null)
-        {
-            // Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
-            Hook = playerScript.m.GetComponent<MapScript>().Hook;
-            Light = playerScript.m.GetComponent<MapScript>().Light;
-            Hammer = playerScript.m.GetComponent<MapScript>().Hammer;
-            Grenade = playerScript.m.GetComponent<MapScript>().Grenade;
-
-            // InvokeRepeating("CreateBullet", 0.5f, 0.5f);
-        }
         d = (ItemPointObj.transform.position - Player.transform.position).normalized;
         if (playerScript.HookBack && obj4 != null)
         {
@@ -75,7 +73,7 @@ public class Item1BtnScript : MonoBehaviour
                     playerScript.IItem[0] = true;
                     playerScript.PlayerDefendObject.SetActive(true);
                     playerScript.InvokeItem1Skill();
-                    playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                    playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 }
                 break;
             case 2:
@@ -89,7 +87,7 @@ public class Item1BtnScript : MonoBehaviour
                 rig0.drag = 1.5f;
                 rig0.angularDrag = 1.5f;
                 Destroy(obj0, 1f);
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
             case 3:
                 GameObject obj = Instantiate(Grenade, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
@@ -101,7 +99,7 @@ public class Item1BtnScript : MonoBehaviour
                 rig.drag = 1.5f;
                 rig.angularDrag = 1.5f;
                 Destroy(obj, 0.75f);
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
             case 4:
                 Invoke("PreventHookBug", 0f);
@@ -114,26 +112,27 @@ public class Item1BtnScript : MonoBehaviour
                 rig4.drag = 1.5f;
                 rig4.angularDrag = 1.5f;
                 Destroy(obj4, 1.5f);
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
             case 5:
                 foreach (var item in Knife)
                 {
                     item.gameObject.SetActive(true);
                 }
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
             case 6:
                 if (!playerScript.IItem[5])
                 {
                     light = Instantiate(Light, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
                     Debug.Log(Player.transform.GetChild(0).transform.rotation.eulerAngles);
+                    light.SetActive(true);
                     light.transform.parent = Player.transform.GetChild(0).transform;
                     Destroy(light, 1f);
                     playerScript.IItem[5] = true;
                     Invoke("FalseLight", 1f);
                 }
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
             case 7:
                 if (!playerScript.IItem[6])
@@ -142,7 +141,7 @@ public class Item1BtnScript : MonoBehaviour
                     MagneticObj.SetActive(true);
                     Invoke("FalseMagnetic", 10f);
                 }
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 50;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 50;
                 break;
             case 8:
                 if (!playerScript.IItem[7])
@@ -151,7 +150,7 @@ public class Item1BtnScript : MonoBehaviour
                     MatrixObj.SetActive(true);
                     Invoke("FalseMatrix", 5f);
                 }
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 20;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 20;
                 break;
             case 9:
                 if (!playerScript.IItem[8])
@@ -168,7 +167,7 @@ public class Item1BtnScript : MonoBehaviour
                     PMoveEff.SetActive(true);
                     Invoke("FalsePhase", 3f);
                 }
-                playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 50;
+                playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 50;
                 break;
             case 10:
                 // if (!playerScript.IItem[9])
@@ -178,7 +177,7 @@ public class Item1BtnScript : MonoBehaviour
                 //     Gun.SetActive(true);
                 //     Invoke("FalseGun", 8f);
                 // }
-                //playerScript.m.GetComponent<MapScript>().dic["ÕÊº“"] += 10;
+                //playerScript.m.GetComponent<MapScript>().dic["Áé©ÂÆ∂"] += 10;
                 break;
         }
     }
@@ -204,6 +203,7 @@ public class Item1BtnScript : MonoBehaviour
         playerScript.IParse = false;
         foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
         {
+            if (temp == null) continue; // Ë∑≥ËøáÂ∑≤ÈîÄÊØÅÂØπË±°
             temp.GetComponent<CircleCollider2D>().isTrigger = false;
         }
         //Player.transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
@@ -235,6 +235,7 @@ public class Item1BtnScript : MonoBehaviour
         playerScript.m.GetComponent<MapScript>().IFreezeSkill = false;//?????????
         foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
         {
+            if (temp == null) continue; // Ë∑≥ËøáÂ∑≤ÈîÄÊØÅÂØπË±°
             if (temp.gameObject.name == "Player")
             {
                 temp.GetComponent<PlayerScript>().IFreeze = false;

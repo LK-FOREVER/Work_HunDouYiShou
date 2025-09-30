@@ -8,16 +8,18 @@ public class Warrior6CollisionScript : MonoBehaviour
     public bool Iback;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        var mapScript = GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>();
+        string key = GetComponentInParent<Warrior6Script>().Name;
         if (collision.gameObject.tag == "wall")
         {
             this.GetComponentInParent<Warrior6Script>().rig.AddForce(-this.GetComponentInParent<Warrior6Script>().d * 20000 * Time.deltaTime);
@@ -412,7 +414,7 @@ public class Warrior6CollisionScript : MonoBehaviour
 
             }
         }
-        
+
         if (collision.gameObject.tag == "AddBlood" && GetComponentInParent<Warrior6Script>().Warrior6Hp != 200f)
         {
             int r = Random.Range(1, 21);
@@ -426,7 +428,14 @@ public class Warrior6CollisionScript : MonoBehaviour
                 Destroy(collision.gameObject);
 
                 //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-                GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior6Script>().Name] += 5;
+                if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+                {
+                    mapScript.dic[key] += 5;
+                }
+                else
+                {
+                    Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+                }
             }
 
         }
@@ -441,7 +450,14 @@ public class Warrior6CollisionScript : MonoBehaviour
             GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
             Destroy(collision.gameObject);
             //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-            GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior6Script>().Name] += 5;
+            if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+            {
+                mapScript.dic[key] += 5;
+            }
+            else
+            {
+                Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+            }
         }
         if (collision.gameObject.tag == "Trap")
         {
@@ -455,11 +471,18 @@ public class Warrior6CollisionScript : MonoBehaviour
                 GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
                 Destroy(collision.gameObject);
                 //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-                GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior6Script>().Name] += 5;
+                if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+                {
+                    mapScript.dic[key] += 5;
+                }
+                else
+                {
+                    Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+                }
             }
 
         }
-       
+
         if (collision.gameObject.name == "HookBackObj")
         {
             print("Hook");
@@ -467,48 +490,56 @@ public class Warrior6CollisionScript : MonoBehaviour
             //this.GetComponentInParent<Warrior1Script>().IFreeze = false;
             this.GetComponentInParent<Warrior6Script>().HookBack = false;
             this.GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().IFreezeSkill = false;
-            if (collision.transform.GetChild(0).name == "Player")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Player")
             {
                 print(0);
                 collision.transform.GetChild(0).GetComponent<PlayerScript>().IFreeze = false;
             }
 
-            if (collision.transform.GetChild(0).name == "Warrior1(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
+
             {
                 print(1);
                 collision.transform.GetChild(0).GetComponent<Warrior1Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior2(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior2(Clone)")
+
             {
                 print(2);
                 collision.transform.GetChild(0).GetComponent<Warrior2Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior3(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior3(Clone)")
+
             {
                 print(3);
                 collision.transform.GetChild(0).GetComponent<Warrior3Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior4(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior4(Clone)")
+
             {
                 print(4);
                 collision.transform.GetChild(0).GetComponent<Warrior4Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior5(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior5(Clone)")
+
             {
                 print(5);
                 collision.transform.GetChild(0).GetComponent<Warrior5Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior6(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior6(Clone)")
+
             {
                 print(6);
                 collision.transform.GetChild(0).GetComponent<Warrior6Script>().IFreeze = false;
             }
             collision.transform.DetachChildren();
-            Destroy(collision.gameObject.transform.parent);
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
         if (collision.gameObject.tag == "Defend" || collision.gameObject.tag == "Hammer" || collision.gameObject.tag == "HandBomb" || collision.gameObject.tag == "Hook" || collision.gameObject.tag == "Knife" || collision.gameObject.tag == "Light" || collision.gameObject.tag == "Magnet" || collision.gameObject.tag == "Matrix" || collision.gameObject.tag == "PMove" || collision.gameObject.tag == "Shoot")
         {
-            collision.gameObject.SetActive(false);
+            // collision.gameObject.SetActive(false);
+            if (GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic == null || !GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior6Script>().Name))
+                return;
             if (collision.gameObject.tag == "Defend")
             {
                 GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior6Script>().Name] += 20;

@@ -8,16 +8,18 @@ public class Warrior3CollisionScript : MonoBehaviour
     public bool Iback;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        var mapScript = GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>();
+        string key = GetComponentInParent<Warrior3Script>().Name;
         if (collision.gameObject.tag == "wall")
         {
             this.GetComponentInParent<Warrior3Script>().rig.AddForce(-this.GetComponentInParent<Warrior3Script>().d * 20000 * Time.deltaTime);
@@ -63,7 +65,8 @@ public class Warrior3CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior1Script>().rig.angularDrag = 6f;
                 Ifront = true;
                 //GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<Warrior3Script>().index] += 25;
-                GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 25;
+                if (GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic != null && GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior3Script>().Name))
+                    GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 25;
                 GetComponentInParent<Warrior3Script>().ColiEff.SetActive(true);                //ײ����Ч
                 Invoke("FalseColiEff", 0.3f);
             }
@@ -267,7 +270,8 @@ public class Warrior3CollisionScript : MonoBehaviour
                 else
                 {
                     //GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<Warrior3Script>().index] += 50;
-                    GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 50;
+                    if (GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic != null && GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior3Script>().Name))
+                        GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 50;
                 }
             }
             if (collision.gameObject.name == "backObject4")
@@ -408,11 +412,11 @@ public class Warrior3CollisionScript : MonoBehaviour
 
             }
         }
-       
+
         if (collision.gameObject.tag == "AddBlood" && GetComponentInParent<Warrior3Script>().Warrior3Hp != 200f)
         {
             int r = Random.Range(1, 21);
-            if (r >transform.parent.GetComponentInParent<Warrior3Script>(). Player.GetComponent<PlayerScript>().B1 && r < transform.parent.GetComponentInParent<Warrior3Script>().Player.GetComponent<PlayerScript>().B2)
+            if (r > transform.parent.GetComponentInParent<Warrior3Script>().Player.GetComponent<PlayerScript>().B1 && r < transform.parent.GetComponentInParent<Warrior3Script>().Player.GetComponent<PlayerScript>().B2)
             {
                 GetComponentInParent<Warrior3Script>().AddWarrior3Hp(10);
                 GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
@@ -421,7 +425,14 @@ public class Warrior3CollisionScript : MonoBehaviour
                 GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
                 Destroy(collision.gameObject);
                 //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-                GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 5;
+                if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+                {
+                    mapScript.dic[key] += 5;
+                }
+                else
+                {
+                    Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+                }
             }
 
         }
@@ -436,20 +447,34 @@ public class Warrior3CollisionScript : MonoBehaviour
             GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
             Destroy(collision.gameObject);
             //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-            GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 5;
+            if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+            {
+                mapScript.dic[key] += 5;
+            }
+            else
+            {
+                Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+            }
         }
         if (collision.gameObject.tag == "PlayBoom")
         {
             GetComponentInParent<Warrior3Script>().audio.clip = GetComponentInParent<Warrior3Script>().acilp[1];
             GetComponentInParent<Warrior3Script>().audio.Play();
             GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
-                GetComponentInParent<Warrior3Script>().BloodTxt.text = "-20";
+            GetComponentInParent<Warrior3Script>().BloodTxt.text = "-20";
             GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
             GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
             GetComponentInParent<Warrior3Script>().DecreaseWarrior3Hp(20);
             Destroy(collision.gameObject);
             //m.GetComponent<MapScript>().Warriorpoint[index] += 5;
-            GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 5;
+            if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+            {
+                mapScript.dic[key] += 5;
+            }
+            else
+            {
+                Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+            }
         }
         if (collision.gameObject.tag == "Trap")
         {
@@ -463,10 +488,17 @@ public class Warrior3CollisionScript : MonoBehaviour
                 GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
                 Destroy(collision.gameObject);
                 //m.GetComponent<MapScript>().Warriorpoint[index] += 5; 
-                GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 5;
+                if (!string.IsNullOrEmpty(key) && mapScript.dic.ContainsKey(key))
+                {
+                    mapScript.dic[key] += 5;
+                }
+                else
+                {
+                    Debug.LogError($"Key '{key}' is invalid or not found in the dictionary!");
+                }
             }
         }
-       
+
         if (collision.gameObject.name == "HookBackObj" && collision.gameObject.transform.parent != this.transform.parent)
         {
             print("Hook");
@@ -474,48 +506,57 @@ public class Warrior3CollisionScript : MonoBehaviour
             //this.GetComponentInParent<Warrior1Script>().IFreeze = false;
             this.GetComponentInParent<Warrior3Script>().HookBack = false;
             this.GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().IFreezeSkill = false;
-            if (collision.transform.GetChild(0).name == "Player")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Player")
+
             {
                 print(0);
                 collision.transform.GetChild(0).GetComponent<PlayerScript>().IFreeze = false;
             }
 
-            if (collision.transform.GetChild(0).name == "Warrior1(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
+
             {
                 print(1);
                 collision.transform.GetChild(0).GetComponent<Warrior1Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior2(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior2(Clone)")
+
             {
                 print(2);
                 collision.transform.GetChild(0).GetComponent<Warrior2Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior3(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior3(Clone)")
+
             {
                 print(3);
                 collision.transform.GetChild(0).GetComponent<Warrior3Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior4(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior4(Clone)")
+
             {
                 print(4);
                 collision.transform.GetChild(0).GetComponent<Warrior4Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior5(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior5(Clone)")
+
             {
                 print(5);
                 collision.transform.GetChild(0).GetComponent<Warrior5Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior6(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior6(Clone)")
+
             {
                 print(6);
                 collision.transform.GetChild(0).GetComponent<Warrior6Script>().IFreeze = false;
             }
             collision.transform.DetachChildren();
-            Destroy(collision.gameObject.transform.parent);
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
         if (collision.gameObject.tag == "Defend" || collision.gameObject.tag == "Hammer" || collision.gameObject.tag == "HandBomb" || collision.gameObject.tag == "Hook" || collision.gameObject.tag == "Knife" || collision.gameObject.tag == "Light" || collision.gameObject.tag == "Magnet" || collision.gameObject.tag == "Matrix" || collision.gameObject.tag == "PMove" || collision.gameObject.tag == "Shoot")
         {
-            collision.gameObject.SetActive(false);
+            // collision.gameObject.SetActive(false);
+            if (GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic == null || !GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior3Script>().Name))
+                return;
             if (collision.gameObject.tag == "Defend")
             {
                 GetComponentInParent<Warrior3Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior3Script>().Name] += 20;
@@ -563,7 +604,7 @@ public class Warrior3CollisionScript : MonoBehaviour
         if (collision.gameObject.name == "frontObject")
         {
             Ifront = false;
-           
+
         }
         if (collision.gameObject.name == "frontObject1")
         {

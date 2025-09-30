@@ -83,44 +83,50 @@ public class Warrior6BackScript : MonoBehaviour
             //this.GetComponentInParent<Warrior1Script>().IFreeze = false;
             this.GetComponentInParent<Warrior6Script>().HookBack = false;
             this.GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().IFreezeSkill = false;
-            if (collision.transform.GetChild(0).name == "Player")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Player")
             {
                 print(0);
                 collision.transform.GetChild(0).GetComponent<PlayerScript>().IFreeze = false;
             }
 
-            if (collision.transform.GetChild(0).name == "Warrior1(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
+
             {
                 print(1);
                 collision.transform.GetChild(0).GetComponent<Warrior1Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior2(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior2(Clone)")
+
             {
                 print(2);
                 collision.transform.GetChild(0).GetComponent<Warrior2Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior3(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior3(Clone)")
+
             {
                 print(3);
                 collision.transform.GetChild(0).GetComponent<Warrior3Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior4(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior4(Clone)")
+
             {
                 print(4);
                 collision.transform.GetChild(0).GetComponent<Warrior4Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior5(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior5(Clone)")
+
             {
                 print(5);
                 collision.transform.GetChild(0).GetComponent<Warrior5Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior6(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior6(Clone)")
+
             {
                 print(6);
                 collision.transform.GetChild(0).GetComponent<Warrior6Script>().IFreeze = false;
             }
             collision.transform.DetachChildren();
-            Destroy(collision.gameObject.transform.parent);
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
     }
 }

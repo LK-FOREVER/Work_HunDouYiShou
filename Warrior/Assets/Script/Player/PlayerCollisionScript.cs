@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
-   public bool Ifront;
-   public bool Iback;
+    public bool Ifront;
+    public bool Iback;
     public int Killnum;
     public Text KillTxt;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        KillTxt.text="淘汰异兽数："+Killnum.ToString();
+        KillTxt.text = "淘汰异兽数：" + Killnum.ToString();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if(GetComponentInParent<PlayerScript>().m == null && SceneManager.GetActiveScene().name == "GameScene")
+        {
+            GetComponentInParent<PlayerScript>().m = GameObject.Find("MapManager");
+        }
         if (collision.gameObject.tag == "wall")
         {
             this.GetComponentInParent<PlayerScript>().rig.AddForce(-this.GetComponentInParent<PlayerScript>().d * 20000 * Time.deltaTime);
@@ -507,18 +512,18 @@ public class PlayerCollisionScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Defend")
         {
-            if( (GetComponentInParent<PlayerScript>().IItem1 == true&& GetComponentInParent<PlayerScript>().IItem2 == true) || (GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == false))
+            if ((GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == true) || (GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == false))
             {
                 GetComponentInParent<PlayerScript>().Item1Id = 1;
                 collision.gameObject.SetActive(false);
                 GetComponentInParent<PlayerScript>().IItem1 = false;
-                GetComponentInParent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(1,1,1,1);
+                GetComponentInParent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 GetComponentInParent<PlayerScript>().ItemBtn1.GetComponent<Image>().raycastTarget = true;
                 GetComponentInParent<PlayerScript>().ItemBtn1.GetComponent<Image>().sprite = GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().ItemSprite[0];
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 20;
 
             }
-            else if ((GetComponentInParent<PlayerScript>().IItem1 == false&& GetComponentInParent<PlayerScript>().IItem2 == true))
+            else if ((GetComponentInParent<PlayerScript>().IItem1 == false && GetComponentInParent<PlayerScript>().IItem2 == true))
             {
                 GetComponentInParent<PlayerScript>().Item2Id = 1;
                 collision.gameObject.SetActive(false);
@@ -601,7 +606,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 20;
             }
         }
-      
+
         if (collision.gameObject.tag == "Knife")
         {
             if ((GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == true) || (GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == false))
@@ -625,7 +630,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 GetComponentInParent<PlayerScript>().ItemBtn2.GetComponent<Image>().sprite = GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().ItemSprite[4];
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 20;
             }
-        } 
+        }
         if (collision.gameObject.tag == "Light")
         {
             if ((GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == true) || (GetComponentInParent<PlayerScript>().IItem1 == true && GetComponentInParent<PlayerScript>().IItem2 == false))
@@ -747,8 +752,8 @@ public class PlayerCollisionScript : MonoBehaviour
             }
         }
         //以上10个全部为道具
-       
-        if (collision.gameObject.name == "HookBackObj"&&collision.gameObject.transform.parent!=this.transform.parent)
+
+        if (collision.gameObject.name == "HookBackObj" && collision.gameObject.transform.parent != this.transform.parent)
         {
             print("Hook");
             //print(collision.transform.GetChild(0));
@@ -756,38 +761,44 @@ public class PlayerCollisionScript : MonoBehaviour
             this.GetComponentInParent<PlayerScript>().HookBack = false;
             this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;
 
-            if (collision.transform.GetChild(0).name == "Warrior1(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
+
             {
                 print(1);
                 collision.transform.GetChild(0).GetComponent<Warrior1Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior2(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior2(Clone)")
+
             {
                 print(2);
                 collision.transform.GetChild(0).GetComponent<Warrior2Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior3(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior3(Clone)")
+
             {
                 print(3);
                 collision.transform.GetChild(0).GetComponent<Warrior3Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior4(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior4(Clone)")
+
             {
                 print(4);
                 collision.transform.GetChild(0).GetComponent<Warrior4Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior5(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior5(Clone)")
+
             {
                 print(5);
                 collision.transform.GetChild(0).GetComponent<Warrior5Script>().IFreeze = false;
             }
-            if (collision.transform.GetChild(0).name == "Warrior6(Clone)")
+            if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior6(Clone)")
+
             {
                 print(6);
                 collision.transform.GetChild(0).GetComponent<Warrior6Script>().IFreeze = false;
             }
             collision.transform.DetachChildren();
-            Destroy(collision.gameObject.transform.parent);
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -796,7 +807,7 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             Ifront = false;
             collision.GetComponentInParent<Warrior1Script>().RandomR();
-           
+
         }
         if (collision.gameObject.name == "frontObject2")
         {
@@ -859,5 +870,5 @@ public class PlayerCollisionScript : MonoBehaviour
     {
         GetComponentInParent<PlayerScript>().ColiEff.SetActive(false);
     }
-    
+
 }

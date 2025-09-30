@@ -79,28 +79,35 @@ public class Warrior5Script : MonoBehaviour
     public GameObject Gun;
     public GameObject PMoveEff;
     public bool Iparse;
-    void Start()
+    void Awake()
     {
-
-        audio = GetComponent<AudioSource>();
-        RandomR();
         rig = GetComponent<Rigidbody2D>();
         m = GameObject.Find("MapManager");
         Player = GameObject.Find("Player");
-        Arrow5 = (GameObject)Resources.Load("Prefabs/Warrior5Arrow");
+        Arrow5 = m.GetComponent<MapScript>().Arrow5;
         ObjA = Instantiate(Arrow5);
         ObjA.transform.position = Player.transform.position;
         m.GetComponent<MapScript>().WarriorArrow.Add(ObjA);
-
+    }
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+        RandomR();
         StartCoroutine("ShowWarrior5Hp");
 
-        int n = Random.Range(0, 101);
+        int n = Random.Range(40, 50);
         Name = "异兽" + n.ToString();
         //m.GetComponent<MapScript>().Warriorname.Add(Name);
         //m.GetComponent<MapScript>().Warriorpoint.Add(point);
         //如果dic中没有这个名字就添加进去
         if (!m.GetComponent<MapScript>().dic.ContainsKey(Name))
+        {
             m.GetComponent<MapScript>().dic.Add(Name, 0);
+        }
+        else
+        {
+            m.GetComponent<MapScript>().dic[Name] = 0;
+        }
         //for (int i = 0; i < m.GetComponent<MapScript>().PointIndex.Count; i++)              //ÿһ���ű�����Ψһ�±�
         //{
         //    if (m.GetComponent<MapScript>().PointIndex[i] != 0)
@@ -132,7 +139,7 @@ public class Warrior5Script : MonoBehaviour
             HookD = (this.transform.position - obj4.transform.position).normalized;
             obj4.transform.position += HookD * 8f * Time.deltaTime;
         }
-        if (Player != null)
+        if (Player != null && ObjA != null)
         {
             Vector3 D = this.transform.position - ObjA.transform.position;
             Vector3 d = D.normalized;
@@ -220,13 +227,19 @@ public class Warrior5Script : MonoBehaviour
             {
                 for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
                 {
-                    desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    if (m.GetComponent<MapScript>().Others[i] != null)
+                    {
+                        desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+                    }
                     if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject) && (r >= 0 && r <= 10))
                     {
                         IMoveToPos = false;
-                        D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
-                        d = D.normalized;
-                        this.transform.position += d * Speed * Time.deltaTime;
+                        if (m.GetComponent<MapScript>().Others[i] != null)
+                        {
+                            D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
+                            d = D.normalized;
+                            this.transform.position += d * Speed * Time.deltaTime;
+                        }
                     }
                     else
                     {
@@ -373,7 +386,7 @@ public class Warrior5Script : MonoBehaviour
                 m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior5Script>().Name] += 10;
                 break;
             case 6:
-                //Light.SetActive(true);
+                Light.SetActive(true);
                 //Invoke("FalseLignt", 1f);
                 light = Instantiate(Light, ItemPointObj.transform.position, this.transform.GetChild(0).transform.rotation);
                 light.transform.parent = this.transform.GetChild(0).transform;
@@ -463,28 +476,34 @@ public class Warrior5Script : MonoBehaviour
     }
     public void FalseLignt()
     {
-        Light.SetActive(false);
-
+        if (Light != null)
+            Light.SetActive(false);
     }
+
     public void FalseMagnetic()
     {
-        MagneticObj.SetActive(false);
+        if (MagneticObj != null)
+            MagneticObj.SetActive(false);
     }
     public void FalseMatrix()
     {
-        MatrixObj.SetActive(false);
+        if (MatrixObj != null)
+            MatrixObj.SetActive(false);
     }
     public void FalsePhase()
     {
-
-        PMoveEff.SetActive(false);
+        if (PMoveEff != null)
+            PMoveEff.SetActive(false);
         foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
         {
-            temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
-            temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
+            if (temp != null)
+            {
+                var col0 = temp.transform.GetChild(0).GetComponent<BoxCollider2D>();
+                var col1 = temp.transform.GetChild(1).GetComponent<BoxCollider2D>();
+                if (col0 != null) col0.isTrigger = false;
+                if (col1 != null) col1.isTrigger = false;
+            }
         }
-        //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
-        //transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
         Iparse = false;
     }
     public void CreateBullet()
@@ -501,12 +520,14 @@ public class Warrior5Script : MonoBehaviour
     }
     public void FalseGun()
     {
-        Gun.SetActive(false);
+        if (Gun != null)
+            Gun.SetActive(false);
         IShoot = false;
     }
     public void FalseBloodTxt()
     {
-        BloodTxt.gameObject.SetActive(false);
+        if (BloodTxt != null && BloodTxt.gameObject != null)
+            BloodTxt.gameObject.SetActive(false);
     }
     public void InvokeFalseBloodTxt()
     {
@@ -514,17 +535,20 @@ public class Warrior5Script : MonoBehaviour
     }
     public void FalseDeadEff()
     {
-        DeadEff.SetActive(false);
+        if (DeadEff != null)
+            DeadEff.SetActive(false);
         Destroy(this.gameObject);
         m.GetComponent<MapScript>().Others.Remove(this.gameObject);
     }
     public void FalseBoomEff()
     {
-        obj.SetActive(false);
+        if (obj != null)
+            obj.SetActive(false);
     }
     public void FalseColiEff()
     {
-        ColiEff.SetActive(false);
+        if (ColiEff != null)
+            ColiEff.SetActive(false);
     }
     public void InvokeFalseColiEff()
     {
@@ -536,9 +560,11 @@ public class Warrior5Script : MonoBehaviour
     }
     public void InvokeFalseFreeze()
     {
-        hammerEff.SetActive(true);
+        if (hammerEff != null)
+            hammerEff.SetActive(true);
         Invoke("FalseFreeze", 2f);
-        hammerEff.SetActive(false);
+        if (hammerEff != null)
+            hammerEff.SetActive(false);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -551,7 +577,8 @@ public class Warrior5Script : MonoBehaviour
     //����Ϊ�رյ���
     public void FalseItem1()
     {
-        DefendObj.SetActive(false);
+        if (DefendObj != null)
+            DefendObj.SetActive(false);
     }
 }
 

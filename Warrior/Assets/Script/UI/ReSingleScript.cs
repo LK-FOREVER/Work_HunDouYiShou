@@ -9,60 +9,66 @@ public class ReSingleScript : MonoBehaviour
     public GameObject Player;
     public Canvas StartCanvas;
     public GameObject m;
+    private ObjectPoolManager poolManager;
     public Button[] SkillBtn;
     void Start()
     {
-        
+        poolManager = GameObject.Find("ObjectPool").GetComponent<ObjectPoolManager>();
+        m = GameObject.Find("MapManager");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void ReSingle()
     {
-        
+
         Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[0];
         Player.GetComponent<PlayerScript>().audio.Play();
-        m = GameObject.Find("MapManager");
-        m.GetComponent<MapScript>().Icoin = true;//ø…∂‡¥Œº”«Æ
+        m.GetComponent<MapScript>().Icoin = true;//ÂèØÂ§öÊ¨°Âä†Èí±
+
+        poolManager.Clear();
+
+
         foreach (var item in m.GetComponent<MapScript>().ObstacleList)
         {
-            Destroy(item);
+            if (item != null)
+                Destroy(item);
         }
         foreach (var item in m.GetComponent<MapScript>().AddBloodList)
         {
-            Destroy(item);
+            if (item != null)
+                Destroy(item);
         }
         foreach (var item in m.GetComponent<MapScript>().TrapList)
         {
-            Destroy(item);
+            if (item != null)
+                Destroy(item);
         }
         foreach (var item in m.GetComponent<MapScript>().NpcList)
         {
-            Destroy(item);
+            if (item != null)
+                Destroy(item);
         }
         foreach (var item in m.GetComponent<MapScript>().ItemList)
         {
-            Destroy(item);
+            if (item != null)
+                Destroy(item);
         }
         foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
         {
             item.SetActive(false);
         }
-        Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //÷ÿø™πÿ±’◊”µØ∑¢…‰
+        Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //ÈáçÂºÄÂÖ≥Èó≠Â≠êÂºπÂèëÂ∞Ñ
         Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
         m.GetComponent<MapScript>().ObstacleList.Clear();
         m.GetComponent<MapScript>().AddBloodList.Clear();
         m.GetComponent<MapScript>().TrapList.Clear();
         m.GetComponent<MapScript>().NpcList.Clear();
-        m.GetComponent <MapScript>().ItemList.Clear();
-        //foreach (var item in m.GetComponent <MapScript>().Others) { Destroy(item); }
+        m.GetComponent<MapScript>().ItemList.Clear();
+        foreach (var item in m.GetComponent<MapScript>().Others) { if (item != null && item != Player) Destroy(item); }
         m.GetComponent<MapScript>().Others.Clear();
+
         m.GetComponent<MapScript>().dic.Clear();
-        m.GetComponent<MapScript>().dic.Add("ÕÊº“", 0);
-        foreach (var item in m.GetComponent<MapScript>().WarriorArrow) { Destroy(item); }
+        m.GetComponent<MapScript>().dic.Add("Áé©ÂÆ∂", 0);
+        foreach (var item in m.GetComponent<MapScript>().WarriorArrow) { if (item != null) Destroy(item); }
         m.GetComponent<MapScript>().WarriorArrow.Clear();
         m.GetComponent<MapScript>().Others.Add(Player);
         m.GetComponent<MapScript>().ActiveMap();
@@ -71,7 +77,7 @@ public class ReSingleScript : MonoBehaviour
         m.GetComponent<MapScript>().CreateAddBlood();
         m.GetComponent<MapScript>().Index = 0;
 
-       
+
         m.GetComponent<MapScript>().CreateNpc();
 
         m.GetComponent<MapScript>().CreateItem();
@@ -83,7 +89,7 @@ public class ReSingleScript : MonoBehaviour
         m.GetComponent<MapScript>().CreateTrap();
         Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
         Player.transform.position = new Vector3(12, -20, 0);
-        Player.GetComponent<PlayerScript>().IPoints =false;
+        Player.GetComponent<PlayerScript>().IPoints = false;
         Player.GetComponent<PlayerScript>().ISingle = true;
 
 

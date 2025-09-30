@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1926256739590479514}
   - component: {fileID: 8719220755016957536}
   - component: {fileID: 6526651298607943670}
-  - component: {fileID: 8186650814836131492}
+  - component: {fileID: 2655258679039209963}
   m_Layer: 0
   m_Name: PlayerHookItem
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   m: {fileID: 0}
   HookBackObj: {fileID: 1668164212909293891}
---- !u!114 &8186650814836131492
+--- !u!114 &2655258679039209963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   updateTiming: 1
   unscaledTime: 0
   _animationName: action1
-  loop: 0
+  loop: 1
   timeScale: 1
 --- !u!1 &1668164212909293891
 GameObject:

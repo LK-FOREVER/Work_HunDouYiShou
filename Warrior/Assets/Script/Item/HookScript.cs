@@ -212,7 +212,7 @@ public class HookScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Obstacle")
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject,0.1f);
         }
     }
    

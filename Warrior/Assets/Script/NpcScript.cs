@@ -6,10 +6,10 @@ using UnityEngine;
 public class NpcScript : MonoBehaviour
 {
     public GameObject NpcRotationIcon;
-     GameObject m;
-    public bool INpcColli=false;
+    GameObject m;
+    public bool INpcColli = false;
     Rigidbody2D rig;
-    Vector3 V=new Vector3(0,1,0);
+    Vector3 V = new Vector3(0, 1, 0);
 
     GameObject Player;
 
@@ -17,16 +17,20 @@ public class NpcScript : MonoBehaviour
     float desPos;
     float desPlayer;
     float desNpc;
-    float Speed =1f;
+    float Speed = 1f;
     Vector3 D;
-    public  Vector3 d;
+    public Vector3 d;
     bool IMoveToPos = true;
     bool IMoveToPlayer;
+    void Awake()
+    {
+        m = GameObject.Find("MapManager");
+        rig = GetComponent<Rigidbody2D>();
+        Player = GameObject.Find("Player");
+    }
     void Start()
     {
-        Player = GameObject.Find("Player");
-        m = GameObject.Find("MapManager");
-        rig =GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -49,19 +53,19 @@ public class NpcScript : MonoBehaviour
 
 
 
-        float r=Vector3.Angle(V,d);
+        float r = Vector3.Angle(V, d);
         if (d.x < 0)
         {
-          
-                NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, r);
-           
-           
+
+            NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, r);
+
+
         }
         else
         {
-           
-                NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, -r);
-           
+
+            NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, -r);
+
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
@@ -86,8 +90,8 @@ public class NpcScript : MonoBehaviour
             //d = -d;
             rig.drag = 6f;
             rig.angularDrag = 6f;
-            IMoveToPlayer=true;
-            IMoveToPos=false;
+            IMoveToPlayer = true;
+            IMoveToPos = false;
         }
         if (collision.gameObject.tag == "Npc")
         {
@@ -101,9 +105,9 @@ public class NpcScript : MonoBehaviour
             TargetPos = new Vector3(x, y, 0);
         }
     }
-    
-        public void RemoveToTargetPos()
-       {
+
+    public void RemoveToTargetPos()
+    {
         if (IMoveToPos)
         {
             D = TargetPos - this.transform.position;
@@ -113,43 +117,49 @@ public class NpcScript : MonoBehaviour
             {
                 this.transform.position += d * Speed * Time.deltaTime;
             }
-            else  
+            else
             {
                 float x = Random.Range(-4f, 28f);
                 float y = Random.Range(-42f, 6f);
                 TargetPos = new Vector3(x, y, 0);
             }
         }
-       
-       }
+
+    }
     public void RemoveToPlayer()
     {
-       
+
         if (IMoveToPlayer)
         {
-            
-            
-                D = Player.transform.position - this.transform.position;
-                d = D.normalized;
-                this.transform.position += d * Speed * Time.deltaTime;
-            
+
+
+            D = Player.transform.position - this.transform.position;
+            d = D.normalized;
+            this.transform.position += d * Speed * Time.deltaTime;
+
         }
     }
     public void RemoveToOthers()
-    { 
-        
-            for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
+    {
+
+        for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
+        {
+            if (m.GetComponent<MapScript>().Others[i] != null)
             {
-            desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
-      
-                if (desNpc <= 5f && (m.GetComponent<MapScript>().Others[i] != this.gameObject))
+                desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+            }
+
+            if (desNpc <= 5f && (m.GetComponent<MapScript>().Others[i] != this.gameObject))
+            {
+                IMoveToPos = false;
+                IMoveToPlayer = false;
+                if (m.GetComponent<MapScript>().Others[i] != null)
                 {
-                    IMoveToPos = false;
-                    IMoveToPlayer = false; 
                     D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
                     d = D.normalized;
                     this.transform.position += d * Speed * Time.deltaTime;
                 }
+            }
             else
             {
                 IMoveToPos = true;

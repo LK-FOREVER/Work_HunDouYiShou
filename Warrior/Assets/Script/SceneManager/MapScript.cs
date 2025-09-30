@@ -102,6 +102,8 @@ public class MapScript : MonoBehaviour
     public GameObject Grenade;
     public GameObject Hook;
 
+    private ObjectPoolManager poolManager;
+
     void Awake()
     {
         Arrow1 = (GameObject)Resources.Load("Prefabs/Warrior1Arrow");
@@ -115,11 +117,12 @@ public class MapScript : MonoBehaviour
         Hammer = (GameObject)Resources.Load("Prefabs/PlayerHammerItem");
         Grenade = (GameObject)Resources.Load("Prefabs/PlayerGrenade");
         Hook = (GameObject)Resources.Load("Prefabs/PlayerHookItemObj");
+        Player = GameObject.Find("Player");
+        Scrol = GameObject.Find("StartCanvas");
+        poolManager = GameObject.Find("ObjectPool").GetComponent<ObjectPoolManager>();
     }
     void Start()
     {
-        Player = GameObject.Find("Player");
-        Scrol = GameObject.Find("StartCanvas");
         //Warriorname.Add(Player.GetComponent<PlayerScript>().Name);
         //Warriorpoint.Add(Player.GetComponent<PlayerScript>().point);
         //PointIndex.Add(0);
@@ -130,6 +133,14 @@ public class MapScript : MonoBehaviour
 
         Others.Add(Player);
 
+        if (IPoints)
+        {
+            SortPanel.SetActive(true);
+        }
+        else
+        {
+            SortPanel.SetActive(false);
+        }
         ActiveMap();
         CreateMap();
         CreateAddBlood();
@@ -147,11 +158,16 @@ public class MapScript : MonoBehaviour
 
     void Update()
     {
-        SetDiff();
+        // SetDiff();
 
-        SingleFun();
-        PointsFun();
-
+        if (ISingle)
+        {
+            SingleFun();
+        }
+        if (IPoints)
+        {
+            PointsFun();
+        }
 
         //print(Warrior3Count);
     }
@@ -220,13 +236,14 @@ public class MapScript : MonoBehaviour
             Tpos = new Vector2(x0, y0);
             Vpos = new Vector2(x1, y1);
             Wpos = new Vector2(x2, y2);
-            GameObject objT = Instantiate(obstacleT);
+            // GameObject objT = Instantiate(obstacleT);
+            GameObject objT = poolManager.Get(obstacleT);
             ObstacleList.Add(objT);
             objT.transform.position = Tpos;
-            GameObject objV = Instantiate(obstacleV);
+            GameObject objV = poolManager.Get(obstacleV);
             ObstacleList.Add(objV);
             objV.transform.position = Vpos;
-            GameObject objW = Instantiate(obstacleW);
+            GameObject objW = poolManager.Get(obstacleW);
             ObstacleList.Add(objW);
             objW.transform.position = Wpos;
             // int rT = Random.Range(0, 26);
@@ -262,8 +279,8 @@ public class MapScript : MonoBehaviour
     {
         for (int i = 0; i < 7; i++)
         {
-            GameObject obj = GameObject.Instantiate(Warriors[Random.Range(0, 6)]);
-
+            // GameObject obj = GameObject.Instantiate(Warriors[Random.Range(0, 6)]);
+            var obj = poolManager.Get(Warriors[Random.Range(0, 6)]);
             Index++;
             //PointIndex.Add(Index);
             Others.Add(obj);
@@ -281,7 +298,7 @@ public class MapScript : MonoBehaviour
             if (ICreateNpcAfter)
             {
 
-                GameObject obj = GameObject.Instantiate(Warriors[Random.Range(0, 6)]);
+                var obj = poolManager.Get(Warriors[Random.Range(0, 6)]);
 
                 Index++;
                 //PointIndex.Add(Index);
@@ -317,11 +334,12 @@ public class MapScript : MonoBehaviour
     {
         for (int i = 0; i < Player.GetComponent<PlayerScript>().AddNum; i++)
         {
-            GameObject obj = GameObject.Instantiate(AddBlood);
-            AddBloodList.Add(obj);
+            // GameObject obj = GameObject.Instantiate(AddBlood);
+            var addBloodObj = poolManager.Get(AddBlood);
+            AddBloodList.Add(addBloodObj);
             float x = Random.Range(-4f, 28f);
             float y = Random.Range(-42f, 6f);
-            obj.transform.position = new Vector3(x, y, 0);
+            addBloodObj.transform.position = new Vector3(x, y, 0);
         }
 
     }
@@ -331,11 +349,12 @@ public class MapScript : MonoBehaviour
         {
             for (int i = 0; i < Player.GetComponent<PlayerScript>().AddAfterNum; i++)
             {
-                GameObject obj = GameObject.Instantiate(AddBlood);
-                AddBloodList.Add(obj);
+                // GameObject obj = GameObject.Instantiate(AddBlood);
+                var addBloodObj = poolManager.Get(AddBlood);
+                AddBloodList.Add(addBloodObj);
                 float x = Random.Range(2f, 22f);
                 float y = Random.Range(-36f, 0f);
-                obj.transform.position = new Vector3(x, y, 0);
+                addBloodObj.transform.position = new Vector3(x, y, 0);
             }
         }
     }
@@ -344,11 +363,12 @@ public class MapScript : MonoBehaviour
     {
         for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapNum; i++)
         {
-            GameObject obj = GameObject.Instantiate(Trap);
-            TrapList.Add(obj);
+            // GameObject obj = GameObject.Instantiate(Trap);
+            var trapObj = poolManager.Get(Trap);
+            TrapList.Add(trapObj);
             float x = Random.Range(-4f, 28f);
             float y = Random.Range(-42f, 6f);
-            obj.transform.position = new Vector3(x, y, 0);
+            trapObj.transform.position = new Vector3(x, y, 0);
         }
     }
     public void CreateTrapAfter()
@@ -357,11 +377,12 @@ public class MapScript : MonoBehaviour
         {
             for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapAfterNum; i++)
             {
-                GameObject obj = GameObject.Instantiate(Trap);
-                TrapList.Add(obj);
+                // GameObject obj = GameObject.Instantiate(Trap);
+                var trapObj = poolManager.Get(Trap);
+                TrapList.Add(trapObj);
                 float x = Random.Range(2f, 22f);
                 float y = Random.Range(-36f, 0f);
-                obj.transform.position = new Vector3(x, y, 0);
+                trapObj.transform.position = new Vector3(x, y, 0);
             }
         }
     }
@@ -370,11 +391,12 @@ public class MapScript : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             int ItemID = Random.Range(0, 10);
-            GameObject obj = GameObject.Instantiate(Item[ItemID]);
-            ItemList.Add(obj);
+            // GameObject obj = GameObject.Instantiate(Item[ItemID]);
+            var itemObj = poolManager.Get(Item[ItemID]);
+            ItemList.Add(itemObj);
             float x = Random.Range(-4f, 28f);
             float y = Random.Range(-42f, 6f);
-            obj.transform.position = new Vector3(x, y, 0);
+            itemObj.transform.position = new Vector3(x, y, 0);
         }
     }
     public void CreateItemAfter()
@@ -382,11 +404,12 @@ public class MapScript : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             int ItemID = Random.Range(0, 10);
-            GameObject obj = GameObject.Instantiate(Item[ItemID]);
-            ItemList.Add(obj);
+            // GameObject obj = GameObject.Instantiate(Item[ItemID]);
+            var itemObj = poolManager.Get(Item[ItemID]);
+            ItemList.Add(itemObj);
             float x = Random.Range(-4f, 28f);
             float y = Random.Range(-42f, 6f);
-            obj.transform.position = new Vector3(x, y, 0);
+            itemObj.transform.position = new Vector3(x, y, 0);
         }
     }
 
@@ -394,8 +417,7 @@ public class MapScript : MonoBehaviour
     {
         if (ISingle)
         {
-            SortPanel.SetActive(false);
-            if (Others.Count == 1)
+            if (Others.Count == 1 && Player.GetComponent<PlayerScript>().PlayerHp > 0)
             {
                 Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏胜利
                 // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(true);
@@ -444,7 +466,7 @@ public class MapScript : MonoBehaviour
                     }
                 }
             }
-            else if (Others.Count != 1 && Player.GetComponent<PlayerScript>().PlayerHp <= 0)
+            else if (Player.GetComponent<PlayerScript>().PlayerHp <= 0)
             {
 
                 Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏失败
@@ -452,6 +474,8 @@ public class MapScript : MonoBehaviour
                 // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(false);
                 foreach (var item in Others)
                 {
+                    if (item == null)
+                        continue;
                     if (item.tag == "PLAYER")
                     {
                         item.GetComponent<PlayerScript>().IFreeze = true;
@@ -503,6 +527,8 @@ public class MapScript : MonoBehaviour
                 {
                     foreach (var item in Others)
                     {
+                        if (item == null)
+                            continue;
                         if (item.tag == "PLAYER")
                         {
                             item.GetComponent<PlayerScript>().IFreeze = false;
@@ -550,8 +576,7 @@ public class MapScript : MonoBehaviour
     {
         if (IPoints)
         {
-            SortPanel.SetActive(true);
-            if (currentTime < 0 || Player.GetComponent<PlayerScript>().PlayerHp <= 0)
+            if (currentTime <= 0 || Player.GetComponent<PlayerScript>().PlayerHp <= 0)
             {
                 //SortPoint();
                 //ShowSort();
@@ -563,6 +588,8 @@ public class MapScript : MonoBehaviour
 
                 foreach (var item in Others)
                 {
+                    if (item == null)
+                        continue;
                     if (item.tag == "PLAYER")
                     {
                         item.GetComponent<PlayerScript>().IFreeze = true;
@@ -659,6 +686,8 @@ public class MapScript : MonoBehaviour
                 {
                     foreach (var item in Others)
                     {
+                        if (item == null)
+                            continue;
                         if (item.tag == "PLAYER")
                         {
                             item.GetComponent<PlayerScript>().IFreeze = false;
