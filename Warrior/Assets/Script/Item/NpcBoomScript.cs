@@ -9,9 +9,6 @@ public class NpcBoomScript : MonoBehaviour
  
     void Start()
     {
-        Boomeff = Resources.Load<GameObject>("Eff/BoomEffObj");
-      
-      
         Invoke("FalseBomb", 30f);
     }
     void Update()

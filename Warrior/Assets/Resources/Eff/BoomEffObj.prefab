@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7457756215640357693}
   - component: {fileID: 1470005755741915904}
   - component: {fileID: 6127937320330078857}
-  - component: {fileID: 3492365511027006504}
+  - component: {fileID: 6730538856592476387}
   m_Layer: 0
   m_Name: BoomEffObj
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ccaf89b498cf51f4bb4b7c89c650deec, type: 2}
+  - {fileID: 2100000, guid: b8199416a2ff477418a5158c008ccfd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3492365511027006504
+--- !u!114 &6730538856592476387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 030f1b1a94c598d4fac4b00776f9405f, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: c7d5e50d1624be7478e4268ef589c6b2, type: 2}
   initialSkinName: 
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -121,6 +121,6 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: baozha
-  loop: 1
+  _animationName: show_1
+  loop: 0
   timeScale: 1

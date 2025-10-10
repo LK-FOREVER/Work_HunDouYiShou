@@ -13,9 +13,9 @@ public class HonorbtnScriot : MonoBehaviour
     public Text[] GetText;
     public Image[] Mask;
     public PlayerScript p;
-    int[] Get = new int[20];//??????ßÿ???
+    int[] Get = new int[20];//??????–∂???
 
-    int G;//?????°¿?
+    int G;//?????¬±?
     int g;
     public int getnum;//??????????
     public Text WorkTxt;
@@ -26,25 +26,25 @@ public class HonorbtnScriot : MonoBehaviour
     {
         //PlayerPrefs.SetInt("Getnum", 0);
         RedImg.gameObject.SetActive(false);
-
+        getnum = PlayerPrefs.GetInt(SdkScript.nickname + "Getnum", 0);
         //print(getnum);
-        if (PlayerPrefs.GetInt("PlayerPrefsLock2", 0) != 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0) != 0)
         {
             WorkNum++;
         }
-        if (PlayerPrefs.GetInt("PlayerPrefsLock3", 0) != 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) != 0)
         {
             WorkNum++;
         }
-        if (PlayerPrefs.GetInt("PlayerPrefsLock4", 0) != 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) != 0)
         {
             WorkNum++;
         }
-        if (PlayerPrefs.GetInt("PlayerPrefsLock5", 0) != 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) != 0)
         {
             WorkNum++;
         }
-        if (PlayerPrefs.GetInt("PlayerPrefsLock6", 0) != 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) != 0)
         {
             WorkNum++;
         }
@@ -124,8 +124,8 @@ public class HonorbtnScriot : MonoBehaviour
         //    RedImg.gameObject.SetActive(true);
         //}
 
-        //?ßÿ??????????????
-        int PlayerPrefsLock2 = PlayerPrefs.GetInt("PlayerPrefsLock2", 0);
+        //?–∂??????????????
+        int PlayerPrefsLock2 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0);
         if (PlayerPrefsLock2 == 0)
         {
             GetText[0].gameObject.SetActive(true);
@@ -136,13 +136,13 @@ public class HonorbtnScriot : MonoBehaviour
 
             PlayerPrefs.SetInt("Get1", 1);
         }
-        if (PlayerPrefs.GetInt("Get1", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get1", 0) == 0)   //Œ¥????
         {
             GetText[0].gameObject.SetActive(true);
-            GetText[0].text = "Œ¥ªÒµ√";
+            GetText[0].text = "Êú™Ëé∑Âæó";
             Honor[0].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get1", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get1", 0) == 1) //Œ¥???
         {
             GetText[0].gameObject.SetActive(false);
             Honor[0].gameObject.SetActive(true);
@@ -150,11 +150,11 @@ public class HonorbtnScriot : MonoBehaviour
         else if (PlayerPrefs.GetInt("Get1", 0) == 2)//?????
         {
             GetText[0].gameObject.SetActive(true);
-            GetText[0].text = "“—ªÒ»°";
+            GetText[0].text = "Â∑≤Ëé∑Âèñ";
             Honor[0].gameObject.SetActive(false);
             Mask[0].gameObject.SetActive(true);
         }
-        int PlayerPrefsLock3 = PlayerPrefs.GetInt("PlayerPrefsLock3", 0);
+        int PlayerPrefsLock3 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0);
         if (PlayerPrefsLock3 == 0)
         {
             GetText[1].gameObject.SetActive(true);
@@ -169,13 +169,13 @@ public class HonorbtnScriot : MonoBehaviour
             PlayerPrefs.SetInt("WorkNum", WorkNum);
 
         }
-        if (PlayerPrefs.GetInt("Get2", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get2", 0) == 0)   //Œ¥????
         {
             GetText[1].gameObject.SetActive(true);
-            GetText[1].text = "Œ¥ªÒµ√";
+            GetText[1].text = "Êú™Ëé∑Âæó";
             Honor[1].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get2", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get2", 0) == 1) //Œ¥???
         {
 
             GetText[1].gameObject.SetActive(false);
@@ -185,11 +185,11 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[1].gameObject.SetActive(true);
-            GetText[1].text = "“—ªÒ»°";
+            GetText[1].text = "Â∑≤Ëé∑Âèñ";
             Honor[1].gameObject.SetActive(false);
             Mask[1].gameObject.SetActive(true);
         }
-        int PlayerPrefsLock4 = PlayerPrefs.GetInt("PlayerPrefsLock4", 0);
+        int PlayerPrefsLock4 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
         if (PlayerPrefsLock4 == 0)
         {
             GetText[2].gameObject.SetActive(true);
@@ -199,13 +199,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get3", 1);
         }
-        if (PlayerPrefs.GetInt("Get3", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get3", 0) == 0)   //Œ¥????
         {
             GetText[2].gameObject.SetActive(true);
-            GetText[2].text = "Œ¥ªÒµ√";
+            GetText[2].text = "Êú™Ëé∑Âæó";
             Honor[2].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get3", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get3", 0) == 1) //Œ¥???
         {
 
             GetText[2].gameObject.SetActive(false);
@@ -215,12 +215,12 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[2].gameObject.SetActive(true);
-            GetText[2].text = "“—ªÒ»°";
+            GetText[2].text = "Â∑≤Ëé∑Âèñ";
             Honor[2].gameObject.SetActive(false);
             Mask[2].gameObject.SetActive(true);
         }
         //print(PlayerPrefs.GetInt("Get3", 0));
-        int PlayerPrefsLock5 = PlayerPrefs.GetInt("PlayerPrefsLock5", 0);
+        int PlayerPrefsLock5 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
         if (PlayerPrefsLock5 == 0)
         {
             GetText[3].gameObject.SetActive(true);
@@ -230,13 +230,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get4", 1);
         }
-        if (PlayerPrefs.GetInt("Get4", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get4", 0) == 0)   //Œ¥????
         {
             GetText[3].gameObject.SetActive(true);
-            GetText[3].text = "Œ¥ªÒµ√  ";
+            GetText[3].text = "Êú™Ëé∑Âæó  ";
             Honor[3].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get4", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get4", 0) == 1) //Œ¥???
         {
 
             GetText[3].gameObject.SetActive(false);
@@ -246,11 +246,11 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[3].gameObject.SetActive(true);
-            GetText[3].text = "“—ªÒ»°";
+            GetText[3].text = "Â∑≤Ëé∑Âèñ";
             Honor[3].gameObject.SetActive(false);
             Mask[3].gameObject.SetActive(true);
         }
-        int PlayerPrefsLock6 = PlayerPrefs.GetInt("PlayerPrefsLock6", 0);
+        int PlayerPrefsLock6 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0);
         if (PlayerPrefsLock6 == 0)
         {
             GetText[4].gameObject.SetActive(true);
@@ -260,13 +260,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get5", 1);
         }
-        if (PlayerPrefs.GetInt("Get5", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get5", 0) == 0)   //Œ¥????
         {
             GetText[4].gameObject.SetActive(true);
-            GetText[4].text = "Œ¥ªÒµ√";
+            GetText[4].text = "Êú™Ëé∑Âæó";
             Honor[4].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get5", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get5", 0) == 1) //Œ¥???
         {
 
             GetText[4].gameObject.SetActive(false);
@@ -276,7 +276,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[4].gameObject.SetActive(true);
-            GetText[4].text = "“—ªÒ»°";
+            GetText[4].text = "Â∑≤Ëé∑Âèñ";
             Honor[4].gameObject.SetActive(false);
             Mask[4].gameObject.SetActive(true);
         }
@@ -288,7 +288,7 @@ public class HonorbtnScriot : MonoBehaviour
 
 
 
-        //?ßÿ????????????????
+        //?–∂????????????????
         int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);
         if (P_KillNum < 1)
         {
@@ -301,13 +301,13 @@ public class HonorbtnScriot : MonoBehaviour
 
 
         }
-        if (PlayerPrefs.GetInt("Get6", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get6", 0) == 0)   //Œ¥????
         {
             GetText[5].gameObject.SetActive(true);
-            GetText[5].text = "Œ¥ªÒµ√";
+            GetText[5].text = "Êú™Ëé∑Âæó";
             Honor[5].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get6", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get6", 0) == 1) //Œ¥???
         {
 
             GetText[5].gameObject.SetActive(false);
@@ -317,7 +317,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[5].gameObject.SetActive(true);
-            GetText[5].text = "“—ªÒ»°";
+            GetText[5].text = "Â∑≤Ëé∑Âèñ";
             Honor[5].gameObject.SetActive(false);
             Mask[5].gameObject.SetActive(true);
         }
@@ -331,13 +331,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get7", 1);
         }
-        if (PlayerPrefs.GetInt("Get7", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get7", 0) == 0)   //Œ¥????
         {
             GetText[6].gameObject.SetActive(true);
-            GetText[6].text = "Œ¥ªÒµ√  ";
+            GetText[6].text = "Êú™Ëé∑Âæó  ";
             Honor[6].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get7", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get7", 0) == 1) //Œ¥???
         {
 
             GetText[6].gameObject.SetActive(false);
@@ -347,7 +347,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[6].gameObject.SetActive(true);
-            GetText[6].text = "“—ªÒ»°";
+            GetText[6].text = "Â∑≤Ëé∑Âèñ";
             Honor[6].gameObject.SetActive(false);
             Mask[6].gameObject.SetActive(true);
         }
@@ -361,13 +361,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get8", 1);
         }
-        if (PlayerPrefs.GetInt("Get8", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get8", 0) == 0)   //Œ¥????
         {
             GetText[7].gameObject.SetActive(true);
-            GetText[7].text = "Œ¥ªÒµ√";
+            GetText[7].text = "Êú™Ëé∑Âæó";
             Honor[7].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get8", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get8", 0) == 1) //Œ¥???
         {
 
             GetText[7].gameObject.SetActive(false);
@@ -377,7 +377,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[7].gameObject.SetActive(true);
-            GetText[7].text = "“—ªÒ»°";
+            GetText[7].text = "Â∑≤Ëé∑Âèñ";
             Honor[7].gameObject.SetActive(false);
             Mask[7].gameObject.SetActive(true);
         }
@@ -391,13 +391,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get9", 1);
         }
-        if (PlayerPrefs.GetInt("Get9", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get9", 0) == 0)   //Œ¥????
         {
             GetText[8].gameObject.SetActive(true);
-            GetText[8].text = "Œ¥ªÒµ√";
+            GetText[8].text = "Êú™Ëé∑Âæó";
             Honor[8].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get9", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get9", 0) == 1) //Œ¥???
         {
 
             GetText[8].gameObject.SetActive(false);
@@ -407,7 +407,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[8].gameObject.SetActive(true);
-            GetText[8].text = "“—ªÒ»°";
+            GetText[8].text = "Â∑≤Ëé∑Âèñ";
             Honor[8].gameObject.SetActive(false);
             Mask[8].gameObject.SetActive(true);
         }
@@ -421,13 +421,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get10", 1);
         }
-        if (PlayerPrefs.GetInt("Get10", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get10", 0) == 0)   //Œ¥????
         {
             GetText[9].gameObject.SetActive(true);
-            GetText[9].text = "Œ¥ªÒµ√";
+            GetText[9].text = "Êú™Ëé∑Âæó";
             Honor[9].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get10", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get10", 0) == 1) //Œ¥???
         {
 
             GetText[9].gameObject.SetActive(false);
@@ -437,7 +437,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[9].gameObject.SetActive(true);
-            GetText[9].text = "“—ªÒ»°";
+            GetText[9].text = "Â∑≤Ëé∑Âèñ";
             Honor[9].gameObject.SetActive(false);
             Mask[9].gameObject.SetActive(true);
         }
@@ -446,7 +446,7 @@ public class HonorbtnScriot : MonoBehaviour
 
 
 
-        //?ßÿ?????????????????
+        //?–∂?????????????????
         int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);
         if (P_ColiNum < 10)
         {
@@ -457,13 +457,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get11", 1);
         }
-        if (PlayerPrefs.GetInt("Get11", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get11", 0) == 0)   //Œ¥????
         {
             GetText[10].gameObject.SetActive(true);
-            GetText[10].text = "Œ¥ªÒµ√";
+            GetText[10].text = "Êú™Ëé∑Âæó";
             Honor[10].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get11", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get11", 0) == 1) //Œ¥???
         {
 
             GetText[10].gameObject.SetActive(false);
@@ -473,7 +473,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[10].gameObject.SetActive(true);
-            GetText[10].text = "“—ªÒ»°";
+            GetText[10].text = "Â∑≤Ëé∑Âèñ";
             Honor[10].gameObject.SetActive(false);
             Mask[10].gameObject.SetActive(true);
         }
@@ -487,13 +487,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get12", 1);
         }
-        if (PlayerPrefs.GetInt("Get12", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get12", 0) == 0)   //Œ¥????
         {
             GetText[11].gameObject.SetActive(true);
-            GetText[11].text = "Œ¥ªÒµ√";
+            GetText[11].text = "Êú™Ëé∑Âæó";
             Honor[11].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get12", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get12", 0) == 1) //Œ¥???
         {
 
             GetText[11].gameObject.SetActive(false);
@@ -503,7 +503,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[11].gameObject.SetActive(true);
-            GetText[11].text = "“—ªÒ»°";
+            GetText[11].text = "Â∑≤Ëé∑Âèñ";
             Honor[11].gameObject.SetActive(false);
             Mask[11].gameObject.SetActive(true);
         }
@@ -518,13 +518,13 @@ public class HonorbtnScriot : MonoBehaviour
             PlayerPrefs.SetInt("Get13", 1);
 
         }
-        if (PlayerPrefs.GetInt("Get13", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get13", 0) == 0)   //Œ¥????
         {
             GetText[12].gameObject.SetActive(true);
-            GetText[12].text = "Œ¥ªÒµ√";
+            GetText[12].text = "Êú™Ëé∑Âæó";
             Honor[12].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get13", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get13", 0) == 1) //Œ¥???
         {
 
             GetText[12].gameObject.SetActive(false);
@@ -534,7 +534,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[12].gameObject.SetActive(true);
-            GetText[12].text = "“—ªÒ»°";
+            GetText[12].text = "Â∑≤Ëé∑Âèñ";
             Honor[12].gameObject.SetActive(false);
             Mask[12].gameObject.SetActive(true);
         }
@@ -549,13 +549,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get14", 1);
         }
-        if (PlayerPrefs.GetInt("Get14", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get14", 0) == 0)   //Œ¥????
         {
             GetText[13].gameObject.SetActive(true);
-            GetText[13].text = "Œ¥ªÒµ√";
+            GetText[13].text = "Êú™Ëé∑Âæó";
             Honor[13].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get14", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get14", 0) == 1) //Œ¥???
         {
 
             GetText[13].gameObject.SetActive(false);
@@ -565,7 +565,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[13].gameObject.SetActive(true);
-            GetText[13].text = "“—ªÒ»°";
+            GetText[13].text = "Â∑≤Ëé∑Âèñ";
             Honor[13].gameObject.SetActive(false);
             Mask[13].gameObject.SetActive(true);
         }
@@ -579,13 +579,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get15", 1);
         }
-        if (PlayerPrefs.GetInt("Get15", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get15", 0) == 0)   //Œ¥????
         {
             GetText[14].gameObject.SetActive(true);
-            GetText[14].text = "Œ¥ªÒµ√";
+            GetText[14].text = "Êú™Ëé∑Âæó";
             Honor[14].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get15", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get15", 0) == 1) //Œ¥???
         {
 
             GetText[14].gameObject.SetActive(false);
@@ -595,11 +595,11 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[14].gameObject.SetActive(true);
-            GetText[14].text = "“—ªÒ»°";
+            GetText[14].text = "Â∑≤Ëé∑Âèñ";
             Honor[14].gameObject.SetActive(false);
             Mask[14].gameObject.SetActive(true);
         }
-        //?ßÿ?????????????????
+        //?–∂?????????????????
         int P_PointNum = PlayerPrefs.GetInt("Point", 0);
         if (P_PointNum < 1000)
         {
@@ -610,13 +610,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get16", 1);
         }
-        if (PlayerPrefs.GetInt("Get16", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get16", 0) == 0)   //Œ¥????
         {
             GetText[15].gameObject.SetActive(true);
-            GetText[15].text = "Œ¥ªÒµ√";
+            GetText[15].text = "Êú™Ëé∑Âæó";
             Honor[15].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get16", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get16", 0) == 1) //Œ¥???
         {
 
             GetText[15].gameObject.SetActive(false);
@@ -626,7 +626,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[15].gameObject.SetActive(true);
-            GetText[15].text = "“—ªÒ»°";
+            GetText[15].text = "Â∑≤Ëé∑Âèñ";
             Honor[15].gameObject.SetActive(false);
             Mask[15].gameObject.SetActive(true);
         }
@@ -640,14 +640,14 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get17", 1);
         }
-        if (PlayerPrefs.GetInt("Get17", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get17", 0) == 0)   //Œ¥????
         {
 
             GetText[16].gameObject.SetActive(true);
-            GetText[16].text = "Œ¥ªÒµ√";
+            GetText[16].text = "Êú™Ëé∑Âæó";
             Honor[16].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get17", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get17", 0) == 1) //Œ¥???
         {
 
             GetText[16].gameObject.SetActive(false);
@@ -657,7 +657,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[16].gameObject.SetActive(true);
-            GetText[16].text = "“—ªÒ»°";
+            GetText[16].text = "Â∑≤Ëé∑Âèñ";
             Honor[16].gameObject.SetActive(false);
             Mask[16].gameObject.SetActive(true);
         }
@@ -671,13 +671,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get18", 1);
         }
-        if (PlayerPrefs.GetInt("Get18", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get18", 0) == 0)   //Œ¥????
         {
             GetText[17].gameObject.SetActive(true);
-            GetText[17].text = "Œ¥ªÒµ√";
+            GetText[17].text = "Êú™Ëé∑Âæó";
             Honor[17].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get18", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get18", 0) == 1) //Œ¥???
         {
 
             GetText[17].gameObject.SetActive(false);
@@ -687,7 +687,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[17].gameObject.SetActive(true);
-            GetText[17].text = "“—ªÒ»°";
+            GetText[17].text = "Â∑≤Ëé∑Âèñ";
             Honor[17].gameObject.SetActive(false);
             Mask[17].gameObject.SetActive(true);
         }
@@ -701,13 +701,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get19", 1);
         }
-        if (PlayerPrefs.GetInt("Get19", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get19", 0) == 0)   //Œ¥????
         {
             GetText[18].gameObject.SetActive(true);
-            GetText[18].text = "Œ¥ªÒµ√";
+            GetText[18].text = "Êú™Ëé∑Âæó";
             Honor[18].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get19", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get19", 0) == 1) //Œ¥???
         {
 
             GetText[18].gameObject.SetActive(false);
@@ -717,7 +717,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[18].gameObject.SetActive(true);
-            GetText[18].text = "“—ªÒ»°";
+            GetText[18].text = "Â∑≤Ëé∑Âèñ";
             Honor[18].gameObject.SetActive(false);
             Mask[18].gameObject.SetActive(true);
         }
@@ -731,13 +731,13 @@ public class HonorbtnScriot : MonoBehaviour
         {
             PlayerPrefs.SetInt("Get20", 1);
         }
-        if (PlayerPrefs.GetInt("Get20", 0) == 0)   //¶ƒ????
+        if (PlayerPrefs.GetInt("Get20", 0) == 0)   //Œ¥????
         {
             GetText[19].gameObject.SetActive(true);
-            GetText[19].text = "Œ¥ªÒµ√";
+            GetText[19].text = "Êú™Ëé∑Âæó";
             Honor[19].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Get20", 0) == 1) //¶ƒ???
+        else if (PlayerPrefs.GetInt("Get20", 0) == 1) //Œ¥???
         {
 
             GetText[19].gameObject.SetActive(false);
@@ -747,7 +747,7 @@ public class HonorbtnScriot : MonoBehaviour
         {
 
             GetText[19].gameObject.SetActive(true);
-            GetText[19].text = "“—ªÒ»°";
+            GetText[19].text = "Â∑≤Ëé∑Âèñ";
             Honor[19].gameObject.SetActive(false);
             Mask[19].gameObject.SetActive(true);
         }
@@ -773,7 +773,7 @@ public class HonorbtnScriot : MonoBehaviour
         }
 
 
-        foreach (int temp in Get)                          //?ßÿ?????????
+        foreach (int temp in Get)                          //?–∂?????????
         {
             if (temp == 1)
             {

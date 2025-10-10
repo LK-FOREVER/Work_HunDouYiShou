@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomScript : MonoBehaviour
+public class PlayerBoomScript : MonoBehaviour
 {
     public GameObject Boomeff;
     GameObject obj;
   
     void Start()
     {
-        Boomeff = Resources.Load<GameObject>("Eff/BoomEffObj");
-       
         Invoke("FalseBomb", 30f);
     }
     void Update()
@@ -26,7 +24,6 @@ public class BoomScript : MonoBehaviour
             Invoke("FalseBoom", 1f);
             Destroy(obj,0.6f);
         }
-        Debug.Log("11111111");
     }
     public void FalseBomb()
     {

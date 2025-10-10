@@ -10,17 +10,17 @@ public class W5btnScript : MonoBehaviour
     public bool ILock;
     public bool IPress;
 
-    public Button LockBtn;             //½âËø»òÊ¹ÓÃ°´Å¥
-    public Text LockTxt;               //Ê¹ÓÃÖĞÎÄ±¾
-    public Image Lock;                 //Î´½âËøÒõÓ°
-    public Image LockImg;//ËøÍ¼Æ¬
-    public GameObject[] ChooseArrow;//Ñ¡Ôñ¼ıÍ·
+    public Button LockBtn;             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã°ï¿½Å¥
+    public Text LockTxt;               //Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
+    public Image Lock;                 //æœªè§£é”ï¿½ï¿½Ó°
+    public Image LockImg;//ï¿½ï¿½Í¼Æ¬
+    public GameObject[] ChooseArrow;//Ñ¡ï¿½ï¿½ï¿½Í·
     public int PlayerPrefsLock5 = 0;
     public PlayerScript p;
     void Start()
     {
       
-        PlayerPrefsLock5 = PlayerPrefs.GetInt("PlayerPrefsLock5",0);
+        PlayerPrefsLock5 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5",0);
     }
 
 
@@ -42,7 +42,7 @@ public class W5btnScript : MonoBehaviour
         {
             // s.Player.GetComponent<PlayerScript>().IWarrior5 = true;
             // s.UseImg[4].gameObject.SetActive(true);
-            // foreach (var item in s.UseImg)                         //¹Ø±ÕÆäÓàĞ¡Ê¹ÓÃÖĞ
+            // foreach (var item in s.UseImg)                         //ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê¹ï¿½ï¿½ï¿½ï¿½
             // {
             //     if (item != s.UseImg[4])
             //     {
@@ -66,7 +66,7 @@ public class W5btnScript : MonoBehaviour
     {
         // s.Player.GetComponent<PlayerScript>().IWarrior5 = true;
         // s.UseImg[4].gameObject.SetActive(true);
-        // foreach (var item in s.UseImg)                         //¹Ø±ÕÆäÓàĞ¡Ê¹ÓÃÖĞ
+        // foreach (var item in s.UseImg)                         //ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê¹ï¿½ï¿½ï¿½ï¿½
         // {
         //     if (item != s.UseImg[4])
         //     {
@@ -113,28 +113,28 @@ public class W5btnScript : MonoBehaviour
                 item.gameObject.SetActive(false);
             }
         }
-        s.monsterName.text = "öïÅô";
+        s.monsterName.text = "é²²é¹";
         s.HpTxt.text = ":500";
         s.SpTxt.text = ":100";
         s.AkTxt.text = ":10";
-        s.TellTxt.text = "¼¼ÄÜ£º±»¶¯¼¼ÄÜ£¬ÉúÃüÖµÔ½µÍ£¬¹¥»÷Á¦Ô½¸ß¡£";
+        s.TellTxt.text = "è¢«åŠ¨æŠ€èƒ½ï¼Œç”Ÿå‘½å€¼è¶Šä½ï¼Œæ”»å‡»åŠ›è¶Šé«˜ã€‚";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[4];
 
-        //¸ù¾İÊÇ·ñ±»°´Ñ¹¹ıÏÔÊ¾°´Å¥»òÎÄ±¾
-        //µã»÷ÅĞ¶Ï°´Å¥ÏÔÊ¾ÎÄ±¾
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ñ±»°ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Å¥ï¿½ï¿½ï¿½Ä±ï¿½
+        //ï¿½ï¿½ï¿½ï¿½Ğ¶Ï°ï¿½Å¥ï¿½ï¿½Ê¾ï¿½Ä±ï¿½
         if (ILock && IPress)
         {
-            LockBtnTxt.text = "³öÕ½ÖĞ";
+            LockBtnTxt.text = "å‡ºæˆ˜ä¸­";
             LockBtn.interactable = false;
         }
         else if (ILock && !IPress)
         {
-            LockBtnTxt.text = "³öÕ½";
+            LockBtnTxt.text = "å‡ºæˆ˜";
             LockBtn.interactable = true;
         }
         else if (!ILock)
         {
-            LockBtnTxt.text = "Î´½âËø";
+            LockBtnTxt.text = "æœªè§£é”";
             LockBtn.interactable = false;
         }
     }

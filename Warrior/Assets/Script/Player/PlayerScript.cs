@@ -116,10 +116,10 @@ public class PlayerScript : MonoBehaviour
         Name = "玩家";
         rig = GetComponent<Rigidbody2D>();
         StartCoroutine("ShowPlayerHp");
-        //PlayerPrefs.SetInt("PlayerPrefsLock2", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock3", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock4", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock5", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
 
         //int   coin = PlayerPrefs.GetInt("Coin", 0);
         //   coin += 50000;

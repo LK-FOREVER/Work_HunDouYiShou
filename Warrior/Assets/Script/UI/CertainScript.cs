@@ -34,7 +34,7 @@ public class CertainScript : MonoBehaviour
             //        PlayerPrefs.SetInt("Coin",coin);              //钱库减少
             //        s.WarriorBtn[0].GetComponent<W1btnScript>().ILock = true;
             //        //s.WarriorBtn[0].GetComponent<W1btnScript>().Lock.gameObject.SetActive(false);
-            //        PlayerPrefs.SetInt("PlayerPrefsLock1", 1);
+            //        PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
 
             //        BuyPanel.SetActive(false);
             //    }
@@ -48,7 +48,7 @@ public class CertainScript : MonoBehaviour
                     PlayerPrefs.SetInt("Coin", coin);              //钱库减少
                     s.WarriorBtn[1].GetComponent<W2btnScript>().ILock = true;
                     s.WarriorBtn[1].GetComponent<W2btnScript>().LockBtnTxt.text = "已解锁";
-                    PlayerPrefs.SetInt("PlayerPrefsLock2", 1);     //购买后永久存储
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);     //购买后永久存储
                     BuyPanel.SetActive(false);
 
                     int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //完成任务数
@@ -73,7 +73,7 @@ public class CertainScript : MonoBehaviour
                     PlayerPrefs.SetInt("Coin", coin);              //钱库减少
                     s.WarriorBtn[2].GetComponent<W3btnScript>().ILock = true;
                     s.WarriorBtn[2].GetComponent<W3btnScript>().LockBtnTxt.text = "已解锁";
-                    PlayerPrefs.SetInt("PlayerPrefsLock3", 1);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
                     BuyPanel.SetActive(false);
                     int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //完成任务数
                     WorkNum++;
@@ -97,7 +97,7 @@ public class CertainScript : MonoBehaviour
                     PlayerPrefs.SetInt("Crystal", crystal);              //钱库减少
                     s.WarriorBtn[3].GetComponent<W4btnScript>().ILock = true;
                     s.WarriorBtn[3].GetComponent<W4btnScript>().LockBtnTxt.text = "已解锁";
-                    PlayerPrefs.SetInt("PlayerPrefsLock4", 1);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 1);
                     BuyPanel.SetActive(false);
                     int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //完成任务数
                     WorkNum++;
@@ -121,7 +121,7 @@ public class CertainScript : MonoBehaviour
                     PlayerPrefs.SetInt("Crystal", crystal);              //钱库减少
                     s.WarriorBtn[4].GetComponent<W5btnScript>().ILock = true;
                     s.WarriorBtn[4].GetComponent<W5btnScript>().LockBtnTxt.text = "已解锁";
-                    PlayerPrefs.SetInt("PlayerPrefsLock5", 1);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 1);
                     BuyPanel.SetActive(false);
                     int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //完成任务数
                     WorkNum++;
@@ -145,7 +145,7 @@ public class CertainScript : MonoBehaviour
                     PlayerPrefs.SetInt("Crystal", crystal);              //钱库减少
                     s.WarriorBtn[5].GetComponent<W6btnScript>().ILock = true;
                     s.WarriorBtn[5].GetComponent<W6btnScript>().LockBtnTxt.text = "已解锁";
-                    PlayerPrefs.SetInt("PlayerPrefsLock6", 1);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 1);
                     BuyPanel.SetActive(false);
                     int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //完成任务数
                     WorkNum++;

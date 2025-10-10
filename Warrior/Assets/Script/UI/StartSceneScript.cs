@@ -71,11 +71,11 @@ public class StartSceneScript : MonoBehaviour
         }
 
         ChooseWarriors();
-        //PlayerPrefs.SetInt("PlayerPrefsLock2", 0);  //重置英雄解锁
-        //PlayerPrefs.SetInt("PlayerPrefsLock3", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock4", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock5", 0);
-        //PlayerPrefs.SetInt("PlayerPrefsLock6", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 0);  //重置英雄解锁
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 0);
     }
 
     void Update()
@@ -134,7 +134,7 @@ public class StartSceneScript : MonoBehaviour
                 // }
                 break;
             case 2:
-                if (PlayerPrefs.GetInt("PlayerPrefsLock2",0)==1)
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2",0)==1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[1];
                     p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[1];
@@ -158,7 +158,7 @@ public class StartSceneScript : MonoBehaviour
                 }
                 break;
             case 3:
-                if (PlayerPrefs.GetInt("PlayerPrefsLock3",0)==1)
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3",0)==1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[2];
                     p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[2];
@@ -182,7 +182,7 @@ public class StartSceneScript : MonoBehaviour
                 }
                 break;
             case 4:
-                if (PlayerPrefs.GetInt("PlayerPrefsLock4",0)==1)
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4",0)==1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[3];
                     p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[3];
@@ -206,7 +206,7 @@ public class StartSceneScript : MonoBehaviour
                 }
                 break;
             case 5:
-                if (PlayerPrefs.GetInt("PlayerPrefsLock5",0)==1)
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5",0)==1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[4];
                     p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[4];
@@ -230,7 +230,7 @@ public class StartSceneScript : MonoBehaviour
                 }
                 break;
             case 6:
-                if (PlayerPrefs.GetInt("PlayerPrefsLock6",0)==1)
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6",0)==1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[5];
                     p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[5];

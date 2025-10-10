@@ -21,7 +21,7 @@ public class W1btnScript : MonoBehaviour
     void Start()
     {
 
-        //PlayerPrefsLock1 = PlayerPrefs.GetInt("PlayerPrefsLock1",0);
+        //PlayerPrefsLock1 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock1",0);
     }
 
 

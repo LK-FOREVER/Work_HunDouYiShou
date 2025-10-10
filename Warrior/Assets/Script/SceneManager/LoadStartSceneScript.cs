@@ -17,7 +17,7 @@ public class LoadStartSceneScript : MonoBehaviour
     float loadvalue = 0;
 
     public Image WarningImg;
-    
+
     public SdkScript sdkScript;
 
     public Text LoadTxt;
@@ -26,13 +26,13 @@ public class LoadStartSceneScript : MonoBehaviour
     public GameObject ExitTips;//防沉迷踢出弹窗
     void Start()
     {
-        if (PlayerPrefs.GetInt("ExitGagme",0)==0)
+        if (PlayerPrefs.GetInt("ExitGagme", 0) == 0)
         {
             WarningImg.gameObject.SetActive(true);
             Invoke("FalseWarning", 7f);
         }
-        PlayerPrefs.SetInt("ExitGagme",0);
-        
+        PlayerPrefs.SetInt("ExitGagme", 0);
+
 
         //Invoke("falseWarning", 3f);
         //v = GetComponent<VideoPlayer>();
@@ -40,6 +40,10 @@ public class LoadStartSceneScript : MonoBehaviour
         startBtn.onClick.AddListener(() =>
         {
 #if UNITY_EDITOR
+            LoginPram loginPram = new LoginPram { nickname = "g759993417", adult_level = "4", timestamp = "1700000000" };
+            SdkScript.nickname = loginPram.nickname;
+            SdkScript.adult_level = Convert.ToInt32(loginPram.adult_level);
+            ID(loginPram);
             StartCoroutine("AsyncLoadScene");
 #elif UNITY_ANDROID
         AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -52,7 +56,7 @@ public class LoadStartSceneScript : MonoBehaviour
     }
     void Update()
     {
-         if (async == null)                                //预错
+        if (async == null)                                //预错
         {
             return;
         }
@@ -73,7 +77,7 @@ public class LoadStartSceneScript : MonoBehaviour
         }
         if (loadvalue >= 100)
         {
-           
+
             LoadTxt.gameObject.SetActive(false);
             //async.allowSceneActivation = true;
 
@@ -86,7 +90,7 @@ public class LoadStartSceneScript : MonoBehaviour
         async.allowSceneActivation = true;
         yield return async;
 
-      
+
     }
     public void LoginCallBack(string str)
     {
@@ -114,28 +118,26 @@ public class LoadStartSceneScript : MonoBehaviour
     }
     private void ID(LoginPram data)
     {
-        PlayerPrefs.SetInt("CurrentPlayerAge",Convert.ToInt32(data.adult_level) );
-        string str = "y73163550,4;c73163563,4;c73163569,4:f73163582:e73163829,4:l73163973,4:g73164057,4:x73163914,4:x73164019,4:k73164075,4:i73163591,3:w73163597,3:x73163605,3:a73163624,3" +
-            "v73163894,3:f73164000,3:u73164064,3:b73163920,3:g73164024,3:d73164080,3:u73163632,2:a73163637,2:q73163643,2:v73163648,2:d73163908,2:s73164005,2:d73164069,2:w73163927,2:p73164029,2:t73164085,2" +
-            "d73163700,1:i73163705,1:v73163708,1:x73163712,1";
+        PlayerPrefs.SetInt("CurrentPlayerAge", Convert.ToInt32(data.adult_level));
+        string str = "y75999322,4;f75999326,4;m75999331,4;g75999347,4;r75999384,4;k75999398,4;j75999307,3;s75999313,3;u75999318,3;d75999342,3;e75999379,3;a75999393,3;";
         string[] list = str.Split(';');
-        for (int i = 0; i < list.Length; i++) 
+        for (int i = 0; i < list.Length; i++)
         {
             string[] temp = list[i].Split(',');    //多次生成temp
             if (data.nickname == temp[0] && temp[1] == "4")
             {
-                PlayerPrefs.SetInt("PlayerPrefsLock1", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock2", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock3", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock4", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock5", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock6", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 1);
             }
             if (data.nickname == temp[0] && temp[1] == "3")
             {
-                PlayerPrefs.SetInt("PlayerPrefsLock1", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock2", 1);
-                PlayerPrefs.SetInt("PlayerPrefsLock3", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
             }
         }
     }

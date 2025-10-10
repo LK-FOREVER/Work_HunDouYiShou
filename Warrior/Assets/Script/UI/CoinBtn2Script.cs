@@ -8,7 +8,7 @@ public class CoinBtn2Script : MonoBehaviour
     public GameObject BuyResourcePanel;
     public void OnClickCoinBtn2()
     {
-        if (SdkScript.adult_level == 2 && PlayerPrefs.GetInt(SdkScript.nickname+"ChargeNum",0)+25>=400)
+        if (SdkScript.adult_level == 2 && PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 25 >= 400)
         {
             ChargeWarnPop.SetActive(true);
             return;

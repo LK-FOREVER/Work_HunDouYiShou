@@ -17,10 +17,10 @@ public class ChangeMonsterPanelScript : MonoBehaviour
     public void InitUI()
     {
         Debug.Log("CurrentPlayer：" + PlayerPrefs.GetInt("CurrentPlayer"));
-        PlayerPrefs.SetInt("PlayerPrefsLock1", 1);//默认解锁第一个异兽
+        PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);//默认解锁第一个异兽
         for (int i = 1; i < lockObj.Length; i++)
         {
-            if (PlayerPrefs.GetInt("PlayerPrefsLock" + (i + 1), 0) == 0)
+            if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 0)
             {
                 lockObj[i].SetActive(true);
                 lockMaskObj[i].SetActive(true);

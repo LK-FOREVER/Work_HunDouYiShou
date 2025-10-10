@@ -43,7 +43,7 @@ public class Warrior1BackScript : MonoBehaviour
             {
 
                 Vector3 Defendd = (this.transform.position - collision.transform.position).normalized;
-                this.GetComponentInParent<Warrior1Script>().rig.AddForce(Defendd * 10000 * Time.deltaTime); //���Է�ʩ�����������������ģ���ֹ��Ҿ��?
+                this.GetComponentInParent<Warrior1Script>().rig.AddForce(Defendd * 10000 * Time.deltaTime); //���Է�ʩ�����������������ģ���ֹ��Ҿ��?
 
                 this.GetComponentInParent<Warrior1Script>().rig.drag = 6f;
                 this.GetComponentInParent<Warrior1Script>().rig.angularDrag = 6f;
@@ -51,7 +51,7 @@ public class Warrior1BackScript : MonoBehaviour
                 this.GetComponentInParent<Warrior1Script>().DecreaseWarrior1Hp(10);
                 this.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 this.GetComponentInParent<Warrior1Script>().BloodTxt.text = "-" + "10";
-                GetComponentInParent<Warrior1Script>().m.GetComponent<MapScript>().dic["���?"] += 20;
+                GetComponentInParent<Warrior1Script>().m.GetComponent<MapScript>().dic["玩家"] += 20;
                 this.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
                 this.GetComponentInParent<Warrior1Script>().InvokeFalseBloodTxt();
             }

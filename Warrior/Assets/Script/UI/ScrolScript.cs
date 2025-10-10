@@ -16,7 +16,7 @@ public class ScrolScript : ScrollRect
 
     void Start()
     {
-        radius = (transform as RectTransform).sizeDelta.x * 0.25f;                                           //比例半径
+        radius = (transform as RectTransform).sizeDelta.x * 0.25f;                                           //??????
 
         player = GameObject.Find("Player");
     }
@@ -25,7 +25,7 @@ public class ScrolScript : ScrollRect
 
         
     }
-    public override void OnDrag(PointerEventData eventData)                                                 //拖拽方法
+    public override void OnDrag(PointerEventData eventData)                                                 //???????
     {
         player.GetComponent<PlayerScript>().IMove = true;
 
@@ -33,24 +33,24 @@ public class ScrolScript : ScrollRect
 
         if (this.content.anchoredPosition.magnitude > radius)
         {
-            this.content.anchoredPosition = this.content.anchoredPosition.normalized * radius;               //不超过该方向半径长度
+            this.content.anchoredPosition = this.content.anchoredPosition.normalized * radius;               //???????÷????????
         }
 
-        SetContentAnchoredPosition(this.content.anchoredPosition.normalized * radius);                       //将锚点位置赋给控件 摇杆方向
+        SetContentAnchoredPosition(this.content.anchoredPosition.normalized * radius);                       //??ê??λ???????? ??????
 
         Vector2 _d = this.content.anchoredPosition;
         if (player != null)
         {
-            player.GetComponent<PlayerScript>().SetDir(_d);                                                   //将遥感方向传入3D世界
+            player.GetComponent<PlayerScript>().SetDir(_d);                                                   //????з?????3D????
         }
 
     }
 
     public override void OnEndDrag(PointerEventData eventData)
     {
-        base.OnEndDrag(eventData);                                                                           //原有
+        base.OnEndDrag(eventData);                                                                           //???
 
-        /* player.GetComponent<PlayerScript>().SetDir(Vector2.zero); */                                           //结束拖拽摇杆归位
+        /* player.GetComponent<PlayerScript>().SetDir(Vector2.zero); */                                           //???????????λ
         player.GetComponent<PlayerScript>().IMove = false;
     }
 

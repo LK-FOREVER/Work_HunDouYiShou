@@ -23,11 +23,13 @@ public class CertainResourceScript : MonoBehaviour
                 BuyResourcePanel.SetActive(false);
                 crystal += 100;
                 PlayerPrefs.SetInt("Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 5);//增加充值金额
                 break;
             case 2:
                 BuyResourcePanel.SetActive(false);
                 crystal += 500;
                 PlayerPrefs.SetInt("Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 25);//增加充值金额
                 break;
             case 3:
                 if (crystal < 10)
