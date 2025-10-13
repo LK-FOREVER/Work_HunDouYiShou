@@ -44,9 +44,9 @@ public class PlayerCollisionScript : MonoBehaviour
 
                 this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
                 this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
             }
 
@@ -62,9 +62,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname +"ColiNum", P_ColiNum);
 
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -83,9 +83,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -105,9 +105,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -126,9 +126,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -146,9 +146,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -167,9 +167,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 Ifront = true;
                 //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 25;
                 GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 25;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
 
@@ -187,7 +187,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior1Script>().DecreaseWarrior1Hp(this.GetComponentInParent<PlayerScript>().Ak);
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior1Script>().InvokeFalseBloodTxt();
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -195,9 +195,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] +=100;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("KillNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "KillNum", P_KillNum);
                     Killnum++;//记录该局击杀数
 
                 }
@@ -205,9 +205,9 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
 
@@ -227,7 +227,7 @@ public class PlayerCollisionScript : MonoBehaviour
                     collision.GetComponentInParent<Warrior2Script>().DecreaseWarrior2Hp(this.GetComponentInParent<PlayerScript>().Ak);
                     collision.GetComponentInParent<Warrior2Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                     collision.GetComponentInParent<Warrior2Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                    collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                    collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(1f,1f, 1f);
                     collision.GetComponentInParent<Warrior2Script>().InvokeFalseBloodTxt();
                 }
                 if (collision.GetComponentInParent<Warrior2Script>().Ishield == true && collision.GetComponentInParent<Warrior2Script>().ShieldHp != 0)
@@ -244,18 +244,18 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] +=100;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("KillNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "KillNum", P_KillNum);
                     Killnum++;//记录该局击杀数
                 }
                 else
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
 
@@ -272,7 +272,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior3Script>().DecreaseWarrior3Hp(this.GetComponentInParent<PlayerScript>().Ak);
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
                 collision.GetComponentInParent<Warrior3Script>().GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 collision.GetComponentInParent<Warrior3Script>().Warrior3Rotation.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
@@ -283,18 +283,18 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 100;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("KillNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "KillNum", P_KillNum);
                     Killnum++;//记录该局击杀数
                 }
                 else
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
 
@@ -312,7 +312,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior4Script>().DecreaseWarrior4Hp(this.GetComponentInParent<PlayerScript>().Ak);
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior4Script>().InvokeFalseBloodTxt();
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -321,18 +321,18 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 100;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("KillNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "KillNum", P_KillNum);
                     Killnum++;//记录该局击杀数
                 }
                 else
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
 
@@ -350,7 +350,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior5Script>().DecreaseWarrior5Hp(this.GetComponentInParent<PlayerScript>().Ak);
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior5Script>().InvokeFalseBloodTxt();
                 collision.GetComponentInParent<Warrior5Script>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -359,18 +359,18 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 100;
                     GetComponentInParent<Warrior5Script>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_KillNum);
                     Killnum++;//记录该局击杀数
                 }
                 else
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
 
@@ -388,7 +388,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior6Script>().DecreaseWarrior6Hp(this.GetComponentInParent<PlayerScript>().Ak);
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.text = "-" + this.GetComponentInParent<PlayerScript>().Ak.ToString();
-                collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
                 GetComponentInParent<PlayerScript>().ColiEff.SetActive(true);                //撞击特效
                 Invoke("FalseColiEff", 0.3f);
@@ -396,18 +396,18 @@ public class PlayerCollisionScript : MonoBehaviour
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 100;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
-                    int P_KillNum = PlayerPrefs.GetInt("KillNum", 0);                            //存入击杀数
+                    int P_KillNum = PlayerPrefs.GetInt(SdkScript.nickname + "KillNum", 0);                            //存入击杀数
                     P_KillNum++;
-                    PlayerPrefs.SetInt("KillNum", P_KillNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "KillNum", P_KillNum);
                     Killnum++;//记录该局击杀数
                 }
                 else
                 {
                     //GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().Warriorpoint[GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().index] += 50;
                     GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
-                    int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //存入撞击数
+                    int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //存入撞击数
                     P_ColiNum++;
-                    PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
                 }
 
             }
@@ -422,7 +422,7 @@ public class PlayerCollisionScript : MonoBehaviour
                 this.GetComponentInParent<PlayerScript>().DecreasePlayerHp(10);
                 this.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 this.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
-                this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
                 this.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
                 //被命中对面加分
                 if (collision.transform.parent.name == "Player")
@@ -486,7 +486,7 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
             GetComponentInParent<PlayerScript>().BloodTxt.text = "-20";
-            GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+            GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
             GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             GetComponentInParent<PlayerScript>().audio.clip = GetComponentInParent<PlayerScript>().acilp[7];
             GetComponentInParent<PlayerScript>().audio.Play();
@@ -499,7 +499,7 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
             GetComponentInParent<PlayerScript>().BloodTxt.text = "-10";
-            GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+            GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
             GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             GetComponentInParent<PlayerScript>().audio.clip = GetComponentInParent<PlayerScript>().acilp[11];
             GetComponentInParent<PlayerScript>().audio.Play();

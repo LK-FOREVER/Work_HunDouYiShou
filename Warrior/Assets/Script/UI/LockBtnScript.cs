@@ -26,26 +26,26 @@ public class LockBtnScript : MonoBehaviour
         
         p.audio.clip = p.acilp[0];
         p.audio.Play();
-        int index = isFirst? PlayerPrefs.GetInt("CurrentPlayer") : Manager.GetComponent<StartSceneScript>().ChooseIndex;
+        int index = isFirst? PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer") : Manager.GetComponent<StartSceneScript>().ChooseIndex;
         switch (index)
         {
             case 1:
-                if (WarriorBtn[0].GetComponent<W1btnScript>().ILock)           //ÒÑ½âËøÇé¿öÏÂµã»÷
+                if (WarriorBtn[0].GetComponent<W1btnScript>().ILock)           //ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = true;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = false;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = false;
                     WarriorBtn[0].GetComponent<W1btnScript>().W1();
-                    PlayerPrefs.SetInt("CurrentPlayer", 1);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 1);
                 }
                 else 
                 {
-                    //BugPanel.SetActive(true); //µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    //BugPanel.SetActive(true); //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     //CoinTxt.text = "*5000";
-                    //AskTxt.text = "ÊÇ·ñ»¨·Ñ5000½ð±Ò½âËø¸ÃÓÂÕß";
+                    //AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½5000ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
                     //WarningImg.GetComponent<Image>().sprite = p.WarriorImg[0];
 
                 }
@@ -54,19 +54,19 @@ public class LockBtnScript : MonoBehaviour
                 if (WarriorBtn[1].GetComponent<W2btnScript>().ILock)
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = false;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = true;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = true;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = false;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = false;
                     WarriorBtn[1].GetComponent<W2btnScript>().W2();
-                    PlayerPrefs.SetInt("CurrentPlayer", 2);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 2);
                 }
                 else /*if (!WarriorBtn[1].GetComponent<W1btnScript>().ILock)*/
                 {
-                    // BugPanel.SetActive(true); //µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    // BugPanel.SetActive(true); //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     // CoinTxt.text = "*5000";
-                    // AskTxt.text = "ÊÇ·ñ»¨·Ñ5000½ð±Ò½âËø¸ÃÒìÊÞ£¿";
+                    // AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½5000ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½";
                     // WarningImg.GetComponent<Image>().sprite = p.WarriorImg[1];
                 }
                 break;
@@ -74,19 +74,19 @@ public class LockBtnScript : MonoBehaviour
                 if (WarriorBtn[2].GetComponent<W3btnScript>().ILock)
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = false;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = true;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = false;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = false;
                     WarriorBtn[2].GetComponent<W3btnScript>().W3();
-                    PlayerPrefs.SetInt("CurrentPlayer", 3);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 3);
                 }
                 else 
                 {
-                    // BugPanel.SetActive(true); //µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    // BugPanel.SetActive(true); //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     // CoinTxt.text = "*20000";
-                    // AskTxt.text = "ÊÇ·ñ»¨·Ñ20000½ð±Ò½âËø¸ÃÒìÊÞ£¿";
+                    // AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½20000ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½";
                     // WarningImg.GetComponent<Image>().sprite = p.WarriorImg[2];
                 }
                 break;
@@ -94,19 +94,19 @@ public class LockBtnScript : MonoBehaviour
                 if (WarriorBtn[3].GetComponent<W4btnScript>().ILock)
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = false;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = true;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = false;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().W4();
-                    PlayerPrefs.SetInt("CurrentPlayer", 4);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 4);
                 }
                 else 
                 {
-                    // BugPanel.SetActive(true);//µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    // BugPanel.SetActive(true);//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     // CoinTxt.text = "*50000";
-                    // AskTxt.text = "ÊÇ·ñ»¨·Ñ50000×êÊ¯½âËø¸ÃÒìÊÞ£¿";
+                    // AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½50000ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½";
                     // WarningImg.GetComponent<Image>().sprite = p.WarriorImg[3];
                 }
                 break;
@@ -114,19 +114,19 @@ public class LockBtnScript : MonoBehaviour
                 if (WarriorBtn[4].GetComponent<W5btnScript>().ILock)
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = false;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = true;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().W5();
-                    PlayerPrefs.SetInt("CurrentPlayer", 5);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 5);
                 }
                 else 
                 {
-                    // BugPanel.SetActive(true); //µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    // BugPanel.SetActive(true); //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     // CoinTxt.text = "*300";
-                    // AskTxt.text = "ÊÇ·ñ»¨·Ñ300×êÊ¯½âËø¸ÃÒìÊÞ£¿";
+                    // AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½300ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½";
                     // WarningImg.GetComponent<Image>().sprite = p.WarriorImg[4];
                 }
                 break;
@@ -134,19 +134,19 @@ public class LockBtnScript : MonoBehaviour
                 if (WarriorBtn[5].GetComponent<W6btnScript>().ILock)
                 {
                     WarriorBtn[0].GetComponent<W1btnScript>().IPress = false;
-                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ÖØÖÃÆäÓà°´Ñ¹
+                    WarriorBtn[1].GetComponent<W2btnScript>().IPress = false;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à°´Ñ¹
                     WarriorBtn[2].GetComponent<W3btnScript>().IPress = false;
                     WarriorBtn[3].GetComponent<W4btnScript>().IPress = false;
                     WarriorBtn[4].GetComponent<W5btnScript>().IPress = false;
                     WarriorBtn[5].GetComponent<W6btnScript>().IPress = true;
                     WarriorBtn[5].GetComponent<W6btnScript>().W6();
-                    PlayerPrefs.SetInt("CurrentPlayer", 6);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayer", 6);
                 }
                 else 
                 {
-                    // BugPanel.SetActive(true);//µ¯³öÊÇ·ñ¹ºÂò½çÃæ
+                    // BugPanel.SetActive(true);//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     // CoinTxt.text = "*500";
-                    // AskTxt.text = "ÊÇ·ñ»¨·Ñ500×êÊ¯½âËø¸ÃÒìÊÞ£¿";
+                    // AskTxt.text = "ï¿½Ç·ñ»¨·ï¿½500ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½";
                     // WarningImg.GetComponent<Image>().sprite = p.WarriorImg[5];
                 }
                 break;

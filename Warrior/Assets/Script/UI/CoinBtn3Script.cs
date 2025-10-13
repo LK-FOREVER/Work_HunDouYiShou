@@ -9,8 +9,8 @@ public class CoinBtn3Script : MonoBehaviour
 
     public void OnClickCoinBtn3()
     {
-        int crystal = PlayerPrefs.GetInt("Crystal", 0);
-        int coin = PlayerPrefs.GetInt("Coin", 0);
+        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
+        int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         if (crystal < 10)
         {
             NotEnoughPop.SetActive(true);

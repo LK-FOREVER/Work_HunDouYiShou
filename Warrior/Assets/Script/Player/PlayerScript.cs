@@ -121,9 +121,9 @@ public class PlayerScript : MonoBehaviour
         //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
         //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
 
-        //int   coin = PlayerPrefs.GetInt("Coin", 0);
+        //int   coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         //   coin += 50000;
-        //   PlayerPrefs.SetInt("Coin", coin);
+        //   PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
     }
 
     void Update()

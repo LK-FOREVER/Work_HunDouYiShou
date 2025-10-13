@@ -434,33 +434,33 @@ public class MapScript : MonoBehaviour
                     Player.GetComponent<PlayerScript>().audio.Play();
                     if (Player.GetComponent<PlayerScript>().IEasy)
                     {
-                        int Coin = PlayerPrefs.GetInt("Coin", 0);                                   //加金币
+                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
                         Coin += 200;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*200";
                     }
                     if (Player.GetComponent<PlayerScript>().INormal)
                     {
-                        int Coin = PlayerPrefs.GetInt("Coin", 0);                                   //加金币
+                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
                         Coin += 240;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*240";
                     }
                     if (Player.GetComponent<PlayerScript>().IHard)
                     {
-                        int Coin = PlayerPrefs.GetInt("Coin", 0);                                   //加金币
+                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
                         Coin += 280;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
                     }
                     if (Player.GetComponent<PlayerScript>().IVeryHard)
                     {
-                        int Coin = PlayerPrefs.GetInt("Coin", 0);                                   //加金币
+                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
                         Coin += 360;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
                     }
@@ -513,9 +513,9 @@ public class MapScript : MonoBehaviour
                 {
                     Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[14];
                     Player.GetComponent<PlayerScript>().audio.Play();
-                    int Coin = PlayerPrefs.GetInt("Coin", 0);
+                    int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
                     Coin += 0;
-                    PlayerPrefs.SetInt("Coin", Coin);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                     Icoin = false;
                     Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*0";
                 }
@@ -626,51 +626,51 @@ public class MapScript : MonoBehaviour
                 {
                     Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[12];
                     Player.GetComponent<PlayerScript>().audio.Play();
-                    int Coin = PlayerPrefs.GetInt("Coin", 0);                                   //判断金币数
+                    int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //判断金币数
                     if (dic["玩家"] < 200)
                     {
                         Coin += 0;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*0";
                     }
                     if (dic["玩家"] > 200 && dic["玩家"] <= 500)
                     {
                         Coin += 100;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*100";
                     }
                     if (dic["玩家"] >= 500 && dic["玩家"] <= 2000)
                     {
                         Coin += 200;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*200";
                     }
                     if (dic["玩家"] > 2000)
                     {
                         Coin += 100;
-                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
                         Icoin = false;
                         Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*300";
                     }
-                    int P_Point = PlayerPrefs.GetInt("Point", 0);
+                    int P_Point = PlayerPrefs.GetInt(SdkScript.nickname + "Point", 0);
                     P_Point += dic["玩家"];
-                    PlayerPrefs.SetInt("Point", P_Point);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Point", P_Point);
                 }
                 Player.GetComponent<PlayerScript>().NewText.text = dic["玩家"].ToString();             //?????????
-                //int PlayerprefsPoint = PlayerPrefs.GetInt("PlayerprefsPoint", 0);
-                if (dic["玩家"] > PlayerPrefs.GetInt("PlayerprefsPoint", 0))
+                //int PlayerprefsPoint = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0);
+                if (dic["玩家"] > PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0))
                 {
                     print("Histroy");
                     Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + dic["玩家"].ToString();
-                    PlayerPrefs.SetInt("PlayerprefsPoint", dic["玩家"]);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerprefsPoint", dic["玩家"]);
                     Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(true);
                 }
                 else
                 {
-                    Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt("PlayerprefsPoint", 0).ToString();
+                    Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0).ToString();
                     //Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(false) ;
                 }
 

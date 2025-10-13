@@ -115,7 +115,7 @@ public class W6btnScript : MonoBehaviour
         s.HpTxt.text = ":200";
         s.SpTxt.text = ":160";
         s.AkTxt.text = ":20";
-        s.TellTxt.text = "原地放置一处陷阱，对接触到的敌人造成20点伤害，冷却15秒，陷阱持续30秒。";
+        s.TellTxt.text = "原地放置一个陷阱，对接触到的敌人造成20点伤害，冷却15秒，陷阱持续30秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[5];
 
         //�����Ƿ񱻰�ѹ����ʾ��ť���ı�

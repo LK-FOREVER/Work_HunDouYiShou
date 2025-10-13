@@ -52,7 +52,7 @@ public class SdkScript : MonoBehaviour
         obj.transform.localPosition = new Vector3(0, 0, 0);
         obj.transform.Find("Confirm").GetComponent<Button>().onClick.AddListener(() =>
         {
-            PlayerPrefs.SetInt("ExitGagme",1);
+            PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme",1);
             SceneManager.LoadScene("LoadStartScene");
         });
     }
@@ -67,7 +67,7 @@ public class SdkScript : MonoBehaviour
     // public IEnumerator Exit(int time)
     // {
     //     yield return new WaitForSeconds(time);
-    //     PlayerPrefs.SetInt("ExitGagme",1);
+    //     PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme",1);
     //     SceneManager.LoadScene("LoadStartScene");
     // }
 

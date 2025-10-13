@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior1(Clone)")
@@ -36,7 +36,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior1Script>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior2(Clone)")
@@ -45,7 +45,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<Warrior2Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior2Script>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior2Script>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior3(Clone)")
@@ -54,7 +54,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior4(Clone)")
@@ -63,7 +63,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior4Script>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior5(Clone)")
@@ -72,7 +72,7 @@ public class BulletScript : MonoBehaviour
 
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.text = "-" + "3";
-                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior5Script>().InvokeFalseBloodTxt();
                 if (collision.gameObject.name == "Warrior6(Clone)")
                 {
@@ -80,7 +80,7 @@ public class BulletScript : MonoBehaviour
 
                     collision.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
                     collision.GetComponentInParent<Warrior6Script>().BloodTxt.text = "-" + "3";
-                    collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                    collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(1f,1f, 1f);
                     collision.GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
                 }
             }

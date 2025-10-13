@@ -117,7 +117,7 @@ public class W5btnScript : MonoBehaviour
         s.HpTxt.text = ":500";
         s.SpTxt.text = ":100";
         s.AkTxt.text = ":10";
-        s.TellTxt.text = "被动技能，生命值越低，攻击力越高。";
+        s.TellTxt.text = "被动技能，活力值越低，攻击力越高。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[4];
 
         //�����Ƿ񱻰�ѹ����ʾ��ť���ı�

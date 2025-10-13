@@ -7,8 +7,8 @@ public class MonsterBtn1Script : MonoBehaviour
     public GameObject NotEnoughPop;
     public void OnClickMonsterBtn1()
     {
-        int crystal = PlayerPrefs.GetInt("Crystal", 0);
-        int coin = PlayerPrefs.GetInt("Coin", 0);
+        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
+        int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         if (crystal < 10)
         {
             NotEnoughPop.SetActive(true);
@@ -16,7 +16,7 @@ public class MonsterBtn1Script : MonoBehaviour
         }
         crystal -= 10;
         coin += 500;
-        PlayerPrefs.SetInt("Crystal", crystal);
-        PlayerPrefs.SetInt("Coin", coin);
+        PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
     }
 }

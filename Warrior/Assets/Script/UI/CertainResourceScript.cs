@@ -15,20 +15,20 @@ public class CertainResourceScript : MonoBehaviour
     }
     public void Certain()
     {
-        int crystal = PlayerPrefs.GetInt("Crystal", 0);
-        int coin = PlayerPrefs.GetInt("Coin", 0);
+        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
+        int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         switch (s.ChooseResource)
         {
             case 1:
                 BuyResourcePanel.SetActive(false);
                 crystal += 100;
-                PlayerPrefs.SetInt("Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
                 PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 5);//增加充值金额
                 break;
             case 2:
                 BuyResourcePanel.SetActive(false);
                 crystal += 500;
-                PlayerPrefs.SetInt("Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
                 PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 25);//增加充值金额
                 break;
             case 3:
@@ -42,8 +42,8 @@ public class CertainResourceScript : MonoBehaviour
                 BuyResourcePanel.SetActive(false);
                 crystal -= 10;
                 coin += 500;
-                PlayerPrefs.SetInt("Crystal", crystal);
-                PlayerPrefs.SetInt("Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
                 break;
             case 4:
                 if (crystal < 40)
@@ -56,8 +56,8 @@ public class CertainResourceScript : MonoBehaviour
                 BuyResourcePanel.SetActive(false);
                 crystal -= 40;
                 coin += 2000;
-                PlayerPrefs.SetInt("Crystal", crystal);
-                PlayerPrefs.SetInt("Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
                 break;
             case 5:
                 if (crystal < 100)
@@ -70,8 +70,8 @@ public class CertainResourceScript : MonoBehaviour
                 BuyResourcePanel.SetActive(false);
                 crystal -= 100;
                 coin += 5000;
-                PlayerPrefs.SetInt("Crystal", crystal);
-                PlayerPrefs.SetInt("Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
                 break;
             default:
                 break;

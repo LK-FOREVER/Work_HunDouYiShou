@@ -16,7 +16,7 @@ public class ChangeMonsterPanelScript : MonoBehaviour
     }
     public void InitUI()
     {
-        Debug.Log("CurrentPlayer：" + PlayerPrefs.GetInt("CurrentPlayer"));
+        Debug.Log("CurrentPlayer：" + PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer"));
         PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);//默认解锁第一个异兽
         for (int i = 1; i < lockObj.Length; i++)
         {
@@ -33,11 +33,11 @@ public class ChangeMonsterPanelScript : MonoBehaviour
         }
         // for (int i = 0; i < arrowObj.Length; i++)
         // {
-        //     if (PlayerPrefs.GetInt("PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf && PlayerPrefs.GetInt("CurrentPlayer", 0) == i + 1)
+        //     if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 0) == i + 1)
         //     {
         //         buttonText.text = "出战中";
         //     }
-        //     else if (PlayerPrefs.GetInt("PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf)
+        //     else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf)
         //     {
         //         buttonText.text = "出战";
         //     }

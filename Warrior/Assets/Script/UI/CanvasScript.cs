@@ -19,8 +19,8 @@ public class CanvasScript : MonoBehaviour
     public GameObject m;
     //public List<string> Warriorname = new List<string>();
     //public List<int> Warriorpoint = new List<int>();
-    public Text CoinTxt;                    //ÏÔÊ¾Ö÷½çÃæ½ð±Ò
-    public Text CrystaylTxt;//ÏÔÊ¾Ö÷½çÃæË®¾§
+    public Text CoinTxt;                    //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public Text CrystaylTxt;//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½
     public Text PointCoinTxt;
     public Text SingleCoinTxt;
     public AudioSource audioSource;
@@ -28,7 +28,7 @@ public class CanvasScript : MonoBehaviour
     int coin;
     void Start()
     {
-        //PlayerPrefs.SetInt("Coin", 0);
+        //PlayerPrefs.SetInt(SdkScript.nickname + "Coin", 0);
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = acilp[0];
         audioSource.Play();
@@ -39,11 +39,11 @@ public class CanvasScript : MonoBehaviour
 
     void Update()
     {
-        coin = PlayerPrefs.GetInt("Coin", 0);
+        coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         //if (coin != 999999)
         //{
         //    coin = 999999;
-        //    PlayerPrefs.SetInt("Coin", coin);
+        //    PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
         //}
 
         Vector3 V = Input.mousePosition;
@@ -77,11 +77,11 @@ public class CanvasScript : MonoBehaviour
         UpdateResource();
     }
 
-    //¸üÐÂ×ÊÔ´
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
     public void UpdateResource()
     {
-        CoinTxt.text = PlayerPrefs.GetInt("Coin", 0).ToString();   //ÏÔÊ¾½ð±Ò
-        CrystaylTxt.text = PlayerPrefs.GetInt("Crystal", 0).ToString();//ÏÔÊ¾Ë®¾§
+        CoinTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0).ToString();   //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½
+        CrystaylTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0).ToString();//ï¿½ï¿½Ê¾Ë®ï¿½ï¿½
     }
 
 }

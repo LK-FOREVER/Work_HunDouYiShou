@@ -34,9 +34,9 @@ public class PlayerBackScript : MonoBehaviour
 
                 this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
                 this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
-                int P_ColiNum = PlayerPrefs.GetInt("ColiNum", 0);                            //����ײ����
+                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //����ײ����
                 P_ColiNum++;
-                PlayerPrefs.SetInt("ColiNum", P_ColiNum);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
             }
             if (collision.gameObject.name == "PlayerDefendObject" /*&& collision.gameObject != this.gameObject*/)
@@ -50,7 +50,7 @@ public class PlayerBackScript : MonoBehaviour
                 this.GetComponentInParent<PlayerScript>().DecreasePlayerHp(10);
                 this.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 this.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
-                this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
                 this.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.tag == "frontObject" && Player.GetComponent<PlayerScript>().IWarrior5) //�����ΪӢ��5ʱ

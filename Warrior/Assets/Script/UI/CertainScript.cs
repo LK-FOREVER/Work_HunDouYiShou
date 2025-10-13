@@ -17,21 +17,21 @@ public class CertainScript : MonoBehaviour
     void Start()
     {
         NoCoinTxt.gameObject.SetActive(false);
-       //coin=  PlayerPrefs.GetInt("Coin", 0);
+       //coin=  PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
        
     }
     public void Certain()
     {
-        coin = PlayerPrefs.GetInt("Coin", 0);
-        crystal = PlayerPrefs.GetInt("Crystal", 0);
+        coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
+        crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
 
         switch (s.ChooseWarrior)
         {
             //case 1:
-            //    if (!s.WarriorBtn[0].GetComponent<W1btnScript>().ILock && coin >= Value)                //ÔÚ½âËøÇé¿öÏÂ
+            //    if (!s.WarriorBtn[0].GetComponent<W1btnScript>().ILock && coin >= Value)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             //    {
             //        coin-=Value;
-            //        PlayerPrefs.SetInt("Coin",coin);              //Ç®¿â¼õÉÙ
+            //        PlayerPrefs.SetInt(SdkScript.nickname + "Coin",coin);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
             //        s.WarriorBtn[0].GetComponent<W1btnScript>().ILock = true;
             //        //s.WarriorBtn[0].GetComponent<W1btnScript>().Lock.gameObject.SetActive(false);
             //        PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
@@ -40,23 +40,23 @@ public class CertainScript : MonoBehaviour
             //    }
             //    break;
             case 2:
-                if (!s.WarriorBtn[1].GetComponent<W2btnScript>().ILock && coin >= 5000)                //ÔÚ½âËøÇé¿öÏÂ
+                if (!s.WarriorBtn[1].GetComponent<W2btnScript>().ILock && coin >= 5000)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
-                    s.WarriorBtn[1].GetComponent<W2btnScript>().Lock.gameObject.SetActive(false); //¹Ø±ÕËø
+                    s.WarriorBtn[1].GetComponent<W2btnScript>().Lock.gameObject.SetActive(false); //ï¿½Ø±ï¿½ï¿½ï¿½
 
                     coin -= 5000;
-                    PlayerPrefs.SetInt("Coin", coin);              //Ç®¿â¼õÉÙ
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
                     s.WarriorBtn[1].GetComponent<W2btnScript>().ILock = true;
-                    s.WarriorBtn[1].GetComponent<W2btnScript>().LockBtnTxt.text = "ÒÑ½âËø";
-                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);     //¹ºÂòºóÓÀ¾Ã´æ´¢
+                    s.WarriorBtn[1].GetComponent<W2btnScript>().LockBtnTxt.text = "ï¿½Ñ½ï¿½ï¿½ï¿½";
+                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´æ´¢
                     BuyPanel.SetActive(false);
 
-                    int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //Íê³ÉÈÎÎñÊý
+                    int WorkNum = PlayerPrefs.GetInt(SdkScript.nickname + "WorkNum", 0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     WorkNum++;
-                    PlayerPrefs.SetInt("WorkNum", WorkNum);
-                    int P_NewHero = PlayerPrefs.GetInt("NewHero", 0);       //ÐÂÓ¢ÐÛ³É¾Í
+                    PlayerPrefs.SetInt(SdkScript.nickname + "WorkNum", WorkNum);
+                    int P_NewHero = PlayerPrefs.GetInt(SdkScript.nickname + "NewHero", 0);       //ï¿½ï¿½Ó¢ï¿½Û³É¾ï¿½
                     P_NewHero += 1;
-                    PlayerPrefs.SetInt("NewHero", P_NewHero);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
                 }
                 else if (!s.WarriorBtn[1].GetComponent<W2btnScript>().ILock && coin < 5000/*&&ICertainBuy*/)
@@ -66,21 +66,21 @@ public class CertainScript : MonoBehaviour
                 }
                 break;
             case 3:
-                if (!s.WarriorBtn[2].GetComponent<W3btnScript>().ILock && coin >= 20000)                //ÔÚ½âËøÇé¿öÏÂ
+                if (!s.WarriorBtn[2].GetComponent<W3btnScript>().ILock && coin >= 20000)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
-                    s.WarriorBtn[2].GetComponent<W3btnScript>().Lock.gameObject.SetActive(false); //¹Ø±ÕËø
+                    s.WarriorBtn[2].GetComponent<W3btnScript>().Lock.gameObject.SetActive(false); //ï¿½Ø±ï¿½ï¿½ï¿½
                     coin -= 20000;
-                    PlayerPrefs.SetInt("Coin", coin);              //Ç®¿â¼õÉÙ
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
                     s.WarriorBtn[2].GetComponent<W3btnScript>().ILock = true;
-                    s.WarriorBtn[2].GetComponent<W3btnScript>().LockBtnTxt.text = "ÒÑ½âËø";
+                    s.WarriorBtn[2].GetComponent<W3btnScript>().LockBtnTxt.text = "ï¿½Ñ½ï¿½ï¿½ï¿½";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
                     BuyPanel.SetActive(false);
-                    int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //Íê³ÉÈÎÎñÊý
+                    int WorkNum = PlayerPrefs.GetInt(SdkScript.nickname + "WorkNum", 0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     WorkNum++;
-                    PlayerPrefs.SetInt("WorkNum", WorkNum);
-                    int P_NewHero = PlayerPrefs.GetInt("NewHero", 0);       //ÐÂÓ¢ÐÛ³É¾Í
+                    PlayerPrefs.SetInt(SdkScript.nickname + "WorkNum", WorkNum);
+                    int P_NewHero = PlayerPrefs.GetInt(SdkScript.nickname + "NewHero", 0);       //ï¿½ï¿½Ó¢ï¿½Û³É¾ï¿½
                     P_NewHero += 1;
-                    PlayerPrefs.SetInt("NewHero", P_NewHero);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
                 }
                 else if (!s.WarriorBtn[2].GetComponent<W3btnScript>().ILock && coin < 20000 /*&& ICertainBuy*/)
@@ -90,21 +90,21 @@ public class CertainScript : MonoBehaviour
                 }
                 break;
             case 4:
-                if (!s.WarriorBtn[3].GetComponent<W4btnScript>().ILock && crystal >= 50000)                //ÔÚ½âËøÇé¿öÏÂ
+                if (!s.WarriorBtn[3].GetComponent<W4btnScript>().ILock && crystal >= 50000)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
-                    s.WarriorBtn[3].GetComponent<W4btnScript>().Lock.gameObject.SetActive(false); //¹Ø±ÕËø
+                    s.WarriorBtn[3].GetComponent<W4btnScript>().Lock.gameObject.SetActive(false); //ï¿½Ø±ï¿½ï¿½ï¿½
                     crystal -= 50000;
-                    PlayerPrefs.SetInt("Crystal", crystal);              //Ç®¿â¼õÉÙ
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
                     s.WarriorBtn[3].GetComponent<W4btnScript>().ILock = true;
-                    s.WarriorBtn[3].GetComponent<W4btnScript>().LockBtnTxt.text = "ÒÑ½âËø";
+                    s.WarriorBtn[3].GetComponent<W4btnScript>().LockBtnTxt.text = "ï¿½Ñ½ï¿½ï¿½ï¿½";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 1);
                     BuyPanel.SetActive(false);
-                    int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //Íê³ÉÈÎÎñÊý
+                    int WorkNum = PlayerPrefs.GetInt(SdkScript.nickname + "WorkNum", 0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     WorkNum++;
-                    PlayerPrefs.SetInt("WorkNum", WorkNum);
-                    int P_NewHero = PlayerPrefs.GetInt("NewHero", 0);       //ÐÂÓ¢ÐÛ³É¾Í
+                    PlayerPrefs.SetInt(SdkScript.nickname + "WorkNum", WorkNum);
+                    int P_NewHero = PlayerPrefs.GetInt(SdkScript.nickname + "NewHero", 0);       //ï¿½ï¿½Ó¢ï¿½Û³É¾ï¿½
                     P_NewHero += 1;
-                    PlayerPrefs.SetInt("NewHero", P_NewHero);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
                 }
                 else if (!s.WarriorBtn[3].GetComponent<W4btnScript>().ILock && crystal < 50000/* && ICertainBuy*/)
@@ -114,21 +114,21 @@ public class CertainScript : MonoBehaviour
                 }
                 break;
             case 5:
-                if (!s.WarriorBtn[4].GetComponent<W5btnScript>().ILock && crystal >= 300)                //ÔÚ½âËøÇé¿öÏÂ
+                if (!s.WarriorBtn[4].GetComponent<W5btnScript>().ILock && crystal >= 300)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
-                    s.WarriorBtn[4].GetComponent<W5btnScript>().Lock.gameObject.SetActive(false); //¹Ø±ÕËø
+                    s.WarriorBtn[4].GetComponent<W5btnScript>().Lock.gameObject.SetActive(false); //ï¿½Ø±ï¿½ï¿½ï¿½
                     crystal -= 300;
-                    PlayerPrefs.SetInt("Crystal", crystal);              //Ç®¿â¼õÉÙ
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
                     s.WarriorBtn[4].GetComponent<W5btnScript>().ILock = true;
-                    s.WarriorBtn[4].GetComponent<W5btnScript>().LockBtnTxt.text = "ÒÑ½âËø";
+                    s.WarriorBtn[4].GetComponent<W5btnScript>().LockBtnTxt.text = "ï¿½Ñ½ï¿½ï¿½ï¿½";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 1);
                     BuyPanel.SetActive(false);
-                    int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //Íê³ÉÈÎÎñÊý
+                    int WorkNum = PlayerPrefs.GetInt(SdkScript.nickname + "WorkNum", 0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     WorkNum++;
-                    PlayerPrefs.SetInt("WorkNum", WorkNum);
-                    int P_NewHero = PlayerPrefs.GetInt("NewHero", 0);       //ÐÂÓ¢ÐÛ³É¾Í
+                    PlayerPrefs.SetInt(SdkScript.nickname + "WorkNum", WorkNum);
+                    int P_NewHero = PlayerPrefs.GetInt(SdkScript.nickname + "NewHero", 0);       //ï¿½ï¿½Ó¢ï¿½Û³É¾ï¿½
                     P_NewHero += 1;
-                    PlayerPrefs.SetInt("NewHero", P_NewHero);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
                 }
                 else if (!s.WarriorBtn[4].GetComponent<W5btnScript>().ILock && crystal < 300 /*&& ICertainBuy*/)
@@ -138,21 +138,21 @@ public class CertainScript : MonoBehaviour
                 }
                 break;
             case 6:
-                if (!s.WarriorBtn[5].GetComponent<W6btnScript>().ILock && crystal >= 500)                //ÔÚ½âËøÇé¿öÏÂ
+                if (!s.WarriorBtn[5].GetComponent<W6btnScript>().ILock && crystal >= 500)                //ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
-                    s.WarriorBtn[5].GetComponent<W6btnScript>().Lock.gameObject.SetActive(false); //¹Ø±ÕËø
+                    s.WarriorBtn[5].GetComponent<W6btnScript>().Lock.gameObject.SetActive(false); //ï¿½Ø±ï¿½ï¿½ï¿½
                     crystal -= 500;
-                    PlayerPrefs.SetInt("Crystal", crystal);              //Ç®¿â¼õÉÙ
+                    PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);              //Ç®ï¿½ï¿½ï¿½ï¿½ï¿½
                     s.WarriorBtn[5].GetComponent<W6btnScript>().ILock = true;
-                    s.WarriorBtn[5].GetComponent<W6btnScript>().LockBtnTxt.text = "ÒÑ½âËø";
+                    s.WarriorBtn[5].GetComponent<W6btnScript>().LockBtnTxt.text = "ï¿½Ñ½ï¿½ï¿½ï¿½";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 1);
                     BuyPanel.SetActive(false);
-                    int WorkNum = PlayerPrefs.GetInt("WorkNum", 0);  //Íê³ÉÈÎÎñÊý
+                    int WorkNum = PlayerPrefs.GetInt(SdkScript.nickname + "WorkNum", 0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     WorkNum++;
-                    PlayerPrefs.SetInt("WorkNum", WorkNum);
-                    int P_NewHero = PlayerPrefs.GetInt("NewHero", 0);       //ÐÂÓ¢ÐÛ³É¾Í
+                    PlayerPrefs.SetInt(SdkScript.nickname + "WorkNum", WorkNum);
+                    int P_NewHero = PlayerPrefs.GetInt(SdkScript.nickname + "NewHero", 0);       //ï¿½ï¿½Ó¢ï¿½Û³É¾ï¿½
                     P_NewHero += 1;
-                    PlayerPrefs.SetInt("NewHero", P_NewHero);
+                    PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
                 }
                 else if (!s.WarriorBtn[5].GetComponent<W6btnScript>().ILock && crystal < 500 /*&& ICertainBuy*/)

@@ -51,7 +51,7 @@ public class Warrior3BackScript : MonoBehaviour
                 this.GetComponentInParent<Warrior3Script>().DecreaseWarrior3Hp(10);
                 this.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 this.GetComponentInParent<Warrior3Script>().BloodTxt.text = "-" + "10";
-                this.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                this.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 this.GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.tag == "PlayerHammerItem" && collision.gameObject.transform.parent != this.transform.parent)

@@ -8,8 +8,8 @@ public class CoinBtn5Script : MonoBehaviour
     public GameObject BuyResourcePanel;
     public void OnClickCoinBtn5()
     {
-        int crystal = PlayerPrefs.GetInt("Crystal", 0);
-        int coin = PlayerPrefs.GetInt("Coin", 0);
+        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
+        int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         if (crystal < 100)
         {
             NotEnoughPop.SetActive(true);

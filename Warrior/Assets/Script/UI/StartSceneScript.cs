@@ -80,7 +80,7 @@ public class StartSceneScript : MonoBehaviour
 
     void Update()
     {
-        // ChooseWarrior = PlayerPrefs.GetInt("CurrentPlayer");
+        // ChooseWarrior = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer");
         // switch (W)
         // {
         //     case 1: 
@@ -109,7 +109,7 @@ public class StartSceneScript : MonoBehaviour
 
     public void ChooseWarriors()
     {
-        switch (PlayerPrefs.GetInt("CurrentPlayer"))
+        switch (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer"))
         {
             case 1:
                 p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[0];            //更换英雄图片  

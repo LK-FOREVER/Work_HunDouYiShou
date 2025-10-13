@@ -22,7 +22,7 @@ public class monsterPanelScript : MonoBehaviour
         btnTxt[4].SetActive(PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 1);
         for (int i = 0; i < btn.Length; i++)
         {
-            btn[i].interactable = PlayerPrefs.GetInt("PlayerPrefsLock" + (i + 1), 0) == 0;
+            btn[i].interactable = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 0;
         }
     }
 }

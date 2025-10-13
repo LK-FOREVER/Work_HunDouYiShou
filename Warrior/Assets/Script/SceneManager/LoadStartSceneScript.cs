@@ -26,21 +26,21 @@ public class LoadStartSceneScript : MonoBehaviour
     public GameObject ExitTips;//防沉迷踢出弹窗
     void Start()
     {
-        if (PlayerPrefs.GetInt("ExitGagme", 0) == 0)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "ExitGagme", 0) == 0)
         {
             WarningImg.gameObject.SetActive(true);
             Invoke("FalseWarning", 7f);
         }
-        PlayerPrefs.SetInt("ExitGagme", 0);
+        PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme", 0);
 
 
         //Invoke("falseWarning", 3f);
         //v = GetComponent<VideoPlayer>();
         //v.Play();
         startBtn.onClick.AddListener(() =>
-        {
+        { 
 #if UNITY_EDITOR
-            LoginPram loginPram = new LoginPram { nickname = "g759993417", adult_level = "4", timestamp = "1700000000" };
+            LoginPram loginPram = new LoginPram { nickname = "g759993302207", adult_level = "4", timestamp = "1700000000" };
             SdkScript.nickname = loginPram.nickname;
             SdkScript.adult_level = Convert.ToInt32(loginPram.adult_level);
             ID(loginPram);
@@ -118,7 +118,7 @@ public class LoadStartSceneScript : MonoBehaviour
     }
     private void ID(LoginPram data)
     {
-        PlayerPrefs.SetInt("CurrentPlayerAge", Convert.ToInt32(data.adult_level));
+        PlayerPrefs.SetInt(SdkScript.nickname + "CurrentPlayerAge", Convert.ToInt32(data.adult_level));
         string str = "y75999322,4;f75999326,4;m75999331,4;g75999347,4;r75999384,4;k75999398,4;j75999307,3;s75999313,3;u75999318,3;d75999342,3;e75999379,3;a75999393,3;";
         string[] list = str.Split(';');
         for (int i = 0; i < list.Length; i++)

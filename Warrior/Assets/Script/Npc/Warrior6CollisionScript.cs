@@ -158,7 +158,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                     collision.GetComponentInParent<PlayerScript>().DecreasePlayerHp(30);
                     collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                     collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-30";
-                    collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                    collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
                     collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
                 }
                 if (collision.GetComponentInParent<PlayerScript>().Ishield == true && collision.GetComponentInParent<PlayerScript>().ShieldHp != 0)
@@ -200,7 +200,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior1Script>().DecreaseWarrior1Hp(30);
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 collision.GetComponentInParent<Warrior1Script>().BloodTxt.text = "-30";
-                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior1Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior1Script>().InvokeFalseBloodTxt();
                 if (collision.GetComponentInParent<Warrior1Script>().IDead)
                 {
@@ -229,7 +229,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                     collision.GetComponentInParent<Warrior2Script>().DecreaseWarrior2Hp(30);
                     collision.GetComponentInParent<Warrior2Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                     collision.GetComponentInParent<Warrior2Script>().BloodTxt.text = "-30";
-                    collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                    collision.GetComponentInParent<Warrior2Script>().BloodTxt.color = new Color(1f,1f, 1f);
                     collision.GetComponentInParent<Warrior2Script>().InvokeFalseBloodTxt();
                 }
                 if (collision.GetComponentInParent<Warrior2Script>().Ishield == true && collision.GetComponentInParent<Warrior2Script>().ShieldHp != 0)
@@ -265,7 +265,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior3Script>().DecreaseWarrior3Hp(30);
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 collision.GetComponentInParent<Warrior3Script>().BloodTxt.text = "-30";
-                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior3Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior3Script>().InvokeFalseBloodTxt();
                 if (collision.GetComponentInParent<Warrior3Script>().IDead)
                 {
@@ -292,7 +292,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior4Script>().DecreaseWarrior4Hp(30);
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 collision.GetComponentInParent<Warrior4Script>().BloodTxt.text = "-30";
-                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior4Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior4Script>().InvokeFalseBloodTxt();
                 if (collision.GetComponentInParent<Warrior4Script>().IDead)
                 {
@@ -319,7 +319,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior5Script>().DecreaseWarrior5Hp(30);
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 collision.GetComponentInParent<Warrior5Script>().BloodTxt.text = "-30";
-                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior5Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior5Script>().InvokeFalseBloodTxt();
                 if (collision.GetComponentInParent<Warrior5Script>().IDead)
                 {
@@ -346,7 +346,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 collision.GetComponentInParent<Warrior6Script>().DecreaseWarrior6Hp(30);
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 collision.GetComponentInParent<Warrior6Script>().BloodTxt.text = "-30";
-                collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                collision.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 collision.GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
                 if (collision.GetComponentInParent<Warrior6Script>().IDead)
                 {
@@ -372,7 +372,7 @@ public class Warrior6CollisionScript : MonoBehaviour
                 //this.GetComponentInParent<Warrior6Script>().m.GetComponent<MapScript>().dic[GetComponentInParent<Warrior6Script>().Name] += 50;
                 this.GetComponentInParent<Warrior6Script>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
                 this.GetComponentInParent<Warrior6Script>().BloodTxt.text = "-" + "10";
-                this.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(0.812f, 0.235f, 0.235f);
+                this.GetComponentInParent<Warrior6Script>().BloodTxt.color = new Color(1f,1f, 1f);
                 this.GetComponentInParent<Warrior6Script>().InvokeFalseBloodTxt();
                 //�����ж���ӷ�
                 if (collision.transform.parent.name == "Player")

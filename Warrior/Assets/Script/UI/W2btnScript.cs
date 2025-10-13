@@ -117,7 +117,7 @@ public class W2btnScript : MonoBehaviour
         s.HpTxt.text = ":300";
         s.SpTxt.text = ":80";
         s.AkTxt.text = ":20";
-        s.TellTxt.text = "获得50%生命值上限的护盾，持续5秒，冷却20秒。";
+        s.TellTxt.text = "获得50%活力值上限的护盾，持续5秒，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[1];
 
 
