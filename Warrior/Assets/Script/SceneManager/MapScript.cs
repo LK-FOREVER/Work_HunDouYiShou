@@ -119,7 +119,7 @@ public class MapScript : MonoBehaviour
         Hook = (GameObject)Resources.Load("Prefabs/PlayerHookItemObj");
         Player = GameObject.Find("Player");
         Scrol = GameObject.Find("StartCanvas");
-        poolManager = GameObject.Find("ObjectPool").GetComponent<ObjectPoolManager>();
+        poolManager = ObjectPoolManager.Instance;
     }
     void Start()
     {
@@ -624,7 +624,7 @@ public class MapScript : MonoBehaviour
                 TimeTxt.gameObject.SetActive(false);
                 if (Icoin)
                 {
-                    Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[12];
+                    // Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[12];
                     Player.GetComponent<PlayerScript>().audio.Play();
                     int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //判断金币数
                     if (dic["玩家"] < 200)

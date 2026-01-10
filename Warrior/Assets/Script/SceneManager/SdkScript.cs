@@ -13,25 +13,35 @@ public class SdkScript : MonoBehaviour
 
     public static string nickname;//玩家ID编号
     public static int adult_level;//玩家年龄字段
+    public static bool is_new_user;//是否为新用户
 
     public GameObject TimeTips;//游戏时长温馨提示
     public GameObject ExitTips;//退出游戏提示
+    public static SdkScript Instance;
 
-    void Start()
+    void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    
+
     public void ExitGame(string str)
     {
-        DateTime epoch =new DateTime(1970,1,1,0,0,0,DateTimeKind.Utc);
-        DateTime utcDateTime =epoch.AddSeconds(int.Parse(str));
-        DateTime localDateTime=utcDateTime.ToLocalTime();
-        int delayTime =(21-localDateTime.Hour)*60*60+(0-localDateTime.Minute)*60+(0-localDateTime.Second)*60;
+        DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        DateTime utcDateTime = epoch.AddSeconds(int.Parse(str));
+        DateTime localDateTime = utcDateTime.ToLocalTime();
+        int delayTime = (21 - localDateTime.Hour) * 60 * 60 + (0 - localDateTime.Minute) * 60 + (0 - localDateTime.Second) * 60;
         // 检查当前时间是否处于20:45到21:00之间
-        int delayTime2 =(20-localDateTime.Hour)*60*60+(45-localDateTime.Minute)*60+(0-localDateTime.Second)*60;
-        if (delayTime2>=0)
+        int delayTime2 = (20 - localDateTime.Hour) * 60 * 60 + (45 - localDateTime.Minute) * 60 + (0 - localDateTime.Second) * 60;
+        if (delayTime2 >= 0)
         {
             StartCoroutine(ShowTimeTips(delayTime2));
         }
@@ -40,7 +50,7 @@ public class SdkScript : MonoBehaviour
             StartCoroutine(ShowTimeTips(0));
         }
         StartCoroutine(ShowExitTips(delayTime));
-        
+
     }
 
     //到21.00显示退出游戏提示
@@ -52,7 +62,7 @@ public class SdkScript : MonoBehaviour
         obj.transform.localPosition = new Vector3(0, 0, 0);
         obj.transform.Find("Confirm").GetComponent<Button>().onClick.AddListener(() =>
         {
-            PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme",1);
+            PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme", 1);
             SceneManager.LoadScene("LoadStartScene");
         });
     }

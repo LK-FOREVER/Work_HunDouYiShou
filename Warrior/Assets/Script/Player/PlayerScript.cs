@@ -109,9 +109,18 @@ public class PlayerScript : MonoBehaviour
 
     public bool IParse;
     public bool IMove = true;
-
+    public static PlayerScript Instance;
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
         audio = GetComponent<AudioSource>();
         Name = "玩家";
         rig = GetComponent<Rigidbody2D>();

@@ -1,0 +1,39 @@
+{
+    "signs": [
+        {
+            "day": 1,
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "day": 2,
+            "rewardType": "Coin",
+            "rewardNum": 2000
+        },
+        {
+            "day": 3,
+            "rewardType": "Coin",
+            "rewardNum": 10000
+        },
+        {
+            "day": 4,
+            "rewardType": "Crystal",
+            "rewardNum": 100
+        },
+        {
+            "day": 5,
+            "rewardType": "Crystal",
+            "rewardNum": 500
+        },
+        {
+            "day": 6,
+            "rewardType": "Crystal",
+            "rewardNum": 1000
+        },
+        {
+            "day": 7,
+            "rewardType": "Crystal",
+            "rewardNum": 2000
+        }
+    ]
+}

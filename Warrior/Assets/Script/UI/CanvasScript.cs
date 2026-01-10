@@ -19,27 +19,43 @@ public class CanvasScript : MonoBehaviour
     public GameObject m;
     //public List<string> Warriorname = new List<string>();
     //public List<int> Warriorpoint = new List<int>();
-    public Text CoinTxt;                    //��ʾ��������
-    public Text CrystaylTxt;//��ʾ������ˮ��
+    public Text CoinTxt;
+    public Text CrystaylTxt;
     public Text PointCoinTxt;
     public Text SingleCoinTxt;
     public AudioSource audioSource;
     public AudioClip[] acilp;
+
+    public Image headImg;
+    public Text nameTxt;
     int coin;
+    public Button sevenDayBtn;
+    public GameObject sevenDayPanel;
+    public static CanvasScript Instance;
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
         //PlayerPrefs.SetInt(SdkScript.nickname + "Coin", 0);
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = acilp[0];
         audioSource.Play();
         Background.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         Simg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-
+        nameTxt.text = PlayerPrefs.GetString(SdkScript.nickname + "PlayerName", "昵称");
+        sevenDayBtn.onClick.AddListener(() =>sevenDayPanel.SetActive(true));
     }
 
     void Update()
     {
-        coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
+        // coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         //if (coin != 999999)
         //{
         //    coin = 999999;
@@ -77,11 +93,9 @@ public class CanvasScript : MonoBehaviour
         UpdateResource();
     }
 
-    //������Դ
     public void UpdateResource()
     {
-        CoinTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0).ToString();   //��ʾ���
-        CrystaylTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0).ToString();//��ʾˮ��
+        CoinTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0).ToString();
+        CrystaylTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0).ToString();
     }
-
 }

@@ -38,9 +38,9 @@ public class LoadStartSceneScript : MonoBehaviour
         //v = GetComponent<VideoPlayer>();
         //v.Play();
         startBtn.onClick.AddListener(() =>
-        { 
+        {
 #if UNITY_EDITOR
-            LoginPram loginPram = new LoginPram { nickname = "n76534474", adult_level = "2", timestamp = "1700000000" };
+            LoginPram loginPram = new LoginPram { nickname = "n7653447411111", adult_level = "2", timestamp = "1700000000" };
             SdkScript.nickname = loginPram.nickname;
             SdkScript.adult_level = Convert.ToInt32(loginPram.adult_level);
             ID(loginPram);
@@ -49,7 +49,6 @@ public class LoadStartSceneScript : MonoBehaviour
         AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject unityActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
         unityActivity.Call("login");
-     
 #endif
         });
 
@@ -141,6 +140,8 @@ public class LoadStartSceneScript : MonoBehaviour
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
             }
         }
+        if (PlayerPrefs.GetString(SdkScript.nickname + "PlayerName") == "")
+            SdkScript.is_new_user = true;
     }
 }
 

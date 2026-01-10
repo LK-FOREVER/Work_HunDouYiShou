@@ -40,13 +40,14 @@ public class StartSceneScript : MonoBehaviour
     public Sprite[] BigWarriorImg;
     public Image ShowWarriorImg;
     
+    public GameObject CreateNamePanel;
     private SdkScript sdkScript;
 
     void Start()
     {
         Application.targetFrameRate = 240;    //帧数
-        DontDestroyOnLoad(Player);
-        DontDestroyOnLoad(Scrol);
+        // DontDestroyOnLoad(Player);
+        // DontDestroyOnLoad(Scrol);
         // foreach (var item in ChooseBackground)
         // {
         //     item.gameObject.SetActive(false);
@@ -76,6 +77,7 @@ public class StartSceneScript : MonoBehaviour
         //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
         //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
         //PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 0);
+        if (SdkScript.is_new_user) CreateNamePanel.SetActive(true);
     }
 
     void Update()

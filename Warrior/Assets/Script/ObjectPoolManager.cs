@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPoolManager : MonoBehaviour
+public class ObjectPoolManager : SingletonAutoMonoBase<ObjectPoolManager>
 {
     // 每种Prefab一个池
     private Dictionary<GameObject, Queue<GameObject>> poolDict = new Dictionary<GameObject, Queue<GameObject>>();
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+
+        // DontDestroyOnLoad(gameObject);
     }
     // 获取对象
     public GameObject Get(GameObject prefab)
@@ -25,7 +26,9 @@ public class ObjectPoolManager : MonoBehaviour
         }
         else
         {
-            return Instantiate(prefab);
+            var obj = Instantiate(prefab);
+            poolDict[prefab].Enqueue(obj);
+            return obj;
         }
     }
 

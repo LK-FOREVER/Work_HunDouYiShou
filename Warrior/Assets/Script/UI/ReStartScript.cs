@@ -12,12 +12,13 @@ public class ReStartScript : MonoBehaviour
 
     void Awake()
     {
-        m = GameObject.Find("MapManager");
-        mapScript = m.GetComponent<MapScript>();
-        poolManager = GameObject.Find("ObjectPool").GetComponent<ObjectPoolManager>();
+
     }
     void Start()
     {
+        m = GameObject.Find("MapManager");
+        mapScript = m.GetComponent<MapScript>();
+        poolManager = ObjectPoolManager.Instance;
     }
 
     // Update is called once per frame

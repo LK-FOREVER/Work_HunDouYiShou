@@ -13,10 +13,11 @@ public class ReSingleScript : MonoBehaviour
     public Button[] SkillBtn;
     void Start()
     {
-        poolManager = GameObject.Find("ObjectPool").GetComponent<ObjectPoolManager>();
+
+        poolManager = ObjectPoolManager.Instance;
         m = GameObject.Find("MapManager");
     }
-    
+
     public void ReSingle()
     {
 
