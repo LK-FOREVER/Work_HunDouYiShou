@@ -19,8 +19,8 @@ public class W5btnScript : MonoBehaviour
     public PlayerScript p;
     void Start()
     {
-      
-        PlayerPrefsLock5 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5",0);
+
+        PlayerPrefsLock5 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
     }
 
 
@@ -31,7 +31,11 @@ public class W5btnScript : MonoBehaviour
         //    ILock = false;
         //    Lock.gameObject.SetActive(true);
         //}
-         if (PlayerPrefsLock5 == 1)
+        if (!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
+        if (PlayerPrefsLock5 == 1)
         {
             ILock = true;
             Lock.gameObject.SetActive(false);

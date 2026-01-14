@@ -17,14 +17,14 @@ public class W4btnScript : MonoBehaviour
     public GameObject[] ChooseArrow;//ѡ���ͷ
     public int PlayerPrefsLock4 = 0;
     public PlayerScript p;
-  
+
     void Start()
     {
-       
-        PlayerPrefsLock4 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4",0);
+
+        PlayerPrefsLock4 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0);
     }
 
- 
+
     void Update()
     {
         //if (PlayerPrefsLock4 == 0)
@@ -32,6 +32,10 @@ public class W4btnScript : MonoBehaviour
         //    ILock = false;
         //    Lock.gameObject.SetActive(true);
         //}
+        if (!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
         if (PlayerPrefsLock4 == 1)
         {
             ILock = true;
@@ -61,7 +65,7 @@ public class W4btnScript : MonoBehaviour
             c.GetComponent<CanvasScript>().SkillIndex = 3;
         }
     }
-    
+
     public void UpdateSkillImg()
     {
         // s.UseImg[3].gameObject.SetActive(true);

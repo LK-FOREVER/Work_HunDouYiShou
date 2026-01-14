@@ -33,6 +33,11 @@ public class W2btnScript : MonoBehaviour
         //    Lock.gameObject.SetActive(true);
         //}
         //print(PlayerPrefsLock2);
+        if(!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
+
         if (PlayerPrefsLock2 == 1)
         {
             ILock = true;

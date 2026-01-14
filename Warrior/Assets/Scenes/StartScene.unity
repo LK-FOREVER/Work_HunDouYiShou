@@ -13074,8 +13074,6 @@ MonoBehaviour:
   - {fileID: 1158084823}
   - {fileID: 1425810186}
   p: {fileID: 469234978}
-  Player: {fileID: 469234975}
-  Scrol: {fileID: 1671503129}
   Background:
   - {fileID: 1199131512}
   - {fileID: 1035791172}

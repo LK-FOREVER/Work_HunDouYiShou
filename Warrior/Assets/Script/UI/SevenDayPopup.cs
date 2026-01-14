@@ -96,10 +96,8 @@ public class SevenDayPopup : MonoBehaviour
 
     void GiveReward(int day)
     {
-        Debug.Log("sevenSignList:" + sevenSignList);
         //从列表中获取指定天数的签到奖励信息
         SevenSignInfo signInfo = sevenSignList.Find(x => x.day == day);
-        Debug.Log("signInfo:" + signInfo);
         if (signInfo != null)
         {
             if (signInfo.rewardType == "Coin")

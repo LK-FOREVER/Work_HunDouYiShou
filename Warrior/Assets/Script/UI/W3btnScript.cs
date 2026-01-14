@@ -19,11 +19,11 @@ public class W3btnScript : MonoBehaviour
     public PlayerScript p;
     void Start()
     {
-       
-        PlayerPrefsLock3 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3",0);
+
+        PlayerPrefsLock3 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0);
     }
 
-   
+
     void Update()
     {
         //if (PlayerPrefsLock3 == 0)
@@ -31,6 +31,10 @@ public class W3btnScript : MonoBehaviour
         //    ILock = false;
         //    Lock.gameObject.SetActive(true);
         //}
+        if (!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
         if (PlayerPrefsLock3 == 1)
         {
             ILock = true;
@@ -57,9 +61,9 @@ public class W3btnScript : MonoBehaviour
             }
             c.GetComponent<CanvasScript>().SkillIndex = 2;
         }
-        
+
     }
-    
+
     public void UpdateSkillImg()
     {
         // s.UseImg[2].gameObject.SetActive(true);
@@ -110,7 +114,7 @@ public class W3btnScript : MonoBehaviour
                 item.gameObject.SetActive(false);
             }
         }
-       
+
         s.monsterName.text = "凤凰";
         s.HpTxt.text = ":150";
         s.SpTxt.text = ":180";

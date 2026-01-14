@@ -19,11 +19,11 @@ public class W6btnScript : MonoBehaviour
     public PlayerScript p;
     void Start()
     {
-       
+
         PlayerPrefsLock6 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0);
     }
 
-    
+
     void Update()
     {
 
@@ -32,6 +32,10 @@ public class W6btnScript : MonoBehaviour
         //    ILock = false;
         //    Lock.gameObject.SetActive(true);
         //}
+        if (!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
         if (PlayerPrefsLock6 == 1)
         {
             ILock = true;

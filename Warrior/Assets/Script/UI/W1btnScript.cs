@@ -37,7 +37,10 @@ public class W1btnScript : MonoBehaviour
         //    ILock = true;
         //    Lock.gameObject.SetActive(false);
         //}
-
+        if(!s)
+        {
+            s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
+        }
         if (ILock && IPress)              //实时判断是否使用，否则需多点一次头像按钮
         {
             // s.UseImg[0].gameObject.SetActive(true);
