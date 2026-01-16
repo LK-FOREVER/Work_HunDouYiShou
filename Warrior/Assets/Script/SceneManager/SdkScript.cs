@@ -13,8 +13,6 @@ public class SdkScript : MonoBehaviour
 
     public static string nickname;//玩家ID编号
     public static int adult_level;//玩家年龄字段
-    public static bool is_new_user;//是否为新用户
-
     public GameObject TimeTips;//游戏时长温馨提示
     public GameObject ExitTips;//退出游戏提示
     public static SdkScript Instance;

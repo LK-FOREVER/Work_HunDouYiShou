@@ -17,42 +17,26 @@ public class W5btnScript : MonoBehaviour
     public GameObject[] ChooseArrow;//ѡ���ͷ
     public int PlayerPrefsLock5 = 0;
     public PlayerScript p;
-    void Start()
-    {
-
-        PlayerPrefsLock5 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0);
-    }
-
 
     void Update()
     {
-        //if (PlayerPrefsLock5 == 0)
-        //{
-        //    ILock = false;
-        //    Lock.gameObject.SetActive(true);
-        //}
         if (!s)
         {
             s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
         }
-        if (PlayerPrefsLock5 == 1)
+    }
+
+    public void W5()
+    {
+        ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 1;
+        if (ILock)
         {
-            ILock = true;
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
 
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 5)
         {
-            // s.Player.GetComponent<PlayerScript>().IWarrior5 = true;
-            // s.UseImg[4].gameObject.SetActive(true);
-            // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-            // {
-            //     if (item != s.UseImg[4])
-            //     {
-            //         item.gameObject.SetActive(false);
-            //     }
-            // }
             s.SkillBtn[4].gameObject.SetActive(true);
             foreach (var item in s.SkillBtn)
             {
@@ -62,34 +46,7 @@ public class W5btnScript : MonoBehaviour
                 }
             }
             c.GetComponent<CanvasScript>().SkillIndex = 4;
-
         }
-    }
-
-    private void UpdateSkillImg()
-    {
-        // s.Player.GetComponent<PlayerScript>().IWarrior5 = true;
-        // s.UseImg[4].gameObject.SetActive(true);
-        // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-        // {
-        //     if (item != s.UseImg[4])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.SkillBtn[4].gameObject.SetActive(true);
-        foreach (var item in s.SkillBtn)
-        {
-            if (item != s.SkillBtn[4])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
-        c.GetComponent<CanvasScript>().SkillIndex = 4;
-    }
-    public void W5()
-    {
-        UpdateSkillImg();
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);
@@ -100,38 +57,21 @@ public class W5btnScript : MonoBehaviour
         ChooseArrow[5].SetActive(false);
         StartSceneScript.W = 5;
         s.ChooseIndex = 5;
-        // s.ChooseWarrior = 5;
-        // s.ChooseBackground[4].gameObject.SetActive(true);
-        // foreach (var item in s.ChooseBackground)
-        // {
-        //     if (item != s.ChooseBackground[4])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.Background[4].gameObject.SetActive(true);
-        foreach (var item in s.Background)
-        {
-            if (item != s.Background[4])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
         s.monsterName.text = "鲲鹏";
-        s.HpTxt.text = ":500";
-        s.SpTxt.text = ":100";
-        s.AkTxt.text = ":10";
-        s.TellTxt.text = "被动技能，活力值越低，攻击力越高。";
+        s.HpTxt.text = ":250";
+        s.SpTxt.text = ":180";
+        s.AkTxt.text = ":4";
+        s.TellTxt.text = "技能：增加30%移动速度，持续10秒，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[4];
 
         //�����Ƿ񱻰�ѹ����ʾ��ť���ı�
         //����жϰ�ť��ʾ�ı�
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 5)
         {
             LockBtnTxt.text = "出战中";
             LockBtn.interactable = false;
         }
-        else if (ILock && !IPress)
+        else if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) != 5)
         {
             LockBtnTxt.text = "出战";
             LockBtn.interactable = true;

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CoinBtn4Script : MonoBehaviour
 {
-    public GameObject NotEnoughPop;
+    public GameObject ChargeWarnPop;
     public GameObject BuyResourcePanel;
     public void OnClickCoinBtn4()
     {
-        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
-        int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
-        if (crystal < 40)
+        if (SdkScript.adult_level == 2 && PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 68 > 400)
         {
-            NotEnoughPop.SetActive(true);
+            ChargeWarnPop.SetActive(true);
             return;
         }
         BuyResourcePanel.SetActive(true);

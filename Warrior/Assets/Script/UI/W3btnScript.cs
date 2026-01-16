@@ -17,40 +17,27 @@ public class W3btnScript : MonoBehaviour
     public GameObject[] ChooseArrow;//ѡ���ͷ
     public int PlayerPrefsLock3 = 0;
     public PlayerScript p;
-    void Start()
-    {
-
-        PlayerPrefsLock3 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0);
-    }
-
 
     void Update()
     {
-        //if (PlayerPrefsLock3 == 0)
-        //{
-        //    ILock = false;
-        //    Lock.gameObject.SetActive(true);
-        //}
+        ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 1;
+
         if (!s)
         {
             s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
         }
-        if (PlayerPrefsLock3 == 1)
+    }
+
+    public void W3()
+    {
+        ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 1;
+        if (ILock)
         {
-            ILock = true;
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 3)
         {
-            // s.UseImg[2].gameObject.SetActive(true);
-            // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-            // {
-            //     if (item != s.UseImg[2])
-            //     {
-            //         item.gameObject.SetActive(false);
-            //     }
-            // }
             s.SkillBtn[2].gameObject.SetActive(true);
             foreach (var item in s.SkillBtn)
             {
@@ -61,32 +48,6 @@ public class W3btnScript : MonoBehaviour
             }
             c.GetComponent<CanvasScript>().SkillIndex = 2;
         }
-
-    }
-
-    public void UpdateSkillImg()
-    {
-        // s.UseImg[2].gameObject.SetActive(true);
-        // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-        // {
-        //     if (item != s.UseImg[2])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.SkillBtn[2].gameObject.SetActive(true);
-        foreach (var item in s.SkillBtn)
-        {
-            if (item != s.SkillBtn[2])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
-        c.GetComponent<CanvasScript>().SkillIndex = 2;
-    }
-    public void W3()
-    {
-        UpdateSkillImg();
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);
@@ -97,39 +58,22 @@ public class W3btnScript : MonoBehaviour
         ChooseArrow[5].SetActive(false);
         StartSceneScript.W = 3;
         s.ChooseIndex = 3;
-        // s.ChooseWarrior = 3;
-        // s.ChooseBackground[2].gameObject.SetActive(true);
-        // foreach (var item in s.ChooseBackground)
-        // {
-        //     if (item != s.ChooseBackground[2])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.Background[2].gameObject.SetActive(true);
-        foreach (var item in s.Background)
-        {
-            if (item != s.Background[2])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
 
         s.monsterName.text = "凤凰";
         s.HpTxt.text = ":150";
-        s.SpTxt.text = ":180";
-        s.AkTxt.text = ":30";
-        s.TellTxt.text = "获得隐身状态，持续10秒，隐身期间碰撞敌人额外造成10点伤害并提前解除隐身状态，冷却20秒。";
+        s.SpTxt.text = ":100";
+        s.AkTxt.text = ":3";
+        s.TellTxt.text = "技能：向前方发射8只羽毛，每只羽毛造成20点伤害，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[2];
 
         //�����Ƿ񱻰�ѹ����ʾ��ť���ı�
         //����жϰ�ť��ʾ�ı�
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 3)
         {
             LockBtnTxt.text = "出战中";
             LockBtn.interactable = false;
         }
-        else if (ILock && !IPress)
+        else if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) != 3)
         {
             LockBtnTxt.text = "出战";
             LockBtn.interactable = true;

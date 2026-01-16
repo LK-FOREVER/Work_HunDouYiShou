@@ -8,6 +8,10 @@ public class monsterPanelScript : MonoBehaviour
     public GameObject[] btnImg;
     public GameObject[] btnTxt;
     public Button[] btn;
+    void OnEnable()
+    {
+        InitUI();
+    }
     public void InitUI()
     {
         btnImg[0].SetActive(PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0) == 0);

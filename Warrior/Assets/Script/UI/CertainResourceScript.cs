@@ -15,62 +15,36 @@ public class CertainResourceScript : MonoBehaviour
     }
     public void Certain()
     {
-        int crystal = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0);
         int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         switch (s.ChooseResource)
         {
             case 1:
                 BuyResourcePanel.SetActive(false);
-                crystal += 100;
-                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
-                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 5);//增加充值金额
+                coin += 600;
+                PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 6);//增加充值金额
                 break;
             case 2:
                 BuyResourcePanel.SetActive(false);
-                crystal += 500;
-                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
-                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 25);//增加充值金额
+                coin += 1800;
+                PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 18);//增加充值金额
                 break;
             case 3:
-                if (crystal < 10)
-                {
-                    NoCoinTxt.text = "水晶不足";
-                    NoCoinTxt.gameObject.SetActive(true);
-                    Invoke("falseNoCoinTxt", 1.3f);
-                    return;
-                }
                 BuyResourcePanel.SetActive(false);
-                crystal -= 10;
-                coin += 500;
-                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                coin += 3000;
                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 30);//增加充值金额
                 break;
             case 4:
-                if (crystal < 40)
-                {
-                    NoCoinTxt.text = "水晶不足";
-                    NoCoinTxt.gameObject.SetActive(true);
-                    Invoke("falseNoCoinTxt", 1.3f);
-                    return;
-                }
                 BuyResourcePanel.SetActive(false);
-                crystal -= 40;
-                coin += 2000;
-                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                coin += 6800;
                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
+                PlayerPrefs.SetInt(SdkScript.nickname + "ChargeNum", PlayerPrefs.GetInt(SdkScript.nickname + "ChargeNum", 0) + 68);//增加充值金额
                 break;
             case 5:
-                if (crystal < 100)
-                {
-                    NoCoinTxt.text = "水晶不足";
-                    NoCoinTxt.gameObject.SetActive(true);
-                    Invoke("falseNoCoinTxt", 1.3f);
-                    return;
-                }
                 BuyResourcePanel.SetActive(false);
-                crystal -= 100;
-                coin += 5000;
-                PlayerPrefs.SetInt(SdkScript.nickname + "Crystal", crystal);
+                coin += 12800;
                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);
                 break;
             default:

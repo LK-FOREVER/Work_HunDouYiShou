@@ -7,6 +7,7 @@ public class ChangeMonsterPanelScript : MonoBehaviour
 {
     public GameObject[] lockObj;//锁
     public GameObject[] lockMaskObj;//遮罩
+    public Button[] WarriorBtn;
     public GameObject[] arrowObj;//箭头
     public Text buttonText;//出战按钮文字
 
@@ -16,7 +17,6 @@ public class ChangeMonsterPanelScript : MonoBehaviour
     }
     public void InitUI()
     {
-        Debug.Log("CurrentPlayer：" + PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer"));
         PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);//默认解锁第一个异兽
         for (int i = 1; i < lockObj.Length; i++)
         {
@@ -30,6 +30,31 @@ public class ChangeMonsterPanelScript : MonoBehaviour
                 lockObj[i].SetActive(false);
                 lockMaskObj[i].SetActive(false);
             }
+        }
+        
+        int currentPlayer = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1);
+        switch (currentPlayer)
+        {
+            case 1:
+                WarriorBtn[0].GetComponent<W1btnScript>().W1();
+                break;
+            case 2:
+                WarriorBtn[1].GetComponent<W2btnScript>().W2();
+                break;
+            case 3:
+                WarriorBtn[2].GetComponent<W3btnScript>().W3();
+                break;
+            case 4:
+                WarriorBtn[3].GetComponent<W4btnScript>().W4();
+                break;
+            case 5:
+                WarriorBtn[4].GetComponent<W5btnScript>().W5();
+                break;
+            case 6:
+                WarriorBtn[5].GetComponent<W6btnScript>().W6();
+                break;
+            default:
+                break;
         }
         // for (int i = 0; i < arrowObj.Length; i++)
         // {

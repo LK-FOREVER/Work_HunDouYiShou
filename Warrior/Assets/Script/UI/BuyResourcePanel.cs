@@ -14,19 +14,19 @@ public class BuyResourcePanel : MonoBehaviour
         switch (index)
         {
             case 1:
-                Asktxt.text = "是否充值5元购买该礼包？";
+                Asktxt.text = "是否充值6元购买该礼包？";
                 break;
             case 2:
-                Asktxt.text = "是否充值25元购买该礼包？";
+                Asktxt.text = "是否充值18元购买该礼包？";
                 break;
             case 3:
-                Asktxt.text = "是否花费10水晶购买该礼包？";
+                Asktxt.text = "是否花费30元购买该礼包？";
                 break;
             case 4:
-                Asktxt.text = "是否花费40水晶购买该礼包？";
+                Asktxt.text = "是否花费68元购买该礼包？";
                 break;
             case 5:
-                Asktxt.text = "是否花费100水晶购买该礼包？";
+                Asktxt.text = "是否花费128元购买该礼包？";
                 break;
             default:
                 break;

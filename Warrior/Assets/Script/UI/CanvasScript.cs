@@ -31,6 +31,8 @@ public class CanvasScript : MonoBehaviour
     int coin;
     public Button sevenDayBtn;
     public GameObject sevenDayPanel;
+    public Button dailyTaskBtn;
+    public GameObject dailyTaskPanel;
     public static CanvasScript Instance;
     void Start()
     {
@@ -51,6 +53,7 @@ public class CanvasScript : MonoBehaviour
         Simg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         nameTxt.text = PlayerPrefs.GetString(SdkScript.nickname + "PlayerName", "昵称");
         sevenDayBtn.onClick.AddListener(() =>sevenDayPanel.SetActive(true));
+        dailyTaskBtn.onClick.AddListener(() =>dailyTaskPanel.SetActive(true));
     }
 
     void Update()

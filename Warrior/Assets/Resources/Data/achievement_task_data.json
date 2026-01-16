@@ -1,0 +1,109 @@
+{
+    "achievement_task_data.json": [
+        {
+            "id": 1,
+            "desc": "获得异兽麒麟",
+            "num": 1,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 2,
+            "desc": "获得异兽白泽",
+            "num": 1,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 3,
+            "desc": "获得异兽凤凰",
+            "num": 10,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 4,
+            "desc": "获得异兽九尾",
+            "num": 5,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 5,
+            "desc": "获得异兽鲲鹏",
+            "num": 1,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 6,
+            "desc": "获得异兽玄武",
+            "num": 2,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 7,
+            "desc": "累计击败10名异兽",
+            "num": 10,
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "id": 8,
+            "desc": "累计击败50名异兽",
+            "num": 50,
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "id": 9,
+            "desc": "累计击败100名异兽",
+            "num": 100,
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "id": 10,
+            "desc": "累计释放50次技能",
+            "num": 50,
+            "rewardType": "Coin",
+            "rewardNum": 100
+        },
+        {
+            "id": 11,
+            "desc": "累计释放100次技能",
+            "num": 100,
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "id": 12,
+            "desc": "累计释放200次技能",
+            "num": 200,
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "id": 13,
+            "desc": "累计消耗500体力",
+            "num": 500,
+            "rewardType": "Coin",
+            "rewardNum": 100
+        },
+        {
+            "id": 14,
+            "desc": "累计消耗1000体力",
+            "num": 1000,
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "id": 15,
+            "desc": "累计消耗2000体力",
+            "num": 2000,
+            "rewardType": "Coin",
+            "rewardNum": 500
+        }
+    ]
+}

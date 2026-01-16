@@ -17,42 +17,26 @@ public class W6btnScript : MonoBehaviour
     public GameObject[] ChooseArrow;//ѡ���ͷ
     public int PlayerPrefsLock6 = 0;
     public PlayerScript p;
-    void Start()
-    {
-
-        PlayerPrefsLock6 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0);
-    }
-
 
     void Update()
     {
-
-        //if (PlayerPrefsLock6 == 0)
-        //{
-        //    ILock = false;
-        //    Lock.gameObject.SetActive(true);
-        //}
         if (!s)
         {
             s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
         }
-        if (PlayerPrefsLock6 == 1)
+    }
+
+    public void W6()
+    {
+        ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 1;
+        if (ILock)
         {
-            ILock = true;
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
 
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 0) == 1)
         {
-            // s.UseImg[5].gameObject.SetActive(true);
-            // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-            // {
-            //     if (item != s.UseImg[5])
-            //     {
-            //         item.gameObject.SetActive(false);
-            //     }
-            // }
             s.SkillBtn[5].gameObject.SetActive(true);
             foreach (var item in s.SkillBtn)
             {
@@ -63,31 +47,6 @@ public class W6btnScript : MonoBehaviour
             }
             c.GetComponent<CanvasScript>().SkillIndex = 5;
         }
-    }
-
-    private void UpdateSkillImg()
-    {
-        // s.UseImg[5].gameObject.SetActive(true);
-        // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-        // {
-        //     if (item != s.UseImg[5])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.SkillBtn[5].gameObject.SetActive(true);
-        foreach (var item in s.SkillBtn)
-        {
-            if (item != s.SkillBtn[5])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
-        c.GetComponent<CanvasScript>().SkillIndex = 5;
-    }
-    public void W6()
-    {
-        UpdateSkillImg();
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);
@@ -98,38 +57,19 @@ public class W6btnScript : MonoBehaviour
         ChooseArrow[5].SetActive(true);
         StartSceneScript.W = 6;
         s.ChooseIndex = 6;
-        // s.ChooseWarrior = 6;
-        // s.ChooseBackground[5].gameObject.SetActive(true);
-        // foreach (var item in s.ChooseBackground)
-        // {
-        //     if (item != s.ChooseBackground[5])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.Background[5].gameObject.SetActive(true);
-        foreach (var item in s.Background)
-        {
-            if (item != s.Background[5])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
         s.monsterName.text = "玄武";
-        s.HpTxt.text = ":200";
-        s.SpTxt.text = ":160";
-        s.AkTxt.text = ":20";
-        s.TellTxt.text = "原地放置一个陷阱，对接触到的敌人造成20点伤害，冷却15秒，陷阱持续30秒。";
+        s.HpTxt.text = ":350";
+        s.SpTxt.text = ":80";
+        s.AkTxt.text = ":1";
+        s.TellTxt.text = "技能：获得护盾，免疫所有伤害，持续5秒，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[5];
 
-        //�����Ƿ񱻰�ѹ����ʾ��ť���ı�
-        //����жϰ�ť��ʾ�ı�
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 6)
         {
             LockBtnTxt.text = "出战中";
             LockBtn.interactable = false;
         }
-        else if (ILock && !IPress)
+        else if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) != 6)
         {
             LockBtnTxt.text = "出战";
             LockBtn.interactable = true;

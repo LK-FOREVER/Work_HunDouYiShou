@@ -11,19 +11,15 @@ public class CloseWarriorScript : MonoBehaviour
 {
     public StartSceneScript s;
     public PlayerScript p;
-    public void ColseChooseWarriors()    //¹Ø±Õ°´Å¥
+    public void ColseChooseWarriors()    //ï¿½Ø±Õ°ï¿½Å¥
     {
         p.audio.clip = p.acilp[0];
         p.audio.Play();
-        s.IClose = true;
         s.ChooseWarriors();
         s.changePanel.SetActive(false);
-        if (s.WarriorBtn[0].GetComponent<W1btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 1)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[0];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[0];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[0];
-            s.Background[0].gameObject.SetActive(true);                             //»¹Ô­Ó¢ÐÛÍ¼Æ¬
+            s.Background[0].gameObject.SetActive(true);                             //ï¿½ï¿½Ô­Ó¢ï¿½ï¿½Í¼Æ¬
             foreach (var item in s.Background)
             {
                 if (item != s.Background[0])
@@ -31,14 +27,10 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[0].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[0].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[0].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
-        if (s.WarriorBtn[1].GetComponent<W2btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 2)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[1];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[1];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[1];
             s.Background[1].gameObject.SetActive(true);
             foreach (var item in s.Background)
             {
@@ -47,14 +39,10 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[1].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[1].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[1].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
-        if (s.WarriorBtn[2].GetComponent<W3btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 3)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[2];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[2];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[2];
             s.Background[2].gameObject.SetActive(true);
             foreach (var item in s.Background)
             {
@@ -63,14 +51,10 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[2].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[2].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[2].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
-        if (s.WarriorBtn[3].GetComponent<W4btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 4)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[3];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[3];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[3];
             s.Background[3].gameObject.SetActive(true);
             foreach (var item in s.Background)
             {
@@ -79,14 +63,10 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[3].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[3].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[3].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
-        if (s.WarriorBtn[4].GetComponent<W5btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 5)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[4];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[4];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[4];
             s.Background[4].gameObject.SetActive(true);
             foreach (var item in s.Background)
             {
@@ -95,14 +75,10 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[4].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[4].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[4].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
-        if (s.WarriorBtn[5].GetComponent<W6btnScript>().IPress)
+        if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 6)
         {
-            p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[5];            //¸ü»»Ó¢ÐÛÍ¼Æ¬  
-            p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[5];
-            p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[5];
             s.Background[5].gameObject.SetActive(true);
             foreach (var item in s.Background)
             {
@@ -111,8 +87,7 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[5].gameObject.SetActive(true);                           //»¹Ô­Ó¢ÐÛ¼¼ÄÜ
-            s.Background[5].gameObject.SetActive(true);                            //»¹Ô­Ó¢ÐÛ±³¾°
+            s.SkillBtn[5].gameObject.SetActive(true);                           //ï¿½ï¿½Ô­Ó¢ï¿½Û¼ï¿½ï¿½ï¿½
         }
     }
 

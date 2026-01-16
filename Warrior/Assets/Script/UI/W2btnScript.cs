@@ -16,45 +16,26 @@ public class W2btnScript : MonoBehaviour
     public Image Lock;                 //未解锁��Ӱ
     public Image LockImg;//��ͼƬ
     public GameObject[] ChooseArrow;//ѡ���ͷ
-    public int PlayerPrefsLock2 = 0;
     public PlayerScript p;
-    void Start()
-    {
-        PlayerPrefsLock2 = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0);
-    }
-
-
     void Update()
     {
-        //print(PlayerPrefsLock2);
-        //if (PlayerPrefsLock2 == 0)
-        //{
-        //    ILock = false;
-        //    Lock.gameObject.SetActive(true);
-        //}
-        //print(PlayerPrefsLock2);
-        if(!s)
+        if (!s)
         {
             s = GameObject.Find("Manager").GetComponent<StartSceneScript>();
         }
+    }
 
-        if (PlayerPrefsLock2 == 1)
+    public void W2()
+    {
+        ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0) == 1;
+        if (ILock)
         {
-            ILock = true;
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
 
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 2)
         {
-            // s.UseImg[1].gameObject.SetActive(true);
-            // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-            // {
-            //     if (item != s.UseImg[1])
-            //     {
-            //         item.gameObject.SetActive(false);
-            //     }
-            // }
             s.SkillBtn[1].gameObject.SetActive(true);
             foreach (var item in s.SkillBtn)                      //�ر����༼��
             {
@@ -65,31 +46,6 @@ public class W2btnScript : MonoBehaviour
             }
             c.GetComponent<CanvasScript>().SkillIndex = 1;
         }
-    }
-
-    public void UpdateSkillImg()
-    {
-        // s.UseImg[1].gameObject.SetActive(true);
-        // foreach (var item in s.UseImg)                         //�ر�����Сʹ����
-        // {
-        //     if (item != s.UseImg[1])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.SkillBtn[1].gameObject.SetActive(true);
-        foreach (var item in s.SkillBtn)                      //�ر����༼��
-        {
-            if (item != s.SkillBtn[1])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
-        c.GetComponent<CanvasScript>().SkillIndex = 1;
-    }
-    public void W2()
-    {
-        UpdateSkillImg();
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);
@@ -100,40 +56,20 @@ public class W2btnScript : MonoBehaviour
         ChooseArrow[5].SetActive(false);
         StartSceneScript.W = 2;
         s.ChooseIndex = 2;
-        // s.ChooseWarrior = 2;
-        // s.ChooseBackground[1].gameObject.SetActive(true);
-        // foreach (var item in s.ChooseBackground)                     //�ر���������
-        // {
-        //     if (item != s.ChooseBackground[1])
-        //     {
-        //         item.gameObject.SetActive(false);
-        //     }
-        // }
-        s.Background[1].gameObject.SetActive(true);
-        foreach (var item in s.Background)                             //�ر�����ͷ��
-        {
-            if (item != s.Background[1])
-            {
-                item.gameObject.SetActive(false);
-            }
-        }
 
         s.monsterName.text = "白泽";
         s.HpTxt.text = ":300";
-        s.SpTxt.text = ":80";
-        s.AkTxt.text = ":20";
-        s.TellTxt.text = "获得50%活力值上限的护盾，持续5秒，冷却20秒。";
+        s.SpTxt.text = ":120";
+        s.AkTxt.text = ":2";
+        s.TellTxt.text = "技能：向正前方发射一道扇形水波，造成30点伤害，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[1];
 
-
-        //�����Ƿ񱻰�ѹ����ʾ��ť���ı�
-        //����жϰ�ť��ʾ�ı�
-        if (ILock && IPress)
+        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 2)
         {
             LockBtnTxt.text = "出战中";
             LockBtn.interactable = false;
         }
-        else if (ILock && !IPress)
+        else if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) != 2)
         {
             LockBtnTxt.text = "出战";
             LockBtn.interactable = true;

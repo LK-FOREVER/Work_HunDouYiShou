@@ -3,37 +3,37 @@
         {
             "day": 1,
             "rewardType": "Coin",
-            "rewardNum": 500
+            "rewardNum": 100
         },
         {
             "day": 2,
             "rewardType": "Coin",
-            "rewardNum": 2000
+            "rewardNum": 100
         },
         {
             "day": 3,
             "rewardType": "Coin",
-            "rewardNum": 10000
+            "rewardNum": 200
         },
         {
             "day": 4,
-            "rewardType": "Crystal",
+            "rewardType": "Coin",
             "rewardNum": 100
         },
         {
             "day": 5,
-            "rewardType": "Crystal",
-            "rewardNum": 500
+            "rewardType": "Coin",
+            "rewardNum": 100
         },
         {
             "day": 6,
-            "rewardType": "Crystal",
-            "rewardNum": 1000
+            "rewardType": "Coin",
+            "rewardNum": 300
         },
         {
             "day": 7,
-            "rewardType": "Crystal",
-            "rewardNum": 2000
+            "rewardType": "Coin",
+            "rewardNum": 500
         }
     ]
 }

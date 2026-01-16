@@ -93,7 +93,6 @@ public class LoadStartSceneScript : MonoBehaviour
     }
     public void LoginCallBack(string str)
     {
-        Debug.Log(str);
         LoginPram param = JsonUtility.FromJson<LoginPram>(str);
         if (Convert.ToInt32(param.adult_level) == 0 || Convert.ToInt32(param.adult_level) == 1)
         {
@@ -140,8 +139,6 @@ public class LoadStartSceneScript : MonoBehaviour
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
             }
         }
-        if (PlayerPrefs.GetString(SdkScript.nickname + "PlayerName") == "")
-            SdkScript.is_new_user = true;
     }
 }
 
