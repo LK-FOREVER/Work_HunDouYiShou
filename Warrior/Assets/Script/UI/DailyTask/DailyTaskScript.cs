@@ -29,26 +29,27 @@ public class DailyTaskScript : MonoBehaviour
         {
             toggle2.onValueChanged.AddListener(OnToggle2ValueChanged);
         }
-        toggle1.isOn = true; // 默认选中第一个Toggle
         LoadDailyTasks();
         UpdateUI();
-
     }
     private void LoadDailyTasks()
     {
         dailyTaskTextAsset = Resources.Load<TextAsset>("Data/daily_task_data");
-        string daily_jsonStr = dailyTaskTextAsset.text;
-        DailyTaskList dailyTask = JsonUtility.FromJson<DailyTaskList>(daily_jsonStr);
-        dailyTaskList = dailyTask.daily_tasks;
-
         achievementTextAsset = Resources.Load<TextAsset>("Data/achievement_task_data");
+        string daily_jsonStr = dailyTaskTextAsset.text;
         string achievement_jsonStr = achievementTextAsset.text;
+        DailyTaskList dailyTask = JsonUtility.FromJson<DailyTaskList>(daily_jsonStr);
         AchievementTaskList achievementTask = JsonUtility.FromJson<AchievementTaskList>(achievement_jsonStr);
+        dailyTaskList = dailyTask.daily_tasks;
         achievementList = achievementTask.achievement_tasks;
     }
     private void UpdateUI()
     {
-        if (toggle1.isOn)
+        toggle1.isOn = true;
+    }
+    private void OnToggle1ValueChanged(bool isOn)
+    {
+        if (isOn)
         {
             titleTxt.text = "每日任务";
             // 清空现有内容
@@ -56,14 +57,17 @@ public class DailyTaskScript : MonoBehaviour
             {
                 Destroy(content.transform.GetChild(i).gameObject);
             }
-
             foreach (var item in dailyTaskList)
             {
                 var daily_task_item = Instantiate(itemPrefab, content.transform);
                 daily_task_item.GetComponent<TaskItem>().InitDailyTask(item);
             }
         }
-        else
+    }
+
+    private void OnToggle2ValueChanged(bool isOn)
+    {
+        if (isOn)
         {
             titleTxt.text = "成就任务";
             // 清空现有内容
@@ -77,18 +81,6 @@ public class DailyTaskScript : MonoBehaviour
                 achievement_task_item.GetComponent<TaskItem>().InitAchievementTask(item);
             }
         }
-
-    }
-    private void OnToggle1ValueChanged(bool isOn)
-    {
-        Debug.Log($"Toggle 1 changed to: {isOn}");
-        // 你的逻辑代码
-    }
-
-    private void OnToggle2ValueChanged(bool isOn)
-    {
-        Debug.Log($"Toggle 2 changed to: {isOn}");
-        // 你的逻辑代码
     }
 
     void OnDestroy()
