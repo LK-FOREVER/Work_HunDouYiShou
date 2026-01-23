@@ -1,0 +1,676 @@
+{
+    "levels": [
+        {
+            "level_id": 1,
+            "level_name": "1-1",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 200,
+                    "attack": 2
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 2,
+            "level_name": "1-2",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 300,
+                    "attack": 2
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 3,
+            "level_name": "1-3",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 150,
+                    "attack": 3
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 4,
+            "level_name": "1-4",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 250,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 5,
+            "level_name": "1-5",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 250,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 6,
+            "level_name": "1-6",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 350,
+                    "attack": 1
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 200
+        },
+        {
+            "level_id": 7,
+            "level_name": "1-7",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 205,
+                    "attack": 3
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 8,
+            "level_name": "1-8",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 305,
+                    "attack": 3
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 9,
+            "level_name": "1-9",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 155,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 10,
+            "level_name": "1-10",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 255,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 11,
+            "level_name": "1-11",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 255,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 12,
+            "level_name": "1-12",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 355,
+                    "attack": 2
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 250
+        },
+        {
+            "level_id": 13,
+            "level_name": "2-1",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 210,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "level_id": 14,
+            "level_name": "2-2",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 310,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "level_id": 15,
+            "level_name": "2-3",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 160,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "level_id": 16,
+            "level_name": "2-4",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 260,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "level_id": 17,
+            "level_name": "2-5",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 260,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 300
+        },
+        {
+            "level_id": 18,
+            "level_name": "2-6",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 360,
+                    "attack": 3
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 19,
+            "level_name": "2-7",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 215,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 20,
+            "level_name": "2-8",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 315,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 21,
+            "level_name": "2-9",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 165,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 22,
+            "level_name": "2-10",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 265,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 23,
+            "level_name": "2-11",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 265,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 24,
+            "level_name": "2-12",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 365,
+                    "attack": 4
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 350
+        },
+        {
+            "level_id": 25,
+            "level_name": "3-1",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 220,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 400
+        },
+        {
+            "level_id": 26,
+            "level_name": "3-2",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 320,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 400
+        },
+        {
+            "level_id": 27,
+            "level_name": "3-3",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 170,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 400
+        },
+        {
+            "level_id": 28,
+            "level_name": "3-4",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 270,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 400
+        },
+        {
+            "level_id": 29,
+            "level_name": "3-5",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 270,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 400
+        },
+        {
+            "level_id": 30,
+            "level_name": "3-6",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 370,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 31,
+            "level_name": "3-7",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 225,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 32,
+            "level_name": "3-8",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 325,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 33,
+            "level_name": "3-9",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 175,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 34,
+            "level_name": "3-10",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 275,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 35,
+            "level_name": "3-11",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 275,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 36,
+            "level_name": "3-12",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 375,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 450
+        },
+        {
+            "level_id": 37,
+            "level_name": "4-1",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 230,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "level_id": 38,
+            "level_name": "4-2",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 330,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "level_id": 39,
+            "level_name": "4-3",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 180,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "level_id": 40,
+            "level_name": "4-4",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 280,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "level_id": 41,
+            "level_name": "4-5",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 280,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 500
+        },
+        {
+            "level_id": 42,
+            "level_name": "4-6",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 380,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 43,
+            "level_name": "4-7",
+            "enemy": [
+                {
+                    "enemy_id": 1,
+                    "enemy_name": "麒麟",
+                    "hp": 235,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 44,
+            "level_name": "4-8",
+            "enemy": [
+                {
+                    "enemy_id": 2,
+                    "enemy_name": "白泽",
+                    "hp": 335,
+                    "attack": 6
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 45,
+            "level_name": "4-9",
+            "enemy": [
+                {
+                    "enemy_id": 3,
+                    "enemy_name": "凤凰",
+                    "hp": 185,
+                    "attack": 7
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 46,
+            "level_name": "4-10",
+            "enemy": [
+                {
+                    "enemy_id": 4,
+                    "enemy_name": "九尾",
+                    "hp": 285,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 47,
+            "level_name": "4-11",
+            "enemy": [
+                {
+                    "enemy_id": 5,
+                    "enemy_name": "鲲鹏",
+                    "hp": 285,
+                    "attack": 8
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        },
+        {
+            "level_id": 48,
+            "level_name": "4-12",
+            "enemy": [
+                {
+                    "enemy_id": 6,
+                    "enemy_name": "玄武",
+                    "hp": 385,
+                    "attack": 5
+                }
+            ],
+            "rewardType": "Coin",
+            "rewardNum": 600
+        }
+    ]
+}

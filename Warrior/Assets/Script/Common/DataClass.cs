@@ -62,4 +62,25 @@ public class PlayTimeData
     public float totalSeconds;     // 当天累计秒数
     public int savedMinutes;   // 已保存的分钟数
 }
-
+[System.Serializable]
+public class EnemyData
+{
+    public int enemy_id;
+    public string enemy_name;
+    public int hp;
+    public int attack;
+}
+[System.Serializable]
+public class LevelData
+{
+    public int level_id;
+    public string level_name;
+    public List<EnemyData> enemy;
+    public string rewardType;
+    public int rewardNum;
+}
+[System.Serializable]
+public class LevelDataList
+{
+    public List<LevelData> levels;
+}
