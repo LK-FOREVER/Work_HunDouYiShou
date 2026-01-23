@@ -17,7 +17,8 @@ public class DailyTaskScript : MonoBehaviour
     private List<DailyTaskInfo> dailyTaskList;
     private TextAsset achievementTextAsset;//成就任务
     private List<AchievementTaskInfo> achievementList;
-    void Start()
+
+    void Awake()
     {
         closeBtn.onClick.AddListener(() => gameObject.SetActive(false));
         if (toggle1 != null)
@@ -30,8 +31,8 @@ public class DailyTaskScript : MonoBehaviour
             toggle2.onValueChanged.AddListener(OnToggle2ValueChanged);
         }
         LoadDailyTasks();
-        UpdateUI();
     }
+
     private void LoadDailyTasks()
     {
         dailyTaskTextAsset = Resources.Load<TextAsset>("Data/daily_task_data");
@@ -43,12 +44,21 @@ public class DailyTaskScript : MonoBehaviour
         dailyTaskList = dailyTask.daily_tasks;
         achievementList = achievementTask.achievement_tasks;
     }
-    private void UpdateUI()
+    public void UpdateUI()
     {
-        toggle1.isOn = true;
+        Debug.Log("UpdateUI");
+        if (toggle1.isOn)
+        {
+            OnToggle1ValueChanged(true);
+        }
+        else
+        {
+            toggle1.isOn = true;
+        }
     }
     private void OnToggle1ValueChanged(bool isOn)
     {
+        Debug.Log("OnToggle1ValueChanged: " + isOn);
         if (isOn)
         {
             titleTxt.text = "每日任务";
@@ -67,6 +77,7 @@ public class DailyTaskScript : MonoBehaviour
 
     private void OnToggle2ValueChanged(bool isOn)
     {
+        Debug.Log("OnToggle2ValueChanged: " + isOn);
         if (isOn)
         {
             titleTxt.text = "成就任务";
@@ -83,6 +94,10 @@ public class DailyTaskScript : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        toggle1.isOn = true;
+    }
     void OnDestroy()
     {
         // 清理监听，防止内存泄漏

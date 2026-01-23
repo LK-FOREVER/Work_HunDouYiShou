@@ -139,13 +139,9 @@ public class LoadStartSceneScript : MonoBehaviour
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
             }
         }
+        PlayerData.Instance.LoadData();
     }
 }
-
-
-
-
-
 
 
 

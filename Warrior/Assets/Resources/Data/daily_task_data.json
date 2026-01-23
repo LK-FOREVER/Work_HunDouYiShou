@@ -10,49 +10,49 @@
         {
             "id": 2,
             "desc": "完成5次任意难度对战",
-            "num": 1,
+            "num": 5,
             "rewardType": "Coin",
             "rewardNum": 50
         },
         {
             "id": 3,
             "desc": "完成1次困难难度对战",
-            "num": 10,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 50
         },
         {
             "id": 4,
             "desc": "累计在线30分钟",
-            "num": 5,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 100
         },
         {
             "id": 5,
             "desc": "累计消耗10点体力",
-            "num": 1,
+            "num": 10,
             "rewardType": "Coin",
             "rewardNum": 20
         },
         {
             "id": 6,
             "desc": "累计释放20次异兽技能",
-            "num": 2,
+            "num": 20,
             "rewardType": "Coin",
             "rewardNum": 50
         },
         {
             "id": 7,
             "desc": "击败2名异兽",
-            "num": 1,
+            "num": 2,
             "rewardType": "Coin",
             "rewardNum": 50
         },
         {
             "id": 8,
             "desc": "完成所有每日任务",
-            "num": 1,
+            "num": 7,
             "rewardType": "Coin",
             "rewardNum": 200
         }

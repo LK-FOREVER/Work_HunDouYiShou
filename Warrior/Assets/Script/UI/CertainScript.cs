@@ -9,15 +9,15 @@ public class CertainScript : MonoBehaviour
     public StartSceneScript s;
     public monsterPanelScript monsterPanelScript;
     public GameObject BuyPanel;
-    
+
     public Text NoCoinTxt;
     public bool ICertainBuy;
     int coin;
     void Start()
     {
         NoCoinTxt.gameObject.SetActive(false);
-       //coin=  PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
-       
+        //coin=  PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
+
     }
     public void Certain()
     {
@@ -42,6 +42,9 @@ public class CertainScript : MonoBehaviour
                     P_NewHero += 1;
                     PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
+
+                    //成就任务进度更新
+                    PlayerData.Instance.achievementTaskProgress[1] += 1;
                 }
                 else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0) == 0 && coin < 5000/*&&ICertainBuy*/)
                 {
@@ -65,6 +68,8 @@ public class CertainScript : MonoBehaviour
                     P_NewHero += 1;
                     PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
+                    //成就任务进度更新
+                    PlayerData.Instance.achievementTaskProgress[2] += 1;
                 }
                 else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 0 && coin < 20000 /*&& ICertainBuy*/)
                 {
@@ -88,6 +93,8 @@ public class CertainScript : MonoBehaviour
                     P_NewHero += 1;
                     PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
+                    //成就任务进度更新
+                    PlayerData.Instance.achievementTaskProgress[3] += 1;
                 }
                 else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 0 && coin < 50000/* && ICertainBuy*/)
                 {
@@ -111,6 +118,8 @@ public class CertainScript : MonoBehaviour
                     P_NewHero += 1;
                     PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
+                    //成就任务进度更新
+                    PlayerData.Instance.achievementTaskProgress[4] += 1;
                 }
                 else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 0 && coin < 10000 /*&& ICertainBuy*/)
                 {
@@ -134,6 +143,8 @@ public class CertainScript : MonoBehaviour
                     P_NewHero += 1;
                     PlayerPrefs.SetInt(SdkScript.nickname + "NewHero", P_NewHero);
                     PlayerPrefs.Save();
+                    //成就任务进度更新
+                    PlayerData.Instance.achievementTaskProgress[5] += 1;
                 }
                 else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 0 && coin < 10000 /*&& ICertainBuy*/)
                 {
@@ -143,6 +154,7 @@ public class CertainScript : MonoBehaviour
                 break;
         }
         monsterPanelScript.InitUI();
+        PlayerData.Instance.SaveData();
     }
     public void falseNoCoinTxt()
     {

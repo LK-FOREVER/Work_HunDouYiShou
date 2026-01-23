@@ -17,14 +17,14 @@
         {
             "id": 3,
             "desc": "获得异兽凤凰",
-            "num": 10,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 200
         },
         {
             "id": 4,
             "desc": "获得异兽九尾",
-            "num": 5,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 200
         },
@@ -38,7 +38,7 @@
         {
             "id": 6,
             "desc": "获得异兽玄武",
-            "num": 2,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 200
         },

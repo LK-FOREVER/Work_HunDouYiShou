@@ -52,8 +52,12 @@ public class CanvasScript : MonoBehaviour
         Background.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         Simg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         nameTxt.text = PlayerPrefs.GetString(SdkScript.nickname + "PlayerName", "昵称");
-        sevenDayBtn.onClick.AddListener(() =>sevenDayPanel.SetActive(true));
-        dailyTaskBtn.onClick.AddListener(() =>dailyTaskPanel.SetActive(true));
+        sevenDayBtn.onClick.AddListener(() => sevenDayPanel.SetActive(true));
+        dailyTaskBtn.onClick.AddListener(() =>
+        {
+            dailyTaskPanel.SetActive(true);
+            dailyTaskPanel.GetComponent<DailyTaskScript>().UpdateUI();
+        });
     }
 
     void Update()
