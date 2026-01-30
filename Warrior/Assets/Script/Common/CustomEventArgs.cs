@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-public class SkillEventArgs : EventArgs
+public class ChangeWarriorArgs : EventArgs
 {
-    public string skillName; // 技能名称
-    public int cooldown; // 技能冷却时间
-    public int duration; // 技能持续时间
+    public int index_monster;
+}
+public class DamageArgs : EventArgs
+{
+    public int damage;
+}
+public class GameEndArgs : EventArgs
+{
+    public bool isWin;
 }
 
 

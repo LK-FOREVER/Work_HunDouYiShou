@@ -11,7 +11,7 @@ public class DifBtnScript : MonoBehaviour
     public Sprite[] sprite;
     void Start()
     {
-        p.GetComponent<PlayerScript>().INormal = true;
+        p.GetComponent<PlayerScript>().IEasy = true;
     }
 
     void Update()
@@ -25,12 +25,12 @@ public class DifBtnScript : MonoBehaviour
         IClick = !IClick;
         if (IClick)
         {
-            this.GetComponent<Image>().sprite = sprite[1];
+            transform.Find("DiffImg").GetComponent<Image>().sprite = sprite[1];
             ShowDifBtn();
         }
         else if (!IClick)
         {
-            this.GetComponent<Image>().sprite = sprite[0];
+            transform.Find("DiffImg").GetComponent<Image>().sprite = sprite[0];
             FalseDifBtn();
         }
     }

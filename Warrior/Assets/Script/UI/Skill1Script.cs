@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Skill1Script : MonoBehaviour
 {
-  public  bool IClick=true;                 //ÊÇ·ñ¿ÉÒÔµã»÷
+  public  bool IClick=true;                 //ï¿½Ç·ï¿½ï¿½ï¿½Ôµï¿½ï¿½
     public Sprite[] S;
     public GameObject Player;
    
@@ -34,7 +34,7 @@ public class Skill1Script : MonoBehaviour
 
             Player.GetComponent<PlayerScript>().speed = 5f;
             Invoke("falseSkill", 10f);
-            Player.GetComponent <PlayerScript>().SpeedEff.SetActive(true);
+            // Player.GetComponent <PlayerScript>().SpeedEff.SetActive(true);
             Invoke("FalseEff", 10f);
         }
        
@@ -51,6 +51,6 @@ public class Skill1Script : MonoBehaviour
     }
     public void FalseEff()
     {
-        Player.GetComponent<PlayerScript>().SpeedEff.SetActive(false);
+        // Player.GetComponent<PlayerScript>().SpeedEff.SetActive(false);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LockBtnScript : MonoBehaviour
 {
     public GameObject Manager;
-    public Button [] WarriorBtn;
+    public Button[] WarriorBtn;
     public GameObject BugPanel;
     public Image WarningImg;
     public PlayerScript p;
@@ -15,17 +15,18 @@ public class LockBtnScript : MonoBehaviour
 
     void Start()
     {
-       
+
     }
     void Update()
     {
     }
     public void PressUnlockBtn()
     {
-        
+
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         int index = Manager.GetComponent<StartSceneScript>().ChooseIndex;
+        EventManager.Instance.TriggerEvent(EventName.ChangeWarrior, this, new ChangeWarriorArgs() { index_monster = index });
         switch (index)
         {
             case 1:

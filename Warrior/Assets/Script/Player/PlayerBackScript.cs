@@ -19,62 +19,59 @@ public class PlayerBackScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
-            this.GetComponentInParent<PlayerScript>().rig.AddForce(this.GetComponentInParent<PlayerScript>().d * 20000 * Time.deltaTime);
+            // this.GetComponentInParent<PlayerScript>().rig.AddForce(this.GetComponentInParent<PlayerScript>().d * 20000 * Time.deltaTime);
 
-            this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
-            this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
+            // this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
+            // this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
         }
-        if (!this.GetComponentInParent<PlayerScript>().IParse)
-        {
-            if (collision.gameObject.tag == "Obstacle")
-            {
+        // if (!this.GetComponentInParent<PlayerScript>().IParse)
+        // {
+        //     if (collision.gameObject.tag == "Obstacle")
+        //     {
 
-                //print("��ײ��");
-                this.GetComponentInParent<PlayerScript>().rig.AddForce(this.GetComponentInParent<PlayerScript>().d * 30000 * Time.deltaTime);
+        //         //print("��ײ��");
+        //         this.GetComponentInParent<PlayerScript>().rig.AddForce(this.GetComponentInParent<PlayerScript>().d * 30000 * Time.deltaTime);
 
-                this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
-                this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
-                int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //����ײ����
-                P_ColiNum++;
-                PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
+        //         this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
+        //         this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
+        //         int P_ColiNum = PlayerPrefs.GetInt(SdkScript.nickname + "ColiNum", 0);                            //����ײ����
+        //         P_ColiNum++;
+        //         PlayerPrefs.SetInt(SdkScript.nickname + "ColiNum", P_ColiNum);
 
-            }
-            if (collision.gameObject.name == "PlayerDefendObject" /*&& collision.gameObject != this.gameObject*/)
-            {
+        //     }
+        //     if (collision.gameObject.name == "PlayerDefendObject" /*&& collision.gameObject != this.gameObject*/)
+        //     {
 
-                Vector3 Defendd = (this.transform.position - collision.transform.position).normalized;
-                this.GetComponentInParent<PlayerScript>().rig.AddForce(Defendd * 10000 * Time.deltaTime); //���Է�ʩ�����������������ģ���ֹ��Ҿ�ֹ
+        //         Vector3 Defendd = (this.transform.position - collision.transform.position).normalized;
+        //         this.GetComponentInParent<PlayerScript>().rig.AddForce(Defendd * 10000 * Time.deltaTime); //���Է�ʩ�����������������ģ���ֹ��Ҿ�ֹ
 
-                this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
-                this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
-                this.GetComponentInParent<PlayerScript>().DecreasePlayerHp(10);
-                this.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
-                this.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
-                this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
-                this.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
-            }
-            if (collision.gameObject.tag == "frontObject" && Player.GetComponent<PlayerScript>().IWarrior5) //�����ΪӢ��5ʱ
-            {
-                GetComponentInParent<PlayerScript>().MonsterEff.SetActive(true);
-                Invoke("FalseMonsterEff", 0.5f);
-            }
-            if (collision.gameObject.tag == "PlayerHammerItem" && collision.gameObject.transform.parent != this.transform.parent)
-            {
+        //         this.GetComponentInParent<PlayerScript>().rig.drag = 6f;
+        //         this.GetComponentInParent<PlayerScript>().rig.angularDrag = 6f;
+        //         this.GetComponentInParent<PlayerScript>().DecreasePlayerHp(10);
+        //         this.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //��Ѫ�ı���Ч
+        //         this.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
+        //         this.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
+        //     }
+        //     // if (collision.gameObject.tag == "frontObject" && Player.GetComponent<PlayerScript>().IWarrior5) //�����ΪӢ��5ʱ
+        //     // {
+        //     //     Invoke("FalseMonsterEff", 0.5f);
+        //     // }
+        //     if (collision.gameObject.tag == "PlayerHammerItem" && collision.gameObject.transform.parent != this.transform.parent)
+        //     {
 
-                this.GetComponentInParent<PlayerScript>().IFreeze = true;
-                this.GetComponentInParent<PlayerScript>().InvokeFalseFreeze();
-                this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = true;
-                this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().InvokeFalseFreezeSkill();
-            }
-        }
+        //         this.GetComponentInParent<PlayerScript>().IFreeze = true;
+        //         this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = true;
+        //         this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().InvokeFalseFreezeSkill();
+        //     }
+        // }
             
         if (collision.gameObject.name == "HookBackObj")
         {
             print("Hook");
             //print(collision.transform.GetChild(0));
             //this.GetComponentInParent<Warrior1Script>().IFreeze = false;
-            this.GetComponentInParent<PlayerScript>().HookBack = false;
-            this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;
+            // this.GetComponentInParent<PlayerScript>().HookBack = false;
+            // this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;
             if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
 
             {
@@ -117,6 +114,5 @@ public class PlayerBackScript : MonoBehaviour
     }
     public void FalseMonsterEff()
     {
-        GetComponentInParent<PlayerScript>().MonsterEff.SetActive(false);
     }
 }

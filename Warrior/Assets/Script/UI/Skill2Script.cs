@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Skill2Script : MonoBehaviour
 {
-    public bool IClick = true;                 //ÊÇ·ñ¿ÉÒÔµã»÷
+    public bool IClick = true;                 //ï¿½Ç·ï¿½ï¿½ï¿½Ôµï¿½ï¿½
 
     public Sprite[] S;
     public GameObject Player;
@@ -31,11 +31,11 @@ public class Skill2Script : MonoBehaviour
             this.GetComponent<Image>().sprite = S[1];
             Invoke("falseSprite", 20f);
 
-            Player.GetComponent<PlayerScript>().Ishield = true;
+            // Player.GetComponent<PlayerScript>().Ishield = true;
             Player.GetComponent<PlayerScript>().ShieldHp = 150f;
             Invoke("falseSkill", 5f);
 
-            Player.GetComponent<PlayerScript>().ShieldEff.SetActive(true);
+            // Player.GetComponent<PlayerScript>().ShieldEff.SetActive(true);
             Invoke("FalseShieldEff", 5f);
         }
 
@@ -47,11 +47,11 @@ public class Skill2Script : MonoBehaviour
     }
     public void falseSkill()
     {
-        Player.GetComponent<PlayerScript>().Ishield = false;
+    //     Player.GetComponent<PlayerScript>().Ishield = false;
         Player.GetComponent<PlayerScript>().ShieldHp = 0;
     }
     public void FalseShieldEff()
     {
-        Player.GetComponent<PlayerScript>().ShieldEff.SetActive(false);
+        // Player.GetComponent<PlayerScript>().ShieldEff.SetActive(false);
     }
 }

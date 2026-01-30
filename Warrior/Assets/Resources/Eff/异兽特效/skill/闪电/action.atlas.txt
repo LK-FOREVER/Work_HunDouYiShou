@@ -1,0 +1,15 @@
+action.png
+size:262,134
+filter:Linear,Linear
+images/t1_01
+bounds:2,68,64,128
+rotate:90
+images/t1_02
+bounds:132,68,64,128
+rotate:90
+images/t1_03
+bounds:2,2,64,128
+rotate:90
+images/t1_04
+bounds:132,2,64,128
+rotate:90

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -36,7 +35,7 @@ public class StartSceneScript : MonoBehaviour
     public Image ShowWarriorImg;
 
     public GameObject CreateNamePanel;
-    private SdkScript sdkScript;
+    private int currentMonsterIndex;
     public static StartSceneScript Instance;
 
     void Awake()
@@ -55,10 +54,10 @@ public class StartSceneScript : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 240;    //帧数
-        int currentPlayer = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1);
+        currentMonsterIndex = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1);
         foreach (var item in Background)
         {
-            if (item != Background[currentPlayer - 1])
+            if (item != Background[currentMonsterIndex - 1])
             {
                 item.gameObject.SetActive(false);
             }
@@ -69,19 +68,9 @@ public class StartSceneScript : MonoBehaviour
 
         }
 
-        foreach (var item in SkillBtn)
-        {
-            if (item != SkillBtn[currentPlayer - 1])
-            {
-                item.gameObject.SetActive(false);
-            }
-            else
-            {
-                item.gameObject.SetActive(true);
-            }
-        }
-        
+        //创建昵称界面
         if (PlayerPrefs.GetString(SdkScript.nickname + "PlayerName") == "") CreateNamePanel.SetActive(true);
+        //选择出战的角色
         ChooseWarriors();
     }
 
@@ -89,98 +78,85 @@ public class StartSceneScript : MonoBehaviour
     {
         if (SceneManager.GetSceneByName("GameScene").isLoaded)
         {
-            SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+            // SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         }
     }
 
     public void ChooseWarriors()
     {
-        switch (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1))
+        int currentMonsterIndex = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1);
+        Debug.Log("currentMonsterIndex：" + currentMonsterIndex);
+        EventManager.Instance.TriggerEvent(EventName.ChangeWarrior, this, new ChangeWarriorArgs() { index_monster = currentMonsterIndex });
+        switch (currentMonsterIndex)
         {
             case 1:
                 p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[0];            //更换英雄图片  
-                p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[0];
-                p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[0];
                 WarriorBtn[0].GetComponent<W1btnScript>().W1();
-
                 p.speed = 100/30f;                                                              ///更改英雄属性
                 p.PlayerHp = 200f;
                 p.PlayerHP = 200f;
-                p.Ak = 2f;
+                p.atk = 2;
                 break;
             case 2:
                 if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock2", 0) == 1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[1];
-                    p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[1];
-                    p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[1];
                     WarriorBtn[1].GetComponent<W2btnScript>().W2();
 
                     p.speed = 120/30f;
                     p.PlayerHp = 300f;
                     p.PlayerHP = 300f;
-                    p.Ak = 2f;
+                    p.atk = 2;
                 }
                 break;
             case 3:
                 if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[2];
-                    p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[2];
-                    p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[2];
                     WarriorBtn[2].GetComponent<W3btnScript>().W3();
 
                     p.speed = 100/30f;
                     p.PlayerHp = 150f;
                     p.PlayerHP = 150f;
-                    p.Ak = 3f;
+                    p.atk = 3;
                 }
                 break;
             case 4:
                 if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[3];
-                    p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[3];
-                    p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[3];
                     WarriorBtn[3].GetComponent<W4btnScript>().W4();
 
                     p.speed = 150/30f;
                     p.PlayerHp = 250f;
                     p.PlayerHP = 250f;
-                    p.Ak = 4f;
+                    p.atk = 4;
                 }
                 break;
             case 5:
                 if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[4];
-                    p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[4];
-                    p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[4];
                     WarriorBtn[4].GetComponent<W5btnScript>().W5();
 
                     p.speed = 180/30f;
                     p.PlayerHp = 250f;
                     p.PlayerHP = 250f;
-                    p.Ak = 4f;
+                    p.atk = 4;
                 }
                 break;
             case 6:
                 if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 1)
                 {
                     p.GetComponent<SpriteRenderer>().sprite = p.WarriorImg[5];
-                    p.SingleWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[5];
-                    p.PointsWarriorImage.GetComponent<Image>().sprite = p.WarriorImg[5];
                     WarriorBtn[5].GetComponent<W6btnScript>().W6();
 
                     p.speed = 80/30f;
                     p.PlayerHp = 350f;
                     p.PlayerHP = 350f;
-                    p.Ak = 1f;
+                    p.atk = 1;
                 }
                 break;
         }
-
     }
-
-
 }

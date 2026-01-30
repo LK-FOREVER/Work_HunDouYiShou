@@ -1,0 +1,75 @@
+action.png
+size:1117,195
+filter:Linear,Linear
+images/images/火/A_fire_ball_00000
+bounds:118,3,96,91
+offsets:6,6,108,108
+images/images/火/A_fire_ball_00001
+bounds:2,2,95,91
+offsets:7,6,108,108
+images/images/火/A_fire_ball_00002
+bounds:924,3,95,92
+offsets:7,6,108,108
+rotate:90
+images/images/火/A_fire_ball_00003
+bounds:826,6,96,92
+offsets:6,6,108,108
+images/images/火/A_fire_ball_00004
+bounds:826,100,96,93
+offsets:6,6,108,108
+images/images/火/A_fire_ball_00005
+bounds:1018,3,95,92
+offsets:7,6,108,108
+images/images/火/A_fire_ball_00006
+bounds:216,3,95,91
+offsets:7,6,108,108
+images/images/火/A_fire_ball_00007
+bounds:584,4,95,92
+offsets:7,6,108,108
+images/images/火/A_fire_ball_00008
+bounds:924,100,96,93
+offsets:6,6,108,108
+images/images/火/A_fire_ball_00009
+bounds:1022,97,96,93
+offsets:6,6,108,108
+rotate:90
+images/images/火/A_fire_loop 2_00000
+bounds:244,96,97,115
+offsets:32,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00001
+bounds:118,96,97,124
+offsets:30,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00002
+bounds:584,98,95,129
+offsets:30,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00003
+bounds:681,5,91,127
+offsets:29,14,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00004
+bounds:433,7,87,118
+offsets:33,14,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00005
+bounds:313,6,88,118
+offsets:32,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00006
+bounds:2,95,98,114
+offsets:33,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00007
+bounds:361,96,97,111
+offsets:33,13,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00008
+bounds:474,96,97,108
+offsets:35,14,150,150
+rotate:90
+images/images/火/A_fire_loop 2_00009
+bounds:715,98,95,109
+offsets:33,14,150,150
+rotate:90

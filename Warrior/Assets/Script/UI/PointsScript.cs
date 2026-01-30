@@ -28,12 +28,10 @@ public class PointsScript : MonoBehaviour
         // BackGround.gameObject.SetActive(true);
         Invoke("fasleBackGround", 0.5f);
         SceneManager.LoadScene("LoadScene");
-      
-     
         MainPanel.SetActive(false);
 
-        Player.GetComponent<PlayerScript>().IPoints = true;
-        Player.GetComponent<PlayerScript>().ISingle = false;
+        // Player.GetComponent<PlayerScript>().IPoints = true;
+        // Player.GetComponent<PlayerScript>().ISingle = false;
     }
     //public void log()
     //{

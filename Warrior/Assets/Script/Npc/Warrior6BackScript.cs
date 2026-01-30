@@ -86,7 +86,7 @@ public class Warrior6BackScript : MonoBehaviour
             if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Player")
             {
                 print(0);
-                collision.transform.GetChild(0).GetComponent<PlayerScript>().IFreeze = false;
+                // collision.transform.GetChild(0).GetComponent<PlayerScript>().IFreeze = false;
             }
 
             if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")

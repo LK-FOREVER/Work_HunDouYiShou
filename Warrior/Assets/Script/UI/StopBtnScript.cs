@@ -6,15 +6,6 @@ public class StopBtnScript : MonoBehaviour
 {
     public GameObject StopPanel;
     public PlayerScript p;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
     public void ClickStopBtn()
     {
         p.audio.clip = p.acilp[0];

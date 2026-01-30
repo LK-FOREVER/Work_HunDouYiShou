@@ -51,12 +51,12 @@ public class RePointsScript : MonoBehaviour
             if (item != null)
                 Destroy(item);
         }
-        foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
-        {
-            item.SetActive(false);
-        }
-        Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
-        Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
+        // foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
+        // {
+        //     item.SetActive(false);
+        // }
+        // Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
+        // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
         m.GetComponent<MapScript>().ObstacleList.Clear();
         m.GetComponent<MapScript>().AddBloodList.Clear();
         m.GetComponent<MapScript>().TrapList.Clear();
@@ -79,10 +79,10 @@ public class RePointsScript : MonoBehaviour
         m.GetComponent<MapScript>().CreateNpc();
 
         m.GetComponent<MapScript>().CreateItem();
-        Player.GetComponent<PlayerScript>().IItem1 = true;
-        Player.GetComponent<PlayerScript>().IItem2 = true;
-        Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        // Player.GetComponent<PlayerScript>().IItem1 = true;
+        // Player.GetComponent<PlayerScript>().IItem2 = true;
+        // Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
         m.GetComponent<MapScript>().CreateTrap();
 
@@ -99,8 +99,8 @@ public class RePointsScript : MonoBehaviour
 
         Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
         Player.transform.position = new Vector3(12, -20, 0);
-        Player.GetComponent<PlayerScript>().IPoints = true;
-        Player.GetComponent<PlayerScript>().ISingle = false;
+        // Player.GetComponent<PlayerScript>().IPoints = true;
+        // Player.GetComponent<PlayerScript>().ISingle = false;
 
         for (int i = 0; i < m.GetComponent<MapScript>().Warriorpoint.Count; i++)        //积分重制
         {

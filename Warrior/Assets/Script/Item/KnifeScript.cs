@@ -24,10 +24,10 @@ public class KnifeScript : MonoBehaviour
             {
                 collision.GetComponent<PlayerScript>().DecreasePlayerHp(20);
 
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "20";
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
-                collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "20";
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
+                // collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior1(Clone)")
             {
@@ -86,8 +86,8 @@ public class KnifeScript : MonoBehaviour
             //命中加分
             if (this.transform.parent.parent.name == "Player")
             {
-                if (this.transform.parent.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic.ContainsKey("玩家"))
-                    this.transform.parent.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
+                // if (this.transform.parent.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic.ContainsKey("玩家"))
+                //     this.transform.parent.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
             }
             if (this.transform.parent.parent.name == "Warrior1(Clone)")
             {

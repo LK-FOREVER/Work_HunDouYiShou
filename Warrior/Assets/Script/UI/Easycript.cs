@@ -10,17 +10,6 @@ public class Easycript : MonoBehaviour
     public GameObject Player;
     public PlayerScript p;
     bool IClick;
-    void Start()
-    {
-       
-    }
-
-    
-    void Update()
-    {
-        
-        
-    }
     public void ClickEasyBtn()
     {
         p.GetComponent<PlayerScript>().IVeryHard = false;
@@ -35,21 +24,18 @@ public class Easycript : MonoBehaviour
         DifBtn.GetComponent<DifBtnScript>().FalseDifBtn();
         DifBtn.GetComponent<DifBtnScript>().IClick=!DifBtn.GetComponent<DifBtnScript>().IClick;
 
-        Player.GetComponent<PlayerScript>().R1 = 0;
-        Player.GetComponent<PlayerScript>().R2 = 5;
+        // Player.GetComponent<PlayerScript>().R1 = 0;
+        // Player.GetComponent<PlayerScript>().R2 = 5;
 
-        DifBtn.GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
+        DifBtn.transform.Find("DiffImg").GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
 
 
         //难度属性
-        p.TrapNum = 0;
-        p.AddNum = 50;
-        p.TrapAfterNum = 0;
-        p.AddAfterNum = 20;
-        p.T1 = 1; p.T2 = 21;
-        p.B1 = 21; p.B2 = 30;
-
-        // 技能释放频率
-       
+        // p.TrapNum = 0;
+        // p.AddNum = 50;
+        // p.TrapAfterNum = 0;
+        // p.AddAfterNum = 20;
+        // p.T1 = 1; p.T2 = 21;
+        // p.B1 = 21; p.B2 = 30;
     }
 }

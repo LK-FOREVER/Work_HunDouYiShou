@@ -65,7 +65,7 @@ public class DailyPlayTimeTracker : MonoBehaviour
 
         if (currentData.totalSeconds >= 1)
         {
-            Debug.Log($"今日累计游戏时间: {currentData.totalSeconds} 秒");
+            // Debug.Log($"今日累计游戏时间: {currentData.totalSeconds} 秒");
         }
         // 自动保存（每1分钟保存一次）
         if (currentData.totalSeconds >= 60 * (currentData.savedMinutes + 1))

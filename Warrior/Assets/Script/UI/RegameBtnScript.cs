@@ -27,7 +27,8 @@ public class RegameBtnScript : MonoBehaviour
         StopPanel.SetActive(false);
         poolManager.Clear();
 
-        if (Player.GetComponent<PlayerScript>().IPoints)
+        // if (Player.GetComponent<PlayerScript>().IPoints)
+        if (true)
         {
             foreach (var item in m.GetComponent<MapScript>().ObstacleList)
             {
@@ -54,12 +55,12 @@ public class RegameBtnScript : MonoBehaviour
                 if (item != null)
                     Destroy(item);
             }
-            foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
-            {
-                item.SetActive(false);
-            }
-            Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
-            Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
+            // foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
+            // {
+            //     item.SetActive(false);
+            // }
+            // Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
+            // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
             m.GetComponent<MapScript>().ObstacleList.Clear();
             m.GetComponent<MapScript>().AddBloodList.Clear();
             m.GetComponent<MapScript>().TrapList.Clear();
@@ -87,18 +88,18 @@ public class RegameBtnScript : MonoBehaviour
             m.GetComponent<MapScript>().CreateTrap();
 
             m.GetComponent<MapScript>().CreateItem();
-            Player.GetComponent<PlayerScript>().IItem1 = true;
-            Player.GetComponent<PlayerScript>().IItem2 = true;
-            Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            // Player.GetComponent<PlayerScript>().IItem1 = true;
+            // Player.GetComponent<PlayerScript>().IItem2 = true;
+            // Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             m.GetComponent<MapScript>().lateTime = Time.time;
 
 
             Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
             Player.transform.position = new Vector3(12, -20, 0);
 
-            Player.GetComponent<PlayerScript>().IPoints = true;
-            Player.GetComponent<PlayerScript>().ISingle = false;
+            // Player.GetComponent<PlayerScript>().IPoints = true;
+            // Player.GetComponent<PlayerScript>().ISingle = false;
 
             for (int i = 0; i < m.GetComponent<MapScript>().Warriorpoint.Count; i++)        //积分重制
             {
@@ -107,7 +108,8 @@ public class RegameBtnScript : MonoBehaviour
         }
 
 
-        if (Player.GetComponent<PlayerScript>().ISingle)
+        // if (Player.GetComponent<PlayerScript>().ISingle)
+        if (true)
         {
             m = GameObject.Find("MapManager");
             foreach (var item in m.GetComponent<MapScript>().ObstacleList)
@@ -135,12 +137,12 @@ public class RegameBtnScript : MonoBehaviour
                 if (item != null)
                     Destroy(item);
             }
-            foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
-            {
-                item.SetActive(false);
-            }
-            p.ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
-            p.ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
+            // foreach (var item in Player.GetComponent<PlayerScript>().ItemObject)
+            // {
+            //     item.SetActive(false);
+            // }
+            // p.ItemBtn1.GetComponent<Item1BtnScript>().IShoot = false;  //重开关闭子弹发射
+            // p.ItemBtn2.GetComponent<Item2BtnScript>().IShoot = false;
             m.GetComponent<MapScript>().ObstacleList.Clear();
             m.GetComponent<MapScript>().AddBloodList.Clear();
             m.GetComponent<MapScript>().TrapList.Clear();
@@ -161,16 +163,16 @@ public class RegameBtnScript : MonoBehaviour
             m.GetComponent<MapScript>().CreateNpc();
 
             m.GetComponent<MapScript>().CreateItem();
-            Player.GetComponent<PlayerScript>().IItem1 = true;
-            Player.GetComponent<PlayerScript>().IItem2 = true;
-            Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            // Player.GetComponent<PlayerScript>().IItem1 = true;
+            // Player.GetComponent<PlayerScript>().IItem2 = true;
+            // Player.GetComponent<PlayerScript>().ItemBtn1.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
             m.GetComponent<MapScript>().CreateTrap();
             Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
             Player.transform.position = new Vector3(12, -20, 0);
-            Player.GetComponent<PlayerScript>().IPoints = false;
-            Player.GetComponent<PlayerScript>().ISingle = true;
+            // Player.GetComponent<PlayerScript>().IPoints = false;
+            // Player.GetComponent<PlayerScript>().ISingle = true;
 
         }
         foreach (var temp in SkillBtn)

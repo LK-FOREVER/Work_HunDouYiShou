@@ -54,7 +54,7 @@ public class MapScript : MonoBehaviour
     bool IRotate = false;
 
     //bool ICreateNpc;
-    public bool ISingle;
+    public bool ISingle = true;
     public bool IPoints;
     public Text TimeTxt;
     public float lateTime;
@@ -101,17 +101,11 @@ public class MapScript : MonoBehaviour
     public GameObject Hammer;
     public GameObject Grenade;
     public GameObject Hook;
-
     private ObjectPoolManager poolManager;
-
+    private LevelData levelData;
     void Awake()
     {
-        Arrow1 = (GameObject)Resources.Load("Prefabs/Warrior1Arrow");
-        Arrow2 = (GameObject)Resources.Load("Prefabs/Warrior2Arrow");
-        Arrow3 = (GameObject)Resources.Load("Prefabs/Warrior3Arrow");
-        Arrow4 = (GameObject)Resources.Load("Prefabs/Warrior4Arrow");
-        Arrow5 = (GameObject)Resources.Load("Prefabs/Warrior5Arrow");
-        Arrow6 = (GameObject)Resources.Load("Prefabs/Warrior6Arrow");
+        Debug.Log("MapScript Awake");
         Light = (GameObject)Resources.Load("Prefabs/LightObj");
         Bullet = (GameObject)Resources.Load("Prefabs/BulletObj");
         Hammer = (GameObject)Resources.Load("Prefabs/PlayerHammerItem");
@@ -123,12 +117,14 @@ public class MapScript : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log("MapScript Start");
         //Warriorname.Add(Player.GetComponent<PlayerScript>().Name);
         //Warriorpoint.Add(Player.GetComponent<PlayerScript>().point);
         //PointIndex.Add(0);
 
         //Warriorname[index] = Player.GetComponent<PlayerScript>().Name;
         //Warriorpoint[index] = Player.GetComponent<PlayerScript>().point;
+        levelData = PlayerData.Instance.levelData;
         dic.Add("玩家", 0);
 
         Others.Add(Player);
@@ -143,15 +139,16 @@ public class MapScript : MonoBehaviour
         }
         ActiveMap();
         CreateMap();
-        CreateAddBlood();
-        Invoke("CreateAddBloodAfter", 30f);
-        CreateTrap();
-        InvokeRepeating("CreateTrapAfter", 30f, 30f);
-        CreateObstacle();
+        // CreateAddBlood();
+        // Invoke("CreateAddBloodAfter", 30f);
+        // CreateTrap();
+        // InvokeRepeating("CreateTrapAfter", 30f, 30f);
+        // CreateObstacle();
         CreateNpc();
-        CreateItem();
-        InvokeRepeating("CreateItemAfter", 30f, 30f);
-        StartCoroutine("Fun");
+
+        // CreateItem();
+        // InvokeRepeating("CreateItemAfter", 30f, 30f);
+        // StartCoroutine("Fun");
 
         lateTime = Time.time;
     }
@@ -277,18 +274,59 @@ public class MapScript : MonoBehaviour
     }
     public void CreateNpc()                                                                      //???????Npc
     {
-        for (int i = 0; i < 7; i++)
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     // GameObject obj = GameObject.Instantiate(Warriors[Random.Range(0, 6)]);
+        //     var obj = poolManager.Get(Warriors[Random.Range(0, 6)]);
+        //     Index++;
+        //     //PointIndex.Add(Index);
+        //     Others.Add(obj);
+        //     NpcList.Add(obj);
+
+        //     float xW = Random.Range(-4f, 28f);
+        //     float yW = Random.Range(6f, -42f);
+        //     obj.transform.position = new Vector3(xW, yW, 0);
+        // }
+        for (int i = 0; i < levelData.enemy.Count; i++)
         {
-            // GameObject obj = GameObject.Instantiate(Warriors[Random.Range(0, 6)]);
-            var obj = poolManager.Get(Warriors[Random.Range(0, 6)]);
-            Index++;
-            //PointIndex.Add(Index);
+            var obj = poolManager.Get(Warriors[levelData.enemy[i].enemy_id - 1]);
             Others.Add(obj);
             NpcList.Add(obj);
 
-            float xW = Random.Range(-4f, 28f);
-            float yW = Random.Range(6f, -42f);
-            obj.transform.position = new Vector3(xW, yW, 0);
+            // float xW = Random.Range(9f, 26f);
+            // float yW = Random.Range(-40f, -10f);
+            obj.transform.position = new Vector3(33f, -38f, 0);
+
+            if (levelData.enemy[i].enemy_id == 1)
+            {
+                obj.GetComponent<Warrior1Script>().Warrior1Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior1Script>().atk = levelData.enemy[i].attack;
+            }
+            else if (levelData.enemy[i].enemy_id == 2)
+            {
+                obj.GetComponent<Warrior2Script>().Warrior2Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior2Script>().atk = levelData.enemy[i].attack;
+            }
+            else if (levelData.enemy[i].enemy_id == 3)
+            {
+                obj.GetComponent<Warrior3Script>().Warrior3Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior3Script>().atk = levelData.enemy[i].attack;
+            }
+            else if (levelData.enemy[i].enemy_id == 4)
+            {
+                obj.GetComponent<Warrior4Script>().Warrior4Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior4Script>().atk = levelData.enemy[i].attack;
+            }
+            else if (levelData.enemy[i].enemy_id == 5)
+            {
+                obj.GetComponent<Warrior5Script>().Warrior5Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior5Script>().atk = levelData.enemy[i].attack;
+            }
+            else if (levelData.enemy[i].enemy_id == 6)
+            {
+                obj.GetComponent<Warrior6Script>().Warrior6Hp = levelData.enemy[i].hp;
+                obj.GetComponent<Warrior6Script>().atk = levelData.enemy[i].attack;
+            }
         }
     }
     public void CreateNpcAfter()
@@ -332,59 +370,59 @@ public class MapScript : MonoBehaviour
     //}
     public void CreateAddBlood()                                            //??????????????
     {
-        for (int i = 0; i < Player.GetComponent<PlayerScript>().AddNum; i++)
-        {
-            // GameObject obj = GameObject.Instantiate(AddBlood);
-            var addBloodObj = poolManager.Get(AddBlood);
-            AddBloodList.Add(addBloodObj);
-            float x = Random.Range(-4f, 28f);
-            float y = Random.Range(-42f, 6f);
-            addBloodObj.transform.position = new Vector3(x, y, 0);
-        }
+        // for (int i = 0; i < Player.GetComponent<PlayerScript>().AddNum; i++)
+        // {
+        //     // GameObject obj = GameObject.Instantiate(AddBlood);
+        //     var addBloodObj = poolManager.Get(AddBlood);
+        //     AddBloodList.Add(addBloodObj);
+        //     float x = Random.Range(-4f, 28f);
+        //     float y = Random.Range(-42f, 6f);
+        //     addBloodObj.transform.position = new Vector3(x, y, 0);
+        // }
 
     }
     public void CreateAddBloodAfter()
     {
         if (ICreateAddBloodAfter)
         {
-            for (int i = 0; i < Player.GetComponent<PlayerScript>().AddAfterNum; i++)
-            {
-                // GameObject obj = GameObject.Instantiate(AddBlood);
-                var addBloodObj = poolManager.Get(AddBlood);
-                AddBloodList.Add(addBloodObj);
-                float x = Random.Range(2f, 22f);
-                float y = Random.Range(-36f, 0f);
-                addBloodObj.transform.position = new Vector3(x, y, 0);
-            }
+            // for (int i = 0; i < Player.GetComponent<PlayerScript>().AddAfterNum; i++)
+            // {
+            //     // GameObject obj = GameObject.Instantiate(AddBlood);
+            //     var addBloodObj = poolManager.Get(AddBlood);
+            //     AddBloodList.Add(addBloodObj);
+            //     float x = Random.Range(2f, 22f);
+            //     float y = Random.Range(-36f, 0f);
+            //     addBloodObj.transform.position = new Vector3(x, y, 0);
+            // }
         }
     }
 
     public void CreateTrap()                                            //???????????????
     {
-        for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapNum; i++)
-        {
-            // GameObject obj = GameObject.Instantiate(Trap);
-            var trapObj = poolManager.Get(Trap);
-            TrapList.Add(trapObj);
-            float x = Random.Range(-4f, 28f);
-            float y = Random.Range(-42f, 6f);
-            trapObj.transform.position = new Vector3(x, y, 0);
-        }
+        // for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapNum; i++)
+        // {
+        //     // GameObject obj = GameObject.Instantiate(Trap);
+        //     var trapObj = poolManager.Get(Trap);
+        //     TrapList.Add(trapObj);
+        //     float x = Random.Range(-4f, 28f);
+        //     float y = Random.Range(-42f, 6f);
+        //     trapObj.transform.position = new Vector3(x, y, 0);
+        // }
     }
     public void CreateTrapAfter()
     {
-        if (ICreateTrapAfter)
-        {
-            for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapAfterNum; i++)
-            {
-                // GameObject obj = GameObject.Instantiate(Trap);
-                var trapObj = poolManager.Get(Trap);
-                TrapList.Add(trapObj);
-                float x = Random.Range(2f, 22f);
-                float y = Random.Range(-36f, 0f);
-                trapObj.transform.position = new Vector3(x, y, 0);
-            }
-        }
+        // if (ICreateTrapAfter)
+        // {
+        //     for (int i = 0; i < Player.GetComponent<PlayerScript>().TrapAfterNum; i++)
+        //     {
+        //         // GameObject obj = GameObject.Instantiate(Trap);
+        //         var trapObj = poolManager.Get(Trap);
+        //         TrapList.Add(trapObj);
+        //         float x = Random.Range(2f, 22f);
+        //         float y = Random.Range(-36f, 0f);
+        //         trapObj.transform.position = new Vector3(x, y, 0);
+        //     }
+        // }
     }
     public void CreateItem()
     {
@@ -419,10 +457,10 @@ public class MapScript : MonoBehaviour
         {
             if (Others.Count == 1 && Player.GetComponent<PlayerScript>().PlayerHp > 0)
             {
-                Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏胜利
+                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏胜利
                 // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(true);
                 // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(false);
-                Player.GetComponent<PlayerScript>().IFreeze = true;
+                // Player.GetComponent<PlayerScript>().IFreeze = true;
                 ICreateAddBloodAfter = false;
                 ICreateNpcAfter = false;
                 ICreateTrapAfter = false;
@@ -469,7 +507,7 @@ public class MapScript : MonoBehaviour
             else if (Player.GetComponent<PlayerScript>().PlayerHp <= 0)
             {
 
-                Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏失败
+                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏失败
                 // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(true);
                 // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(false);
                 foreach (var item in Others)
@@ -478,7 +516,7 @@ public class MapScript : MonoBehaviour
                         continue;
                     if (item.tag == "PLAYER")
                     {
-                        item.GetComponent<PlayerScript>().IFreeze = true;
+                        // item.GetComponent<PlayerScript>().IFreeze = true;
                     }
                     if (item.name == "Warrior1(Clone)")
                     {
@@ -531,7 +569,7 @@ public class MapScript : MonoBehaviour
                             continue;
                         if (item.tag == "PLAYER")
                         {
-                            item.GetComponent<PlayerScript>().IFreeze = false;
+                            // item.GetComponent<PlayerScript>().IFreeze = false;
                         }
                         if (item.name == "Warrior1(Clone)")
                         {
@@ -560,7 +598,7 @@ public class MapScript : MonoBehaviour
                     }
 
                 }
-                Player.GetComponent<PlayerScript>().singlePanel.SetActive(false);
+                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(false);
                 //Player.GetComponent<PlayerScript>().IFreeze = false;
                 ICreateAddBloodAfter = true;
                 ICreateNpcAfter = false;
@@ -581,7 +619,7 @@ public class MapScript : MonoBehaviour
                 //SortPoint();
                 //ShowSort();
                 SortAndShow(0);
-                Player.GetComponent<PlayerScript>().pointsPanel.SetActive(true);
+                // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(true);
                 ICreateAddBloodAfter = false;
                 ICreateNpcAfter = false;
                 ICreateTrapAfter = false;
@@ -592,11 +630,11 @@ public class MapScript : MonoBehaviour
                         continue;
                     if (item.tag == "PLAYER")
                     {
-                        item.GetComponent<PlayerScript>().IFreeze = true;
+                        // item.GetComponent<PlayerScript>().IFreeze = true;
                     }
                     if (item.name == "Warrior1(Clone)")
                     {
-                        item.GetComponent<Warrior1Script>().IFreeze = true;
+                        // item.GetComponent<Warrior1Script>().IFreeze = true;
                     }
                     if (item.name == "Warrior2(Clone)")
                     {
@@ -659,18 +697,18 @@ public class MapScript : MonoBehaviour
                     P_Point += dic["玩家"];
                     PlayerPrefs.SetInt(SdkScript.nickname + "Point", P_Point);
                 }
-                Player.GetComponent<PlayerScript>().NewText.text = dic["玩家"].ToString();             //?????????
+                // Player.GetComponent<PlayerScript>().NewText.text = dic["玩家"].ToString();             //?????????
                 //int PlayerprefsPoint = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0);
                 if (dic["玩家"] > PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0))
                 {
                     print("Histroy");
-                    Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + dic["玩家"].ToString();
+                    // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + dic["玩家"].ToString();
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerprefsPoint", dic["玩家"]);
-                    Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(true);
+                    // Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(true);
                 }
                 else
                 {
-                    Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0).ToString();
+                    // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0).ToString();
                     //Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(false) ;
                 }
 
@@ -678,7 +716,7 @@ public class MapScript : MonoBehaviour
             else if (currentTime >= 0)
             {
                 SortAndShow(0);
-                Player.GetComponent<PlayerScript>().pointsPanel.SetActive(false);
+                // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(false);
                 ICreateAddBloodAfter = true;
                 ICreateNpcAfter = true;
                 ICreateTrapAfter = true;
@@ -690,7 +728,7 @@ public class MapScript : MonoBehaviour
                             continue;
                         if (item.tag == "PLAYER")
                         {
-                            item.GetComponent<PlayerScript>().IFreeze = false;
+                            // item.GetComponent<PlayerScript>().IFreeze = false;
                         }
                         if (item.name == "Warrior1(Clone)")
                         {

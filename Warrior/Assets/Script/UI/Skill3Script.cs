@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Skill3Script : MonoBehaviour
 {
-    public bool IClick = true;                 //ÊÇ·ñ¿ÉÒÔµã»÷
+    public bool IClick = true;                 //ï¿½Ç·ï¿½ï¿½ï¿½Ôµï¿½ï¿½
     public Sprite[] S;
     public GameObject Player;
     public GameObject PlayerRotation;
@@ -26,12 +26,12 @@ public class Skill3Script : MonoBehaviour
             Player.GetComponent<PlayerScript>().audio.Play();
             IClick = false;
             this.GetComponent<Image>().sprite = S[1];
-            Invoke("falseSprite", 20f);                             //¼¼ÄÜÀäÈ´
+            Invoke("falseSprite", 20f);                             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´
             m = GameObject.Find("MapManager");
-            foreach(var temp in Player.GetComponent<PlayerScript>().ItemObject)
-            {
-                temp.SetActive(false);
-            }
+            // foreach(var temp in Player.GetComponent<PlayerScript>().ItemObject)
+            // {
+            //     temp.SetActive(false);
+            // }
         }
         m.GetComponent<MapScript>().Others.Remove(Player);
         Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
@@ -39,8 +39,8 @@ public class Skill3Script : MonoBehaviour
         PlayerBackground.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         PlayerBlood.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         PlayerBloodTxt.GetComponent<Text>().color = new Color(1, 1, 1, 0.5f);
-        Player.GetComponent<PlayerScript>().Ak = 40;
-        Invoke("fasleSkill", 10f);                                 //¼¼ÄÜ³ÖÐø
+        Player.GetComponent<PlayerScript>().atk = 40;
+        Invoke("fasleSkill", 10f);                                 //ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½
 
     }
     public void falseSprite()
@@ -58,6 +58,6 @@ public class Skill3Script : MonoBehaviour
         PlayerBackground.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         PlayerBlood.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         PlayerBloodTxt.GetComponent<Text>().color = new Color(1, 1, 1, 1);
-        Player.GetComponent<PlayerScript>().Ak = 30;
+        Player.GetComponent<PlayerScript>().atk = 30;
     }
 }

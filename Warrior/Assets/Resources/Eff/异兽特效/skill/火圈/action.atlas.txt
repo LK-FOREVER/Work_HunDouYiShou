@@ -1,0 +1,17 @@
+action.png
+size:468,426
+filter:Linear,Linear
+R2
+bounds:2,206,222,218
+offsets:5,4,232,226
+R3
+bounds:226,3,205,238
+offsets:3,4,212,246
+rotate:90
+R4
+bounds:226,210,214,240
+offsets:4,4,221,247
+rotate:90
+R5
+bounds:2,2,218,202
+offsets:4,4,226,210

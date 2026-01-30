@@ -36,18 +36,6 @@ public class W3btnScript : MonoBehaviour
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
-        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 3)
-        {
-            s.SkillBtn[2].gameObject.SetActive(true);
-            foreach (var item in s.SkillBtn)
-            {
-                if (item != s.SkillBtn[2])
-                {
-                    item.gameObject.SetActive(false);
-                }
-            }
-            c.GetComponent<CanvasScript>().SkillIndex = 2;
-        }
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);

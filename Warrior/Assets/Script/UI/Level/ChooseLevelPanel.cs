@@ -10,20 +10,25 @@ public class ChooseLevelPanel : MonoBehaviour
     private TextAsset levelTextAsset;
     private List<LevelData> levels_data;
 
-    void Start()
+    void Awake()
     {
         LoadLevelResource();
-        Init();
     }
     private void LoadLevelResource()
     {
-        levelTextAsset = Resources.Load<TextAsset>("LevelData");
+        levelTextAsset = Resources.Load<TextAsset>("Data/level_data");
         string level_jsonStr = levelTextAsset.text;
         LevelDataList levelDataList = JsonUtility.FromJson<LevelDataList>(level_jsonStr); //解析json
         levels_data = levelDataList.levels;
     }
     public void Init()
     {
+        //清除content下的所有子物体
+        foreach (Transform child in content.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        //根据关卡数据生成关卡项
         for (int i = 0; i < levels_data.Count; i++)
         {
             GameObject obj = Instantiate(levelItemPrefab, content.transform);

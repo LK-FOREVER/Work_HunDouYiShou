@@ -27,21 +27,21 @@ public class ScrolScript : ScrollRect
     }
     public override void OnDrag(PointerEventData eventData)                                                 //???????
     {
-        player.GetComponent<PlayerScript>().IMove = true;
+        // player.GetComponent<PlayerScript>().IMove = true;
 
         base.OnDrag(eventData);
 
         if (this.content.anchoredPosition.magnitude > radius)
         {
-            this.content.anchoredPosition = this.content.anchoredPosition.normalized * radius;               //???????¡Â????????
+            this.content.anchoredPosition = this.content.anchoredPosition.normalized * radius;               //???????ï¿½ï¿½????????
         }
 
-        SetContentAnchoredPosition(this.content.anchoredPosition.normalized * radius);                       //??¨º??¦Ë???????? ??????
+        SetContentAnchoredPosition(this.content.anchoredPosition.normalized * radius);                       //??ï¿½ï¿½??ï¿½ï¿½???????? ??????
 
         Vector2 _d = this.content.anchoredPosition;
         if (player != null)
         {
-            player.GetComponent<PlayerScript>().SetDir(_d);                                                   //????§Ù?????3D????
+            // player.GetComponent<PlayerScript>().SetDir(_d);                                                   //????ï¿½ï¿½?????3D????
         }
 
     }
@@ -50,8 +50,8 @@ public class ScrolScript : ScrollRect
     {
         base.OnEndDrag(eventData);                                                                           //???
 
-        /* player.GetComponent<PlayerScript>().SetDir(Vector2.zero); */                                           //???????????¦Ë
-        player.GetComponent<PlayerScript>().IMove = false;
+        /* player.GetComponent<PlayerScript>().SetDir(Vector2.zero); */                                           //???????????ï¿½ï¿½
+        // player.GetComponent<PlayerScript>().IMove = false;
     }
 
 }

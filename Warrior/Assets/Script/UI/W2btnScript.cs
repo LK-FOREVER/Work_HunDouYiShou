@@ -34,18 +34,6 @@ public class W2btnScript : MonoBehaviour
             LockImg.gameObject.SetActive(false);
         }
 
-        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 2)
-        {
-            s.SkillBtn[1].gameObject.SetActive(true);
-            foreach (var item in s.SkillBtn)                      //�ر����༼��
-            {
-                if (item != s.SkillBtn[1])
-                {
-                    item.gameObject.SetActive(false);
-                }
-            }
-            c.GetComponent<CanvasScript>().SkillIndex = 1;
-        }
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(false);

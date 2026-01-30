@@ -7,7 +7,7 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 200,
+                    "hp": 190,
                     "attack": 2
                 }
             ],
@@ -21,7 +21,7 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 300,
+                    "hp": 290,
                     "attack": 2
                 }
             ],
@@ -63,7 +63,7 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 250,
+                    "hp": 240,
                     "attack": 4
                 }
             ],

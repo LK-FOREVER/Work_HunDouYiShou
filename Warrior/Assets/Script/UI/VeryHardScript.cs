@@ -10,17 +10,6 @@ public class VeryHardScript : MonoBehaviour
     public GameObject Player;
     public PlayerScript p;
     bool IClick;
-    void Start()
-    {
-       
-    }
-
-    void Update()
-    {
-        
-         
-       
-    }
     public void ClickVeryHardBtn()
     {
         p.GetComponent<PlayerScript>().IVeryHard = true;
@@ -35,18 +24,17 @@ public class VeryHardScript : MonoBehaviour
         DifBtn.GetComponent<DifBtnScript>().FalseDifBtn();
         DifBtn.GetComponent<DifBtnScript>().IClick = !DifBtn.GetComponent<DifBtnScript>().IClick;
 
-        Player.GetComponent<PlayerScript>().R1 = 0;
-        Player.GetComponent<PlayerScript>().R2 = 20;
+        // Player.GetComponent<PlayerScript>().R1 = 0;
+        // Player.GetComponent<PlayerScript>().R2 = 20;
 
-        DifBtn.GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
+        DifBtn.transform.Find("DiffImg").GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
 
         //�Ѷ�����
-        p.TrapNum = 35;
-        p.AddNum = 0;
-        p.TrapAfterNum = 25;
-        p.AddAfterNum = 0;
-        p.T1 = 21; p.T2 = 30;
-        p.B1 = 1; p.B2 = 21;
-       
+        // p.TrapNum = 35;
+        // p.AddNum = 0;
+        // p.TrapAfterNum = 25;
+        // p.AddAfterNum = 0;
+        // p.T1 = 21; p.T2 = 30;
+        // p.B1 = 1; p.B2 = 21;
     }
 }

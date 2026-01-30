@@ -9,8 +9,8 @@ public class Warrior1Script : MonoBehaviour
 {
     public GameObject Player;
     public float Warrior1Hp = 200;
-    public float Speed = 3f;
-    public float Ak = 30f;
+    public float Speed = 10f;
+    public float atk = 30f;
 
     public bool IMoveToPos = true;
     bool IMoveToOthers = false;
@@ -19,7 +19,7 @@ public class Warrior1Script : MonoBehaviour
     public Vector3 TargetPos;
     float desPos;
 
-    public GameObject NpcRotationIcon;
+    public GameObject NpcRotation;
     public GameObject Warrior1Collision;
     Vector3 V = new Vector3(0, 1, 0);
 
@@ -93,9 +93,9 @@ public class Warrior1Script : MonoBehaviour
         Player = GameObject.Find("Player");
         Arrow1 = mapScript.Arrow1;
         Light = mapScript.Light;
-        ObjA = Instantiate(Arrow1);
-        ObjA.transform.position = Player.transform.position;
-        mapScript.WarriorArrow.Add(ObjA);
+        // ObjA = Instantiate(Arrow1);
+        // ObjA.transform.position = Player.transform.position;
+        // mapScript.WarriorArrow.Add(ObjA);
     }
     // ...existing code...
     void Start()
@@ -112,7 +112,7 @@ public class Warrior1Script : MonoBehaviour
         }
         else
         {
-             m.GetComponent<MapScript>().dic[Name] = 0;   
+            m.GetComponent<MapScript>().dic[Name] = 0;
         }
 
         RandomR();
@@ -120,7 +120,7 @@ public class Warrior1Script : MonoBehaviour
 
 
         StartCoroutine("ShowWarrior1Hp");
-        StartCoroutine("Skill");
+        // StartCoroutine("Skill");
         //for (int i = 0; i < mapScript.PointIndex.Count; i++)              //ÿһ���ű�����Ψһ�±�
         //{
         //    if (mapScript.PointIndex[i] != 0)
@@ -134,14 +134,13 @@ public class Warrior1Script : MonoBehaviour
         //    }
         //}
 
-        StartCoroutine("UseItem");
+        // StartCoroutine("UseItem");
 
         Bullet = mapScript.Bullet;
         Hammer = mapScript.Hammer;
         Grenade = mapScript.Grenade;
 
         InvokeRepeating("CreateBullet", 0.5f, 0.5f);
-
     }
 
 
@@ -157,54 +156,54 @@ public class Warrior1Script : MonoBehaviour
             obj4.transform.position += HookD * 8f * Time.deltaTime;
         }
 
-        if (Player != null && ObjA != null)
-        {
-            Vector3 D = this.transform.position - ObjA.transform.position;
-            Vector3 d = D.normalized;
-            float angle = Vector3.Angle(V, d);
-            if (d.x < 0)
-            {
-                ObjA.transform.rotation = Quaternion.Euler(0, 0, angle);
-            }
-            else
-            {
-                ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle);
-            }
-            ObjA.transform.position += d * 10f * Time.deltaTime;
-            if (ObjA.transform.position.x > Player.transform.position.x + 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
-            {
-                ObjA.transform.position = new Vector3(Player.transform.position.x + 2.05f, ObjA.transform.position.y, 0);
-            }
-            if (ObjA.transform.position.x < Player.transform.position.x - 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
-            {
-                ObjA.transform.position = new Vector3(Player.transform.position.x - 2.05f, ObjA.transform.position.y, 0);
-            }
-            if (ObjA.transform.position.y > Player.transform.position.y + 4.85f && (ObjA.transform.position.x < Player.transform.position.x + 2.05f || ObjA.transform.position.x > Player.transform.position.x - 2.05f))
-            {
-                ObjA.transform.position = new Vector3(ObjA.transform.position.x, Player.transform.position.y + 4.85f);
-            }
-            if (ObjA.transform.position.y < Player.transform.position.y - 4.85f && (ObjA.transform.position.x < Player.transform.position.x + 2.05f || ObjA.transform.position.x > Player.transform.position.x - 2.05f))
-            {
-                ObjA.transform.position = new Vector3(ObjA.transform.position.x, Player.transform.position.y - 4.85f);
-            }
-            //����ͼ��
-            if ((ObjA.transform.position.x < Player.transform.position.x + 2.05f && ObjA.transform.position.x > Player.transform.position.x - 2.05f && ObjA.transform.position.y < Player.transform.position.y + 4.8f && ObjA.transform.position.y > Player.transform.position.y - 4.8f) || IDead)
-            {
-                ObjA.SetActive(false);
-            }
-            else
-            {
-                ObjA.SetActive(true);
-            }
+        // if (Player != null && ObjA != null)
+        // {
+        //     Vector3 D = this.transform.position - ObjA.transform.position;
+        //     Vector3 d = D.normalized;
+        //     float angle = Vector3.Angle(V, d);
+        //     if (d.x < 0)
+        //     {
+        //         ObjA.transform.rotation = Quaternion.Euler(0, 0, angle);
+        //     }
+        //     else
+        //     {
+        //         ObjA.transform.rotation = Quaternion.Euler(0, 0, -angle);
+        //     }
+        //     ObjA.transform.position += d * 10f * Time.deltaTime;
+        //     if (ObjA.transform.position.x > Player.transform.position.x + 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
+        //     {
+        //         ObjA.transform.position = new Vector3(Player.transform.position.x + 2.05f, ObjA.transform.position.y, 0);
+        //     }
+        //     if (ObjA.transform.position.x < Player.transform.position.x - 2.05f && (ObjA.transform.position.y < Player.transform.position.y + 4.85f || ObjA.transform.position.y > Player.transform.position.y - 4.85f))
+        //     {
+        //         ObjA.transform.position = new Vector3(Player.transform.position.x - 2.05f, ObjA.transform.position.y, 0);
+        //     }
+        //     if (ObjA.transform.position.y > Player.transform.position.y + 4.85f && (ObjA.transform.position.x < Player.transform.position.x + 2.05f || ObjA.transform.position.x > Player.transform.position.x - 2.05f))
+        //     {
+        //         ObjA.transform.position = new Vector3(ObjA.transform.position.x, Player.transform.position.y + 4.85f);
+        //     }
+        //     if (ObjA.transform.position.y < Player.transform.position.y - 4.85f && (ObjA.transform.position.x < Player.transform.position.x + 2.05f || ObjA.transform.position.x > Player.transform.position.x - 2.05f))
+        //     {
+        //         ObjA.transform.position = new Vector3(ObjA.transform.position.x, Player.transform.position.y - 4.85f);
+        //     }
+        //     //����ͼ��
+        //     if ((ObjA.transform.position.x < Player.transform.position.x + 2.05f && ObjA.transform.position.x > Player.transform.position.x - 2.05f && ObjA.transform.position.y < Player.transform.position.y + 4.8f && ObjA.transform.position.y > Player.transform.position.y - 4.8f) || IDead)
+        //     {
+        //         ObjA.SetActive(false);
+        //     }
+        //     else
+        //     {
+        //         ObjA.SetActive(true);
+        //     }
 
-        }
+        // }
         /*index=mapScript.SortIndex[index];     */           //ʵʱ���½�������±�
         Warrior1HpText.text = Warrior1Hp.ToString();
         RotateRotationObject();
         if (!IFreeze)
         {
             RemoveToTargetPos();
-            RemoveToOthers();
+            // RemoveToOthers();
         }
         if (rig.velocity.magnitude < 1f * Time.deltaTime)
         {
@@ -215,65 +214,55 @@ public class Warrior1Script : MonoBehaviour
     }
     public void RemoveToTargetPos()
     {
-
         if (IMoveToPos)
         {
-            if (!INpcColli)
+            TargetPos = Player.transform.position;
+            D = TargetPos - transform.position;
+            d = D.normalized;
+            desPos = Vector3.Distance(transform.position, TargetPos);
+            if (desPos > 4.5f)
             {
-
-                D = TargetPos - this.transform.position;
-                d = D.normalized;
-                desPos = Vector3.Distance(this.transform.position, TargetPos);
-                if (desPos > 0.5f)
-                {
-                    this.transform.position += d * Speed * Time.deltaTime;
-                }
-                else
-                {
-                    float x = Random.Range(0f, 24f);
-                    float y = Random.Range(-38f, 2f);
-                    TargetPos = new Vector3(x, y, 0);
-                }
+                transform.position += d * Speed * Time.deltaTime;
             }
         }
     }
-    public void RemoveToOthers()
-    {
-        if (r > Player.GetComponent<PlayerScript>().R1 && r < Player.GetComponent<PlayerScript>().R2)
-        {
-            if (!INpcColli)
-            {
-                for (int i = 0; i < mapScript.Others.Count; i++)
-                {
-                    if (mapScript.Others[i] != null)
-                    {
-                        desNpc = Vector3.Distance(this.transform.position, mapScript.Others[i].transform.position);
-                    }
-                    if (desNpc < 2f && (mapScript.Others[i] != null) && (mapScript.Others[i] != this.gameObject) && (r >= 0 && r <= 10))
-                    {
-                        IMoveToPos = false;
-                        D = mapScript.Others[i].transform.position - this.transform.position;
-                        d = D.normalized;
-                        this.transform.position += d * Speed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        IMoveToPos = true;
-                    }
-                }
-            }
-        }
-    }
+    // public void RemoveToOthers()
+    // {
+    //     if (r > Player.GetComponent<PlayerScript>().R1 && r < Player.GetComponent<PlayerScript>().R2)
+    //     {
+    //         if (!INpcColli)
+    //         {
+    //             for (int i = 0; i < mapScript.Others.Count; i++)
+    //             {
+    //                 if (mapScript.Others[i] != null)
+    //                 {
+    //                     desNpc = Vector3.Distance(this.transform.position, mapScript.Others[i].transform.position);
+    //                 }
+    //                 if (desNpc < 2f && (mapScript.Others[i] != null) && (mapScript.Others[i] != this.gameObject) && (r >= 0 && r <= 10))
+    //                 {
+    //                     IMoveToPos = false;
+    //                     D = mapScript.Others[i].transform.position - this.transform.position;
+    //                     d = D.normalized;
+    //                     this.transform.position += d * Speed * Time.deltaTime;
+    //                 }
+    //                 else
+    //                 {
+    //                     IMoveToPos = true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     public void RotateRotationObject()
     {
         float r = Vector3.Angle(V, d);
         if (d.x < 0)
         {
-            NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, r);
+            NpcRotation.transform.rotation = Quaternion.Euler(0, 0, r);
         }
         else
         {
-            NpcRotationIcon.transform.rotation = Quaternion.Euler(0, 0, -r);
+            NpcRotation.transform.rotation = Quaternion.Euler(0, 0, -r);
         }
     }
     public void RandomR()
@@ -311,7 +300,7 @@ public class Warrior1Script : MonoBehaviour
         Warrior1Hp -= value;
         if (Warrior1Hp <= 0)
         {
-            if(ObjA!=null)
+            if (ObjA != null)
                 ObjA.SetActive(false);
             audio.clip = acilp[6];
             audio.Play();
@@ -441,11 +430,11 @@ public class Warrior1Script : MonoBehaviour
                 //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
                 //transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
                 Iparse = true;
-                foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
-                {
-                    temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
-                    temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
-                }
+                // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
+                // {
+                //     temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+                //     temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
+                // }
                 Invoke("FalsePhase", 3f);
                 mapScript.dic[GetComponentInParent<Warrior1Script>().Name] += 50;
                 PMoveEff.SetActive(true);
@@ -469,45 +458,45 @@ public class Warrior1Script : MonoBehaviour
     }
     public void PreventHookBug()
     {
-        Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;//�رճ����ƶ�
-        foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().Others)
-        {
-            if (temp.gameObject.name == "Player")
-            {
-                temp.GetComponent<PlayerScript>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior1(Clone)")
-            {
-                temp.GetComponent<Warrior1Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior2(Clone)")
-            {
-                temp.GetComponent<Warrior2Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior3(Clone)")
-            {
-                temp.GetComponent<Warrior3Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior4(Clone)")
-            {
-                temp.GetComponent<Warrior4Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior5(Clone)")
-            {
-                temp.GetComponent<Warrior5Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior6(Clone)")
-            {
-                temp.GetComponent<Warrior6Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-        }
+        // Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;//�رճ����ƶ�
+        // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().Others)
+        // {
+        //     if (temp.gameObject.name == "Player")
+        //     {
+        //         // temp.GetComponent<PlayerScript>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior1(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior1Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior2(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior2Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior3(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior3Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior4(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior4Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior5(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior5Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior6(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior6Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        // }
     }
     public void FalseLignt()
     {
@@ -528,16 +517,16 @@ public class Warrior1Script : MonoBehaviour
     {
         if (PMoveEff != null)
             PMoveEff.SetActive(false);
-        foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
-        {
-            if (temp != null)
-            {
-                var col0 = temp.transform.GetChild(0).GetComponent<BoxCollider2D>();
-                var col1 = temp.transform.GetChild(1).GetComponent<BoxCollider2D>();
-                if (col0 != null) col0.isTrigger = false;
-                if (col1 != null) col1.isTrigger = false;
-            }
-        }
+        // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
+        // {
+        //     if (temp != null)
+        //     {
+        //         var col0 = temp.transform.GetChild(0).GetComponent<BoxCollider2D>();
+        //         var col1 = temp.transform.GetChild(1).GetComponent<BoxCollider2D>();
+        //         if (col0 != null) col0.isTrigger = false;
+        //         if (col1 != null) col1.isTrigger = false;
+        //     }
+        // }
         Iparse = false;
         //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
         // transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;

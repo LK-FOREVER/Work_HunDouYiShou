@@ -27,7 +27,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[0].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 2)
         {
@@ -39,7 +38,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[1].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 3)
         {
@@ -51,7 +49,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[2].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 4)
         {
@@ -63,7 +60,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[3].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 5)
         {
@@ -75,7 +71,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[4].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 6)
         {
@@ -87,7 +82,6 @@ public class CloseWarriorScript : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
             }
-            s.SkillBtn[5].gameObject.SetActive(true);                           //��ԭӢ�ۼ���
         }
     }
 

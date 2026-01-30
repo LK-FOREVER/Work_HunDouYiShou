@@ -10,7 +10,7 @@ public class Warrior3Script : MonoBehaviour
     public GameObject Player;
     public float Warrior3Hp = 150;
     public float Speed = 4f;
-    public int Ak = 30;
+    public int atk = 30;
 
     bool IMoveToPos = true;
     bool IMoveToOthers = false;
@@ -227,33 +227,33 @@ public class Warrior3Script : MonoBehaviour
     }
     public void RemoveToOthers()
     {
-        if (r > Player.GetComponent<PlayerScript>().R1 && r < Player.GetComponent<PlayerScript>().R2)
-        {
-            if (!INpcColli)
-            {
-                for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
-                {
-                    if (m.GetComponent<MapScript>().Others[i] != null)
-                    {
-                        desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
-                    }
-                    if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject) && (r >= 0 && r <= 10))
-                    {
-                        IMoveToPos = false;
-                        if (m.GetComponent<MapScript>().Others[i] != null)
-                        {
-                            D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
-                            d = D.normalized;
-                            this.transform.position += d * Speed * Time.deltaTime;
-                        }
-                    }
-                    else
-                    {
-                        IMoveToPos = true;
-                    }
-                }
-            }
-        }
+        // if (r > Player.GetComponent<PlayerScript>().R1 && r < Player.GetComponent<PlayerScript>().R2)
+        // {
+        //     if (!INpcColli)
+        //     {
+        //         for (int i = 0; i < m.GetComponent<MapScript>().Others.Count; i++)
+        //         {
+        //             if (m.GetComponent<MapScript>().Others[i] != null)
+        //             {
+        //                 desNpc = Vector3.Distance(this.transform.position, m.GetComponent<MapScript>().Others[i].transform.position);
+        //             }
+        //             if (desNpc < 2f && (m.GetComponent<MapScript>().Others[i] != this.gameObject) && (r >= 0 && r <= 10))
+        //             {
+        //                 IMoveToPos = false;
+        //                 if (m.GetComponent<MapScript>().Others[i] != null)
+        //                 {
+        //                     D = m.GetComponent<MapScript>().Others[i].transform.position - this.transform.position;
+        //                     d = D.normalized;
+        //                     this.transform.position += d * Speed * Time.deltaTime;
+        //                 }
+        //             }
+        //             else
+        //             {
+        //                 IMoveToPos = true;
+        //             }
+        //         }
+        //     }
+        // }
     }
     public void RotateRotationObject()
     {
@@ -291,7 +291,7 @@ public class Warrior3Script : MonoBehaviour
         this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         Warrior3Rotation.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         Warrior3Canvas.SetActive(false);
-        Ak = 40;
+        atk = 40;
         Invoke("fasleSkill", 10f);
     }
     public void fasleSkill()
@@ -301,7 +301,7 @@ public class Warrior3Script : MonoBehaviour
             ObjA.SetActive(true);
         m.GetComponent<MapScript>().Others.Add(this.gameObject);
         m.GetComponent<MapScript>().Warrior3Count--; //����ģʽ����
-        Ak = 30;
+        atk = 30;
         this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Warrior3Rotation.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Warrior3Canvas.gameObject.SetActive(true);
@@ -459,11 +459,11 @@ public class Warrior3Script : MonoBehaviour
                 //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
                 //transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
                 Iparse = true;
-                foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
-                {
-                    temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
-                    temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
-                }
+                // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
+                // {
+                //     temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+                //     temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
+                // }
                 Invoke("FalsePhase", 3f);
                 PMoveEff.SetActive(true);
                 if (m.GetComponent<MapScript>().dic != null && m.GetComponent<MapScript>().dic.ContainsKey(GetComponentInParent<Warrior3Script>().Name))
@@ -487,45 +487,45 @@ public class Warrior3Script : MonoBehaviour
     }
     public void PreventHookBug()
     {
-        Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;//�رճ����ƶ�
-        foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().Others)
-        {
-            if (temp.gameObject.name == "Player")
-            {
-                temp.GetComponent<PlayerScript>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior1(Clone)")
-            {
-                temp.GetComponent<Warrior1Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior2(Clone)")
-            {
-                temp.GetComponent<Warrior2Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior3(Clone)")
-            {
-                temp.GetComponent<Warrior3Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior4(Clone)")
-            {
-                temp.GetComponent<Warrior4Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior5(Clone)")
-            {
-                temp.GetComponent<Warrior5Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior6(Clone)")
-            {
-                temp.GetComponent<Warrior6Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-        }
+        // Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;//�رճ����ƶ�
+        // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().Others)
+        // {
+        //     if (temp.gameObject.name == "Player")
+        //     {
+        //         // temp.GetComponent<PlayerScript>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior1(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior1Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior2(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior2Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior3(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior3Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior4(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior4Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior5(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior5Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior6(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior6Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        // }
     }
     public void FalseLignt()
     {
@@ -547,11 +547,11 @@ public class Warrior3Script : MonoBehaviour
     {
         Iparse = false;
         PMoveEff.SetActive(false);
-        foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
-        {
-            temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
-            temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
-        }
+        // foreach (var temp in Player.GetComponent<PlayerScript>().m.GetComponent<MapScript>().ObstacleList)
+        // {
+        //     temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
+        //     temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
+        // }
         //transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
         //transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
     }

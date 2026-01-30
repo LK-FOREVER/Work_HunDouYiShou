@@ -56,16 +56,5 @@ public class ChangeMonsterPanelScript : MonoBehaviour
             default:
                 break;
         }
-        // for (int i = 0; i < arrowObj.Length; i++)
-        // {
-        //     if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 0) == i + 1)
-        //     {
-        //         buttonText.text = "出战中";
-        //     }
-        //     else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock" + (i + 1), 0) == 1 && arrowObj[i].activeSelf)
-        //     {
-        //         buttonText.text = "出战";
-        //     }
-        // }
     }
 }

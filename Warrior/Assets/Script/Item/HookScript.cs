@@ -34,7 +34,7 @@ public class HookScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Npc"/*||collision.gameObject.name=="Player"*/)
         {
-            this.transform.parent.parent.GetComponent<PlayerScript>().HookBack = true;
+            // this.transform.parent.parent.GetComponent<PlayerScript>().HookBack = true;
             print("HookNpc");
             //rig.drag = 10f;
             //rig.angularDrag = 10f;
@@ -120,10 +120,10 @@ public class HookScript : MonoBehaviour
             {
                 collision.GetComponent<PlayerScript>().DecreasePlayerHp(10);
 
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
-                collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
-                collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "10";
+                // collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
+                // collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
             }
             if (collision.gameObject.name == "Warrior1(Clone)")
             {
@@ -182,7 +182,7 @@ public class HookScript : MonoBehaviour
             //命中加分
             if (this.transform.parent.name == "Player")
             {
-                GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
+                // GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 100;
             }
             if (this.transform.parent.name == "Warrior1(Clone)")
             {

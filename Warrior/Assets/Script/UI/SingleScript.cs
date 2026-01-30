@@ -31,10 +31,9 @@ public class SingleScript : MonoBehaviour
         Invoke("fasleBackGround", 0.5f);
         SceneManager.LoadScene("LoadScene");
       
-    
         MainPanel.SetActive(false);
-        Player.GetComponent<PlayerScript>().ISingle = true;
-        Player.GetComponent<PlayerScript>().IPoints = false;
+        // Player.GetComponent<PlayerScript>().ISingle = true;
+        // Player.GetComponent<PlayerScript>().IPoints = false;
     }
     //public void log()
     //{

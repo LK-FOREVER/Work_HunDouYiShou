@@ -50,168 +50,169 @@ public class Item1BtnScript : MonoBehaviour
     void Update()
     {
         d = (ItemPointObj.transform.position - Player.transform.position).normalized;
-        if (playerScript.HookBack && obj4 != null)
-        {
-            rig4.drag = 10f;
-            rig4.angularDrag = 10f;
-            HookD = (Player.transform.position - obj4.transform.position).normalized;
-            obj4.transform.position += HookD * 10f * Time.deltaTime;
-        }
+        // if (playerScript.HookBack && obj4 != null)
+        // {
+        //     rig4.drag = 10f;
+        //     rig4.angularDrag = 10f;
+        //     HookD = (Player.transform.position - obj4.transform.position).normalized;
+        //     obj4.transform.position += HookD * 10f * Time.deltaTime;
+        // }
     }
     public void OnClickItem1()
     {
-        playerScript.IItem1 = true;
+        // playerScript.IItem1 = true;
 
 
-        this.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        this.GetComponent<Image>().raycastTarget = false;
-        switch (playerScript.Item1Id)
-        {
-            case 1:
-                if (!playerScript.IItem[0])
-                {
-                    playerScript.IItem[0] = true;
-                    playerScript.PlayerDefendObject.SetActive(true);
-                    playerScript.InvokeItem1Skill();
-                    playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                }
-                break;
-            case 2:
-                GameObject obj0 = Instantiate(Hammer, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
-                obj0.transform.parent = Player.transform;
-                //obj0.transform.localPosition = new Vector3(0,0,0);
-                //obj0.transform.localRotation = Quaternion.identity;
+        GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        GetComponent<Image>().raycastTarget = false;
+        
+        // switch (playerScript.Item1Id)
+        // {
+        //     case 1:
+        //         if (!playerScript.IItem[0])
+        //         {
+        //             playerScript.IItem[0] = true;
+        //             playerScript.PlayerDefendObject.SetActive(true);
+        //             playerScript.InvokeItem1Skill();
+        //             playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         }
+        //         break;
+        //     case 2:
+        //         GameObject obj0 = Instantiate(Hammer, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
+        //         obj0.transform.parent = Player.transform;
+        //         //obj0.transform.localPosition = new Vector3(0,0,0);
+        //         //obj0.transform.localRotation = Quaternion.identity;
 
-                rig0 = obj0.GetComponent<Rigidbody2D>();
-                rig0.AddForce(d * 500f);//?????
-                rig0.drag = 1.5f;
-                rig0.angularDrag = 1.5f;
-                Destroy(obj0, 1f);
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-            case 3:
-                GameObject obj = Instantiate(Grenade, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
-                obj.transform.parent = Player.transform;
-                //obj.transform.localPosition = new Vector3(0, 0, 0);
-                //obj.transform.localRotation = Quaternion.identity;
-                rig = obj.GetComponent<Rigidbody2D>();
-                rig.AddForce(d * 400f);//?????
-                rig.drag = 1.5f;
-                rig.angularDrag = 1.5f;
-                Destroy(obj, 0.75f);
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-            case 4:
-                Invoke("PreventHookBug", 0f);
-                obj4 = Instantiate(Hook, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
-                obj4.transform.parent = Player.transform;
-                //obj4.transform.localPosition = new Vector3(0, 0, 0);
-                //obj4.transform.localRotation = Quaternion.identity;
-                rig4 = obj4.GetComponent<Rigidbody2D>();
-                rig4.AddForce(d * 400f);//?????
-                rig4.drag = 1.5f;
-                rig4.angularDrag = 1.5f;
-                Destroy(obj4, 1.5f);
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-            case 5:
-                foreach (var item in Knife)
-                {
-                    item.gameObject.SetActive(true);
-                }
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-            case 6:
-                if (!playerScript.IItem[5])
-                {
-                    light = Instantiate(Light, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
-                    Debug.Log(Player.transform.GetChild(0).transform.rotation.eulerAngles);
-                    light.SetActive(true);
-                    light.transform.parent = Player.transform.GetChild(0).transform;
-                    Destroy(light, 1f);
-                    playerScript.IItem[5] = true;
-                    Invoke("FalseLight", 1f);
-                }
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-            case 7:
-                if (!playerScript.IItem[6])
-                {
-                    playerScript.IItem[6] = true;
-                    MagneticObj.SetActive(true);
-                    Invoke("FalseMagnetic", 10f);
-                }
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 50;
-                break;
-            case 8:
-                if (!playerScript.IItem[7])
-                {
-                    playerScript.IItem[7] = true;
-                    MatrixObj.SetActive(true);
-                    Invoke("FalseMatrix", 5f);
-                }
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 20;
-                break;
-            case 9:
-                if (!playerScript.IItem[8])
-                {
-                    playerScript.IItem[8] = true;
-                    playerScript.IParse = true;
-                    //Player.transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
-                    //Player.transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
-                    foreach (var temp in playerScript.m.GetComponent<MapScript>().ObstacleList)
-                    {
-                        temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
-                        temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
-                    }
-                    PMoveEff.SetActive(true);
-                    Invoke("FalsePhase", 3f);
-                }
-                playerScript.m.GetComponent<MapScript>().dic["玩家"] += 50;
-                break;
-            case 10:
-                // if (!playerScript.IItem[9])
-                // {
-                //    playerScript.IItem[9] = true;
-                //     IShoot = true;
-                //     Gun.SetActive(true);
-                //     Invoke("FalseGun", 8f);
-                // }
-                //playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
-                break;
-        }
+        //         rig0 = obj0.GetComponent<Rigidbody2D>();
+        //         rig0.AddForce(d * 500f);//?????
+        //         rig0.drag = 1.5f;
+        //         rig0.angularDrag = 1.5f;
+        //         Destroy(obj0, 1f);
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        //     case 3:
+        //         GameObject obj = Instantiate(Grenade, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
+        //         obj.transform.parent = Player.transform;
+        //         //obj.transform.localPosition = new Vector3(0, 0, 0);
+        //         //obj.transform.localRotation = Quaternion.identity;
+        //         rig = obj.GetComponent<Rigidbody2D>();
+        //         rig.AddForce(d * 400f);//?????
+        //         rig.drag = 1.5f;
+        //         rig.angularDrag = 1.5f;
+        //         Destroy(obj, 0.75f);
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        //     case 4:
+        //         Invoke("PreventHookBug", 0f);
+        //         obj4 = Instantiate(Hook, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
+        //         obj4.transform.parent = Player.transform;
+        //         //obj4.transform.localPosition = new Vector3(0, 0, 0);
+        //         //obj4.transform.localRotation = Quaternion.identity;
+        //         rig4 = obj4.GetComponent<Rigidbody2D>();
+        //         rig4.AddForce(d * 400f);//?????
+        //         rig4.drag = 1.5f;
+        //         rig4.angularDrag = 1.5f;
+        //         Destroy(obj4, 1.5f);
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        //     case 5:
+        //         foreach (var item in Knife)
+        //         {
+        //             item.gameObject.SetActive(true);
+        //         }
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        //     case 6:
+        //         if (!playerScript.IItem[5])
+        //         {
+        //             light = Instantiate(Light, ItemPointObj.transform.position, Player.transform.GetChild(0).transform.rotation);
+        //             Debug.Log(Player.transform.GetChild(0).transform.rotation.eulerAngles);
+        //             light.SetActive(true);
+        //             light.transform.parent = Player.transform.GetChild(0).transform;
+        //             Destroy(light, 1f);
+        //             playerScript.IItem[5] = true;
+        //             Invoke("FalseLight", 1f);
+        //         }
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        //     case 7:
+        //         if (!playerScript.IItem[6])
+        //         {
+        //             playerScript.IItem[6] = true;
+        //             MagneticObj.SetActive(true);
+        //             Invoke("FalseMagnetic", 10f);
+        //         }
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 50;
+        //         break;
+        //     case 8:
+        //         if (!playerScript.IItem[7])
+        //         {
+        //             playerScript.IItem[7] = true;
+        //             MatrixObj.SetActive(true);
+        //             Invoke("FalseMatrix", 5f);
+        //         }
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 20;
+        //         break;
+        //     case 9:
+        //         if (!playerScript.IItem[8])
+        //         {
+        //             playerScript.IItem[8] = true;
+        //             playerScript.IParse = true;
+        //             //Player.transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
+        //             //Player.transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
+        //             foreach (var temp in playerScript.m.GetComponent<MapScript>().ObstacleList)
+        //             {
+        //                 temp.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+        //                 temp.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
+        //             }
+        //             PMoveEff.SetActive(true);
+        //             Invoke("FalsePhase", 3f);
+        //         }
+        //         playerScript.m.GetComponent<MapScript>().dic["玩家"] += 50;
+        //         break;
+        //     case 10:
+        //         // if (!playerScript.IItem[9])
+        //         // {
+        //         //    playerScript.IItem[9] = true;
+        //         //     IShoot = true;
+        //         //     Gun.SetActive(true);
+        //         //     Invoke("FalseGun", 8f);
+        //         // }
+        //         //playerScript.m.GetComponent<MapScript>().dic["玩家"] += 10;
+        //         break;
+        // }
     }
     public void FalseLight()
     {
         //Light.SetActive(false);
-        playerScript.IItem[5] = false;
+        // playerScript.IItem[5] = false;
     }
     public void FalseMagnetic()
     {
         MagneticObj.SetActive(false);
-        playerScript.IItem[6] = false;
+        // playerScript.IItem[6] = false;
     }
     public void FalseMatrix()
     {
         MatrixObj.SetActive(false);
-        playerScript.IItem[7] = false;
+        // playerScript.IItem[7] = false;
     }
     public void FalsePhase()
     {
-        playerScript.IItem[8] = false;
-        PMoveEff.SetActive(false);
-        playerScript.IParse = false;
-        foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
-        {
-            if (temp == null) continue; // 跳过已销毁对象
-            temp.GetComponent<CircleCollider2D>().isTrigger = false;
-        }
+        // playerScript.IItem[8] = false;
+        // PMoveEff.SetActive(false);
+        // playerScript.IParse = false;
+        // foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
+        // {
+        //     if (temp == null) continue; // 跳过已销毁对象
+        //     temp.GetComponent<CircleCollider2D>().isTrigger = false;
+        // }
         //Player.transform.GetChild(0).GetChild(1).GetComponent<PolygonCollider2D>().enabled = true;
         //Player.transform.GetChild(0).GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
     }
     public void FalseGun()
     {
-        playerScript.IItem[9] = false;
+        // playerScript.IItem[9] = false;
         Gun.SetActive(false);
         IShoot = false;
     }
@@ -232,45 +233,45 @@ public class Item1BtnScript : MonoBehaviour
         //Destroy(obj4.GetComponent<Rigidbody2D>());
         //Destroy(obj4.GetComponent<BoxCollider2D>());
         //Destroy(obj4.transform.GetChild(0).GetComponent<BoxCollider2D>());
-        playerScript.m.GetComponent<MapScript>().IFreezeSkill = false;//?????????
-        foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
-        {
-            if (temp == null) continue; // 跳过已销毁对象
-            if (temp.gameObject.name == "Player")
-            {
-                temp.GetComponent<PlayerScript>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior1(Clone)")
-            {
-                temp.GetComponent<Warrior1Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior2(Clone)")
-            {
-                temp.GetComponent<Warrior2Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior3(Clone)")
-            {
-                temp.GetComponent<Warrior3Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior4(Clone)")
-            {
-                temp.GetComponent<Warrior4Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior5(Clone)")
-            {
-                temp.GetComponent<Warrior5Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-            if (temp.gameObject.name == "Warrior6(Clone)")
-            {
-                temp.GetComponent<Warrior6Script>().IFreeze = false;
-                temp.transform.parent = null;
-            }
-        }
+        // playerScript.m.GetComponent<MapScript>().IFreezeSkill = false;//?????????
+        // foreach (var temp in playerScript.m.GetComponent<MapScript>().Others)
+        // {
+        //     if (temp == null) continue; // 跳过已销毁对象
+        //     if (temp.gameObject.name == "Player")
+        //     {
+        //         // temp.GetComponent<PlayerScript>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior1(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior1Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior2(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior2Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior3(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior3Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior4(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior4Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior5(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior5Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        //     if (temp.gameObject.name == "Warrior6(Clone)")
+        //     {
+        //         temp.GetComponent<Warrior6Script>().IFreeze = false;
+        //         temp.transform.parent = null;
+        //     }
+        // }
     }
 }

@@ -1,0 +1,38 @@
+action.png
+size:343,583
+filter:Linear,Linear
+images/images/羽毛/221918g5zvssdly00b8te5
+bounds:2,102,141,479
+offsets:186,30,512,512
+images/images/羽毛/A_fire_loop 2_00000
+bounds:244,466,97,115
+offsets:32,13,150,150
+images/images/羽毛/A_fire_loop 2_00001
+bounds:118,3,97,124
+offsets:30,13,150,150
+rotate:90
+images/images/羽毛/A_fire_loop 2_00002
+bounds:244,335,95,129
+offsets:30,13,150,150
+images/images/羽毛/A_fire_loop 2_00003
+bounds:244,206,91,127
+offsets:29,14,150,150
+images/images/羽毛/A_fire_loop 2_00004
+bounds:244,86,87,118
+offsets:33,14,150,150
+images/images/羽毛/A_fire_loop 2_00005
+bounds:145,129,88,118
+offsets:32,13,150,150
+images/images/羽毛/A_fire_loop 2_00006
+bounds:2,2,98,114
+offsets:33,13,150,150
+rotate:90
+images/images/羽毛/A_fire_loop 2_00007
+bounds:145,470,97,111
+offsets:33,13,150,150
+images/images/羽毛/A_fire_loop 2_00008
+bounds:145,360,97,108
+offsets:35,14,150,150
+images/images/羽毛/A_fire_loop 2_00009
+bounds:145,249,95,109
+offsets:33,14,150,150

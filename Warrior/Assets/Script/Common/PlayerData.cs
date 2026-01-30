@@ -25,6 +25,9 @@ public class PlayerData
     public bool[] dailyTaskGeted = new bool[8] { false, false, false, false, false, false, false, false };
     //成就领取状态
     public bool[] achievementTaskGeted = new bool[15] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+
+    //战斗数据
+    public LevelData levelData; //玩家选中的某一关卡的临时数据
     
     //保存数据
     public void SaveData()

@@ -29,18 +29,6 @@ public class W1btnScript : MonoBehaviour
     public void W1()
     {
         ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock1", 1) == 1;
-        if (ILock && PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 1)              //实时判断是否使用，否则需多点一次头像按钮
-        {
-            s.SkillBtn[0].gameObject.SetActive(true);
-            foreach (var item in s.SkillBtn)                        //关闭其余技能图标
-            {
-                if (item != s.SkillBtn[0])
-                {
-                    item.gameObject.SetActive(false);
-                }
-            }
-            c.GetComponent<CanvasScript>().SkillIndex = 0;              //切换技能图标  
-        }
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseArrow[0].SetActive(true);

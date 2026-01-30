@@ -20,7 +20,7 @@ public class ObstacleScript : MonoBehaviour
             print("Hook");
             //print(collision.transform.GetChild(0));
             //this.GetComponentInParent<Warrior1Script>().IFreeze = false;
-            this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;
+            // this.GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().IFreezeSkill = false;
             if (collision.transform.childCount > 0 && collision.transform.GetChild(0).name == "Warrior1(Clone)")
 
             {

@@ -53,10 +53,10 @@ public class LightScript : MonoBehaviour
         {
             collision.GetComponent<PlayerScript>().DecreasePlayerHp(50);
 
-            collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
-            collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "50";
-            collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
-            collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
+            // collision.GetComponentInParent<PlayerScript>().BloodTxt.gameObject.SetActive(true);      //掉血文本特效
+            // collision.GetComponentInParent<PlayerScript>().BloodTxt.text = "-" + "50";
+            // collision.GetComponentInParent<PlayerScript>().BloodTxt.color = new Color(1f,1f, 1f);
+            // collision.GetComponentInParent<PlayerScript>().InvokeFalseBloodTxt();
         }
         if (collision.gameObject.name == "Warrior1(Clone)")
         {
@@ -115,7 +115,7 @@ public class LightScript : MonoBehaviour
         //命中加分
         if (this.transform.parent.name == "Player")
         {
-            GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
+            // GetComponentInParent<PlayerScript>().m.GetComponent<MapScript>().dic["玩家"] += 50;
         }
         if (this.transform.parent.name == "Warrior1(Clone)")
         {
