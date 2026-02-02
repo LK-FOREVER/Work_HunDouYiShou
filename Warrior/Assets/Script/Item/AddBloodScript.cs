@@ -48,14 +48,14 @@ public class AddBloodScript : MonoBehaviour
 
             if (collision.transform.parent.name == "Player")
             {
-                if (collision.transform.parent.GetComponent<PlayerScript>().PlayerHp < collision.transform.parent.GetComponent<PlayerScript>().PlayerHP)
-                {
-                    d = (collision.transform.parent.transform.position - this.transform.position).normalized;
-                }
-                else
-                {
-                    d = new Vector3(0,0,0);
-                }
+                // if (collision.transform.parent.GetComponent<PlayerScript>().hp < collision.transform.parent.GetComponent<PlayerScript>().hp)
+                // {
+                //     d = (collision.transform.parent.transform.position - this.transform.position).normalized;
+                // }
+                // else
+                // {
+                //     d = new Vector3(0,0,0);
+                // }
             }
             if (collision.transform.parent.name == "Warrior1(Clone)")
             {

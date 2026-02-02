@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -11,7 +9,7 @@ public class BulletController : MonoBehaviour
     private bool isPlayer;
     //是否结束
     private bool isOver;
-    void Start()
+    void Awake()
     {
         EventManager.Instance.AddListener(EventName.GameEnd, SetIsOver);
     }

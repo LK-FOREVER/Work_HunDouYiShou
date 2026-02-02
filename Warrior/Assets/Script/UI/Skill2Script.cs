@@ -32,7 +32,7 @@ public class Skill2Script : MonoBehaviour
             Invoke("falseSprite", 20f);
 
             // Player.GetComponent<PlayerScript>().Ishield = true;
-            Player.GetComponent<PlayerScript>().ShieldHp = 150f;
+            // Player.GetComponent<PlayerScript>().ShieldHp = 150f;
             Invoke("falseSkill", 5f);
 
             // Player.GetComponent<PlayerScript>().ShieldEff.SetActive(true);
@@ -48,7 +48,7 @@ public class Skill2Script : MonoBehaviour
     public void falseSkill()
     {
     //     Player.GetComponent<PlayerScript>().Ishield = false;
-        Player.GetComponent<PlayerScript>().ShieldHp = 0;
+        // Player.GetComponent<PlayerScript>().ShieldHp = 0;
     }
     public void FalseShieldEff()
     {

@@ -97,7 +97,7 @@ public class RePointsScript : MonoBehaviour
 
         m.GetComponent<MapScript>().lateTime = Time.time;
 
-        Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
+        // Player.GetComponent<PlayerScript>().hp = Player.GetComponent<PlayerScript>().hp;
         Player.transform.position = new Vector3(12, -20, 0);
         // Player.GetComponent<PlayerScript>().IPoints = true;
         // Player.GetComponent<PlayerScript>().ISingle = false;

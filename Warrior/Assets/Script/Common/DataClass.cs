@@ -84,3 +84,19 @@ public class LevelDataList
 {
     public List<LevelData> levels;
 }
+[System.Serializable]
+public class SkillData
+{
+    public int skill_id;
+    public string skill_desc;
+    public int skill_damage;
+    public int add_atk;
+    public float add_speed;
+    public int continue_time;
+    public int skill_cooldown;
+}
+[System.Serializable]
+public class SkillDataList
+{
+    public List<SkillData> skills;
+}

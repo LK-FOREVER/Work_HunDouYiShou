@@ -51,11 +51,11 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
+        EventManager.Instance.AddListener(EventName.EnemyDamage, EnemyDamage);
     }
 
     void Start()
     {
-        EventManager.Instance.AddListener(EventName.EnemyDamage, EnemyDamage);
         Player = GameObject.Find("Player");
         audioSource = GetComponent<AudioSource>();
         levelData = PlayerData.Instance.levelData;

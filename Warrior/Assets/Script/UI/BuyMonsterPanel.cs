@@ -23,28 +23,28 @@ public class BuyMonsterPanel : MonoBehaviour
                 ResourceTxt.text = "*5000";
                 break;
             case 3:
-                Asktxt.text = "是否花费20000金币解锁该异兽？";
+                Asktxt.text = "是否花费8000金币解锁该异兽？";
                 HeadImg.sprite = headImg[2];
                 ResourceImg.sprite = resourceImg[0];
-                ResourceTxt.text = "*20000";
+                ResourceTxt.text = "*8000";
                 break;
             case 4:
-                Asktxt.text = "是否花费50000金币解锁该异兽？";
+                Asktxt.text = "是否花费8000金币解锁该异兽？";
                 HeadImg.sprite = headImg[3];
                 ResourceImg.sprite = resourceImg[0];
-                ResourceTxt.text = "*50000";
+                ResourceTxt.text = "*8000";
                 break;
             case 5:
-                Asktxt.text = "是否花费10000金币解锁该异兽？";
+                Asktxt.text = "是否花费15000金币解锁该异兽？";
                 HeadImg.sprite = headImg[4];
                 ResourceImg.sprite = resourceImg[0];
-                ResourceTxt.text = "*10000";
+                ResourceTxt.text = "*15000";
                 break;
             case 6:
-                Asktxt.text = "是否花费10000金币解锁该异兽？";
+                Asktxt.text = "是否花费15000金币解锁该异兽？";
                 HeadImg.sprite = headImg[5];
                 ResourceImg.sprite = resourceImg[0];
-                ResourceTxt.text = "*10000";
+                ResourceTxt.text = "*15000";
                 break;
             default:
                 break;

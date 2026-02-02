@@ -2344,7 +2344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 177.41315, y: -2.2583609}
+  m_AnchoredPosition: {x: 159, y: -2.2583609}
   m_SizeDelta: {x: 95.2771, y: -4.0650024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120493251
@@ -2395,7 +2395,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10000
+  m_Text: 15000
 --- !u!222 &120493253
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5639,7 +5639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 168.65698, y: -3.6072688}
+  m_AnchoredPosition: {x: 152, y: -3.6072688}
   m_SizeDelta: {x: 65.417404, y: -6.492897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &238327469
@@ -5690,7 +5690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000
+  m_Text: 8000
 --- !u!222 &238327471
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11166,12 +11166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f70c9569142d3459e553bea98528f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHp: 200
+  hp: 0
   currentPlayerHp: 0
-  PlayerHP: 200
-  ShieldHp: 0
-  speed: 3
   atk: 0
+  currentAtk: 0
+  speed: 3
+  currentSpeed: 0
   WarriorImg:
   - {fileID: 21300000, guid: fbee709c1c6817145a0c0f4a961dd882, type: 3}
   - {fileID: 21300000, guid: e797c88702bc9f7439b5cfd6b4507abc, type: 3}
@@ -14840,7 +14840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 179.48412, y: -4.6104617}
+  m_AnchoredPosition: {x: 155, y: -4.6104617}
   m_SizeDelta: {x: 91.5495, y: -8.298803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593746901
@@ -14891,7 +14891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10000
+  m_Text: 15000
 --- !u!222 &593746903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26274,7 +26274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 179.59706, y: -2.8221483}
+  m_AnchoredPosition: {x: 161, y: -2.8221483}
   m_SizeDelta: {x: 90.274, y: -5.079996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000690511
@@ -26325,7 +26325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50000
+  m_Text: 8000
 --- !u!222 &1000690513
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33539,7 +33539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78, y: 3.6559}
+  m_AnchoredPosition: {x: -71, y: 3.6559}
   m_SizeDelta: {x: 100, y: 86.964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232234617
@@ -40316,7 +40316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78, y: 4.6196}
+  m_AnchoredPosition: {x: -60, y: 4.6196}
   m_SizeDelta: {x: 100, y: 87.1679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461496102
@@ -43342,7 +43342,7 @@ GameObject:
   - component: {fileID: 1552251653}
   - component: {fileID: 1552251652}
   m_Layer: 6
-  m_Name: Crystaltxt
+  m_Name: Energyltxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45022,18 +45022,6 @@ PrefabInstance:
     - target: {fileID: 4889702870165353226, guid: c1f5a5493bce4394595abc8e51d60b9a, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938891969097641041, guid: c1f5a5493bce4394595abc8e51d60b9a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938891969097641041, guid: c1f5a5493bce4394595abc8e51d60b9a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938891969097641041, guid: c1f5a5493bce4394595abc8e51d60b9a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4938891969097641041, guid: c1f5a5493bce4394595abc8e51d60b9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47694,7 +47682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -73, y: 4.481}
+  m_AnchoredPosition: {x: -65, y: 4.481}
   m_SizeDelta: {x: 100, y: 81.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669688795
@@ -47769,25 +47757,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9451244b3645d8f448b10697b10fbbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 1047558087}
-  Simg: {fileID: 401209211}
-  SkillBackground: {fileID: 1523228276}
-  Skillbtn:
-  - {fileID: 1977787975}
-  - {fileID: 1354637011}
-  - {fileID: 1586049638}
-  - {fileID: 540340911}
-  - {fileID: 2002842992}
-  - {fileID: 813287241}
-  SkillIndex: 0
   CoinTxt: {fileID: 591437298}
-  CrystaylTxt: {fileID: 1552251652}
-  PointCoinTxt: {fileID: 1628340736}
-  SingleCoinTxt: {fileID: 249446191}
+  EnergyTxt: {fileID: 1552251652}
   audioSource: {fileID: 0}
   acilp:
   - {fileID: 8300000, guid: 84be5a476542ee245965363f0dd3b8d9, type: 3}
-  headImg: {fileID: 46392150}
   nameTxt: {fileID: 699376499}
   sevenDayBtn: {fileID: 150268462}
   sevenDayPanel: {fileID: 1794263476}
@@ -47811,6 +47785,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fa1617199bfb9794ca83bda05b3bdaed, type: 3}
   normalAtkImg: {fileID: 2108663931}
   skillAtkImg: {fileID: 1478066327}
+  skillCooldownMask: {fileID: 1813604295}
 --- !u!114 &1671503127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57740,7 +57715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -73, y: 4.481}
+  m_AnchoredPosition: {x: -66, y: 4.481}
   m_SizeDelta: {x: 100, y: 81.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040934689

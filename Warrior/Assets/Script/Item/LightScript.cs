@@ -21,11 +21,11 @@ public class LightScript : MonoBehaviour
             //命中减速
             if(collision.gameObject.name == "Player")
             {
-                collision.GetComponent<PlayerScript>().speed *= 0.7f;
+                // collision.GetComponent<PlayerScript>().speed *= 0.7f;
             }
             if (collision.gameObject.name == "Warrior1(Clone)")
             {
-                collision.GetComponent<Warrior1Script>().Speed *= 0.7f;
+                // collision.GetComponent<Warrior1Script>().Speed *= 0.7f;
             }
             if (collision.gameObject.name == "Warrior2(Clone)")
             {
@@ -149,11 +149,11 @@ public class LightScript : MonoBehaviour
             //print("激光命中");
             if (collision.gameObject.name == "Player")
             {
-                collision.GetComponent<PlayerScript>().speed /= 0.7f;
+                // collision.GetComponent<PlayerScript>().speed /= 0.7f;
             }
             if (collision.gameObject.name == "Warrior1(Clone)")
             {
-                collision.GetComponent<Warrior1Script>().Speed /= 0.7f;
+                // collision.GetComponent<Warrior1Script>().Speed /= 0.7f;
             }
             if (collision.gameObject.name == "Warrior2(Clone)")
             {

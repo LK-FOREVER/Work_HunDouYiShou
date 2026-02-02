@@ -1,0 +1,58 @@
+{
+    "skills": [
+        {
+            "skill_id": 1,
+            "skill_desc": "向正前方发射一道闪电，造成50点伤害，冷却20秒。",
+            "skill_damage": 50,
+            "add_atk": 0,
+            "add_speed": 0.0,
+            "continue_time": 0,
+            "skill_cooldown": 20
+        },
+        {
+            "skill_id": 2,
+            "skill_desc": "向正前方发射一道扇形水波，造成30点伤害，冷却20秒。",
+            "skill_damage": 30,
+            "add_atk": 0,
+            "add_speed": 0.0,
+            "continue_time": 0,
+            "skill_cooldown": 20
+        },
+        {
+            "skill_id": 3,
+            "skill_desc": "向前方发射8只羽毛，每只羽毛造成20点伤害，冷却20秒。",
+            "skill_damage": 20,
+            "add_atk": 0,
+            "add_speed": 0.0,
+            "continue_time": 0,
+            "skill_cooldown": 20
+        },
+        {
+            "skill_id": 4,
+            "skill_desc": "周围生成火圈，普通攻击增加2点攻击力，持续10秒，冷却30秒。",
+            "skill_damage": 0,
+            "add_atk": 2,
+            "add_speed": 0.0,
+            "continue_time": 10,
+            "skill_cooldown": 30
+        },
+        {
+            "skill_id": 5,
+            "skill_desc": "增加30%移动速度，持续10秒，冷却20秒。",
+            "skill_damage": 0,
+            "add_atk": 0,
+            "add_speed": 0.3,
+            "continue_time": 10,
+            "skill_cooldown": 20
+        },
+        {
+            "skill_id": 6,
+            "skill_desc": "获得护盾，免疫所有伤害，持续5秒，冷却20秒。",
+            "skill_damage": 0,
+            "add_atk": 0,
+            "add_speed": 0.0,
+            "continue_time": 5,
+            "skill_cooldown": 20
+        }
+    ]
+}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8436626725343005926}
   - component: {fileID: 1841267626007490632}
   - component: {fileID: -63997657341754313}
+  - component: {fileID: 802314431173386439}
   m_Layer: 0
   m_Name: skill_atk_2
   m_TagString: skill_atk_2
@@ -198,3 +199,15 @@ MonoBehaviour:
   _animationName: show_1
   loop: 1
   timeScale: 1
+--- !u!114 &802314431173386439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889702870165353226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dca812fe28666f44b8796e2d857ef4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -28,7 +28,9 @@ public class PlayerData
 
     //战斗数据
     public LevelData levelData; //玩家选中的某一关卡的临时数据
-    
+    //技能数据
+    public SkillData[] skillData;//全部的技能临时数据
+
     //保存数据
     public void SaveData()
     {

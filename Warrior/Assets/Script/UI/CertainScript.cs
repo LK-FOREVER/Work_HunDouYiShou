@@ -53,10 +53,10 @@ public class CertainScript : MonoBehaviour
                 }
                 break;
             case 3:
-                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 0 && coin >= 20000)                //�ڽ��������
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 0 && coin >= 8000)                //�ڽ��������
                 {
                     s.WarriorBtn[2].GetComponent<W3btnScript>().Lock.gameObject.SetActive(false); //�ر���
-                    coin -= 20000;
+                    coin -= 8000;
                     PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ǯ�����
                     s.WarriorBtn[2].GetComponent<W3btnScript>().LockBtnTxt.text = "出战";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
@@ -71,17 +71,17 @@ public class CertainScript : MonoBehaviour
                     //成就任务进度更新
                     PlayerData.Instance.achievementTaskProgress[2] += 1;
                 }
-                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 0 && coin < 20000 /*&& ICertainBuy*/)
+                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock3", 0) == 0 && coin < 8000 /*&& ICertainBuy*/)
                 {
                     NoCoinTxt.gameObject.SetActive(true);
                     Invoke("falseNoCoinTxt", 1.3f);
                 }
                 break;
             case 4:
-                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 0 && coin >= 50000)                //�ڽ��������
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 0 && coin >= 8000)                //�ڽ��������
                 {
                     s.WarriorBtn[3].GetComponent<W4btnScript>().Lock.gameObject.SetActive(false); //�ر���
-                    coin -= 50000;
+                    coin -= 8000;
                     PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ǯ�����
                     s.WarriorBtn[3].GetComponent<W4btnScript>().LockBtnTxt.text = "出战";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 1);
@@ -96,17 +96,17 @@ public class CertainScript : MonoBehaviour
                     //成就任务进度更新
                     PlayerData.Instance.achievementTaskProgress[3] += 1;
                 }
-                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 0 && coin < 50000/* && ICertainBuy*/)
+                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock4", 0) == 0 && coin < 8000/* && ICertainBuy*/)
                 {
                     NoCoinTxt.gameObject.SetActive(true);
                     Invoke("falseNoCoinTxt", 1.3f);
                 }
                 break;
             case 5:
-                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 0 && coin >= 10000)                //�ڽ��������
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 0 && coin >= 15000)                //�ڽ��������
                 {
                     s.WarriorBtn[4].GetComponent<W5btnScript>().Lock.gameObject.SetActive(false); //�ر���
-                    coin -= 10000;
+                    coin -= 15000;
                     PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ǯ�����
                     s.WarriorBtn[4].GetComponent<W5btnScript>().LockBtnTxt.text = "出战";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 1);
@@ -121,17 +121,17 @@ public class CertainScript : MonoBehaviour
                     //成就任务进度更新
                     PlayerData.Instance.achievementTaskProgress[4] += 1;
                 }
-                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 0 && coin < 10000 /*&& ICertainBuy*/)
+                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock5", 0) == 0 && coin < 15000 /*&& ICertainBuy*/)
                 {
                     NoCoinTxt.gameObject.SetActive(true);
                     Invoke("falseNoCoinTxt", 1.3f);
                 }
                 break;
             case 6:
-                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 0 && coin >= 10000)                //�ڽ��������
+                if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 0 && coin >= 15000)                //�ڽ��������
                 {
                     s.WarriorBtn[5].GetComponent<W6btnScript>().Lock.gameObject.SetActive(false); //�ر���
-                    coin -= 10000;
+                    coin -= 15000;
                     PlayerPrefs.SetInt(SdkScript.nickname + "Coin", coin);              //Ǯ�����
                     s.WarriorBtn[5].GetComponent<W6btnScript>().LockBtnTxt.text = "出战";
                     PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 1);
@@ -146,7 +146,7 @@ public class CertainScript : MonoBehaviour
                     //成就任务进度更新
                     PlayerData.Instance.achievementTaskProgress[5] += 1;
                 }
-                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 0 && coin < 10000 /*&& ICertainBuy*/)
+                else if (PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock6", 0) == 0 && coin < 15000 /*&& ICertainBuy*/)
                 {
                     NoCoinTxt.gameObject.SetActive(true);
                     Invoke("falseNoCoinTxt", 1.3f);

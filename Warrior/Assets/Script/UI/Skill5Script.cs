@@ -13,6 +13,6 @@ public class Skill5Script : MonoBehaviour
 
     void Update()
     {
-      Player.GetComponent<PlayerScript>(). atk = (int)(10 + (500 - Player.GetComponent<PlayerScript>().PlayerHp) * 0.2f);
+      // Player.GetComponent<PlayerScript>(). atk = (int)(10 + (500 - Player.GetComponent<PlayerScript>().hp) * 0.2f);
     }
 }

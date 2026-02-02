@@ -29,12 +29,12 @@ public class LevelItem : MonoBehaviour
     }
     public void OnClickLevelBtn(LevelData levelData)
     {
-        Debug.Log("OnClickLevelBtn:" + level_data.level_name);
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         ChooseLevelPanel.SetActive(false);
         SceneManager.LoadScene("LoadScene");
         MainPanel.SetActive(false);
+        Debug.Log("OnClickLevelBtn:" + level_data.level_name);
         PlayerData.Instance.levelData = levelData;
     }
 }

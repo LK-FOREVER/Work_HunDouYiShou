@@ -9,7 +9,7 @@ public class CreateNameScript : MonoBehaviour
     public Button randomBtn; //随机按钮
     public InputField inputField; //输入框
     public Text nameTxt; //名称
-    void Start()
+    void Awake()
     {
         certainBtn.onClick.AddListener(CertainBtnClick);
         randomBtn.onClick.AddListener(RandomBtnClick);

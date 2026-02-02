@@ -12,12 +12,12 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     //属性
-    public float PlayerHp;
-    public float currentPlayerHp;
-    public float PlayerHP;
-    public float ShieldHp;
-    public float speed;
-    public int atk;
+    public float hp;//初始血量
+    public float currentPlayerHp;//当前血量
+    public int atk;//初始攻击力
+    public int currentAtk;//当前攻击力
+    public float speed;//初始速度
+    public float currentSpeed;//当前速度
     //异兽icon
     public Sprite[] WarriorImg;
 
@@ -77,16 +77,26 @@ public class PlayerScript : MonoBehaviour
     private JoyStick joyStickScript;
     //当前选择的角色id
     private int ChooseIndex;
+    //技能数据
+    private SkillData currentSkillData;
     //子弹发射点
     public GameObject bulletPoint;
+    //技能特效
+    GameObject skillEffect = null;
+    //技能持续时间coroutine;
+    private Coroutine skillDurationCoroutine;
 
     public static PlayerScript Instance;
-
-    void Start()
+    private void Awake()
     {
+        EventManager.Instance.AddListener(EventName.InitPlayerState, InitPlayerState);
+        EventManager.Instance.AddListener(EventName.ChangeWarrior, ChangeIndex);
         EventManager.Instance.AddListener(EventName.PlayerDamage, PlayerDamage);
         EventManager.Instance.AddListener(EventName.GameEnd, GameEnd);
         EventManager.Instance.AddListener(EventName.ResetPlayerState, ResetPlayerState);
+    }
+    void Start()
+    {
         if (Instance == null)
         {
             Instance = this;
@@ -96,16 +106,13 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        currentPlayerHp = PlayerHp;
-        PlayerHpText.text = currentPlayerHp.ToString();
         joyStickScript = joyStick.GetComponent<JoyStick>();
-        ChooseIndex = PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1);
 
         audio = GetComponent<AudioSource>();
         rig = GetComponent<Rigidbody2D>();
+        //普通攻击
         // 单次点击使用 onClick 回调
         normalAtkBtn.onClick.AddListener(OnNormalAtkClicked);
-
         // 注册按住检测（PointerDown 开始检测，PointerUp/Exit 停止）
         EventTrigger trigger = normalAtkBtn.gameObject.GetComponent<EventTrigger>();
         if (trigger == null) trigger = normalAtkBtn.gameObject.AddComponent<EventTrigger>();
@@ -121,9 +128,13 @@ public class PlayerScript : MonoBehaviour
         var entryExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
         entryExit.callback.AddListener((data) => { OnPointerUp(); });
         trigger.triggers.Add(entryExit);
+        //技能攻击
+        skillAtkBtn.onClick.AddListener(OnSkillAtkClicked);
     }
     private void OnDestroy()
     {
+        EventManager.Instance.RemoveListener(EventName.InitPlayerState, InitPlayerState);
+        EventManager.Instance.RemoveListener(EventName.ChangeWarrior, ChangeIndex);
         EventManager.Instance.RemoveListener(EventName.PlayerDamage, PlayerDamage);
         EventManager.Instance.RemoveListener(EventName.GameEnd, GameEnd);
         EventManager.Instance.RemoveListener(EventName.ResetPlayerState, ResetPlayerState);
@@ -154,6 +165,45 @@ public class PlayerScript : MonoBehaviour
             StopBtn.gameObject.SetActive(false);
         }
     }
+    //旋转方向
+    public void RotateRotationObject()
+    {
+        if (SceneManager.GetActiveScene().name != "GameScene") return;
+
+        float r = Vector3.Angle(V, d);
+        TargetPos = GameObject.FindWithTag("Npc").transform.position;
+
+        D = TargetPos - transform.position;
+        d = D.normalized;
+
+        if (d.x < 0)
+        {
+            RotationIcon.transform.rotation = Quaternion.Euler(0, 0, r);
+        }
+        else
+        {
+            RotationIcon.transform.rotation = Quaternion.Euler(0, 0, -r);
+        }
+    }
+    private void InitPlayerState(object sender, EventArgs e)
+    {
+        InitPlayerStateArgs args = e as InitPlayerStateArgs;
+        hp = args.hp;
+        atk = args.atk;
+        speed = args.speed;
+        PlayerHpText.text = currentPlayerHp.ToString();
+        currentPlayerHp = 0;
+        currentAtk = 0;
+        currentSpeed = 0;
+        SetCurrentPlayerState(hp, atk, speed);
+    }
+    private void SetCurrentPlayerState(float addHp, int addAtk, float addSpeed)
+    {
+        currentPlayerHp += addHp;
+        currentAtk += addAtk;
+        currentSpeed += addSpeed;
+        Debug.Log($"当前玩家状态：CurrentHP={currentPlayerHp}, CurrentATK={currentAtk}, CurrentSpeed={currentSpeed}");
+    }
     private void NormalAtk()
     {
         audio.clip = acilp[0];
@@ -165,7 +215,7 @@ public class PlayerScript : MonoBehaviour
         //设置是否是玩家子弹
         bullet.GetComponent<BulletController>().SetIsPlayer(true);
         // 设置子弹的伤害值
-        bullet.GetComponent<BulletController>().SetDamage(atk);
+        bullet.GetComponent<BulletController>().SetDamage(currentAtk);
         //设置父物体
         bullet.transform.SetParent(bulletPoint.transform, false);
         //旋转子弹，使其指向发射的方向
@@ -253,25 +303,125 @@ public class PlayerScript : MonoBehaviour
         if (!isHolding)
             NormalAtk();
     }
-
-    public void RotateRotationObject()
+    // 技能攻击
+    private void OnSkillAtkClicked()
     {
-        if (SceneManager.GetActiveScene().name != "GameScene") return;
-
-        float r = Vector3.Angle(V, d);
-        TargetPos = GameObject.FindWithTag("Npc").transform.position;
-
-        D = TargetPos - transform.position;
-        d = D.normalized;
-
-        if (d.x < 0)
+        audio.clip = acilp[1];
+        audio.Play();
+        if (ChooseIndex == 1)
         {
-            RotationIcon.transform.rotation = Quaternion.Euler(0, 0, r);
+            // 实例化技能特效
+            skillEffect = Instantiate(skillEffect_1);
+        }
+        else if (ChooseIndex == 2)
+        {
+            skillEffect = Instantiate(skillEffect_2);
+        }
+        else if (ChooseIndex == 3)
+        {
+            skillEffect = Instantiate(skillEffect_3);
+        }
+        else if (ChooseIndex == 4)
+        {
+            skillEffect_4.SetActive(true);
+            skillEffect = skillEffect_4;
+        }
+        else if (ChooseIndex == 5)
+        {
+            skillEffect_5.SetActive(true);
+            skillEffect = skillEffect_5;
+        }
+        else if (ChooseIndex == 6)
+        {
+            skillEffect_6.SetActive(true);
+            skillEffect = skillEffect_6;
+        }
+        if (skillEffect == null) return;
+        // 获取当前技能数据
+        currentSkillData = PlayerData.Instance.skillData[ChooseIndex - 1];
+        // 设置技能特效的父物体
+        skillEffect.transform.SetParent(bulletPoint.transform, false);
+        if (ChooseIndex != 3)
+        {
+            //设置是否是玩家技能
+            skillEffect.GetComponent<SkillController>().SetIsPlayerSkill(true);
+            // 设置技能的伤害值
+            skillEffect.GetComponent<SkillController>().SetSkillDamage(currentSkillData.skill_damage);
+            //设置技能增加的属性值
+            SetCurrentPlayerState(0, currentSkillData.add_atk, currentSkillData.add_speed);
+            //旋转技能效果，使其指向发射的方向
+            skillEffect.transform.rotation = Quaternion.LookRotation(Vector3.forward, d) * Quaternion.Euler(0, 0, 90);
+            //获取技能特效的刚体
+            Rigidbody2D rb = skillEffect.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.gravityScale = 0f;
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.AddForce(d * 6f, ForceMode2D.Impulse);
+            }
         }
         else
         {
-            RotationIcon.transform.rotation = Quaternion.Euler(0, 0, -r);
+            //羽毛技能
+            //遍历skillEffect的所有子物体
+            for (int i = 0; i < skillEffect.transform.childCount; i++)
+            {
+                skillEffect.transform.GetChild(i).GetComponent<SkillController>().SetIsPlayerSkill(true);
+                skillEffect.transform.GetChild(i).GetComponent<SkillController>().SetSkillDamage(currentSkillData.skill_damage);
+                // skillEffect.transform.GetChild(i).transform.rotation = Quaternion.LookRotation(Vector3.forward, d) * Quaternion.Euler(0, 0, 90);
+                Rigidbody2D rb = skillEffect.transform.GetChild(i).GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.gravityScale = 0f;
+                    rb.velocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                    rb.AddForce(d * 6f, ForceMode2D.Impulse);
+                }
+            }
+            //过5秒后销毁羽毛技能的父物体
+            StartCoroutine(DestroyParentAfterDelay(5f));
         }
+
+        SkillCooldown(currentSkillData.skill_cooldown);
+        SkillDuration(currentSkillData.continue_time);
+    }
+    //技能冷却
+    private void SkillCooldown(float coolDownTime)
+    {
+        EventManager.Instance.TriggerEvent(EventName.SkillCoolDown, this, new CoolDownArgs { coolDownTime = coolDownTime });
+    }
+    //技能持续时间
+    private void SkillDuration(int durationTime)
+    {
+        if (skillDurationCoroutine != null)
+        {
+            StopCoroutine(skillDurationCoroutine);
+        }
+        skillDurationCoroutine = StartCoroutine(SkillDurationCoroutine(durationTime));
+    }
+    //技能持续时间协程
+    private IEnumerator SkillDurationCoroutine(float durationTime)
+    {
+        float timer = 0;
+        while (timer < durationTime)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        // 技能持续时间结束后，重置玩家状态
+        SetCurrentPlayerState(0, -currentSkillData.add_atk, -currentSkillData.add_speed);
+        if (skillEffect != null && ChooseIndex == 4 || ChooseIndex == 5 || ChooseIndex == 6)
+        {
+            skillEffect.SetActive(false);
+            skillEffect = null;
+        }
+    }
+    //过5秒后销毁羽毛技能的父物体
+    private IEnumerator DestroyParentAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(skillEffect);
     }
 
     private void PlayerDamage(object sender, EventArgs e)
@@ -290,8 +440,8 @@ public class PlayerScript : MonoBehaviour
             EventManager.Instance.TriggerEvent(EventName.GameEnd, this, new GameEndArgs { isWin = false });
         }
 
-        PlayerHpImage.fillAmount = currentPlayerHp / PlayerHP;
-        // Debug.Log("EnemyDamage: " + value + "currentPlayerHp: " + currentPlayerHp + "PlayerHP: " + PlayerHP + "PlayerHpImage.fillAmount: " + PlayerHpImage.fillAmount);
+        PlayerHpImage.fillAmount = currentPlayerHp / hp;
+        // Debug.Log("EnemyDamage: " + value + "currentPlayerHp: " + currentPlayerHp + "hp: " + hp + "PlayerHpImage.fillAmount: " + PlayerHpImage.fillAmount);
 
         PlayerHpText.text = currentPlayerHp.ToString();
     }
@@ -306,9 +456,15 @@ public class PlayerScript : MonoBehaviour
     public void ResetPlayerState(object sender, EventArgs e)
     {
         isPlayerDead = false;
-        currentPlayerHp = PlayerHP;
-        PlayerHpImage.fillAmount = currentPlayerHp / PlayerHP;
+        currentPlayerHp = hp;
+        PlayerHpImage.fillAmount = currentPlayerHp / hp;
         PlayerHpText.text = currentPlayerHp.ToString();
         holdDetectCoroutine = null;
+    }
+    private void ChangeIndex(object sender, EventArgs e)
+    {
+        ChangeWarriorArgs args = e as ChangeWarriorArgs;
+        ChooseIndex = args.index_monster;
+        Debug.Log("ChooseIndex:" + ChooseIndex);
     }
 }

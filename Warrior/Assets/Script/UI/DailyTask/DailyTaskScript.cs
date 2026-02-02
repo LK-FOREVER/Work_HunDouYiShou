@@ -46,7 +46,6 @@ public class DailyTaskScript : MonoBehaviour
     }
     public void UpdateUI()
     {
-        Debug.Log("UpdateUI");
         if (toggle1.isOn)
         {
             OnToggle1ValueChanged(true);
@@ -58,7 +57,7 @@ public class DailyTaskScript : MonoBehaviour
     }
     private void OnToggle1ValueChanged(bool isOn)
     {
-        Debug.Log("OnToggle1ValueChanged: " + isOn);
+        // Debug.Log("OnToggle1ValueChanged: " + isOn);
         if (isOn)
         {
             titleTxt.text = "每日任务";

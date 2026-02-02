@@ -455,156 +455,156 @@ public class MapScript : MonoBehaviour
     {
         if (ISingle)
         {
-            if (Others.Count == 1 && Player.GetComponent<PlayerScript>().PlayerHp > 0)
-            {
-                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏胜利
-                // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(true);
-                // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(false);
-                // Player.GetComponent<PlayerScript>().IFreeze = true;
-                ICreateAddBloodAfter = false;
-                ICreateNpcAfter = false;
-                ICreateTrapAfter = false;
-                TimeTxt.text = "剩余玩家人数:" + Others.Count.ToString();
-                Debug.Log("Icoin" + Icoin + "easy" + Player.GetComponent<PlayerScript>().IEasy + "normal" + Player.GetComponent<PlayerScript>().INormal + "hard" + Player.GetComponent<PlayerScript>().IHard + "veryhard" + Player.GetComponent<PlayerScript>().IVeryHard);
-                if (Icoin)
-                {
-                    Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[13];
-                    Player.GetComponent<PlayerScript>().audio.Play();
-                    if (Player.GetComponent<PlayerScript>().IEasy)
-                    {
-                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
-                        Coin += 200;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*200";
-                    }
-                    if (Player.GetComponent<PlayerScript>().INormal)
-                    {
-                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
-                        Coin += 240;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*240";
-                    }
-                    if (Player.GetComponent<PlayerScript>().IHard)
-                    {
-                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
-                        Coin += 280;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
-                    }
-                    if (Player.GetComponent<PlayerScript>().IVeryHard)
-                    {
-                        int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
-                        Coin += 360;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
-                    }
-                }
-            }
-            else if (Player.GetComponent<PlayerScript>().PlayerHp <= 0)
-            {
+            // if (Others.Count == 1 && Player.GetComponent<PlayerScript>().hp > 0)
+            // {
+            //     // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏胜利
+            //     // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(true);
+            //     // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(false);
+            //     // Player.GetComponent<PlayerScript>().IFreeze = true;
+            //     ICreateAddBloodAfter = false;
+            //     ICreateNpcAfter = false;
+            //     ICreateTrapAfter = false;
+            //     TimeTxt.text = "剩余玩家人数:" + Others.Count.ToString();
+            //     Debug.Log("Icoin" + Icoin + "easy" + Player.GetComponent<PlayerScript>().IEasy + "normal" + Player.GetComponent<PlayerScript>().INormal + "hard" + Player.GetComponent<PlayerScript>().IHard + "veryhard" + Player.GetComponent<PlayerScript>().IVeryHard);
+            //     if (Icoin)
+            //     {
+            //         Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[13];
+            //         Player.GetComponent<PlayerScript>().audio.Play();
+            //         if (Player.GetComponent<PlayerScript>().IEasy)
+            //         {
+            //             int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
+            //             Coin += 200;
+            //             PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+            //             Icoin = false;
+            //             Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*200";
+            //         }
+            //         if (Player.GetComponent<PlayerScript>().INormal)
+            //         {
+            //             int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
+            //             Coin += 240;
+            //             PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+            //             Icoin = false;
+            //             Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*240";
+            //         }
+            //         if (Player.GetComponent<PlayerScript>().IHard)
+            //         {
+            //             int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
+            //             Coin += 280;
+            //             PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+            //             Icoin = false;
+            //             Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
+            //         }
+            //         if (Player.GetComponent<PlayerScript>().IVeryHard)
+            //         {
+            //             int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //加金币
+            //             Coin += 360;
+            //             PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+            //             Icoin = false;
+            //             Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*280";
+            //         }
+            //     }
+            // }
+            // else if (Player.GetComponent<PlayerScript>().hp <= 0)
+            // {
 
-                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏失败
-                // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(true);
-                // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(false);
-                foreach (var item in Others)
-                {
-                    if (item == null)
-                        continue;
-                    if (item.tag == "PLAYER")
-                    {
-                        // item.GetComponent<PlayerScript>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior1(Clone)")
-                    {
-                        item.GetComponent<Warrior1Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior2(Clone)")
-                    {
-                        item.GetComponent<Warrior2Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior3(Clone)")
-                    {
-                        item.GetComponent<Warrior3Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior4(Clone)")
-                    {
-                        item.GetComponent<Warrior4Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior5(Clone)")
-                    {
-                        item.GetComponent<Warrior5Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior6(Clone)")
-                    {
-                        item.GetComponent<Warrior6Script>().IFreeze = true;
-                    }
-                }
-                ICreateAddBloodAfter = false;
-                ICreateNpcAfter = false;
-                ICreateTrapAfter = false;
-                TimeTxt.text = "剩余玩家人数:" + Others.Count.ToString();
-                if (Icoin)
-                {
-                    Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[14];
-                    Player.GetComponent<PlayerScript>().audio.Play();
-                    int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
-                    Coin += 0;
-                    PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                    Icoin = false;
-                    Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*0";
-                }
+            //     // Player.GetComponent<PlayerScript>().singlePanel.SetActive(true);         //单人游戏失败
+            //     // Player.GetComponent<PlayerScript>().EndOver.gameObject.SetActive(true);
+            //     // Player.GetComponent<PlayerScript>().EndVictory.gameObject.SetActive(false);
+            //     foreach (var item in Others)
+            //     {
+            //         if (item == null)
+            //             continue;
+            //         if (item.tag == "PLAYER")
+            //         {
+            //             // item.GetComponent<PlayerScript>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior1(Clone)")
+            //         {
+            //             item.GetComponent<Warrior1Script>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior2(Clone)")
+            //         {
+            //             item.GetComponent<Warrior2Script>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior3(Clone)")
+            //         {
+            //             item.GetComponent<Warrior3Script>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior4(Clone)")
+            //         {
+            //             item.GetComponent<Warrior4Script>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior5(Clone)")
+            //         {
+            //             item.GetComponent<Warrior5Script>().IFreeze = true;
+            //         }
+            //         if (item.name == "Warrior6(Clone)")
+            //         {
+            //             item.GetComponent<Warrior6Script>().IFreeze = true;
+            //         }
+            //     }
+            //     ICreateAddBloodAfter = false;
+            //     ICreateNpcAfter = false;
+            //     ICreateTrapAfter = false;
+            //     TimeTxt.text = "剩余玩家人数:" + Others.Count.ToString();
+            //     if (Icoin)
+            //     {
+            //         Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[14];
+            //         Player.GetComponent<PlayerScript>().audio.Play();
+            //         int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
+            //         Coin += 0;
+            //         PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+            //         Icoin = false;
+            //         Scrol.GetComponent<CanvasScript>().SingleCoinTxt.text = "*0";
+            //     }
 
-            }
-            else  //单人游戏继续
-            {
-                if (!IFreezeSkill)
-                {
-                    foreach (var item in Others)
-                    {
-                        if (item == null)
-                            continue;
-                        if (item.tag == "PLAYER")
-                        {
-                            // item.GetComponent<PlayerScript>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior1(Clone)")
-                        {
-                            item.GetComponent<Warrior1Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior2(Clone)")
-                        {
-                            item.GetComponent<Warrior2Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior3(Clone)")
-                        {
-                            item.GetComponent<Warrior3Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior4(Clone)")
-                        {
-                            item.GetComponent<Warrior4Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior5(Clone)")
-                        {
-                            item.GetComponent<Warrior5Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior6(Clone)")
-                        {
-                            item.GetComponent<Warrior6Script>().IFreeze = false;
-                        }
-                    }
+            // }
+            // else  //单人游戏继续
+            // {
+            //     if (!IFreezeSkill)
+            //     {
+            //         foreach (var item in Others)
+            //         {
+            //             if (item == null)
+            //                 continue;
+            //             if (item.tag == "PLAYER")
+            //             {
+            //                 // item.GetComponent<PlayerScript>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior1(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior1Script>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior2(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior2Script>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior3(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior3Script>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior4(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior4Script>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior5(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior5Script>().IFreeze = false;
+            //             }
+            //             if (item.name == "Warrior6(Clone)")
+            //             {
+            //                 item.GetComponent<Warrior6Script>().IFreeze = false;
+            //             }
+            //         }
 
-                }
-                // Player.GetComponent<PlayerScript>().singlePanel.SetActive(false);
-                //Player.GetComponent<PlayerScript>().IFreeze = false;
-                ICreateAddBloodAfter = true;
-                ICreateNpcAfter = false;
-                ICreateTrapAfter = true;
-                TimeTxt.text = "剩余玩家人数:" + " " + (Others.Count + Warrior3Count).ToString();
-            }
+            //     }
+            //     // Player.GetComponent<PlayerScript>().singlePanel.SetActive(false);
+            //     //Player.GetComponent<PlayerScript>().IFreeze = false;
+            //     ICreateAddBloodAfter = true;
+            //     ICreateNpcAfter = false;
+            //     ICreateTrapAfter = true;
+            //     TimeTxt.text = "剩余玩家人数:" + " " + (Others.Count + Warrior3Count).ToString();
+            // }
 
             TimeTxt.fontSize = 70;
         }
@@ -612,161 +612,161 @@ public class MapScript : MonoBehaviour
     }
     public void PointsFun()
     {
-        if (IPoints)
-        {
-            if (currentTime <= 0 || Player.GetComponent<PlayerScript>().PlayerHp <= 0)
-            {
-                //SortPoint();
-                //ShowSort();
-                SortAndShow(0);
-                // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(true);
-                ICreateAddBloodAfter = false;
-                ICreateNpcAfter = false;
-                ICreateTrapAfter = false;
+        // if (IPoints)
+        // {
+        //     if (currentTime <= 0 || Player.GetComponent<PlayerScript>().hp <= 0)
+        //     {
+        //         //SortPoint();
+        //         //ShowSort();
+        //         SortAndShow(0);
+        //         // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(true);
+        //         ICreateAddBloodAfter = false;
+        //         ICreateNpcAfter = false;
+        //         ICreateTrapAfter = false;
 
-                foreach (var item in Others)
-                {
-                    if (item == null)
-                        continue;
-                    if (item.tag == "PLAYER")
-                    {
-                        // item.GetComponent<PlayerScript>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior1(Clone)")
-                    {
-                        // item.GetComponent<Warrior1Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior2(Clone)")
-                    {
-                        item.GetComponent<Warrior2Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior3(Clone)")
-                    {
-                        item.GetComponent<Warrior3Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior4(Clone)")
-                    {
-                        item.GetComponent<Warrior4Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior5(Clone)")
-                    {
-                        item.GetComponent<Warrior5Script>().IFreeze = true;
-                    }
-                    if (item.name == "Warrior6(Clone)")
-                    {
-                        item.GetComponent<Warrior6Script>().IFreeze = true;
-                    }
-                }
+        //         foreach (var item in Others)
+        //         {
+        //             if (item == null)
+        //                 continue;
+        //             if (item.tag == "PLAYER")
+        //             {
+        //                 // item.GetComponent<PlayerScript>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior1(Clone)")
+        //             {
+        //                 // item.GetComponent<Warrior1Script>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior2(Clone)")
+        //             {
+        //                 item.GetComponent<Warrior2Script>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior3(Clone)")
+        //             {
+        //                 item.GetComponent<Warrior3Script>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior4(Clone)")
+        //             {
+        //                 item.GetComponent<Warrior4Script>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior5(Clone)")
+        //             {
+        //                 item.GetComponent<Warrior5Script>().IFreeze = true;
+        //             }
+        //             if (item.name == "Warrior6(Clone)")
+        //             {
+        //                 item.GetComponent<Warrior6Script>().IFreeze = true;
+        //             }
+        //         }
 
 
-                TimeTxt.gameObject.SetActive(false);
-                if (Icoin)
-                {
-                    // Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[12];
-                    Player.GetComponent<PlayerScript>().audio.Play();
-                    int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //判断金币数
-                    if (dic["玩家"] < 200)
-                    {
-                        Coin += 0;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*0";
-                    }
-                    if (dic["玩家"] > 200 && dic["玩家"] <= 500)
-                    {
-                        Coin += 100;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*100";
-                    }
-                    if (dic["玩家"] >= 500 && dic["玩家"] <= 2000)
-                    {
-                        Coin += 200;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*200";
-                    }
-                    if (dic["玩家"] > 2000)
-                    {
-                        Coin += 100;
-                        PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
-                        Icoin = false;
-                        Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*300";
-                    }
-                    int P_Point = PlayerPrefs.GetInt(SdkScript.nickname + "Point", 0);
-                    P_Point += dic["玩家"];
-                    PlayerPrefs.SetInt(SdkScript.nickname + "Point", P_Point);
-                }
-                // Player.GetComponent<PlayerScript>().NewText.text = dic["玩家"].ToString();             //?????????
-                //int PlayerprefsPoint = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0);
-                if (dic["玩家"] > PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0))
-                {
-                    print("Histroy");
-                    // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + dic["玩家"].ToString();
-                    PlayerPrefs.SetInt(SdkScript.nickname + "PlayerprefsPoint", dic["玩家"]);
-                    // Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(true);
-                }
-                else
-                {
-                    // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0).ToString();
-                    //Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(false) ;
-                }
+        //         TimeTxt.gameObject.SetActive(false);
+        //         if (Icoin)
+        //         {
+        //             // Player.GetComponent<PlayerScript>().audio.clip = Player.GetComponent<PlayerScript>().acilp[12];
+        //             Player.GetComponent<PlayerScript>().audio.Play();
+        //             int Coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);                                   //判断金币数
+        //             if (dic["玩家"] < 200)
+        //             {
+        //                 Coin += 0;
+        //                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+        //                 Icoin = false;
+        //                 Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*0";
+        //             }
+        //             if (dic["玩家"] > 200 && dic["玩家"] <= 500)
+        //             {
+        //                 Coin += 100;
+        //                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+        //                 Icoin = false;
+        //                 Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*100";
+        //             }
+        //             if (dic["玩家"] >= 500 && dic["玩家"] <= 2000)
+        //             {
+        //                 Coin += 200;
+        //                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+        //                 Icoin = false;
+        //                 Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*200";
+        //             }
+        //             if (dic["玩家"] > 2000)
+        //             {
+        //                 Coin += 100;
+        //                 PlayerPrefs.SetInt(SdkScript.nickname + "Coin", Coin);
+        //                 Icoin = false;
+        //                 Scrol.GetComponent<CanvasScript>().PointCoinTxt.text = "*300";
+        //             }
+        //             int P_Point = PlayerPrefs.GetInt(SdkScript.nickname + "Point", 0);
+        //             P_Point += dic["玩家"];
+        //             PlayerPrefs.SetInt(SdkScript.nickname + "Point", P_Point);
+        //         }
+        //         // Player.GetComponent<PlayerScript>().NewText.text = dic["玩家"].ToString();             //?????????
+        //         //int PlayerprefsPoint = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0);
+        //         if (dic["玩家"] > PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0))
+        //         {
+        //             print("Histroy");
+        //             // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + dic["玩家"].ToString();
+        //             PlayerPrefs.SetInt(SdkScript.nickname + "PlayerprefsPoint", dic["玩家"]);
+        //             // Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(true);
+        //         }
+        //         else
+        //         {
+        //             // Player.GetComponent<PlayerScript>().Histroytxt.text = "历史最高分:" + " " + PlayerPrefs.GetInt(SdkScript.nickname + "PlayerprefsPoint", 0).ToString();
+        //             //Player.GetComponent<PlayerScript>().NewHistroy.gameObject.SetActive(false) ;
+        //         }
 
-            }
-            else if (currentTime >= 0)
-            {
-                SortAndShow(0);
-                // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(false);
-                ICreateAddBloodAfter = true;
-                ICreateNpcAfter = true;
-                ICreateTrapAfter = true;
-                if (!IFreezeSkill)
-                {
-                    foreach (var item in Others)
-                    {
-                        if (item == null)
-                            continue;
-                        if (item.tag == "PLAYER")
-                        {
-                            // item.GetComponent<PlayerScript>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior1(Clone)")
-                        {
-                            item.GetComponent<Warrior1Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior2(Clone)")
-                        {
-                            item.GetComponent<Warrior2Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior3(Clone)")
-                        {
-                            item.GetComponent<Warrior3Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior4(Clone)")
-                        {
-                            item.GetComponent<Warrior4Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior5(Clone)")
-                        {
-                            item.GetComponent<Warrior5Script>().IFreeze = false;
-                        }
-                        if (item.name == "Warrior6(Clone)")
-                        {
-                            item.GetComponent<Warrior6Script>().IFreeze = false;
-                        }
-                    }
+        //     }
+        //     else if (currentTime >= 0)
+        //     {
+        //         SortAndShow(0);
+        //         // Player.GetComponent<PlayerScript>().pointsPanel.SetActive(false);
+        //         ICreateAddBloodAfter = true;
+        //         ICreateNpcAfter = true;
+        //         ICreateTrapAfter = true;
+        //         if (!IFreezeSkill)
+        //         {
+        //             foreach (var item in Others)
+        //             {
+        //                 if (item == null)
+        //                     continue;
+        //                 if (item.tag == "PLAYER")
+        //                 {
+        //                     // item.GetComponent<PlayerScript>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior1(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior1Script>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior2(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior2Script>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior3(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior3Script>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior4(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior4Script>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior5(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior5Script>().IFreeze = false;
+        //                 }
+        //                 if (item.name == "Warrior6(Clone)")
+        //                 {
+        //                     item.GetComponent<Warrior6Script>().IFreeze = false;
+        //                 }
+        //             }
 
-                }
-                TimeTxt.gameObject.SetActive(true);
-            }
-            currentTime = 90 - (Time.time - lateTime);
+        //         }
+        //         TimeTxt.gameObject.SetActive(true);
+        //     }
+        //     currentTime = 90 - (Time.time - lateTime);
 
-            int minutes = (int)(currentTime / 60);
-            int seconds = (int)(currentTime % 60);
+        //     int minutes = (int)(currentTime / 60);
+        //     int seconds = (int)(currentTime % 60);
 
-            TimeTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-            //Debug.Log(string.Format("Time Elapsed: {0:00}:{1:00}", minutes, seconds));
-        }
+        //     TimeTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //     //Debug.Log(string.Format("Time Elapsed: {0:00}:{1:00}", minutes, seconds));
+        // }
 
     }
     public void SortAndShow(int t)

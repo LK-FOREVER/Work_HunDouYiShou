@@ -18,7 +18,7 @@ public class ChooseLevelPanel : MonoBehaviour
     {
         levelTextAsset = Resources.Load<TextAsset>("Data/level_data");
         string level_jsonStr = levelTextAsset.text;
-        LevelDataList levelDataList = JsonUtility.FromJson<LevelDataList>(level_jsonStr); //解析json
+        LevelDataList levelDataList = JsonUtility.FromJson<LevelDataList>(level_jsonStr);
         levels_data = levelDataList.levels;
     }
     public void Init()

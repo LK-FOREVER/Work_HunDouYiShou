@@ -13,6 +13,16 @@ public class GameEndArgs : EventArgs
 {
     public bool isWin;
 }
+public class InitPlayerStateArgs : EventArgs
+{
+    public float hp;
+    public int atk;
+    public float speed;
+}
+public class CoolDownArgs : EventArgs
+{
+    public float coolDownTime;
+}
 
 
 

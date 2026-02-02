@@ -26,6 +26,7 @@ public class LockBtnScript : MonoBehaviour
         p.audio.clip = p.acilp[0];
         p.audio.Play();
         int index = Manager.GetComponent<StartSceneScript>().ChooseIndex;
+        // Debug.Log("index：" + index);
         EventManager.Instance.TriggerEvent(EventName.ChangeWarrior, this, new ChangeWarriorArgs() { index_monster = index });
         switch (index)
         {

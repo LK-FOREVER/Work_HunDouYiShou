@@ -39,7 +39,7 @@ public class Skill3Script : MonoBehaviour
         PlayerBackground.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         PlayerBlood.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         PlayerBloodTxt.GetComponent<Text>().color = new Color(1, 1, 1, 0.5f);
-        Player.GetComponent<PlayerScript>().atk = 40;
+        // Player.GetComponent<PlayerScript>().atk = 40;
         Invoke("fasleSkill", 10f);                                 //���ܳ���
 
     }
@@ -58,6 +58,6 @@ public class Skill3Script : MonoBehaviour
         PlayerBackground.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         PlayerBlood.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         PlayerBloodTxt.GetComponent<Text>().color = new Color(1, 1, 1, 1);
-        Player.GetComponent<PlayerScript>().atk = 30;
+        // Player.GetComponent<PlayerScript>().atk = 30;
     }
 }

@@ -32,7 +32,7 @@ public class Skill1Script : MonoBehaviour
             this.GetComponent<Image>().sprite = S[1];
             Invoke("falseSprite", 20f);
 
-            Player.GetComponent<PlayerScript>().speed = 5f;
+            // Player.GetComponent<PlayerScript>().speed = 5f;
             Invoke("falseSkill", 10f);
             // Player.GetComponent <PlayerScript>().SpeedEff.SetActive(true);
             Invoke("FalseEff", 10f);
@@ -47,7 +47,7 @@ public class Skill1Script : MonoBehaviour
     }
     public void falseSkill()
     {
-        Player.GetComponent<PlayerScript>().speed = 3f;
+        // Player.GetComponent<PlayerScript>().speed = 3f;
     }
     public void FalseEff()
     {

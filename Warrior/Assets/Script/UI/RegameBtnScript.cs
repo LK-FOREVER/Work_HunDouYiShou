@@ -95,7 +95,7 @@ public class RegameBtnScript : MonoBehaviour
             m.GetComponent<MapScript>().lateTime = Time.time;
 
 
-            Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
+            // Player.GetComponent<PlayerScript>().hp = Player.GetComponent<PlayerScript>().hp;
             Player.transform.position = new Vector3(12, -20, 0);
 
             // Player.GetComponent<PlayerScript>().IPoints = true;
@@ -169,7 +169,7 @@ public class RegameBtnScript : MonoBehaviour
             // Player.GetComponent<PlayerScript>().ItemBtn2.GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
             m.GetComponent<MapScript>().CreateTrap();
-            Player.GetComponent<PlayerScript>().PlayerHp = Player.GetComponent<PlayerScript>().PlayerHP;
+            // Player.GetComponent<PlayerScript>().hp = Player.GetComponent<PlayerScript>().hp;
             Player.transform.position = new Vector3(12, -20, 0);
             // Player.GetComponent<PlayerScript>().IPoints = false;
             // Player.GetComponent<PlayerScript>().ISingle = true;
