@@ -35,8 +35,8 @@ public class W5btnScript : MonoBehaviour
             LockImg.gameObject.SetActive(false);
         }
 
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(false);
         ChooseArrow[1].SetActive(false);
         ChooseArrow[2].SetActive(false);
@@ -46,9 +46,9 @@ public class W5btnScript : MonoBehaviour
         StartSceneScript.W = 5;
         s.ChooseIndex = 5;
         s.monsterName.text = "鲲鹏";
-        s.HpTxt.text = ":250";
-        s.SpTxt.text = ":180";
-        s.AkTxt.text = ":4";
+        s.HpTxt.text = "250";
+        s.SpTxt.text = "180";
+        s.AkTxt.text = "4";
         s.TellTxt.text = "技能：增加30%移动速度，持续10秒，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[4];
 

@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class PlayerData
@@ -16,6 +15,8 @@ public class PlayerData
             return _instance;
         }
     }
+    //是普通账号还是中级账号还是高级账号，0普通，1中级，2高级
+    public int accountLevel = 0;
 
     //每日任务进度
     public int[] dailyTaskProgress = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
@@ -26,11 +27,6 @@ public class PlayerData
     //成就领取状态
     public bool[] achievementTaskGeted = new bool[15] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
 
-    //战斗数据
-    public LevelData levelData; //玩家选中的某一关卡的临时数据
-    //技能数据
-    public SkillData[] skillData;//全部的技能临时数据
-
     //保存数据
     public void SaveData()
     {
@@ -39,6 +35,9 @@ public class PlayerData
         PlayerPrefs.SetString(SdkScript.nickname + "AchievementTaskProgress", JsonUtility.ToJson(new IntArrayWrapper { array = achievementTaskProgress }));
         PlayerPrefs.SetString(SdkScript.nickname + "DailyTaskGeted", JsonUtility.ToJson(new BoolArrayWrapper { array = dailyTaskGeted }));
         PlayerPrefs.SetString(SdkScript.nickname + "AchievementTaskGeted", JsonUtility.ToJson(new BoolArrayWrapper { array = achievementTaskGeted }));
+        //是否完成所有每日任务
+        if (dailyTaskProgress[0] >= 1 && dailyTaskProgress[1] >= 5 && dailyTaskProgress[2] >= 1 && dailyTaskProgress[3] >= 1
+        && dailyTaskProgress[4] >= 10 && dailyTaskProgress[5] >= 20 && dailyTaskProgress[6] >= 2) dailyTaskProgress[7]++;
     }
     //加载数据
     public void LoadData()
@@ -59,7 +58,22 @@ public class PlayerData
         var achievementGetedWrapper = JsonUtility.FromJson<BoolArrayWrapper>(PlayerPrefs.GetString(SdkScript.nickname + "AchievementTaskGeted", "{\"array\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]}"));
         if (achievementGetedWrapper != null && achievementGetedWrapper.array != null)
             achievementTaskGeted = achievementGetedWrapper.array;
-        //如果是新的一天登录，重置每日任务进度
+        //高级账号
+        if (accountLevel == 2)
+        {
+            achievementTaskProgress[1] += 1;
+            achievementTaskProgress[2] += 1;
+            achievementTaskProgress[3] += 1;
+            achievementTaskProgress[4] += 1;
+            achievementTaskProgress[5] += 1;
+        }
+        //中级账号
+        if (accountLevel == 1)
+        {
+            achievementTaskProgress[1] += 1;
+            achievementTaskProgress[2] += 1;
+        }
+        //如果是新的一天登录，重置每日任务进度,重置体力值
         if (DateTime.Now.Day != DateTime.Parse(PlayerPrefs.GetString(SdkScript.nickname + "LastLoginDate", DateTime.MinValue.ToString())).Day)
         {
             //更新登录日期
@@ -67,7 +81,23 @@ public class PlayerData
             //重置每日任务进度
             dailyTaskProgress = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
             dailyTaskGeted = new bool[8] { false, false, false, false, false, false, false, false };
+            //重置体力值
+            PlayerPrefs.SetInt(SdkScript.nickname + "Energy", 100);
         }
+        // PlayerPrefs.SetInt(SdkScript.nickname + "Energy", 100);
     }
-
+    //以下临时数据不保存
+    //战斗数据
+    public LevelData levelData; //玩家选中的某一关卡的临时数据
+    //技能数据
+    public SkillData[] skillData;//全部的技能临时数据
+    //选择的难度
+    public bool IEasy = true;
+    public bool INormal;
+    public bool IHard;
+    public bool IVeryHard;
+    //是否是对战模式
+    public bool isBattle;
+    //闯关模式下的敌人的存活数量
+    public int enemyAliveCount;
 }

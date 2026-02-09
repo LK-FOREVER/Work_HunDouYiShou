@@ -34,8 +34,8 @@ public class W2btnScript : MonoBehaviour
             LockImg.gameObject.SetActive(false);
         }
 
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(false);
         ChooseArrow[1].SetActive(true);
         ChooseArrow[2].SetActive(false);
@@ -46,9 +46,9 @@ public class W2btnScript : MonoBehaviour
         s.ChooseIndex = 2;
 
         s.monsterName.text = "白泽";
-        s.HpTxt.text = ":300";
-        s.SpTxt.text = ":120";
-        s.AkTxt.text = ":2";
+        s.HpTxt.text = "300";
+        s.SpTxt.text = "120";
+        s.AkTxt.text = "2";
         s.TellTxt.text = "技能：向正前方发射一道扇形水波，造成30点伤害，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[1];
 

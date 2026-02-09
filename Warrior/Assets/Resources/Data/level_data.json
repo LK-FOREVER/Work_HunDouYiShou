@@ -7,8 +7,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 200,
-                    "attack": 2
+                    "hp": 160,
+                    "attack": 2,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -21,8 +22,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 300,
-                    "attack": 2
+                    "hp": 240,
+                    "attack": 2,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -35,8 +37,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 150,
-                    "attack": 3
+                    "hp": 120,
+                    "attack": 3,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -49,8 +52,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 250,
-                    "attack": 4
+                    "hp": 200,
+                    "attack": 4,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -63,8 +67,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 240,
-                    "attack": 4
+                    "hp": 200,
+                    "attack": 4,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -77,8 +82,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 350,
-                    "attack": 1
+                    "hp": 280,
+                    "attack": 1,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -91,8 +97,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 205,
-                    "attack": 3
+                    "hp": 164,
+                    "attack": 3,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -105,8 +112,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 305,
-                    "attack": 3
+                    "hp": 244,
+                    "attack": 3,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -119,8 +127,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 155,
-                    "attack": 4
+                    "hp": 124,
+                    "attack": 4,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -133,8 +142,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 255,
-                    "attack": 5
+                    "hp": 204,
+                    "attack": 5,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -147,8 +157,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 255,
-                    "attack": 5
+                    "hp": 204,
+                    "attack": 5,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -161,8 +172,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 355,
-                    "attack": 2
+                    "hp": 284,
+                    "attack": 2,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -175,8 +187,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 210,
-                    "attack": 4
+                    "hp": 168,
+                    "attack": 4,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -189,8 +202,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 310,
-                    "attack": 4
+                    "hp": 248,
+                    "attack": 4,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -203,8 +217,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 160,
-                    "attack": 5
+                    "hp": 128,
+                    "attack": 5,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -217,8 +232,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 260,
-                    "attack": 6
+                    "hp": 208,
+                    "attack": 6,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -231,8 +247,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 260,
-                    "attack": 6
+                    "hp": 208,
+                    "attack": 6,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -245,8 +262,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 360,
-                    "attack": 3
+                    "hp": 288,
+                    "attack": 3,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -259,8 +277,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 215,
-                    "attack": 5
+                    "hp": 172,
+                    "attack": 5,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -273,8 +292,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 315,
-                    "attack": 5
+                    "hp": 252,
+                    "attack": 5,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -287,8 +307,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 165,
-                    "attack": 6
+                    "hp": 132,
+                    "attack": 6,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -301,8 +322,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 265,
-                    "attack": 7
+                    "hp": 212,
+                    "attack": 7,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -315,8 +337,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 265,
-                    "attack": 7
+                    "hp": 212,
+                    "attack": 7,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -329,8 +352,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 365,
-                    "attack": 4
+                    "hp": 292,
+                    "attack": 4,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -343,8 +367,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 220,
-                    "attack": 6
+                    "hp": 176,
+                    "attack": 6,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -357,8 +382,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 320,
-                    "attack": 6
+                    "hp": 256,
+                    "attack": 6,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -371,8 +397,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 170,
-                    "attack": 7
+                    "hp": 136,
+                    "attack": 7,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -385,8 +412,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 270,
-                    "attack": 8
+                    "hp": 216,
+                    "attack": 8,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -399,8 +427,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 270,
-                    "attack": 8
+                    "hp": 216,
+                    "attack": 8,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -413,8 +442,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 370,
-                    "attack": 5
+                    "hp": 296,
+                    "attack": 5,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -427,8 +457,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 225,
-                    "attack": 6
+                    "hp": 180,
+                    "attack": 6,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -441,8 +472,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 325,
-                    "attack": 6
+                    "hp": 260,
+                    "attack": 6,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -455,8 +487,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 175,
-                    "attack": 7
+                    "hp": 140,
+                    "attack": 7,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -469,8 +502,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 275,
-                    "attack": 8
+                    "hp": 220,
+                    "attack": 8,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -483,8 +517,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 275,
-                    "attack": 8
+                    "hp": 220,
+                    "attack": 8,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -497,8 +532,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 375,
-                    "attack": 5
+                    "hp": 300,
+                    "attack": 5,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -511,8 +547,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 230,
-                    "attack": 6
+                    "hp": 184,
+                    "attack": 6,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -525,8 +562,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 330,
-                    "attack": 6
+                    "hp": 264,
+                    "attack": 6,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -539,8 +577,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 180,
-                    "attack": 7
+                    "hp": 144,
+                    "attack": 7,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -553,8 +592,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 280,
-                    "attack": 8
+                    "hp": 224,
+                    "attack": 8,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -567,8 +607,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 280,
-                    "attack": 8
+                    "hp": 224,
+                    "attack": 8,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -581,8 +622,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 380,
-                    "attack": 5
+                    "hp": 304,
+                    "attack": 5,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",
@@ -595,8 +637,9 @@
                 {
                     "enemy_id": 1,
                     "enemy_name": "麒麟",
-                    "hp": 235,
-                    "attack": 6
+                    "hp": 188,
+                    "attack": 6,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -609,8 +652,9 @@
                 {
                     "enemy_id": 2,
                     "enemy_name": "白泽",
-                    "hp": 335,
-                    "attack": 6
+                    "hp": 268,
+                    "attack": 6,
+                    "speed": 120
                 }
             ],
             "rewardType": "Coin",
@@ -623,8 +667,9 @@
                 {
                     "enemy_id": 3,
                     "enemy_name": "凤凰",
-                    "hp": 185,
-                    "attack": 7
+                    "hp": 148,
+                    "attack": 7,
+                    "speed": 100
                 }
             ],
             "rewardType": "Coin",
@@ -637,8 +682,9 @@
                 {
                     "enemy_id": 4,
                     "enemy_name": "九尾",
-                    "hp": 285,
-                    "attack": 8
+                    "hp": 228,
+                    "attack": 8,
+                    "speed": 150
                 }
             ],
             "rewardType": "Coin",
@@ -651,8 +697,9 @@
                 {
                     "enemy_id": 5,
                     "enemy_name": "鲲鹏",
-                    "hp": 285,
-                    "attack": 8
+                    "hp": 228,
+                    "attack": 8,
+                    "speed": 180
                 }
             ],
             "rewardType": "Coin",
@@ -665,8 +712,9 @@
                 {
                     "enemy_id": 6,
                     "enemy_name": "玄武",
-                    "hp": 385,
-                    "attack": 5
+                    "hp": 308,
+                    "attack": 5,
+                    "speed": 80
                 }
             ],
             "rewardType": "Coin",

@@ -1,15 +1,9 @@
 public static class EventName
 {
-    public const string ChangeScene = nameof(ChangeScene);
-
-    //弹窗事件
-    public const string ShowCommonAward = nameof(ShowCommonAward);
-
-    //Tips事件
-    public const string ShowCommonTips = nameof(ShowCommonTips);
-
-    //新手引导
-    public const string GuidanceStepComplete = nameof(GuidanceStepComplete);
+    //切换背景音乐
+    public const string ChangeMusic = nameof(ChangeMusic);
+    //切换音效
+    public const string ChangeSound = nameof(ChangeSound);
     //初始化玩家状态
     public const string InitPlayerState = nameof(InitPlayerState);
     //更换异兽
@@ -20,6 +14,8 @@ public static class EventName
     public const string PlayerDamage = nameof(PlayerDamage);
     //战斗结束
     public const string GameEnd = nameof(GameEnd);
+    //战斗开始
+    public const string GameStart = nameof(GameStart);
     //重置玩家状态
     public const string ResetPlayerState = nameof(ResetPlayerState);
     //技能冷却

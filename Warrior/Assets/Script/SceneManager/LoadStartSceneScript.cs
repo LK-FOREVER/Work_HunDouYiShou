@@ -21,7 +21,9 @@ public class LoadStartSceneScript : MonoBehaviour
     public SdkScript sdkScript;
 
     public Text LoadTxt;
-
+    public Button ageBtn;
+    public GameObject ageTip;//温馨提示弹窗
+    public Button closeBtn;//关闭温馨提示弹窗
     public Button startBtn;
     public GameObject ExitTips;//防沉迷踢出弹窗
     void Start()
@@ -32,15 +34,21 @@ public class LoadStartSceneScript : MonoBehaviour
             Invoke("FalseWarning", 7f);
         }
         PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme", 0);
-
-
         //Invoke("falseWarning", 3f);
         //v = GetComponent<VideoPlayer>();
         //v.Play();
+        ageBtn.onClick.AddListener(() =>
+        {
+            ageTip.SetActive(true);
+        });
+        closeBtn.onClick.AddListener(() =>
+        {
+            ageTip.SetActive(false);
+        });
         startBtn.onClick.AddListener(() =>
         {
 #if UNITY_EDITOR
-            LoginPram loginPram = new LoginPram { nickname = "n7653447411111", adult_level = "2", timestamp = "1700000000" };
+            LoginPram loginPram = new LoginPram { nickname = "s7599931322", adult_level = "3", timestamp = "1700000000" };
             SdkScript.nickname = loginPram.nickname;
             SdkScript.adult_level = Convert.ToInt32(loginPram.adult_level);
             ID(loginPram);
@@ -51,7 +59,6 @@ public class LoadStartSceneScript : MonoBehaviour
         unityActivity.Call("login");
 #endif
         });
-
     }
     void Update()
     {
@@ -76,10 +83,8 @@ public class LoadStartSceneScript : MonoBehaviour
         }
         if (loadvalue >= 100)
         {
-
-            LoadTxt.gameObject.SetActive(false);
+            // LoadTxt.gameObject.SetActive(false);
             //async.allowSceneActivation = true;
-
         }
     }
     IEnumerator AsyncLoadScene()
@@ -108,7 +113,7 @@ public class LoadStartSceneScript : MonoBehaviour
         ID(param);
         StartCoroutine("AsyncLoadScene");
         startBtn.gameObject.SetActive(false);
-        LoadTxt.gameObject.SetActive(true);
+        // LoadTxt.gameObject.SetActive(true);
     }
     public void FalseWarning()
     {
@@ -131,34 +136,19 @@ public class LoadStartSceneScript : MonoBehaviour
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock4", 1);
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock5", 1);
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock6", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "MaxPassedLevelIndex", 47);
+                PlayerData.Instance.accountLevel = 2;
             }
             if (data.nickname == temp[0] && temp[1] == "3")
             {
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock2", 1);
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock3", 1);
+                PlayerPrefs.SetInt(SdkScript.nickname + "MaxPassedLevelIndex", 23);
+                PlayerData.Instance.accountLevel = 1;
             }
         }
+        //加载保存的玩家数据
         PlayerData.Instance.LoadData();
     }
 }
-
-
-
-//AsyncOperation operation = SceneManager.LoadSceneAsync("StartScene", LoadSceneMode.Single);
-//operation.allowSceneActivation = false;
-//float progress = 0;
-//while (progress < 1f)
-//{
-//    progress = operation.progress;
-
-//    if (progress >= 0.9f)
-//    {
-//        progress = 1.0f;
-//        LoadTxt.gameObject.SetActive(false);
-//        operation.allowSceneActivation = true;
-//    }
-
-//    load.fillAmount = progress; // 更新进度条
-//    yield return null;
-//}

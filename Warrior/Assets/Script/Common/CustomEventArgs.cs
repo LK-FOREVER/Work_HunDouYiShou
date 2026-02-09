@@ -1,6 +1,14 @@
 using System;
 using System.Collections.Generic;
 
+public class ChangeMusicArgs : EventArgs
+{
+    public int index_music;
+}
+public class ChangeSoundArgs : EventArgs
+{
+    public int index_sound;
+}
 public class ChangeWarriorArgs : EventArgs
 {
     public int index_monster;
@@ -8,6 +16,7 @@ public class ChangeWarriorArgs : EventArgs
 public class DamageArgs : EventArgs
 {
     public int damage;
+    public int enemyID;
 }
 public class GameEndArgs : EventArgs
 {
@@ -23,11 +32,3 @@ public class CoolDownArgs : EventArgs
 {
     public float coolDownTime;
 }
-
-
-
-
-
-
-
-

@@ -17,6 +17,7 @@ public class CancelScript : MonoBehaviour
     }
     public void CancelBuy()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         BugPanel.SetActive(false);
     }
 }

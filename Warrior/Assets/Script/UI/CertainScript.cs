@@ -16,11 +16,10 @@ public class CertainScript : MonoBehaviour
     void Start()
     {
         NoCoinTxt.gameObject.SetActive(false);
-        //coin=  PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
-
     }
     public void Certain()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         switch (s.ChooseWarrior)
         {

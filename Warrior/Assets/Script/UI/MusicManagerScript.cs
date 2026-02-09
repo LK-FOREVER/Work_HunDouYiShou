@@ -46,25 +46,20 @@ public class MusicManagerScript : MonoBehaviour
         {
             p.m.GetComponent<AudioSource>().volume = musicSlider.value;
         }
-        if(SceneManager.GetActiveScene().name == "LoadStartScene")
+        if (SceneManager.GetActiveScene().name == "LoadStartScene")
         {
             c.GetComponent<AudioSource>().volume = 0;
         }
-
-        // c.GetComponent<AudioSource>().dopplerLevel = soundSlider.value;
-        // p.GetComponent<AudioSource>().dopplerLevel = soundSlider.value;
-        // if (p.m != null)
-        // {
-        //     p.m.GetComponent<AudioSource>().dopplerLevel = musicSlider.value;
-        // }
     }
     public void ExitGame()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         musicPanel.SetActive(false);
         SceneManager.LoadScene("LoadStartScene");
     }
     public void ChangeAccount()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         musicPanel.SetActive(false);
         SceneManager.LoadScene("LoadStartScene");
     }

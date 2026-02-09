@@ -36,8 +36,8 @@ public class W3btnScript : MonoBehaviour
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(false);
         ChooseArrow[1].SetActive(false);
         ChooseArrow[2].SetActive(true);
@@ -48,9 +48,9 @@ public class W3btnScript : MonoBehaviour
         s.ChooseIndex = 3;
 
         s.monsterName.text = "凤凰";
-        s.HpTxt.text = ":150";
-        s.SpTxt.text = ":100";
-        s.AkTxt.text = ":3";
+        s.HpTxt.text = "150";
+        s.SpTxt.text = "100";
+        s.AkTxt.text = "3";
         s.TellTxt.text = "技能：向前方发射8只羽毛，每只羽毛造成20点伤害，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[2];
 

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChooseLevelPanel : MonoBehaviour
 {
     public GameObject content;
     public GameObject levelItemPrefab;
+    public GameObject energyTip;
+    public Button closeBtn;
     //关卡数据
     private TextAsset levelTextAsset;
     private List<LevelData> levels_data;
@@ -13,6 +16,11 @@ public class ChooseLevelPanel : MonoBehaviour
     void Awake()
     {
         LoadLevelResource();
+        closeBtn.onClick.AddListener(() =>
+        {
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+            gameObject.SetActive(false);
+        });
     }
     private void LoadLevelResource()
     {
@@ -33,7 +41,7 @@ public class ChooseLevelPanel : MonoBehaviour
         {
             GameObject obj = Instantiate(levelItemPrefab, content.transform);
             LevelItem levelItem = obj.GetComponent<LevelItem>();
-            levelItem.Init(levels_data[i]);
+            levelItem.Init(levels_data[i], i, energyTip);
         }
     }
 }

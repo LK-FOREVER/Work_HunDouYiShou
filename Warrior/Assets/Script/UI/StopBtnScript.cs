@@ -8,8 +8,8 @@ public class StopBtnScript : MonoBehaviour
     public PlayerScript p;
     public void ClickStopBtn()
     {
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         Time.timeScale = 0f;
         StopPanel.SetActive(true);
     }

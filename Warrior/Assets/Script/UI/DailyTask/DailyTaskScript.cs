@@ -20,7 +20,11 @@ public class DailyTaskScript : MonoBehaviour
 
     void Awake()
     {
-        closeBtn.onClick.AddListener(() => gameObject.SetActive(false));
+        closeBtn.onClick.AddListener(() => 
+        {
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+            gameObject.SetActive(false);
+        });
         if (toggle1 != null)
         {
             toggle1.onValueChanged.AddListener(OnToggle1ValueChanged);
@@ -57,6 +61,7 @@ public class DailyTaskScript : MonoBehaviour
     }
     private void OnToggle1ValueChanged(bool isOn)
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         // Debug.Log("OnToggle1ValueChanged: " + isOn);
         if (isOn)
         {
@@ -76,7 +81,7 @@ public class DailyTaskScript : MonoBehaviour
 
     private void OnToggle2ValueChanged(bool isOn)
     {
-        Debug.Log("OnToggle2ValueChanged: " + isOn);
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         if (isOn)
         {
             titleTxt.text = "成就任务";

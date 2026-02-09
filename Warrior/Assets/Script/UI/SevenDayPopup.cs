@@ -9,6 +9,7 @@ public class SevenDayPopup : MonoBehaviour
 {
     public const string SignNumPrefs = "SignNum";
     public const string SignDataPrefs = "SignData";
+    public Button closeBtn;
     private TextAsset sevenSignTextAsset;
     private List<SevenSignInfo> sevenSignList;
 
@@ -19,6 +20,11 @@ public class SevenDayPopup : MonoBehaviour
 
     void Start()
     {
+        closeBtn.onClick.AddListener(() =>
+        {
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+            gameObject.SetActive(false);
+        });
         UpdateUI();
         sevenSignTextAsset = Resources.Load<TextAsset>("Data/seven_days_sign_reward");
         string jsonStr = sevenSignTextAsset.text;
@@ -32,6 +38,8 @@ public class SevenDayPopup : MonoBehaviour
 
     public void OnSignClicked()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         if (!IsSameDay(lastSignDate, today))
         {
             signCount++;
@@ -63,7 +71,7 @@ public class SevenDayPopup : MonoBehaviour
         {
             alreadyHave[i].SetActive(i < PlayerPrefs.GetInt(SdkScript.nickname + SignNumPrefs, 0));
             //前六天和第七天节点的button组件挂载的节点不同，需要分别获取
-            if(i <= alreadyHave.Length -2)
+            if (i <= alreadyHave.Length - 2)
                 alreadyHave[i].transform.parent.GetComponent<Button>().interactable = i >= signCount && !IsSameDay(lastSignDate, today) && signCount == i; //设置按钮是否可点击
             else
                 alreadyHave[i].transform.parent.GetChild(0).GetComponent<Button>().interactable = i >= signCount && !IsSameDay(lastSignDate, today) && signCount == i;

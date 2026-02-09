@@ -11,10 +11,20 @@ public class SkillController : MonoBehaviour
     void Awake()
     {
         EventManager.Instance.AddListener(EventName.GameEnd, SetIsOver);
+        EventManager.Instance.AddListener(EventName.GameStart, SetIsStart);
+    }
+    void OnDestroy()
+    {
+        EventManager.Instance.RemoveListener(EventName.GameEnd, SetIsOver);
+        EventManager.Instance.RemoveListener(EventName.GameStart, SetIsStart);
     }
     private void SetIsOver(object sender, EventArgs e)
     {
         isOver = true;
+    }
+    private void SetIsStart(object sender, EventArgs e)
+    {
+        isOver = false;
     }
     //设置是否是玩家技能
     public void SetIsPlayerSkill(bool isPlayerSkill)
@@ -37,7 +47,7 @@ public class SkillController : MonoBehaviour
         {
             if (!isPlayerSkill) return;
             //技能碰到敌人
-            EventManager.Instance.TriggerEvent(EventName.EnemyDamage, this, new DamageArgs { damage = skillDamage });
+            EventManager.Instance.TriggerEvent(EventName.EnemyDamage, this, new DamageArgs { damage = skillDamage, enemyID = collision.GetComponent<EnemyController>().getEnemyID() });
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "PLAYER")

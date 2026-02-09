@@ -55,22 +55,30 @@ public class SdkScript : MonoBehaviour
     public IEnumerator ShowExitTips(int time)
     {
         yield return new WaitForSeconds(time);
-        GameObject obj = Instantiate(ExitTips, Vector3.zero, Quaternion.identity);
-        obj.transform.SetParent(GameObject.Find("TipsPanel").transform);
-        obj.transform.localPosition = new Vector3(0, 0, 0);
-        obj.transform.Find("Confirm").GetComponent<Button>().onClick.AddListener(() =>
+        //当前场景是StartScene时显示退出游戏提示
+        if (SceneManager.GetActiveScene().name == "StartScene")
         {
-            PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme", 1);
-            SceneManager.LoadScene("LoadStartScene");
-        });
+            GameObject obj = Instantiate(ExitTips, Vector3.zero, Quaternion.identity);
+            obj.transform.SetParent(GameObject.Find("TipsPanel").transform);
+            obj.transform.localPosition = new Vector3(0, 0, 0);
+            obj.transform.Find("Confirm").GetComponent<Button>().onClick.AddListener(() =>
+            {
+                obj.SetActive(false);
+                PlayerPrefs.SetInt(nickname + "ExitGagme", 1);
+                SceneManager.LoadScene("LoadStartScene");
+            });
+        }
     }
     //如果是20.45-21.00之间的时间段，则显示温馨提示
     public IEnumerator ShowTimeTips(int time)
     {
         yield return new WaitForSeconds(time);
-        GameObject obj = Instantiate(TimeTips, Vector3.zero, Quaternion.identity);
-        obj.transform.SetParent(GameObject.Find("TipsPanel").transform);
-        obj.transform.localPosition = new Vector3(0, 0, 0);
+        if (SceneManager.GetActiveScene().name == "StartScene")
+        {
+            GameObject obj = Instantiate(TimeTips, Vector3.zero, Quaternion.identity);
+            obj.transform.SetParent(GameObject.Find("TipsPanel").transform);
+            obj.transform.localPosition = new Vector3(0, 0, 0);
+        }
     }
     // public IEnumerator Exit(int time)
     // {

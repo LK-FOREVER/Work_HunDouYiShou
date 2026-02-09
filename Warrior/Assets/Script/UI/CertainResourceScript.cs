@@ -15,6 +15,7 @@ public class CertainResourceScript : MonoBehaviour
     }
     public void Certain()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         int coin = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0);
         switch (s.ChooseResource)
         {

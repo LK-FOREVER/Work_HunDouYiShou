@@ -13,8 +13,8 @@ public class CloseWarriorScript : MonoBehaviour
     public PlayerScript p;
     public void ColseChooseWarriors()    //�رհ�ť
     {
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         s.ChooseWarriors();
         s.changePanel.SetActive(false);
         if (PlayerPrefs.GetInt(SdkScript.nickname + "CurrentPlayer", 1) == 1)

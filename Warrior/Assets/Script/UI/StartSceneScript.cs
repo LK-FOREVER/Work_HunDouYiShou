@@ -23,8 +23,6 @@ public class StartSceneScript : MonoBehaviour
     public Text AkTxt;
     public TextMeshProUGUI TellTxt;
     public GameObject changePanel;
-    public Button[] SkillBtn;
-    public Image SkillBackground;
 
     public Text monsterName; //异兽名称
     // public Button LockBtn;             //解锁或使用按钮
@@ -73,7 +71,7 @@ public class StartSceneScript : MonoBehaviour
         }
 
         //创建昵称界面
-        if (PlayerPrefs.GetString(SdkScript.nickname + "PlayerName") == "") CreateNamePanel.SetActive(true);
+        // if (PlayerPrefs.GetString(SdkScript.nickname + "PlayerName") == "") CreateNamePanel.SetActive(true);
         //选择出战的角色
         ChooseWarriors();
     }

@@ -3,7 +3,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class DailyPlayTimeTracker : MonoBehaviour
 {
-    private const int TARGET_MINUTES = 2; // 目标30分钟
+    private const int TARGET_MINUTES = 30; // 目标30分钟
     private const string SAVE_KEY = "DailyPlayTimeData";
     private PlayTimeData currentData;
     private float updateTimer = 0f;

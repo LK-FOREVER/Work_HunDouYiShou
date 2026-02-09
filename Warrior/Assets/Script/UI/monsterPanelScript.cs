@@ -8,6 +8,15 @@ public class monsterPanelScript : MonoBehaviour
     public GameObject[] btnImg;
     public GameObject[] btnTxt;
     public Button[] btn;
+    public Button closeBtn;
+    void Awake()
+    {
+        closeBtn.onClick.AddListener(() => 
+        {
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+            gameObject.transform.parent.gameObject.SetActive(false);
+        });
+    }
     void OnEnable()
     {
         InitUI();

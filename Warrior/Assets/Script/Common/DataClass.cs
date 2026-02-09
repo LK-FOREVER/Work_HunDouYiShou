@@ -2,6 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SoundType
+{
+    //点击按钮
+    ClickBtn,
+    //普通攻击
+    NormalAtk,
+    //获得金币
+    GetCoin,
+    //麒麟技能
+    SkillEffect_1,
+    //白泽技能
+    SkillEffect_2,
+    //凤凰技能
+    SkillEffect_3,
+    //九尾技能
+    SkillEffect_4,
+    //鲲鹏技能
+    SkillEffect_5,
+    //玄武技能
+    SkillEffect_6,
+    //胜利
+    Victory,
+    //失败
+    Defeat,
+}
 [System.Serializable]
 public class IntArrayWrapper
 {
@@ -68,6 +93,7 @@ public class EnemyData
     public int enemy_id;
     public string enemy_name;
     public int hp;
+    public float speed;
     public int attack;
 }
 [System.Serializable]

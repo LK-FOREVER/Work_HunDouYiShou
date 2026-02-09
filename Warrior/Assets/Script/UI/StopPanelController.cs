@@ -20,17 +20,18 @@ public class StopPanelController : MonoBehaviour
     }
     public void OnClickContinueBtn()
     {
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         gameObject.SetActive(false);
         Time.timeScale = 1.0f;
     }
     public void OnClickExitBtn()
     {
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         gameObject.SetActive(false);
         SceneManager.LoadScene("StartScene");
+        EventManager.Instance.TriggerEvent(EventName.ChangeMusic, this, new ChangeMusicArgs { index_music = 0 });
         EventManager.Instance.TriggerEvent(EventName.ResetPlayerState, this);
         mainPanel.SetActive(true);
         ObjectPoolManager.Instance.Clear();

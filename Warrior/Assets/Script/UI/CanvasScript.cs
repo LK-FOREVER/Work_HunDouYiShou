@@ -12,7 +12,7 @@ public class CanvasScript : MonoBehaviour
     // public Text CrystaylTxt;
     //资源栏能量
     public Text EnergyTxt;
-    public AudioSource audioSource;
+    public AudioSource audioSourceMusic;
     public AudioClip[] acilp;
     public Text nameTxt;
     public Button sevenDayBtn;
@@ -30,6 +30,7 @@ public class CanvasScript : MonoBehaviour
     public static CanvasScript Instance;
     private void Awake()
     {
+        EventManager.Instance.AddListener(EventName.ChangeMusic, ChangeMusic);
         EventManager.Instance.AddListener(EventName.ChangeWarrior, ChangeWarriorSkillImg);
         EventManager.Instance.AddListener(EventName.SkillCoolDown, SkillCoolDown);
         EventManager.Instance.AddListener(EventName.ResetPlayerState, ResetSkillState);
@@ -45,27 +46,28 @@ public class CanvasScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //PlayerPrefs.SetInt(SdkScript.nickname + "Coin", 0);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = acilp[0];
-        audioSource.Play();
-        // Background.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        // Simg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        nameTxt.text = PlayerPrefs.GetString(SdkScript.nickname + "PlayerName", "昵称");
-        sevenDayBtn.onClick.AddListener(() => sevenDayPanel.SetActive(true));
+        // nameTxt.text = PlayerPrefs.GetString(SdkScript.nickname + "PlayerName", "昵称");
+        sevenDayBtn.onClick.AddListener(() =>
+        {
+            sevenDayPanel.SetActive(true);
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+        });
         dailyTaskBtn.onClick.AddListener(() =>
         {
             dailyTaskPanel.SetActive(true);
             dailyTaskPanel.GetComponent<DailyTaskScript>().UpdateUI();
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         });
         chooseLevelBtn.onClick.AddListener(() =>
         {
             chooseLevelPanel.SetActive(true);
             chooseLevelPanel.GetComponent<ChooseLevelPanel>().Init();
+            EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         });
     }
     private void OnDestroy()
     {
+        EventManager.Instance.RemoveListener(EventName.ChangeMusic, ChangeMusic);
         EventManager.Instance.RemoveListener(EventName.ChangeWarrior, ChangeWarriorSkillImg);
         EventManager.Instance.RemoveListener(EventName.SkillCoolDown, SkillCoolDown);
         EventManager.Instance.RemoveListener(EventName.ResetPlayerState, ResetSkillState);
@@ -73,29 +75,12 @@ public class CanvasScript : MonoBehaviour
 
     void Update()
     {
-        // Vector3 V = Input.mousePosition;
-
-        // if (Input.GetKeyDown(KeyCode.Mouse0))
-        // {
-        //     Background.transform.position = V;
-        // }
-
-        // if (SceneManager.GetSceneByName("LoadScene").isLoaded)
-        // {
-        //     SkillBackground.gameObject.SetActive(false);
-        //     Skillbtn[SkillIndex].gameObject.SetActive(false);
-        // }
-        if (SceneManager.GetSceneByName("GameScene").isLoaded)
-        {
-            // SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
-            audioSource.Stop();
-        }
         UpdateResource();
     }
     private void ChangeWarriorSkillImg(object sender, EventArgs e)
     {
         ChangeWarriorArgs args = e as ChangeWarriorArgs;
-        Debug.Log("ChangeWarrior:" + args.index_monster);
+        // Debug.Log("ChangeWarrior:" + args.index_monster);
         RefreshSkillImg(args.index_monster);
     }
     //更换技能图标
@@ -140,6 +125,14 @@ public class CanvasScript : MonoBehaviour
     public void UpdateResource()
     {
         CoinTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Coin", 0).ToString();
+        EnergyTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Energy", 0).ToString();
         // CrystaylTxt.text = PlayerPrefs.GetInt(SdkScript.nickname + "Crystal", 0).ToString();
+    }
+    //切换背景音乐
+    private void ChangeMusic(object sender, EventArgs e)
+    {
+        ChangeMusicArgs args = e as ChangeMusicArgs;
+        audioSourceMusic.clip = acilp[args.index_music];
+        audioSourceMusic.Play();
     }
 }

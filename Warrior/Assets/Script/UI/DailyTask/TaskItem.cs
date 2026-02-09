@@ -97,11 +97,12 @@ public class TaskItem : MonoBehaviour
 
     public void OnGetRewardClick()
     {
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
         isDoneTxt.gameObject.SetActive(true);
         isDoneTxt.text = "已领取";
         getBtn.gameObject.SetActive(false);
         //领取奖励
-        Debug.Log("任务奖励已领取");
+        // Debug.Log("任务奖励已领取");
 
         if (isDailyTask)
         {

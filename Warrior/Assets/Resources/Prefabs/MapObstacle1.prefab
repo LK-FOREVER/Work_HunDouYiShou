@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4403024909213820344}
   - component: {fileID: 3459798520892470449}
-  - component: {fileID: 4758092400674255754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MapObstacle1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -81,24 +80,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.44, y: 4.71}
+  m_Size: {x: 2.11, y: 4.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4758092400674255754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487709543822191183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4097714394329276442
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +97,8 @@ GameObject:
   - component: {fileID: 7205008825798705088}
   - component: {fileID: 4166914150852816327}
   - component: {fileID: 2112207088626780019}
-  m_Layer: 0
+  - component: {fileID: 2128930393760702866}
+  m_Layer: 8
   m_Name: MapObstacleObjectTop
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -204,6 +192,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2128930393760702866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097714394329276442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4791731584261699276
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +215,8 @@ GameObject:
   - component: {fileID: 6725645177292675999}
   - component: {fileID: 2497881643597383377}
   - component: {fileID: 4868433477331642459}
-  m_Layer: 0
+  - component: {fileID: 8993625631475216992}
+  m_Layer: 8
   m_Name: MapObstacleObjectButton
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -309,3 +310,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8993625631475216992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791731584261699276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

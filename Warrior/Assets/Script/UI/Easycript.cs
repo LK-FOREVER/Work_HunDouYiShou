@@ -7,35 +7,19 @@ public class Easycript : MonoBehaviour
 {
     public Text DifTxt;
     public Button DifBtn;
-    public GameObject Player;
     public PlayerScript p;
-    bool IClick;
     public void ClickEasyBtn()
     {
-        p.GetComponent<PlayerScript>().IVeryHard = false;
-        p.GetComponent<PlayerScript>().IEasy = true;
-        p.GetComponent<PlayerScript>().INormal = false;
-        p.GetComponent<PlayerScript>().IHard = false;
-        IClick = true;
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         DifTxt.text = "难度：简单";
-        // DifTxt.color = new Color(0.372f,0.690f,0.372f);
         DifBtn.GetComponent<DifBtnScript>().FalseDifBtn();
-        DifBtn.GetComponent<DifBtnScript>().IClick=!DifBtn.GetComponent<DifBtnScript>().IClick;
-
-        // Player.GetComponent<PlayerScript>().R1 = 0;
-        // Player.GetComponent<PlayerScript>().R2 = 5;
-
-        DifBtn.transform.Find("DiffImg").GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
-
-
-        //难度属性
-        // p.TrapNum = 0;
-        // p.AddNum = 50;
-        // p.TrapAfterNum = 0;
-        // p.AddAfterNum = 20;
-        // p.T1 = 1; p.T2 = 21;
-        // p.B1 = 21; p.B2 = 30;
+        DifBtn.GetComponent<DifBtnScript>().IClick = !DifBtn.GetComponent<DifBtnScript>().IClick;
+        DifBtn.GetComponent<Image>().sprite = DifBtn.GetComponent<DifBtnScript>().sprite[0];
+        
+        PlayerData.Instance.IEasy = true;
+        PlayerData.Instance.INormal = false;
+        PlayerData.Instance.IHard = false;
+        PlayerData.Instance.IVeryHard = false;
     }
 }

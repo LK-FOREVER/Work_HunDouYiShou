@@ -23,8 +23,8 @@ public class LockBtnScript : MonoBehaviour
     public void PressUnlockBtn()
     {
 
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         int index = Manager.GetComponent<StartSceneScript>().ChooseIndex;
         // Debug.Log("index：" + index);
         EventManager.Instance.TriggerEvent(EventName.ChangeWarrior, this, new ChangeWarriorArgs() { index_monster = index });

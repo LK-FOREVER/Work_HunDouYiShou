@@ -52,7 +52,7 @@
         {
             "id": 8,
             "desc": "完成所有每日任务",
-            "num": 7,
+            "num": 1,
             "rewardType": "Coin",
             "rewardNum": 200
         }

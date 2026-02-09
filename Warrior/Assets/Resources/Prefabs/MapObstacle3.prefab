@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1479788182670350337}
   - component: {fileID: 6503969425156358321}
   - component: {fileID: 8466531840342983210}
-  m_Layer: 0
+  - component: {fileID: 3859151106031395714}
+  m_Layer: 8
   m_Name: MapObstacleRight
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -105,6 +106,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &3859151106031395714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303876976399641822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3040192647511450518
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +129,8 @@ GameObject:
   - component: {fileID: 2371235326382181426}
   - component: {fileID: 7402636224732454206}
   - component: {fileID: 2961852799443911198}
-  m_Layer: 0
+  - component: {fileID: 2961496211186585509}
+  m_Layer: 8
   m_Name: MapObstacleLeft
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -210,6 +224,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2961496211186585509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040192647511450518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6099778239672114343
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2830339517416224923}
   - component: {fileID: 8900161139724548053}
-  - component: {fileID: -1241200844036624810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MapObstacle3
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -297,15 +322,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1241200844036624810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6099778239672114343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c80cb1084529244a4306138edcd7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

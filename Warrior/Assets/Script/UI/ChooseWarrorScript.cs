@@ -11,7 +11,6 @@ public class ChooseWarrorScript : MonoBehaviour
     public void ChooseWarriors()
     {
         changePanel.SetActive(true);
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
     }
 }

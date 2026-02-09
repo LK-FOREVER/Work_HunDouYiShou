@@ -29,8 +29,8 @@ public class W1btnScript : MonoBehaviour
     public void W1()
     {
         ILock = PlayerPrefs.GetInt(SdkScript.nickname + "PlayerPrefsLock1", 1) == 1;
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(true);
         ChooseArrow[1].SetActive(false);
         ChooseArrow[2].SetActive(false);
@@ -40,9 +40,9 @@ public class W1btnScript : MonoBehaviour
         StartSceneScript.W = 1;
         s.ChooseIndex = 1;
         s.monsterName.text = "麒麟";
-        s.HpTxt.text = ":200";
-        s.SpTxt.text = ":100";
-        s.AkTxt.text = ":2";
+        s.HpTxt.text = "200";
+        s.SpTxt.text = "100";
+        s.AkTxt.text = "2";
         s.TellTxt.text = "技能：向正前方发射一道闪电，造成50点伤害，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[0];
 

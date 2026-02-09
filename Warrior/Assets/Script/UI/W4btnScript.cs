@@ -34,8 +34,8 @@ public class W4btnScript : MonoBehaviour
             LockImg.gameObject.SetActive(false);
         }
 
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(false);
         ChooseArrow[1].SetActive(false);
         ChooseArrow[2].SetActive(false);
@@ -45,9 +45,9 @@ public class W4btnScript : MonoBehaviour
         StartSceneScript.W = 4;
         s.ChooseIndex = 4;
         s.monsterName.text = "九尾";
-        s.HpTxt.text = ":250";
-        s.SpTxt.text = ":150";
-        s.AkTxt.text = ":4";
+        s.HpTxt.text = "250";
+        s.SpTxt.text = "150";
+        s.AkTxt.text = "4";
         s.TellTxt.text = "技能：周围生成火圈，普通攻击增加2点攻击力，持续10秒，冷却30秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[3];
 

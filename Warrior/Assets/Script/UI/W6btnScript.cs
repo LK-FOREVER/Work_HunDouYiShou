@@ -34,8 +34,8 @@ public class W6btnScript : MonoBehaviour
             Lock.gameObject.SetActive(false);
             LockImg.gameObject.SetActive(false);
         }
-        p.audio.clip = p.acilp[0];
-        p.audio.Play();
+        EventManager.Instance.TriggerEvent(EventName.ChangeSound, this, new ChangeSoundArgs { index_sound = (int)SoundType.ClickBtn });
+
         ChooseArrow[0].SetActive(false);
         ChooseArrow[1].SetActive(false);
         ChooseArrow[2].SetActive(false);
@@ -45,9 +45,9 @@ public class W6btnScript : MonoBehaviour
         StartSceneScript.W = 6;
         s.ChooseIndex = 6;
         s.monsterName.text = "玄武";
-        s.HpTxt.text = ":350";
-        s.SpTxt.text = ":80";
-        s.AkTxt.text = ":1";
+        s.HpTxt.text = "350";
+        s.SpTxt.text = "80";
+        s.AkTxt.text = "1";
         s.TellTxt.text = "技能：获得护盾，免疫所有伤害，持续5秒，冷却20秒。";
         s.ShowWarriorImg.GetComponent<Image>().sprite = s.BigWarriorImg[5];
 
