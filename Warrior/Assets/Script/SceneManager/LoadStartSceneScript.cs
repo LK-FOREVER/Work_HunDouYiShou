@@ -24,7 +24,7 @@ public class LoadStartSceneScript : MonoBehaviour
     public Button ageBtn;
     public GameObject ageTip;//温馨提示弹窗
     public Button closeBtn;//关闭温馨提示弹窗
-    public Button startBtn;
+    public Button startBtn;//开始游戏按钮
     public GameObject ExitTips;//防沉迷踢出弹窗
     void Start()
     {
@@ -34,9 +34,6 @@ public class LoadStartSceneScript : MonoBehaviour
             Invoke("FalseWarning", 7f);
         }
         PlayerPrefs.SetInt(SdkScript.nickname + "ExitGagme", 0);
-        //Invoke("falseWarning", 3f);
-        //v = GetComponent<VideoPlayer>();
-        //v.Play();
         ageBtn.onClick.AddListener(() =>
         {
             ageTip.SetActive(true);
@@ -93,8 +90,6 @@ public class LoadStartSceneScript : MonoBehaviour
         async = SceneManager.LoadSceneAsync("StartScene");
         async.allowSceneActivation = true;
         yield return async;
-
-
     }
     public void LoginCallBack(string str)
     {
@@ -127,7 +122,7 @@ public class LoadStartSceneScript : MonoBehaviour
         string[] list = str.Split(';');
         for (int i = 0; i < list.Length; i++)
         {
-            string[] temp = list[i].Split(',');    //多次生成temp
+            string[] temp = list[i].Split(',');
             if (data.nickname == temp[0] && temp[1] == "4")
             {
                 PlayerPrefs.SetInt(SdkScript.nickname + "PlayerPrefsLock1", 1);
